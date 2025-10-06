@@ -361,13 +361,15 @@ function trackLinks() {
 document.addEventListener("DOMContentLoaded", () => {
 
     const ric = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1); };
+
+    // Non-critical background tasks
     ric(() => {
         blobBackground();
         setupFlipCards();
         setupTimelineEntries();
     });
 
-    // Light, critical stuff runs immediately
+    // Critical tasks
     progressBar();
     timelinePresent();
     darkMode();
@@ -377,26 +379,55 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateCountdowns, 1000);
     setupCarousel('carousel', 'left-arrow', 'right-arrow', 260);
     setupCarousel('sports-carousel', 'left-sports', 'right-sports', 220);
-    // initMagic8BallFloater();
 
-    // Language switch buttons
+    // Language buttons
     document.querySelectorAll(".lang-btn").forEach(btn =>
         btn.addEventListener("click", () => loadLanguage(btn.dataset.lang))
     );
 
+    // Scroll with offset
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const headerOffset = document.querySelector('#main-header').offsetHeight;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Sidebar toggle (hamburger)
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('sidebar-toggle');
+
+    if (sidebar && toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        sidebar.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth < 768) sidebar.classList.add('-translate-x-full');
+            });
+        });
+    }
+
+    // Service Worker registration (non-critical)
     ric(() => {
-        // Service Worker registration
         if ('serviceWorker' in navigator) {
             let swUrl = '/service-worker.js';
-
-            // If Trusted Types is enabled, create a policy for script URLs
             if (window.trustedTypes) {
                 const policy = trustedTypes.createPolicy('default', {
                     createScriptURL: (url) => url
                 });
                 swUrl = policy.createScriptURL(swUrl);
             }
-            navigator.serviceWorker.register('/service-worker.js')
+            navigator.serviceWorker.register(swUrl)
                 .then(reg => console.log('Service Worker registered with scope:', reg.scope))
                 .catch(err => console.error('Service Worker registration failed:', err));
         }
@@ -447,63 +478,3 @@ function explodeText() {
         });
     });
 }
-
-// function initMagic8BallFloater() {
-//     const btn = document.getElementById("magic8ball-btn");
-//     const popup = document.getElementById("magic8ball-popup");
-
-//     const responses = [
-//         "Yes, definitely.",
-//         "Ask again later.",
-//         "It is certain.",
-//         "Outlook not so good.",
-//         "My sources say no.",
-//         "Signs point to yes.",
-//         "Very doubtful.",
-//         "You already know the answer."
-//     ];
-
-//     btn.addEventListener("click", () => {
-//         const answer = responses[Math.floor(Math.random() * responses.length)];
-//         popup.textContent = answer;
-//         popup.classList.remove("hidden");
-
-//         // fade away after 3 seconds
-//         setTimeout(() => popup.classList.add("hidden"), 3000);
-//     });
-// }
-
-
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        const headerOffset = document.querySelector('#main-header').offsetHeight;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('sidebar-toggle');
-
-    if (!sidebar || !toggleBtn) return;
-
-    // Toggle sidebar on hamburger click
-    toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    // Close sidebar after clicking a link (mobile)
-    sidebar.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', () => {
-            if(window.innerWidth < 768) sidebar.classList.add('-translate-x-full');
-        });
-    });
-});
