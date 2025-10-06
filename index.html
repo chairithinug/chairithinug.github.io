@@ -77,9 +77,10 @@
 </head>
 
 <body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-500 overflow-x-hidden w-full max-w-full ease-in-out">
     <!-- Header -->
-    <header id="main-header" class="bg-white dark:bg-gray-900 shadow sticky top-0 z-40 w-full px-6 py-4 md:pl-[16rem]">
+    <header id="main-header"
+        class="bg-white dark:bg-gray-900 shadow sticky top-0 z-40 w-full px-6 py-4 md:pl-[12rem] md:pr-10 duration-500 ease-in-out">
         <div class="mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 id="name-title" class="text-2xl font-bold">Anapat Chairithinugull (Mew)</h1>
@@ -134,10 +135,10 @@
                     <span class="text-sm text-gray-700 dark:text-gray-300">Light Mode</span>
 
                     <button id="dark-toggle"
-                        class="relative w-12 h-6 bg-gray-300 dark:bg-green-700 rounded-full transition-colors duration-300"
+                        class="relative w-12 h-6 bg-gray-300 dark:bg-green-700 rounded-full transition-colors duration-500"
                         aria-label="Toggle dark mode">
                         <span id="dark-toggle-thumb"
-                            class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300"></span>
+                            class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-500"></span>
                     </button>
 
                     <span class="text-sm text-gray-700 dark:text-gray-300">Dark Mode</span>
@@ -154,43 +155,39 @@
     <div id="progress-bar"></div>
     <!-- Sidebar -->
     <nav aria-label="Sidebar navigation" id="sidebar" class="fixed top-0 left-0 h-full bg-white dark:bg-gray-900 shadow-md flex flex-col justify-between
-            transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-50">
-
+            transform -translate-x-full md:translate-x-0 transition-transform transition-colors duration-500 ease-in-out z-50">
         <!-- Menu Items -->
-        <ul class="flex flex-col flex-grow justify-between px-4 py-6 h-full">
-            <li><a href="#profile"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Profile</a>
+        <ul class="flex flex-col flex-grow justify-between items-center px-4 py-6 h-full bg-white dark:bg-gray-900 duration-500 ease-in-out">
+            <li><a href="#profile" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a>
             </li>
-            <li><a href="#skills"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Skills</a>
+            <li><a href="#skills" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Skills</a>
             </li>
             <li><a href="#timeline"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Timeline</a>
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Timeline</a>
             </li>
-            <li><a href="#work"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Work</a>
+            <li><a href="#work" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Work</a>
             </li>
             <li><a href="#education"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Education</a>
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Education</a>
             </li>
             <li><a href="#cert"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Certifications</a>
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Certifications</a>
             </li>
             <li><a href="#languages"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Languages</a>
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Languages</a>
             </li>
             <li><a href="#interests"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Interests</a>
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Interests</a>
             </li>
-            <li><a href="#sports"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Sports</a>
+            <li><a href="#sports" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">Sports</a>
             </li>
-            <li><a href="#qa"
-                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">FAQ</a>
+            <li><a href="#qa" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ">FAQ</a>
             </li>
         </ul>
     </nav>
-    <main class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[16rem]" role="main">
+    <main
+        class="relative z-10 space-y-10 bg-white dark:bg-gray-900 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-500 ease-in-out"
+        role="main">
 
         <!-- Profile -->
         <section id="profile" aria-labelledby="profile-title">
@@ -614,7 +611,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">Resident Assistant</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">Housing Foundation Copenhagen,
                                 Denmark</p>
@@ -622,7 +619,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Support approx. 80 tenants across two buildings at Bispebjerg Kollegiet</li>
                                 <li>Report building issues to management for a better living environment</li>
@@ -637,7 +634,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">Student Assistant</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">
                                 Det Kongelige Bibliotek (DR Project Team 3), Denmark
@@ -646,7 +643,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Segmented Denmark’s radio and TV archives to enhance accessibility and discovery
                                 </li>
@@ -666,7 +663,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">Research Engineer</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">Kasikorn Labs (Biometrics Team),
                                 Thailand</p>
@@ -674,7 +671,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Built deep learning models for face recognition in Kasikornbank’s mobile app
                                 </li>
@@ -692,7 +689,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">Undergraduate Lab Assistant
                             </h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">University of Wisconsin-Madison, USA
@@ -701,7 +698,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Assisted students in Digital Systems and Circuits class</li>
                                 <li>Supported lab assignments using Cadence Virtuoso</li>
@@ -715,14 +712,14 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">API Developer Intern</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">RIS Company Limited, Thailand</p>
                             <p class="text-sm text-gray-500 dark:text-gray-400">June – July 2019</p>
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Developed and documented Java RESTful APIs for seamless integration</li>
                                 <li>Troubleshot and optimized API performance with Mulesoft</li>
@@ -737,7 +734,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">Undergraduate Project
                                 Assistant</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">WISEST Lab, University of
@@ -746,7 +743,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
                                 <li>Designed and prototyped an IoT device in C++ and experimented using MATLAB</li>
                                 <li>Integrated LoRa wireless microcontroller technology</li>
@@ -768,7 +765,7 @@
 
             <!-- University of Copenhagen -->
             <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300 mb-6">
+                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-500 mb-6">
                 <h3 class="font-semibold text-gray-900 dark:text-gray-100">University of Copenhagen, Denmark</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">MSc Computer Science, September 2023 - June
                     2025</p>
@@ -800,7 +797,7 @@
 
             <!-- University of Wisconsin-Madison -->
             <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300 mb-6">
+                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-500 mb-6">
                 <h3 class="font-semibold text-gray-900 dark:text-gray-100">University of Wisconsin-Madison, USA</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">BS Computer Engineering & Computer
                     Sciences, September 2016 – May 2020</p>
@@ -846,7 +843,7 @@
 
             <!-- High School -->
             <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-500">
                 <h3 class="font-semibold text-gray-900 dark:text-gray-100">Suankularb Wittayalai School, Thailand
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">High School, 2012 – 2016</p>
@@ -857,7 +854,7 @@
         <section id="cert" aria-labelledby="cert-title">
             <h2 id="cert-title"
                 class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Continual Education
+                Certifications
             </h2>
 
             <!-- Carousel Container -->
@@ -877,25 +874,25 @@
                 <div id="carousel" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth cursor-grab py-2">
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">MLOps – Duke University</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Microsoft Power BI Data Analyst</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Microsoft Full-Stack Developer</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Expected Sep 2025</p>
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">TensorFlow: Advanced Techniques – DeepLearning.AI</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Jun 2022</p>
                         <a href="https://coursera.org/share/f4199d315987b89b18749ce4839b501a" target="_blank"
@@ -904,7 +901,7 @@
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Investment Management – University of Geneva</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Jan 2022</p>
                         <a href="https://coursera.org/share/3264aa3116d324ae23c24b2ac9d9a0bf" target="_blank"
@@ -913,7 +910,7 @@
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Math for ML – Imperial College London</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Dec 2021</p>
                         <a href="https://coursera.org/share/d62489bc7387ecf06de112843545cbdf" target="_blank"
@@ -922,7 +919,7 @@
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">TensorFlow Developer – DeepLearning.AI</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">May 2021</p>
                         <a href="https://coursera.org/share/5ddc9f9ed31a9059f13a678eda70326a" target="_blank"
@@ -931,7 +928,7 @@
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Machine Learning – Stanford</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Sep 2020</p>
                         <a href="https://coursera.org/share/0e076ed878d11d28bb360090ff42d123" target="_blank"
@@ -940,7 +937,7 @@
                     </div>
 
                     <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold">Deep Learning Specialization – DeepLearning.AI</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Aug 2020</p>
                         <a href="https://coursera.org/share/1b5bffaa2184980800af210f38d5969b" target="_blank"
@@ -963,30 +960,30 @@
 
                 <!-- Thai -->
                 <div
-                    class="group relative cursor-pointer bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    class="group relative cursor-pointer bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-500">
                     ไทย (Thai)
                     <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
                         Native
                     </div>
                 </div>
 
                 <!-- English -->
                 <div
-                    class="group relative cursor-pointer bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    class="group relative cursor-pointer bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-500">
                     English
                     <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
                         Proficient
                     </div>
                 </div>
 
                 <!-- Danish -->
                 <div
-                    class="group relative cursor-pointer bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    class="group relative cursor-pointer bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-500">
                     Dansk (Danish)
                     <div
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
                         Module 4
                     </div>
                 </div>
@@ -1046,7 +1043,7 @@
 
                     <!-- Swimming Category -->
                     <div
-                        class="min-w-[220px] bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">1000m Swimming</p>
                         <div class="space-y-1">
                             <div class="bg-blue-100 dark:bg-blue-800 p-2 rounded">
@@ -1059,7 +1056,7 @@
 
                     <!-- 13.3K Category -->
                     <div
-                        class="min-w-[220px] bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">13.3K Running</p>
                         <div class="space-y-1">
                             <div class="bg-yellow-100 dark:bg-yellow-800 p-2 rounded">
@@ -1079,7 +1076,7 @@
 
                     <!-- Half Marathon Category -->
                     <div
-                        class="min-w-[220px] bg-green-50 dark:bg-green-900 border-l-4 border-green-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-green-50 dark:bg-green-900 border-l-4 border-green-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">Half Marathon</p>
                         <div class="space-y-1">
                             <div class="bg-green-100 dark:bg-green-800 p-2 rounded">
@@ -1093,7 +1090,7 @@
 
                     <!-- Full Marathon Category -->
                     <div
-                        class="min-w-[220px] bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">Full Marathon</p>
                         <div class="space-y-1">
                             <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
@@ -1118,7 +1115,7 @@
 
                     <!-- 4:18:4 Mini Ironman Category -->
                     <div
-                        class="min-w-[220px] bg-red-50 dark:bg-red-900 border-l-4 border-red-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-red-50 dark:bg-red-900 border-l-4 border-red-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">4:18:4 Mini Ironman</p>
                         <div class="space-y-1">
                             <div class="bg-red-100 dark:bg-red-800 p-2 rounded">
@@ -1131,7 +1128,7 @@
 
                     <!-- Half Ironman Category -->
                     <div
-                        class="min-w-[220px] bg-orange-50 dark:bg-orange-900 border-l-4 border-orange-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        class="min-w-[220px] bg-orange-50 dark:bg-orange-900 border-l-4 border-orange-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-500">
                         <p class="font-semibold mb-2">Half Ironman (70.3)</p>
                         <div class="space-y-1">
                             <div class="bg-orange-100 dark:bg-orange-800 p-2 rounded">
@@ -1164,7 +1161,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">
                                 Why USA?
                             </h3>
@@ -1174,7 +1171,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <p class="text-gray-700 dark:text-gray-200">
                                 Thanks to my family who were willing to send me to the US. So I fulfilled my
                                 family's dream!
@@ -1188,7 +1185,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">
                                 Why Denmark?
                             </h3>
@@ -1198,7 +1195,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <p class="text-gray-700 dark:text-gray-200">
                                 Got bored in Thailand, so why not Europe? Then, Denmark chose me.
                             </p>
@@ -1211,7 +1208,7 @@
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-500">
                             <h3 class="font-semibold text-gray-900 dark:text-gray-100">
                                 Cool website! How did you make it?
                             </h3>
@@ -1220,7 +1217,7 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-500">
                             <p class="text-gray-700 dark:text-gray-200">
                                 Know the basic and 2 days with ChatGPT.
                             </p>
