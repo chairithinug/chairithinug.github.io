@@ -77,9 +77,10 @@
 </head>
 
 <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
     <!-- Header -->
-    <header id="main-header" class="bg-white dark:bg-gray-900 shadow sticky top-0 z-50 transition-all duration-300">
+    <header id="main-header" class="bg-white dark:bg-gray-900 shadow sticky top-0 z-40 transition-all duration-300
+               flex items-center justify-between w-full md:w-auto md:pl-[16rem]">
         <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 id="name-title" class="text-2xl font-bold">Anapat Chairithinugull (Mew)</h1>
@@ -145,53 +146,60 @@
                 </div>
             </div>
         </div>
-        <!-- Sidebar -->
-        <!-- <nav aria-label="Sidebar navigation"
-                class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-900 shadow-md z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300"
-                id="sidebar"> -->
-
-        <!-- Logo / Site Title -->
-        <!-- <div class="flex items-center justify-center h-20 border-b border-gray-200 dark:border-gray-700">
-                    <span class="text-xl font-bold text-gray-900 dark:text-white">ChairithinuG</span>
-                </div> -->
-
-        <!-- Menu Items -->
-        <!-- <ul class="flex flex-col mt-4 gap-2 px-4">
-                    <li><a href="#profile"
-                            class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a></li>
-                    <li><a href="#skills" class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Skills</a>
-                    </li>
-                    <li><a href="#timeline"
-                            class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Timeline</a></li>
-                    <li><a href="#work" class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Work</a></li>
-                    <li><a href="#education"
-                            class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Education</a></li>
-                    <li><a href="#further" class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Continual
-                            Education</a></li>
-                    <li><a href="#languages"
-                            class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Languages</a></li>
-                    <li><a href="#interests"
-                            class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Interests</a></li>
-                    <li><a href="#sports" class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Sports</a>
-                    </li>
-                    <li><a href="#qa" class="px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a></li>
-                </ul> -->
-        <!-- </nav> -->
-
-        <!-- Hamburger for Mobile -->
-        <!-- <button id="sidebar-toggle"
-                class="md:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-gray-900 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500">
-                ☰
-            </button> -->
+        <!-- Hamburger for mobile -->
+        <button id="sidebar-toggle"
+            class="fixed top-4 left-4 z-60 md:hidden p-3 bg-gray-100 dark:bg-gray-800 rounded shadow">
+            ☰
+        </button>
     </header>
     <!-- Progress Bar Container -->
     <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <nav aria-label="Sidebar navigation" id="sidebar" class="fixed top-0 left-0 h-full bg-white dark:bg-gray-900 shadow-md flex flex-col justify-between
+            transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+
+        <!-- Menu Items -->
+        <ul class="flex flex-col flex-grow justify-between px-4 py-6 h-full">
+            <li><a href="#profile"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Profile</a>
+            </li>
+            <li><a href="#skills"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Skills</a>
+            </li>
+            <li><a href="#timeline"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Timeline</a>
+            </li>
+            <li><a href="#work"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Work</a>
+            </li>
+            <li><a href="#education"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Education</a>
+            </li>
+            <li><a href="#further"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Continual
+                    Education</a></li>
+            <li><a href="#languages"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Languages</a>
+            </li>
+            <li><a href="#interests"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Interests</a>
+            </li>
+            <li><a href="#sports"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">Sports</a>
+            </li>
+            <li><a href="#qa"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 ease-in-out">FAQ</a>
+            </li>
+        </ul>
+    </nav>
     <!-- <div class="blobs-container pointer-events-none fixed inset-0 -z-10"></div> -->
-    <main class="relative z-10 space-y-10 max-w-4xl mx-auto px-6 py-8 text-gray-700 dark:text-gray-300" role="main">
+    <main class="relative z-10 space-y-10 max-w-4xl mx-auto px-6 py-8 w-full md:pl-[16rem]" role="main">
+
 
         <!-- Profile -->
         <section id="profile" aria-labelledby="profile-title">
-            <h2 id="profile-title" class="text-xl font-semibold border-b-2 border-gray-200 pb-1">Profile Summary
+            <h2 id="profile-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Profile Summary
             </h2>
             <p id="profile-summary" class="mt-2 text-gray-700 dark:text-gray-300">MSc Computer Science graduate from
                 the University of
@@ -208,10 +216,12 @@
 
         <!-- Skills -->
         <section id="skills" aria-labelledby="skills-title">
-            <h2 id="skills-title" class="text-xl font-semibold border-b-2 border-gray-200 pb-1">Technical Skills
+            <h2 id="skills-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Technical
+                Skills
             </h2>
             <!-- Languages -->
-            <div class="mt-4">
+            <div class="mt-6">
                 <h3 class="font-semibold mb-2">Languages</h3>
                 <p class="sr-only">Python, JavaScript, C, C++, C#, .NET, MySQL</p>
                 <div class="flex flex-wrap gap-4 items-center">
@@ -283,22 +293,22 @@
                     <!-- OpenCV -->
                     <div class="flex flex-col items-center">
                         <img src="icons/opencv.svg" class="w-12 h-12" alt="OpenCV Logo">
-                        <span class="text-sm mt-1">OpenCV</span>
+                        <span class="text-sm">OpenCV</span>
                     </div>
                     <!-- Scikit-Learn -->
                     <div class="flex flex-col items-center">
                         <img src="icons/scikit-learn.svg" class="w-12 h-12" alt="Scikit-Learn Logo">
-                        <span class="text-sm mt-1">Scikit-Learn</span>
+                        <span class="text-sm">Scikit-Learn</span>
                     </div>
                     <!-- Agile -->
                     <div class="flex flex-col items-center">
                         <img src="icons/agile.svg" class="w-12 h-12" alt="Agile Logo">
-                        <span class="text-sm mt-1">Agile</span>
+                        <span class="text-sm">Agile</span>
                     </div>
                     <!-- Microsoft Office -->
                     <div class="flex flex-col items-center">
                         <img src="icons/microsoft-office.svg" class="w-12 h-12" alt="Microsoft Office Logo">
-                        <span class="text-sm mt-1">MS Office</span>
+                        <span class="text-sm">MS Office</span>
                     </div>
                     <!-- <div class="flex flex-col items-center">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerbi/powerbi-original.svg"
@@ -333,7 +343,8 @@
 
         <!-- Timeline -->
         <section id="timeline" aria-labelledby="timeline-title">
-            <h2 id="timeline-title" class="text-xl font-semibold border-b-2 border-gray-200 pb-1">Timeline</h2>
+            <h2 id="timeline-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Timeline</h2>
 
             <!-- Legend -->
             <ul class="mt-8 flex space-x-6" role="list" aria-label="Legend for timeline types">
@@ -603,7 +614,9 @@
 
         <!-- Work Experience -->
         <section id="work" aria-labelledby="work-title">
-            <h2 id="work-title" class="text-xl font-semibold border-b-2 border-gray-200 pb-1">Work Experience</h2>
+            <h2 id="work-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Work Experience
+            </h2>
             <div class="mt-4 grid gap-6 md:grid-cols-2">
 
                 <!-- Resident Assistant -->
@@ -1171,7 +1184,7 @@
         </section>
 
         <section id="qa" class="max-w-4xl mx-auto px-4 sm:px-6 py-8" aria-labelledby="qa-title">
-            <h2 id="qa-title" class="text-xl font-semibold border-b-2 border-gray-200 pb-1">
+            <h2 id="qa-title" class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
                 FAQ
             </h2>
 
@@ -1246,10 +1259,11 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="bg-gray-100 dark:bg-gray-900 text-center text-sm py-4 mt-12 text-gray-800 dark:text-gray-100">
-        <p>© 2025 Anapat Chairithinugull. References available upon request.</p>
+        <p>© 2025 Anapat Chairithinugull</p>
     </footer>
 
     <!-- Overlay -->
@@ -1284,6 +1298,7 @@
 
     <!-- External script -->
     <script src="script.js" defer></script>
+
 </body>
 
 </html>

@@ -6,12 +6,16 @@ body {
     margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 img {
-  aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;
 }
 
 header#main-header {
@@ -26,12 +30,14 @@ header#main-header {
 }
 
 #progress-bar {
-    position: fixed; /* stick to viewport */
+    position: fixed;
+    /* stick to viewport */
     top: env(safe-area-inset-top, 0);
     left: 0;
     height: 4px;
     background-color: #2563eb;
-    width: 0; /* will be updated by JS */
+    width: 0;
+    /* will be updated by JS */
     z-index: 60;
 }
 
@@ -110,7 +116,8 @@ header#main-header {
 }
 
 .flip-card:focus {
-    outline: 3px solid #007BFF; /* or any visible color */
+    outline: 3px solid #007BFF;
+    /* or any visible color */
     outline-offset: 4px;
 }
 
@@ -121,19 +128,25 @@ header#main-header {
 .flip-card-back {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* center vertically */
+    justify-content: center;
+    /* center vertically */
     padding: 1.5rem;
-    overflow: hidden;       /* prevent content spilling out */
-    max-height: 100%;       /* ensure it stays inside card */
+    overflow: hidden;
+    /* prevent content spilling out */
+    max-height: 100%;
+    /* ensure it stays inside card */
 }
 
 .flip-card-back ul {
     overflow-wrap: break-word;
-    text-align: left;       /* lists look better left-aligned */
-    font-size: clamp(12px, 1.5vw, 14px); /* responsive font */
+    text-align: left;
+    /* lists look better left-aligned */
+    font-size: clamp(12px, 1.5vw, 14px);
+    /* responsive font */
     line-height: 1.4;
     margin: 0;
-    padding-left: 1rem;    /* adjust for list-disc */
+    padding-left: 1rem;
+    /* adjust for list-disc */
     list-style-position: inside;
     max-height: 100%;
 }
@@ -407,24 +420,54 @@ header#main-header {
 }
 
 .timeline-dot {
-    border-color: white;           /* stays visible in both modes */
+    border-color: white;
+    /* stays visible in both modes */
 }
 
 #world-map path {
-  cursor: pointer;
-  transition: fill 0.3s ease;
+    cursor: pointer;
+    transition: fill 0.3s ease;
 }
 
 #world-map path:hover {
-  fill: #f59e0b; /* amber highlight on hover */
+    fill: #f59e0b;
+    /* amber highlight on hover */
 }
 
-#nav-menu {
-  transition: max-height 0.3s ease-in-out;
-  overflow: hidden;
-  max-height: 0;
+/* @keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
-#nav-menu.show {
-  max-height: 500px; /* large enough to fit all items */
+#magic8ball-btn {
+    animation: floaty 4s ease-in-out infinite;
 }
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+.animate-fade {
+    animation: fade 3s ease-in-out forwards;
+} */
