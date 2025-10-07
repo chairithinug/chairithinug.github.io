@@ -11,7 +11,7 @@ function blobBackground() {
     ];
 
     const container = document.createElement("div");
-    container.className = "blobs-container fixed inset-0 z-0";
+    container.className = "blobs-container fixed inset-0 -z-10";
     document.body.appendChild(container);
 
     let blobsList = [];
