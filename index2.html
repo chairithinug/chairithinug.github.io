@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="preload" href="/styles.css" as="style"> -->
+  
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <title>Animated Apple-Style Resume</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9f9f9;
+      color: #111;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      /* transform: translateY(50px); */
+      opacity: 1;
+      /* always visible to avoid blank page */
+    }
+
+    /* h1 {
+      font-size: 3rem;
+      margin: 0.5em 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 0.5em 0;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    } */
+
+    a {
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: color 0.3s ease;
+      text-decoration: underline;
+      color: #0051a8;
+      /* color: #000000; */
+    }
+  </style>
+  <link rel="stylesheet" href="/dist/main.css">
+</head>
+
+<body>
+  <header class="sticky top-0 z-50 bg-white">
+  <div class="flex flex-row items-center justify-between p-6 max-w-5xl mx-auto">
+    <!-- <a href="/" class="logo"><img src="/icons/icon512transparent.png" alt="Logo"></a> -->
+    <nav>
+      <ul class="flex space-x-4 nav-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/work">Work</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <div class="bg-gradient-to-r from-white to-gray-100">
+    <section id="hero">
+      <h1>Anapat Chairithinugull</h1>
+      <p>Data Scientist | Software Developer</p>
+      <p><a href="mailto:chairithinug@uwalumni.com">Let's get in touch!</a></p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>Python, Java, C, C++, C#, MySQL, JavaScript, HTML, CSS</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p>Worked on interactive websites, product showcases, and web apps with modern UI/UX principles. Focused on
+        clean,
+        fast, and accessible designs.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Portfolio: <a href="#">View My Work</a></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Let's collaborate! <a href="mailto:john@example.com">Email Me</a></p>
+    </section>
+  </div>
+  <script src="/dist/bundle.js"></script>
+
+</body>
+
+</html>
