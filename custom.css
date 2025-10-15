@@ -317,10 +317,6 @@ header#main-header {
     /* allow shrinking on small screens */
 }
 
-
-
-
-
 /* Timeline entry wrapper */
 .timeline-entry {
     position: relative;
@@ -438,40 +434,7 @@ header#main-header {
     /* amber highlight on hover */
 }
 
-/* @keyframes floaty {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
+[tabindex="0"]:focus, a:focus, button:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
 }
-
-#magic8ball-btn {
-    animation: floaty 4s ease-in-out infinite;
-}
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-
-    10%,
-    90% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-}
-
-.animate-fade {
-    animation: fade 3s ease-in-out forwards;
-} */
