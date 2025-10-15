@@ -1,3 +1,5 @@
+// import '/dist/main.css';
+
 // ---------- Utility ----------
 const random = (min, max) => Math.random() * (max - min) + min;
 
@@ -434,40 +436,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
-function explodeText() {
-    const elements = document.querySelectorAll("h1, h2, h3, p, span, li");
-
-    elements.forEach(el => {
-        if (el._exploded) return; // avoid double explosions
-        el._exploded = true;
-
-        const text = el.textContent;
-        el.textContent = "";
-
-        [...text].forEach(char => {
-            const span = document.createElement("span");
-            span.textContent = char;
-            span.style.display = "inline-block";
-            span.style.transition = "transform 1s ease, opacity 1s ease";
-            span.style.transform = "translate(0, 0) rotate(0deg)";
-            el.appendChild(span);
-
-            // random trajectory
-            const angle = Math.random() * Math.PI * 2;
-            const distance = 50 + Math.random() * 200;
-            const x = Math.cos(angle) * distance;
-            const y = Math.sin(angle) * distance;
-            const rot = Math.random() * 720 - 360;
-
-            // 🔑 Force reflow before animation
-            void span.offsetWidth;
-
-            // trigger explosion on next frame
-            requestAnimationFrame(() => {
-                span.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
-                span.style.opacity = 0;
-            });
-        });
-    });
-}
