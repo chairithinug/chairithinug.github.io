@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,16 @@
   "homepage": "https://github.com/chairithinug/myresume#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.4",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.18"
+    "postcss-loader": "^8.2.0",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.14",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
   }
 }
