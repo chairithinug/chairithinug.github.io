@@ -3,7 +3,9 @@
 
 <head>
     <style>
-        #main-container, #footer-container, body {
+        #main-container,
+        #footer-container,
+        body {
             opacity: 0;
             animation: fadeIn 0.3s forwards;
         }
@@ -24,13 +26,132 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
 
-    <title>Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+    <title>FAQ – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+
+    <link rel="canonical" href="https://chairithinug.com/faq.html">
 
     <!-- Preload CSS -->
     <link rel="preload" href="/styles.css" as="style">
     <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
 
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where are you originally from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I was born and raised in Thailand, a beautiful country with amazing food in Southeast Asia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did you study in the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Thanks to my family who were willing to send me to the US. It was a great experience. UW-Madison is awesome!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are you in Denmark now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I got bored in Thailand, so I decided to take the matter in my own hand and move to Europe. Then, Denmark chose me."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cool website! How did you make it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Know the basic and helps from ChatGPT and Copilot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you a robot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, I'm not a robot. I'm a human who loves technology and helping others."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are you doing now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I am currently looking for new opportunities! I am super eager to get something done! Are you hiring?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I contact you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can contact me via email or through my LinkedIn."
+      }
+    }
+  ]
+}
+</script>
+
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about skills, projects, and career.">
+    <meta name="keywords"
+        content="FAQ, Data Scientist, Software Engineer, Python, AI, Machine Learning, Portfolio, Resume, CV, Anapat Chairithinugull, Copenhagen, Denmark">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title" content="FAQ – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/faq.html">
+    <meta property="og:description"
+        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Explore skills, projects, and career details.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FAQ – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Explore skills, projects, and career details.">
 </head>
 
 <body
@@ -44,11 +165,12 @@
     <div id="sidebar-container"></div>
     <script src="/partials/sidebar.js" defer></script>
 
-    <main class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
         <section id="qa" aria-labelledby="qa-title">
             <h2 id="qa-title" class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                FAQ
+                Frequently Asked Questions
             </h2>
 
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -56,50 +178,84 @@
                 <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
                     <div class="flip-card-inner">
                         <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">
-                                Why USA?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
+                   bg-[url('/icons/th-flag.svg')] bg-cover bg-center bg-no-repeat bg-full">
+                            <!-- Overlay to improve text readability -->
+                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
 
+                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100">
+                                Where are you originally from?
+                            </h3>
+                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
                             </p>
                         </div>
+
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
                             <p class="text-gray-700 dark:text-gray-200">
-                                Thanks to my family who were willing to send me to the US. So I fulfilled my
-                                family's dream!
+                                I was born and raised in Thailand, a beautiful country with amazing food in Southeast
+                                Asia.
                             </p>
                         </div>
                     </div>
                 </div>
-
                 <!-- Flip Card 2 -->
                 <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
                     <div class="flip-card-inner">
                         <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">
-                                Why Denmark?
+                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
+                   bg-[url('/icons/us-flag.svg')] bg-cover bg-center bg-no-repeat">
+                            <!-- Optional overlay to improve text readability -->
+                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
+
+                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100">
+                                Why did you study in the US?
                             </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
 
                             </p>
                         </div>
+
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
                             <p class="text-gray-700 dark:text-gray-200">
-                                Got bored in Thailand, so why not Europe? Then, Denmark chose me.
+                                Thanks to my family who were willing to send me to the US. It was a great experience.
+                                UW-Madison is awesome!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Flip Card 3 -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
+                   bg-[url('/icons/dk-flag.svg')] bg-cover bg-center bg-no-repeat">
+                            <!-- Overlay to improve text readability -->
+                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
+
+                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100">
+                                Why are you in Denmark now?
+                            </h3>
+                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200">
+                                I got bored in Thailand, so I decided to take the matter in my own hand and move to
+                                Europe.
+                                Then, Denmark chose me.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Flip Card 3 -->
+                <!-- Flip Card 4 -->
                 <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
                     <div class="flip-card-inner">
                         <!-- Front -->
@@ -113,9 +269,80 @@
                         </div>
                         <!-- Back -->
                         <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
                             <p class="text-gray-700 dark:text-gray-200">
-                                Know the basic and 2 days with ChatGPT.
+                                Know the basic and helps from ChatGPT and Copilot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 5 -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">
+                                Are you a robot?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200">
+                                No, I'm human. At least I think so. Are you?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 6 -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">
+                                What are you doing now?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200">
+                                I am currently looking for new opportunities! I am super eager to get something done!
+                                Are you hiring?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 7 -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">
+                                How can I contact you?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200">
+                                You can contact me via <a href="mailto:chairithinug@uwalumni.com"
+                                    class="text-blue-600 dark:text-blue-400 hover:underline">email</a> or through
+                                my <a href="https://www.linkedin.com/in/anapat-chairithinugull"
+                                    class="text-blue-600 dark:text-blue-400 hover:underline" rel="noopener noreferrer"
+                                    target="_blank">LinkedIn</a>.
                             </p>
                         </div>
                     </div>

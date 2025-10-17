@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* custom colors 
+  https://oklch.com/
+*/
+@theme {
+  --color-thaiRed: oklch(0.6004 0.2268 26.85);
+  --color-danishRed: oklch(0.6305 0.2145 20.63);
+  --color-customBlue: oklch(0.4907 0.1954 263.51);
+}
+
+
 html,
 body {
     overflow-x: hidden;
@@ -325,7 +335,7 @@ header#main-header {
     margin-bottom: 3rem;
     /* mb-12 */
     cursor: pointer;
-    group: relative;
+    transition: scale 1s ease;
 }
 
 /* Left/Right content containers */
@@ -422,16 +432,6 @@ header#main-header {
 .timeline-dot {
     border-color: white;
     /* stays visible in both modes */
-}
-
-#world-map path {
-    cursor: pointer;
-    transition: fill 0.3s ease;
-}
-
-#world-map path:hover {
-    fill: #f59e0b;
-    /* amber highlight on hover */
 }
 
 [tabindex="0"]:focus, a:focus, button:focus {

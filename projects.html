@@ -3,7 +3,9 @@
 
 <head>
     <style>
-        #main-container, #footer-container, body {
+        #main-container,
+        #footer-container,
+        body {
             opacity: 0;
             animation: fadeIn 0.3s forwards;
         }
@@ -24,13 +26,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
 
-    <title>Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+    <title>Projects – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark
+    </title>
+
+    <link rel="canonical" href="https://chairithinug.com/projects.html">
 
     <!-- Preload CSS -->
     <link rel="preload" href="/styles.css" as="style">
     <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
 
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Projects – Anapat Chairithinugull",
+  "description": "A collection of data science, AI, and software engineering projects by Anapat Chairithinugull.",
+  "url": "https://chairithinug.com/projects.html",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://github.com/chairithinug/Notes",
+      "name": "Android Notes App",
+      "description": "A simple note-taking Android app with SQLite database for local storage, built with Java and Android Studio. Features adding, editing, deleting and searching notes.",
+      "datePublished": "2020-01-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "Java,Android,SQLite"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://github.com/chairithinug/IEEE-Breathalyzer-SP19",
+      "name": "IEEE@UW-Madison Breathalyzer",
+      "description": "A breathalyzer prototype using MQ-3 alcohol sensor and Arduino.",
+      "datePublished": "2019-04-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "C,Arduino,Prototyping"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://github.com/chairithinug/Dairy-IOT-Project-WISEST",
+      "name": "Dairy IOT Project (WISEST)",
+      "description": "IoT device to monitor dairy cattle core body temperature using LoRa; work included implantable biosensors and wearable scanners.",
+      "datePublished": "2018-05-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "C,MATLAB,Arduino,Prototyping"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://github.com/chairithinug/MSDU-NET",
+      "name": "MSDU-NET Implementation in TensorFlow",
+      "description": "Implementation of the MSDU-NET architecture for blur image segmentation.",
+      "datePublished": "2020-12-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "Python,TensorFlow,Deep Learning,Modeling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "url": "https://github.com/chairithinug/temporal_latent_exploration",
+      "name": "Temporal Latent Exploration for CFD (MSc Thesis)",
+      "description": "Exploring latent spaces of temporal graph neural networks to efficiently generate fluid dynamics simulations.",
+      "datePublished": "2025-04-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "Python,PyTorch,CFD,SLURM,Deep Learning"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "url": "https://github.com/chairithinug/Forfun",
+      "name": "Jaundice Next Action",
+      "description": "Tool built with a friend in the medical field to evaluate neonatal jaundice risk from birth data and serum bilirubin.",
+      "datePublished": "2021-08-01",
+      "image": "https://chairithinug.com/icons/github-mark.svg",
+      "keywords": "Python,Medical"
+    }
+  ]
+}
+</script>
+
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Explore the professional projects of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. See AI, machine learning, software development, and bioinformatics projects.">
+    <meta name="keywords"
+        content="Projects, Portfolio, Data Scientist, Software Engineer, Python, AI, Machine Learning, Software Development, Bioinformatics, Resume, CV, Anapat Chairithinugull, Copenhagen, Denmark">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title"
+        content="Projects – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/projects.html">
+    <meta property="og:description"
+        content="Explore the professional projects of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. See AI, machine learning, software development, and bioinformatics projects.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Projects – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="Explore the professional projects of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. See AI, machine learning, software development, and bioinformatics projects.">
 </head>
 
 <body
@@ -44,9 +175,9 @@
     <div id="sidebar-container"></div>
     <script src="/partials/sidebar.js" defer></script>
 
-    <main class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
-        overview of projects
         <section id="projects" aria-labelledby="projects-title">
             <h2 id="projects-title"
                 class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
