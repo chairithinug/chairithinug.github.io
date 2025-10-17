@@ -1,0 +1,45 @@
+/* Minimal styles for cookie overlay and banner (CSP-safe: served from same origin) */
+
+#cookie-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 9998;
+    pointer-events: none; /* visually dims but does not block clicks */
+    display: none;
+}
+
+#cookie-overlay.cookie-overlay--visible {
+    display: block;
+}
+
+#cookie-banner {
+    position: fixed;
+    /* Remove any conflicting horizontal positioning styles */
+    bottom: 1rem;
+    z-index: 9999;
+    pointer-events: auto;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--banner-bg, #ffffff);
+    color: var(--banner-color, #111111);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+#cookie-banner.cookie-banner--visible {
+    display: flex;
+}
+
+/* Optional small animations */
+@keyframes cookieSlideUp {
+    from { transform: translateY(12px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes cookieFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

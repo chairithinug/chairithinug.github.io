@@ -1,0 +1,106 @@
+<header id="main-header"
+    class="shadow sticky top-0 z-40 w-full px-6 py-4 md:pl-[12rem] md:pr-10 duration-300 ease-in-out bg-white/40 backdrop-blur-2xl border-b border-white/20 dark:bg-gray-900/30 dark:border-gray-700">
+    <div class="mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <h1 id="name-title" class="text-2xl font-bold">Anapat Chairithinugull (Mew)</h1>
+            <p class="text-sm text-gray-600 dark:text-gray-400">MSc Computer Science & BS Computer Engineering</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Data Scientist & Software Developer</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">4+ Years of Experience</p>
+        </div>
+        <div class="mt-2 sm:mt-0 text-sm space-y-1">
+            <p>
+                <img src="/icons/map.svg" alt="Location" class="inline w-5 h-5 mr-2 align-text-bottom">
+                Vanløse, Copenhagen, Denmark
+            </p>
+            <p>
+                <a href="tel:+4571870384" class="inline-flex items-center text-blue-600 hover:underline">
+                    <img src="/icons/phone.svg" alt="Phone" class="w-5 h-5 mr-2">
+                    (+45) 71 87 03 84
+                </a>
+            </p>
+            <p>
+                <a href="mailto:chairithinug@uwalumni.com"
+                    class="inline-flex items-center text-blue-600 hover:underline">
+                    <img src="/icons/mail.svg" alt="Email" class="w-5 h-5 mr-2">
+                    Email
+                </a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/anapat-chairithinugull/" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center text-blue-600 hover:underline">
+                    <img src="/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 mr-2">
+                    LinkedIn
+                </a>
+            </p>
+            <p>
+                <a href="https://www.strava.com/athletes/137178417" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center text-orange-600 hover:underline">
+                    <img src="/icons/strava.svg" alt="Strava" class="w-5 h-5 mr-2">
+                    Strava
+                </a>
+            </p>
+            <p>
+                <a href="pdf/Anapat_Chairithinugull_Resume_polished.pdf" target="_blank"
+                    class="inline-flex items-center text-green-600 hover:underline">
+                    <img src="/icons/doc.svg" alt="Resume" class="w-5 h-5 mr-2">
+                    Resume
+                </a>
+            </p>
+            <p>
+                <a href="pdf/ATS_friendly_Anapat_Chairithinugull.pdf" target="_blank"
+                    class="inline-flex items-center text-purple-600 hover:underline">
+                    <img src="/icons/robot.svg" alt="ATS Resume" class="w-5 h-5 mr-2">
+                    ATS Resume
+                </a>
+            </p>
+        </div>
+        <!-- Weather & Controls -->
+        <div class="flex flex-col items-center space-y-2">
+
+            <!-- Compact Weather -->
+            <div
+                class="bg-blue-50 dark:bg-blue-900 rounded-xl shadow px-3 py-1 text-xs text-gray-700 dark:text-gray-200 flex flex-col items-center">
+                <p id="weather-temp" class="font-semibold"></p>
+                <p id="weather-desc"></p>
+                <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1">
+                    Data from <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer"
+                        class="underline hover:text-blue-600">Open-Meteo</a>
+                </p>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="flex items-center space-x-2 text-sm">
+                <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="en">
+                    <span class="mr-1 text-lg">🇺🇸</span> EN
+                </button>
+                <!-- <span class="text-gray-400">|</span>
+                    <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="th">
+                        <span class="mr-1 text-lg">🇹🇭</span> TH
+                    </button>
+                    <span class="text-gray-400">|</span>
+                    <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="da">
+                        <span class="mr-1 text-lg">🇩🇰</span> DA
+                    </button> -->
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="flex items-center">
+                <span class="text-sm text-gray-700 dark:text-gray-300">Light</span>
+
+                <button id="dark-toggle"
+                    class="relative w-12 h-6 mx-3 bg-gray-300 dark:bg-green-700 rounded-full transition-colors duration-300"
+                    aria-label="Toggle dark mode">
+                    <span id="dark-toggle-thumb"
+                        class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300"></span>
+                </button>
+
+                <span class="text-sm text-gray-700 dark:text-gray-300">Dark</span>
+            </div>
+        </div>
+    </div>
+    <!-- Hamburger for mobile -->
+    <button id="sidebar-toggle"
+        class="fixed bottom-4 left-4 z-60 md:hidden p-4 bg-gray-100 dark:bg-gray-800 rounded-full shadow-lg text-xl">
+        ☰
+    </button>
+</header>

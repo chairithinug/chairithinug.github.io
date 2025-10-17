@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Interests – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark
+    </title>
+
+    <link rel="canonical" href="https://chairithinug.com/interests.html">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Interests – Anapat Chairithinugull",
+  "description": "Personal and professional interests including ",
+  "url": "https://chairithinug.com/interests.html",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Coffee & Tea Crafting" },
+    { "@type": "ListItem", "position": 2, "name": "Cycling" },
+    { "@type": "ListItem", "position": 3, "name": "Running" },
+    { "@type": "ListItem", "position": 4, "name": "Marathon" },
+    { "@type": "ListItem", "position": 5, "name": "Swimming" },
+    { "@type": "ListItem", "position": 6, "name": "Triathlon" },
+    { "@type": "ListItem", "position": 7, "name": "Ironman" },
+    { "@type": "ListItem", "position": 8, "name": "Data Science" },
+    { "@type": "ListItem", "position": 9, "name": "Machine Learning" },
+    { "@type": "ListItem", "position": 10, "name": "Traveling" },
+    { "@type": "ListItem", "position": 11, "name": "Photography" }
+  ]
+}
+</script>
+
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Explore the personal and professional interests of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about hobbies, passions, and projects.">
+    <meta name="keywords"
+        content="Interests, Hobbies, Data Scientist, Software Engineer, Python, AI, Machine Learning, Portfolio, Resume, CV, Anapat Chairithinugull, Copenhagen, Denmark">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title" content="Interests – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/interests.html">
+    <meta property="og:description"
+        content="Explore the personal and professional interests of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about hobbies, passions, and projects.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interests – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="Explore the personal and professional interests of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about hobbies, passions, and projects.">
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
+        <!-- Interests -->
+        <section id="interests" aria-labelledby="interests-title">
+            <h2 id="interests-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                Interests
+            </h2>
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 relative z-10">
+                <div
+                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
+                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center">Coffee & Tea Crafting</span>
+                </div>
+                <div
+                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
+                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center">Travel</span>
+                </div>
+                <div
+                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
+                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center">Photography</span>
+                    <!-- <a href="photography.html" class="text-sm text-gray-700 dark:text-gray-200 text-center hover:underline">Photography</a> -->
+                </div>
+                <div
+                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
+                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center">IronMan & Marathon
+                        Training</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="sports" aria-labelledby="sports-title">
+            <h2 id="sports-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                Sports Achievements
+            </h2>
+
+            <div class="mt-4 relative">
+                <!-- Left Arrow -->
+                <button id="left-sports"
+                    class="absolute -left-8 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
+                    &#8592;
+                </button>
+
+                <!-- Right Arrow -->
+                <button id="right-sports"
+                    class="absolute -right-8 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
+                    &#8594;
+                </button>
+
+                <div id="sports-carousel" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth" tabindex="0"
+                    role="region" aria-label="Sports carousel">
+
+                    <!-- Swimming Category -->
+                    <div
+                        class="min-w-[220px] bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">1000m Swimming</p>
+                        <div class="space-y-1">
+                            <div class="bg-blue-100 dark:bg-blue-800 p-2 rounded">
+                                <p class="text-blue-600 dark:text-blue-200 font-bold">26m 33s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Christiansborg Rundt 2025</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">29 Aug 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13.3K Category -->
+                    <div
+                        class="min-w-[220px] bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">13.3K Running</p>
+                        <div class="space-y-1">
+                            <div class="bg-yellow-100 dark:bg-yellow-800 p-2 rounded">
+                                <p class="text-yellow-600 dark:text-yellow-200 font-bold">1h 14m 59s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Eremitageløbet 2025</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">05 Oct 2025</p>
+                                <!-- <p class="font-medium text-gray-700 dark:text-gray-200 countdown h-6 leading-6 w-full text-center"
+                                    data-date="2025-10-05T09:00:00"></p> -->
+                            </div>
+                            <div class="bg-yellow-100 dark:bg-yellow-800 p-2 rounded">
+                                <p class="text-yellow-600 dark:text-yellow-200 font-bold">1h 26m 45s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Eremitageløbet 2024</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">06 Oct 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Half Marathon Category -->
+                    <div
+                        class="min-w-[220px] bg-green-50 dark:bg-green-900 border-l-4 border-green-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">Half Marathon</p>
+                        <div class="space-y-1">
+                            <div class="bg-green-100 dark:bg-green-800 p-2 rounded">
+                                <p class="text-green-600 dark:text-green-200 font-bold">2h 09m 50s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Half Marathon 2025
+                                </p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">14 Sep 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full Marathon Category -->
+                    <div
+                        class="min-w-[220px] bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">Full Marathon</p>
+                        <div class="space-y-1">
+                            <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
+                                <p class="text-purple-600 dark:text-purple-200 font-bold">Pending</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Marathon 2026</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">10 May 2026</p>
+                                <p class="font-medium text-gray-700 dark:text-gray-200 countdown h-6 leading-6 w-full text-center"
+                                    data-date="2026-05-10T09:00:00"></p>
+                            </div>
+                            <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
+                                <p class="text-purple-600 dark:text-purple-200 font-bold">5h 43m 53s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Marathon 2025</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">11 May 2025</p>
+                            </div>
+                            <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
+                                <p class="text-purple-600 dark:text-purple-200 font-bold">6h 03m 22s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Marathon 2024</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">05 May 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4:18:4 Mini Ironman Category -->
+                    <div
+                        class="min-w-[220px] bg-red-50 dark:bg-red-900 border-l-4 border-red-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">4:18:4 Mini Ironman</p>
+                        <div class="space-y-1">
+                            <div class="bg-red-100 dark:bg-red-800 p-2 rounded">
+                                <p class="text-red-600 dark:text-red-200 font-bold">1h 11m 02s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen 2025</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">15 Aug 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Half Ironman Category -->
+                    <div
+                        class="min-w-[220px] bg-orange-50 dark:bg-orange-900 border-l-4 border-orange-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold mb-2">Half Ironman (70.3)</p>
+                        <div class="space-y-1">
+                            <div class="bg-orange-100 dark:bg-orange-800 p-2 rounded">
+                                <p class="text-orange-600 dark:text-orange-200 font-bold">Pending</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Elsinore 2026</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">21 Jun 2026</p>
+                                <p class="font-medium text-gray-700 dark:text-gray-200 countdown h-6 leading-6 w-full text-center"
+                                    data-date="2026-06-21T09:00:00"></p>
+                            </div>
+                            <div class="bg-orange-100 dark:bg-orange-800 p-2 rounded">
+                                <p class="text-orange-600 dark:text-orange-200 font-bold">7h 34m 12s</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">Elsinore 2025</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-300">22 Jun 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="script.js" defer></script>
+    <script src="interests-script.js" defer></script>
+
+</body>
+
+</html>

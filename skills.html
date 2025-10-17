@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Skills - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+
+    <link rel="canonical" href="https://chairithinug.com/skills.html">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Skills – Anapat Chairithinugull",
+  "description": "Technical and professional skills including Python, AI, machine learning, software development, and more.",
+  "url": "https://chairithinug.com/skills.html",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Python" },
+    { "@type": "ListItem", "position": 2, "name": "Machine Learning" },
+    { "@type": "ListItem", "position": 3, "name": "AI" },
+    { "@type": "ListItem", "position": 4, "name": "Software Development" },
+    { "@type": "ListItem", "position": 5, "name": "Data Analysis" },
+    { "@type": "ListItem", "position": 6, "name": "C#" },
+    { "@type": "ListItem", "position": 7, "name": "TensorFlow" },
+    { "@type": "ListItem", "position": 8, "name": "PyTorch" },
+    { "@type": "ListItem", "position": 9, "name": "Git" },
+    { "@type": "ListItem", "position": 10, "name": "MATLAB" },
+    { "@type": "ListItem", "position": 11, "name": "Pandas" },
+    { "@type": "ListItem", "position": 12, "name": "OpenCV" },
+    { "@type": "ListItem", "position": 13, "name": "Scikit-Learn" },
+    { "@type": "ListItem", "position": 14, "name": "Matplotlib" },
+    { "@type": "ListItem", "position": 15, "name": "Agile Methodologies" },
+    { "@type": "ListItem", "position": 16, "name": "Microsoft Office" },
+    { "@type": "ListItem", "position": 17, "name": "Windows" },
+    { "@type": "ListItem", "position": 18, "name": "macOS" },
+    { "@type": "ListItem", "position": 19, "name": "Linux" }
+  ]
+}
+</script>
+
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Explore the technical and professional skills of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about Python, AI, machine learning, software development, and more.">
+    <meta name="keywords"
+        content="Skills, Data Scientist, Software Engineer, Python, AI, Machine Learning, Software Development, Portfolio, Resume, CV, Anapat Chairithinugull, Copenhagen, Denmark">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title"
+        content="Skills - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/skills.html">
+    <meta property="og:description"
+        content="Explore the technical and professional skills of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about Python, AI, machine learning, software development, and more.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Skills - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="Explore the technical and professional skills of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. Learn about Python, AI, machine learning, software development, and more.">
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
+        <!-- Skills -->
+        <section id="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Technical
+                Skills
+            </h2>
+            <!-- Languages -->
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">Languages</h3>
+                <!-- <p class="sr-only">Python, JavaScript, C, C++, C#, .NET, MySQL</p> -->
+                <div class="flex flex-wrap gap-4 items-center">
+                    <!-- Python -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/python.svg" class="w-12 h-12" alt="Python">
+                        <span class="text-sm">Python</span>
+                    </div>
+                    <!-- Java -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/java.svg" class="w-12 h-12" alt="Java">
+                        <span class="text-sm">Java</span>
+                    </div>
+                    <!-- C -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/c.svg" class="w-12 h-12" alt="C">
+                        <span class="text-sm mt-1">C</span>
+                    </div>
+                    <!-- C++ -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/cplusplus.svg" class="w-12 h-12" alt="C++">
+                        <span class="text-sm">C++</span>
+                    </div>
+                    <!-- C# -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/csharp.svg" class="w-12 h-12" alt="C#">
+                        <span class="text-sm mt-1">C#/.NET</span>
+                    </div>
+                    <!-- SQL -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/mysql.svg" class="w-12 h-12" alt="MySQL">
+                        <span class="text-sm">MySQL</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/html-5-logo-svgrepo-com.svg" class="w-12 h-12" alt="HTML">
+                        <span class="text-sm">HTML</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/javascript-logo-svgrepo-com.svg" class="w-12 h-12" alt="JavaScript">
+                        <span class="text-sm">JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/Official_CSS_Logo.svg" class="w-12 h-12" alt="CSS">
+                        <span class="text-sm">CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">Tools & Frameworks</h3>
+                <p class="sr-only">TensorFlow, PyTorch, Git, MATLAB, Pandas, OpenCV, Scikit-Learn, Matplotlib, Agile,
+                    Microsoft
+                    Office</p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <div class="flex flex-col items-center">
+                        <img src="icons/tensorflow.svg" class="w-12 h-12" alt="TensorFlow">
+                        <span class="text-sm">TensorFlow</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/pytorch.svg" class="w-12 h-12" alt="PyTorch">
+                        <span class="text-sm">PyTorch</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/git.svg" class="w-12 h-12" alt="Git">
+                        <span class="text-sm">Git</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/matlab.svg" class="w-12 h-12" alt="MATLAB">
+                        <span class="text-sm">MATLAB</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/pandas.svg" class="w-12 h-12" alt="Pandas">
+                        <span class="text-sm">Pandas</span>
+                    </div>
+                    <!-- OpenCV -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/opencv.svg" class="w-12 h-12" alt="OpenCV Logo">
+                        <span class="text-sm">OpenCV</span>
+                    </div>
+                    <!-- Scikit-Learn -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/scikit-learn.svg" class="w-12 h-12" alt="Scikit-Learn Logo">
+                        <span class="text-sm">Scikit-Learn</span>
+                    </div>
+                    <!-- Matplotlib -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/matplotlib-icon-logo.svg" class="w-12 h-12" alt="Matplotlib Logo">
+                        <span class="text-sm">Matplotlib</span>
+                    </div>
+                    <!-- Agile -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/agile.svg" class="w-12 h-12" alt="Agile Logo">
+                        <span class="text-sm">Agile</span>
+                    </div>
+                    <!-- Microsoft Office -->
+                    <div class="flex flex-col items-center">
+                        <img src="icons/microsoft-office.svg" class="w-12 h-12" alt="Microsoft Office Logo">
+                        <span class="text-sm">MS Office</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- OS -->
+            <div class="mt-6">
+                <h3 class="font-semibold mb-2">Operating Systems</h3>
+                <p class="sr-only">Windows, macOS, Linux</p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <div class="flex flex-col items-center">
+                        <img src="icons/windows.svg" class="w-12 h-12" alt="Windows">
+                        <span class="text-sm">Windows</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/macos.svg" class="w-12 h-12" alt="macOS">
+                        <span class="text-sm">macOS</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="icons/linux.svg" class="w-12 h-12" alt="Linux">
+                        <span class="text-sm">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Certifications Carousel -->
+        <section id="cert" aria-labelledby="cert-title">
+            <h2 id="cert-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                Certifications
+            </h2>
+
+            <!-- Carousel Container -->
+            <div class="relative">
+                <!-- Left Arrow -->
+                <button id="left-arrow"
+                    class="absolute -left-6 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
+                    &#8592;
+                </button>
+
+                <!-- Right Arrow -->
+                <button id="right-arrow"
+                    class="absolute -right-6 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
+                    &#8594;
+                </button>
+
+                <div id="carousel" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth cursor-grab py-2">
+
+                    <!-- <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">MLOps – Duke University</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Microsoft Power BI Data Analyst</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
+                    </div> -->
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Microsoft Full-Stack Developer</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Current</p>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">TensorFlow: Advanced Techniques – DeepLearning.AI</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Jun 2022</p>
+                        <a href="https://coursera.org/share/f4199d315987b89b18749ce4839b501a" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Investment Management – University of Geneva</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Jan 2022</p>
+                        <a href="https://coursera.org/share/3264aa3116d324ae23c24b2ac9d9a0bf" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Math for ML – Imperial College London</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Dec 2021</p>
+                        <a href="https://coursera.org/share/d62489bc7387ecf06de112843545cbdf" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">TensorFlow Developer – DeepLearning.AI</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">May 2021</p>
+                        <a href="https://coursera.org/share/5ddc9f9ed31a9059f13a678eda70326a" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Machine Learning – Stanford</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Sep 2020</p>
+                        <a href="https://coursera.org/share/0e076ed878d11d28bb360090ff42d123" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                    <div
+                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                        <p class="font-semibold">Deep Learning Specialization – DeepLearning.AI</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Aug 2020</p>
+                        <a href="https://coursera.org/share/1b5bffaa2184980800af210f38d5969b" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
+                            Certificate</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section id="languages" aria-labelledby="languages-title">
+            <h2 id="languages-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
+                Language Skills
+            </h2>
+
+            <div class="mt-4 flex flex-wrap gap-4">
+
+                <!-- Thai -->
+                <div
+                    class="group relative cursor-pointer bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    ไทย (Thai)
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        Native
+                    </div>
+                </div>
+
+                <!-- English -->
+                <div
+                    class="group relative cursor-pointer bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    English
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        Proficient
+                    </div>
+                </div>
+
+                <!-- Danish -->
+                <div
+                    class="group relative cursor-pointer bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
+                    Dansk (Danish)
+                    <div
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
+                        Module 5
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="script.js" defer></script>
+    <script src="skills-script.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
+    <!-- Main content will be injected here -->
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

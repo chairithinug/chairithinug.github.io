@@ -2,25 +2,172 @@
 <html lang="en">
 
 <head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found – Anapat Chairithinugull</title>
+
+    <title>404 Not Found – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark
+    </title>
+
+    <link rel="canonical" href="https://chairithinug.com/404.html">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="icons/favicon.png" type="image/png">
+
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://chairithinug.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Career",
+      "item": "https://chairithinug.com/career.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "FAQ",
+      "item": "https://chairithinug.com/faq.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Articles",
+      "item": "https://chairithinug.com/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Interests",
+      "item": "https://chairithinug.com/interests.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Projects",
+      "item": "https://chairithinug.com/projects.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Skills",
+      "item": "https://chairithinug.com/skills.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "404 Not Found",
+      "item": "https://chairithinug.com/404.html"
+    }
+  ]
+}
+</script>
+
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="noindex, follow">
+    <meta name="googlebot" content="noindex, follow">
+    <meta name="description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Copenhagen.">
+    <meta name="keywords"
+        content="404, Data Scientist, Software Engineer, Python, C#, AI, Machine Learning, Portfolio, Resume, CV, Anapat Chairithinugull, Copenhagen, Denmark">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title"
+        content="404 Not Found - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/404.html">
+    <meta property="og:description"
+        content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Copenhagen.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="404 Not Found - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Copenhagen.">
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 flex flex-col items-center justify-center min-h-screen px-6">
-    <header class="text-center mb-12">
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+    <main
+        class="text-center relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
         <h1 class="text-4xl font-bold">404</h1>
         <p class="text-xl mt-2">Oops! The page you are looking for cannot be found.</p>
-    </header>
-
-    <main class="max-w-xl text-center space-y-6">
         <p class="text-gray-700 dark:text-gray-300">
             It seems the link you followed is broken or the page has been removed.
         </p>
 
-        <a href="/" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">
+        <a href="/"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">
             Go Back Home
         </a>
 
@@ -29,9 +176,11 @@
         </div>
     </main>
 
-    <footer class="mt-auto py-6 text-gray-600 dark:text-gray-400 text-sm text-center">
-        &copy; 2025 Anapat Chairithinugull
-    </footer>
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="script.js" defer></script>
 </body>
 
 </html>
