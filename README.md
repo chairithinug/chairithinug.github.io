@@ -5,44 +5,44 @@ This repository hosts the source code for Anapat Chairithinugull's personal webs
 ## Project Structure
 
 The project is organized as follows:
+
+```text
 .
-├── .github/ # GitHub-specific files (e.g., Copilot instructions)
-├── articles/ # Blog-like content
-├── icons/ # Icons used across the site
-├── img/ # Images used across the site
-├── lang/ # Localization files for multilingual support
-├── partials/ # Reusable HTML and JavaScript components
-├── pdf/ # PDF files (e.g., resumes)
-├── unused/ # Unused or archived files
-├── .gitignore # Git ignore rules
-├── 404.html # Custom 404 error page
-├── articles.html # Blog articles index page
-├── articles-script.js # JavaScript for articles page
-├── career.html # Career timeline and work experience page
-├── career-script.js # JavaScript for career page
-├── custom.css # Custom CSS for additional styling
-├── faq.html # Frequently Asked Questions page
-├── faq-script.js # JavaScript for FAQ page
-├── index.html # Homepage
-├── interests.html # Personal and professional interests page
-├── interests-script.js # JavaScript for interests page
-├── input.css # Source CSS file for PostCSS processing
-├── manifest.json # PWA manifest file
-├── minimal.js # Minimal JavaScript utilities
-├── package.json # Node.js project metadata
-├── postcss.config.js # PostCSS configuration
-├── projects.html # Projects portfolio page
-├── projects-script.js # JavaScript for projects page
-├── robots.txt # Robots.txt for SEO
-├── script.js # Global JavaScript utilities
-├── service-worker.js # Service worker for offline support
-├── sitemap.xml # Sitemap for search engines
-├── skills.html # Skills and certifications page
-├── skills-script.js # JavaScript for skills page
-├── styles.css # Compiled global CSS
-├── styles-inline.css # Critical inline CSS
-├── template.html # HTML template for new pages
-└── todo # TODO list or notes
+├── articles/            # Blog-style content
+├── icons/               # Icons used throughout the site
+├── img/                 # Images used across the site
+├── lang/                # Localization files for multilingual support
+├── partials/            # Reusable HTML and JavaScript components
+├── pdf/                 # PDF files (e.g., resumes)
+├── .gitignore           # Git ignore rules
+├── 404.html             # Custom 404 error page
+├── articles.html        # Blog articles index page
+├── articles-script.js   # JavaScript for articles page
+├── career.html          # Career timeline and work experience page
+├── career-script.js     # JavaScript for career page
+├── custom.css           # Additional custom CSS
+├── faq.html             # Frequently Asked Questions page
+├── faq-script.js        # JavaScript for FAQ page
+├── index.html           # Homepage
+├── interests.html       # Personal and professional interests page
+├── interests-script.js  # JavaScript for interests page
+├── input.css            # Source CSS file for PostCSS processing
+├── manifest.json        # PWA manifest file
+├── minimal.js           # Minimal JavaScript utilities
+├── package.json         # Node.js project metadata
+├── postcss.config.js    # PostCSS configuration
+├── projects.html        # Projects portfolio page
+├── projects-script.js   # JavaScript for projects page
+├── robots.txt           # SEO robots.txt
+├── script.js            # Global JavaScript utilities
+├── service-worker.js    # Service worker for offline support
+├── sitemap.xml          # Sitemap for search engines
+├── skills.html          # Skills and certifications page
+├── skills-script.js     # JavaScript for skills page
+├── styles.css           # Compiled global CSS
+├── styles-inline.css    # Critical inline CSS
+├── template.html        # Template for new pages
+└── todo                 # TODO list or notes
 
 ## Key Features
 
