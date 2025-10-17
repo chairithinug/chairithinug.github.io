@@ -2,6 +2,20 @@
 <html lang="en">
 
 <head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
     <script>
         document.documentElement.classList.toggle(
             "dark",
@@ -10,10 +24,15 @@
         );
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found – Anapat Chairithinugull</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="icons/favicon.png" type="image/png">
+
 </head>
 
 <body
@@ -26,23 +45,17 @@
     <!-- Sidebar -->
     <div id="sidebar-container"></div>
     <script src="/partials/sidebar.js" defer></script>
+
     <main
-        class="text-center relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
-        <h1 class="text-4xl font-bold">404</h1>
-        <p class="text-xl mt-2">Oops! The page you are looking for cannot be found.</p>
-        <p class="text-gray-700 dark:text-gray-300">
-            It seems the link you followed is broken or the page has been removed.
-        </p>
-
-        <a href="/"
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">
-            Go Back Home
-        </a>
-
-        <div class="mt-6 text-gray-500 dark:text-gray-400 text-sm">
-            If you typed the URL manually, please check for errors.
-        </div>
+        <section>
+            <h2>Available Articles</h2>
+            <ul>
+                <li><a href="posts/post1.html">Title of Post 1</a></li>
+                <li><a href="posts/post2.html">Title of Post 2</a></li>
+            </ul>
+        </section>
     </main>
 
     <div id="footer-container"></div>

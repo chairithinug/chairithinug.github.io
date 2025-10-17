@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+    <title>Reflections on AI and Coding — Anapat Chairithinugull</title>
+
+    <link rel="canonical" href="https://chairithinug.com/articles/post1.html">
+
+    <!-- Preload and stylesheet (re-uses your main Tailwind build) -->
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="stylesheet" href="/styles.css">
+
+    <meta name="description"
+        content="Reflections on AI and Coding by Anapat Chairithinugull. Practical notes about using AI tools for software development and lessons learned.">
+
+    <!-- Structured data: BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Reflections on AI and Coding",
+      "description": "Practical reflections on using AI tools for software development and lessons learned by Anapat Chairithinugull.",
+      "datePublished": "2025-10-17T09:00:00+02:00",
+      "dateModified": "2025-10-17T09:00:00+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Anapat Chairithinugull",
+        "url": "https://chairithinug.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anapat Chairithinugull",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://chairithinug.com/icons/icon180.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://chairithinug.com/articles/post1.html"
+      },
+      "image": "https://chairithinug.com/img/anapat_chairithinugull.jpeg"
+    }
+    </script>
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out">
+
+    <header id="main-header"
+        class="shadow sticky top-0 z-40 w-full px-6 py-4 md:pl-[12rem] md:pr-10 duration-300 ease-in-out">
+        <div class="mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h1 id="name-title" class="text-2xl font-bold">Anapat Chairithinugull (Mew)</h1>
+                <p class="text-sm text-gray-600">MSc Computer Science & BS Computer Engineering</p>
+                <p class="text-sm text-gray-600">Data Scientist & Software Developer</p>
+                <p class="text-sm text-gray-600">4+ Years of Experience</p>
+            </div>
+            <div class="mt-2 sm:mt-0 text-sm">
+                <p>📍 Based in Vanløse, Copenhagen, Denmark</p>
+                <p>📞 <a href="tel:+4571870384" class="text-blue-600 hover:underline">(+45) 71 87 03 84</a></p>
+                <p>✉️ <a href="mailto:chairithinug@uwalumni.com" class="text-blue-600 hover:underline">Email</a></p>
+                <p>🔗 <a href="https://www.linkedin.com/in/anapat-chairithinugull/" target="_blank"
+                        rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn</a></p>
+                <p>🔗 <a href="https://www.strava.com/athletes/137178417" target="_blank" rel="noopener noreferrer"
+                        class="text-orange-600 hover:underline">Strava</a></p>
+                <p>📄 <a href="pdf/Anapat_Chairithinugull_Resume_polished.pdf" target="_blank"
+                        class="text-green-600 hover:underline">Resume</a></p>
+                <p>🤖 <a href="pdf/ATS_friendly_Anapat_Chairithinugull.pdf" target="_blank"
+                        class="text-purple-600 hover:underline">ATS Resume</a></p>
+            </div>
+            <!-- Weather & Controls -->
+            <div class="flex flex-col items-center space-y-2">
+
+                <!-- Compact Weather -->
+                <div
+                    class="bg-blue-50 dark:bg-blue-900 rounded-xl shadow px-3 py-1 text-xs text-gray-700 dark:text-gray-200 flex flex-col items-center">
+                    <p id="weather-temp" class="font-semibold"></p>
+                    <p id="weather-desc"></p>
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1">
+                        Data from <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer"
+                            class="underline hover:text-blue-600">Open-Meteo</a>
+                    </p>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-2 text-sm">
+                    <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="en">
+                        <span class="mr-1 text-lg">🇺🇸</span> EN
+                    </button>
+                    <!-- <span class="text-gray-400">|</span>
+                    <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="th">
+                        <span class="mr-1 text-lg">🇹🇭</span> TH
+                    </button>
+                    <span class="text-gray-400">|</span>
+                    <button class="lang-btn flex items-center px-2 py-1 hover:bg-gray-100 rounded" data-lang="da">
+                        <span class="mr-1 text-lg">🇩🇰</span> DA
+                    </button> -->
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <div class="flex items-center">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">Light</span>
+
+                    <button id="dark-toggle"
+                        class="relative w-12 h-6 mx-3 bg-gray-300 dark:bg-green-700 rounded-full transition-colors duration-300"
+                        aria-label="Toggle dark mode">
+                        <span id="dark-toggle-thumb"
+                            class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300"></span>
+                    </button>
+
+                    <span class="text-sm text-gray-700 dark:text-gray-300">Dark</span>
+                </div>
+            </div>
+        </div>
+        <!-- Hamburger for mobile -->
+        <button id="sidebar-toggle"
+            class="fixed bottom-4 left-4 z-60 md:hidden p-4 bg-gray-100 dark:bg-gray-800 rounded-full shadow-lg text-xl">
+            ☰
+        </button>
+    </header>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+
+    <!-- Optional sidebar (kept minimal to match index) -->
+    <nav aria-label="Sidebar navigation" id="sidebar"
+        class="fixed top-0 left-0 h-full  shadow-md flex flex-col justify-between
+            transform -translate-x-full md:translate-x-0 transition-colors duration-300 ease-in-out z-50">
+        <ul
+            class="flex flex-col flex-grow justify-between items-center bg-white dark:bg-gray-900 py-6 h-full duration-300 ease-in-out">
+            <li><a href="/index.html"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a></li>
+            <li><a href="/articles/index.html"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Articles</a></li>
+            <li><a href="/projects"
+                    class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Projects</a></li>
+            <li><a href="/contact" class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out"
+        role="main">
+        <div class="max-w-3xl mx-auto">
+            <!-- Post Card -->
+            <article class="bg-white dark:bg-gray-800 shadow rounded-xl p-8 transition-colors duration-300">
+                <!-- Header -->
+                <header class="mb-8">
+                    <h1 class="text-3xl font-bold leading-tight mb-3">
+                        Reflections on AI and Coding
+                    </h1>
+
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                        <time datetime="2025-10-17">October 17, 2025</time>
+                        <span aria-hidden="true">•</span>
+                        <span>5 min read</span>
+                        <span aria-hidden="true">•</span>
+                        <a href="/articles/articles.html" class="text-blue-600 dark:text-blue-400 hover:underline">Back to
+                            articles</a>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">AI</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">productivity</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">coding</span>
+                    </div>
+                </header>
+
+                <!-- TL;DR section -->
+                <section
+                    class="mb-10 rounded-lg border border-gray-200 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-900/50">
+                    <h3 class="mb-3 text-lg font-semibold text-gray-800 dark:text-gray-200">TL;DR</h3>
+                    <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                        <li>Used AI tools like ChatGPT and GitHub Copilot to develop a personal website efficiently.
+                        </li>
+                        <li>Recognized that building a website requires understanding of web design fundamentals (HTML,
+                            CSS, JavaScript).</li>
+                        <li>AI tools accelerate coding for simple tasks, but complex projects need human guidance.</li>
+                        <li>Future use of AI tools will be thoughtful; they enhance efficiency but are not substitutes
+                            for human effort.</li>
+                    </ul>
+                </section>
+
+                <!-- Body -->
+                <div class="prose dark:prose-invert text-gray-800 dark:text-gray-100 space-y-6">
+                    <p>
+                        I have a strong background in machine learning and artificial intelligence.
+                        After completing my studies at the
+                        <a href="https://www.wisc.edu/" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">University of
+                            Wisconsin–Madison</a>,
+                        I began working at
+                        <a href="https://www.kbtg.tech" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">Kasikorn Business-Technology Group, Kasikorn Labs</a>,
+                        a subsidiary of
+                        <a href="https://www.kasikornbank.com/en/personal/Pages/Personal.aspx" target="_blank"
+                            rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Kasikorn
+                            Bank</a>
+                        in Thailand. My primary role there was to read research papers and apply the ideas from those
+                        studies, particularly
+                        in the areas of face recognition and image quality assessment.
+                    </p>
+
+                    <p>
+                        It was not until I attended the
+                        <a href="https://www.ku.dk/english/" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">University of Copenhagen</a>
+                        for my master's degree that I began using
+                        <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">ChatGPT</a>,
+                        a tool developed by OpenAI,
+                        to help me with specific coding tasks like debugging. I started using it more frequently while
+                        working as a student
+                        assistant at the
+                        <a href="https://www.kb.dk/en/" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">Royal Danish Library</a>,
+                        where I was involved in a project to create a digital archive.
+                    </p>
+
+                    <p>
+                        After completing my master's degree, I began working on my second personal website, which you
+                        are now visiting.
+                        I utilized AI tools such as ChatGPT
+                        and
+                        <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer"
+                            class="text-blue-600 dark:text-blue-400 hover:underline">GitHub Copilot</a>
+                        to develop the site more efficiently. I was impressed with the results, but realized that
+                        building a
+                        well-functioning and visually appealing website requires a step-by-step approach.
+                    </p>
+
+                    <p>
+                        <span class="font-bold">Will I continue to use AI tools in the future?</span>
+                        I think so, but I will do so thoughtfully. AI provides tools to enhance coding efficiency,
+                        rather than being a complete substitute for human effort.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <footer class="mt-10 border-t border-gray-200 dark:border-gray-700 pt-5">
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center gap-3">
+                            <!-- <img src="/img/anapat_chairithinugull.jpeg" alt="author" class="w-10 h-10 rounded-full"> -->
+                            <div>
+                                <p class="text-sm font-semibold">Anapat Chairithinugull</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                    Data Scientist & Software Engineer
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="text-sm text-gray-600 dark:text-gray-400">
+                            <a href="mailto:chairithinug@uwalumni.com"
+                                class="hover:underline text-blue-600 dark:text-blue-400">Email</a>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-900 text-center text-sm py-4 mt-12 text-gray-800 dark:text-gray-100">
+        <p>© 2025 Anapat Chairithinugull</p>
+    </footer>
+
+    <!-- Overlay -->
+    <div id="cookie-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40" aria-hidden="true"></div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-11/12 sm:w-auto max-w-lg 
+            bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 
+            p-4 rounded-xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 z-50"
+        role="dialog" aria-modal="true" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc">
+
+        <p id="cookie-banner-title" class="sr-only">Cookie Consent</p>
+        <p id="cookie-banner-desc" class="text-sm sm:text-base">
+            We use cookies for analytics to improve your experience.
+        </p>
+
+        <div class="flex gap-2">
+            <button id="accept-cookies" class="px-3 py-1 rounded-full 
+                   bg-blue-100 dark:bg-blue-700 
+                   text-blue-700 dark:text-white 
+                   hover:bg-blue-200 dark:hover:bg-blue-600 
+                   transition" aria-label="Accept cookies and continue">
+                Accept
+            </button>
+            <button id="reject-cookies" class="px-3 py-1 rounded-full 
+                   bg-gray-100 dark:bg-gray-700 
+                   text-gray-700 dark:text-gray-200 
+                   hover:bg-gray-200 dark:hover:bg-gray-600 
+                   transition" aria-label="Reject cookies and continue">
+                Reject
+            </button>
+        </div>
+    </div>
+
+    <script src="/articles/script.js" defer></script>
+</body>
+
+</html>

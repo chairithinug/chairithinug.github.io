@@ -438,3 +438,8 @@ header#main-header {
     outline: 2px solid #2563eb;
     outline-offset: 2px;
 }
+
+/* only animate when toggling, not on first paint */
+html:not(.theme-loaded) .transition-colors {
+  transition: none;
+}
