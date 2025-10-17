@@ -335,7 +335,7 @@ header#main-header {
     margin-bottom: 3rem;
     /* mb-12 */
     cursor: pointer;
-    transition: scale 1s ease;
+    transition: transform 1s ease;
 }
 
 /* Left/Right content containers */
