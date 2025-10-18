@@ -44,6 +44,8 @@ The project is organized as follows:
 ├── template.html        # Template for new pages
 └── todo                 # TODO list or notes
 
+```
+
 ## Key Features
 
 - **Responsive Design**: Optimized for desktop and mobile devices.
