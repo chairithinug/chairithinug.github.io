@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Cycling in Denmark: How to Ride Like a Dane — Anapat Chairithinugull – Data Scientist & Software Engineer |
+        Resume |
+        Copenhagen, Denmark</title>
+
+    <link rel="canonical" href="https://chairithinug.com/articles/cycling-in-denmark-how-to-ride-like-a-dane.html">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Favicons / PWA manifest -->
+    <!-- <link rel="icon" href="icons/favicon.png" type="image/png"> -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/icon48.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/icons/icon60.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon180.png">
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com www.google-analytics.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <!-- Structured data for SEO and search engines: Profile and Person schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Cycling in Denmark: How to Ride Like a Dane",
+      "description": "A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture by Anapat Chairithinugull.",
+      "keywords": "Cycling, Denmark, Copenhagen, Bike Rules, Bike Etiquette, Travel Guide, Urban Cycling, Bycyklen, Danish Cycling Culture, Travel Tips",
+      "datePublished": "2025-10-24T09:00:00+02:00",
+      "dateModified": "2025-10-24T09:00:00+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Anapat Chairithinugull",
+        "url": "https://chairithinug.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anapat Chairithinugull",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://chairithinug.com/icons/icon180.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://chairithinug.com/articles/cycling-in-denmark-how-to-ride-like-a-dane.html"
+      },
+      "image": "https://chairithinug.com/img/anapat_chairithinugull.jpeg"
+    }
+    </script>
+    <!-- Metadata / SEO / Social (non-critical, load last) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture by Anapat Chairithinugull.">
+    <meta name="keywords"
+        content="Cycling, Denmark, Copenhagen, Bike Rules, Bike Etiquette, Travel Guide, Urban Cycling, Bycyklen, Danish Cycling Culture, Travel Tips">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title"
+        content="Cycling in Denmark: How to Ride Like a Dane - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:site_name" content="Chairithinug">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chairithinug.com/articles/reflections-on-ai-and-coding.html">
+    <meta property="og:description"
+        content="A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture by Anapat Chairithinugull.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Cycling in Denmark: How to Ride Like a Dane - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture by Anapat Chairithinugull.">
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
+        <div class="max-w-3xl mx-auto">
+            <!-- Post Card -->
+            <article class="bg-white dark:bg-gray-800 shadow rounded-xl p-8 transition-colors duration-300">
+                <!-- Header -->
+                <header class="mb-8">
+                    <h1 class="text-3xl font-bold leading-tight mb-3">
+                        Cycling in Denmark: How to ride like a Dane
+                    </h1>
+
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                        <time datetime="2025-10-24">October 24, 2025</time>
+                        <span aria-hidden="true">•</span>
+                        <span>10 min read</span>
+                        <span aria-hidden="true">•</span>
+                        <a href="/articles.html" class="text-blue-600 dark:text-blue-400 hover:underline">Back
+                            to
+                            articles</a>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">Denmark</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">cycling</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-full">travel</span>
+                    </div>
+                </header>
+
+                <!-- Body -->
+                <div class="prose dark:prose-invert text-gray-800 dark:text-gray-100 space-y-6">
+                    <p>
+                        In Denmark, bicycles are everywhere, in every kind of weather and at every hour of the day.
+                        For many Danes, cycling isn't just transportation, it's a lifestyle, a statement, even part of
+                        their personality.
+                        Thanks to excellent infrastructure, bike-friendly laws, and countless repair shops,
+                        Denmark is one of the best places in the world to ride.
+                        It would be a shame not to explore downtown Copenhagen or the peaceful countryside on two
+                        wheels.
+                    </p>
+
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mt-8">Essential Bike Rules</h2>
+                    <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                        <li>Always stay on the right side of bike paths.</li>
+                        <li>Use the left side only to overtake slower cyclists.</li>
+                        <li>
+                            To turn left at a junction, go straight across first, stop at the corner, and wait for the
+                            next green light, known as the <em>Copenhagen left turn</em>.
+                        </li>
+                        <li>Your bike must have a bell to warn others.</li>
+                        <li>Always keep at least one hand on the handlebars to steer safely.</li>
+                        <li>
+                            It's illegal to use a handheld mobile phone while cycling. Stop on the sidewalk if you need
+                            to check your map.
+                        </li>
+                        <li>
+                            When it gets dark, indicated by the streetlights turning on, you need a white front light, a
+                            red rear
+                            light, and reflectors on your bike.
+                        </li>
+                        <li>
+                            Don't bike if you're too drunk. If you're a danger to yourself or others, the police can
+                            fine you up to <span class="font-medium">1,500 kr</span>. Take a train, metro, or walk home
+                            safely instead.
+                        </li>
+                    </ul>
+
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mt-8">Cycling Etiquette</h2>
+                    <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                        <li>Signal turns by extending your left or right arm. Always check for cars and other cyclists
+                            first.</li>
+                        <li>Raise your hand slightly to signal that you're stopping, and don't brake suddenly,
+                            especially during rush hour.</li>
+                        <li>Don't block intersections or bike paths when you stop. Move to the sidewalk instead.</li>
+                        <li>Wear a helmet. It's not required by law, but your head will thank you in an accident.</li>
+                        <li>Avoid wearing headphones while biking. You need to hear cars, cyclists, and pedestrians
+                            around you.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mt-8">Practical Tips</h2>
+                    <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                        <li>Danes bike year-round, in rain, snow, or shine. Invest in a good raincoat, waterproof pants,
+                            and gloves.</li>
+                        <li>Use a phone mount or cycling computer if you need navigation. Set it up before you start
+                            riding.</li>
+                        <li>Denmark can be very windy. Keep both hands on the handlebars, as strong gusts can knock you
+                            off balance.</li>
+                        <li>Buy a solid bike lock. Theft happens, especially in Copenhagen and Aarhus.</li>
+                        <li>
+                            Learn how to lock your bike properly: secure the frame (the triangle part) to something
+                            sturdy, not just the wheel. It won't make your bike theft-proof, but it will make it harder
+                            to steal.
+                        </li>
+                        <li>
+                            If you have an expensive bike, take it indoors and get insurance. Register it with the
+                            police and use the lock type your insurer recommends.
+                        </li>
+                        <li>Many bike shops offer free air pumps outside. Keep an eye out for them, as they are
+                            lifesavers.</li>
+                        <li>
+                            Learn basic bike maintenance. Being able to fix a flat tire or adjust your brakes will save
+                            you time and money.
+                        </li>
+                    </ul>
+
+                    <p>
+                        If you don't own a bike, try the white <strong>Bycyklen</strong> electric city bikes. You can
+                        rent and unlock them with an app, and they're available all over Copenhagen. The city even has
+                        dedicated bike bridges like <strong>Cykelslangen</strong> ("The Cycle Snake") and its own
+                        traffic lights for cyclists.
+                    </p>
+
+                    <p>
+                        There will always be a few Danes who ignore the rules, but it's smarter and safer to ride
+                        responsibly. Whether you're gliding through the morning mist over the lakes or battling
+                        headwinds down Nørrebrogade, cycling here isn't just about getting from A to B. It's part of
+                        living like a Dane.
+                    </p>
+
+                </div>
+
+                <!-- Post Footer -->
+                <div id="post-footer-container"></div>
+                <script src="/articles/post-footer.js" defer></script>
+            </article>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="/script.js" defer></script>
+</body>
+
+</html>
