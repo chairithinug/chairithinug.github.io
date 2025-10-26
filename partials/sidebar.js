@@ -20,6 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
 
+            // Now the header exists, we can highlight the nav link
+            const currentPath = window.location.pathname.split("/").pop(); // e.g. "about.html"
+            const navLinks = document.querySelectorAll("nav a");
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute("href").split("/").pop();
+                if (linkPath === currentPath) {
+                    link.classList.add("font-semibold", "text-customBlue");
+                } else {
+                    link.classList.remove("font-semibold", "text-customBlue");
+                }
+            });
+
             // Sidebar toggle (hamburger)
             const sidebar = document.getElementById('sidebar');
             const toggleBtn = document.getElementById('sidebar-toggle');
@@ -36,5 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
         });
-   
+
 });
