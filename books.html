@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #main-container,
+        #footer-container,
+        body {
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+
+    <title>Books - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark</title>
+
+    <link rel="canonical" href="https://chairithinug.com/books.html">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/styles.css" as="style">
+    <!-- Regular stylesheet -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
+
+    <!-- Security / Policy headers -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+        style-src 'self';
+        img-src 'self';
+        connect-src 'self' https://api.open-meteo.com;
+        font-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        frame-src 'none';
+    ">
+
+    <!-- Optional structured data -->
+    <script type="application/ld+json"></script>
+
+    <!-- Metadata / SEO / Social -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Book recommendations of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. View education, work history, and professional achievements.">
+    <meta name="keywords"
+        content="Books, Recommendations, Data Scientist, Software Engineer, Machine Learning, Computer Science, Copenhagen, Resume, CV, Anapat Chairithinugull">
+    <meta name="author" content="Anapat Chairithinugull">
+
+    <meta property="og:title"
+        content="Books - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta property="og:site_name" content="Chairithinug">
+    <meta property="og:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta property="og:image:alt" content="Profile photo of Anapat Chairithinugull">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://chairithinug.com/books.html">
+    <meta property="og:description"
+        content="Book recommendations of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. View education, work history, and professional achievements.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Books - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Copenhagen, Denmark">
+    <meta name="twitter:image" content="https://chairithinug.com/img/anapat_chairithinugull.jpeg">
+    <meta name="twitter:description"
+        content="Book recommendations of Anapat Chairithinugull – Data Scientist & Software Engineer based in Copenhagen. View education, work history, and professional achievements.">
+</head>
+
+<body
+    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
+    <!-- Header -->
+    <div id="header-container"></div>
+    <script src="/partials/header.js" defer></script>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+    <script src="/partials/sidebar.js" defer></script>
+
+    <!-- Main Content -->
+    <main
+        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
+        role="main">
+        <section id="books" aria-labelledby="books-title">
+            <h2 id="books-title"
+                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Books</h2>
+
+            <!-- Currently Reading / Listening -->
+            <section id="currently-reading" aria-labelledby="currently-reading-title">
+                <h3 id="currently-reading-title" class="text-xl font-semibold mb-4">Currently Reading / Listening</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>"The Data Detective"</strong> by Tim Harford - A guide to using data to make better
+                        decisions.</li>
+                </ul>
+            </section>
+
+            <!-- Backlog -->
+            <section id="backlog" aria-labelledby="backlog-title" class="mt-8">
+                <h3 id="backlog-title" class="text-xl font-semibold mb-4">Backlog</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>"Thinking, Fast and Slow"</strong> by Daniel Kahneman - A deep dive into the two systems
+                        that drive the way we think.</li>
+                    <li><strong>"Can't Hurt Me"</strong> by David Goggins - The inspiring story of a former Navy SEAL
+                        and his relentless pursuit of excellence.</li>
+                    <li><strong>"The Pragmatic Programmer"</strong> by Andrew Hunt and David Thomas - A classic book on
+                        software development best practices.</li>
+                    <li><strong>"The Psychology of Money"</strong> by Morgan Housel - A compelling exploration of the
+                        ways in which
+                        people think about money and make financial decisions.</li>
+                    <li><strong>"Principles for Dealing with the Changing World Order"</strong> by Ray Dalio - A timely
+                        examination of the forces shaping our future.</li>
+                </ul>
+            </section>
+
+            <!-- Finished Reading -->
+            <section id="finished-reading" aria-labelledby="finished-reading-title" class="mt-8">
+                <h3 id="finished-reading-title" class="text-xl font-semibold mb-4">Finished Reading</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>"Start with Why"</strong> by Simon Sinek - A powerful exploration of the importance of
+                        understanding your "why."</li>
+                    <li><strong>"Man's Search for Meaning"</strong> by Viktor E. Frankl - A profound examination of
+                        finding purpose through suffering.</li>
+                    <li><strong>"Shoe Dog"</strong> by Phil Knight - The candid memoir of the Nike co-founder and his
+                        journey to success.</li>
+                    <li><strong>"Who Gets What - and Why"</strong> by Alvin E. Roth - A fascinating look at the
+                        economics
+                        of
+                        matching markets.</li>
+                    <li><strong>"Steve Jobs"</strong> by Walter Isaacson - A biography of the Apple co-founder that
+                        explores his life, innovations, and impact on technology.
+                    </li>
+                    <li><strong>"Hiking with Nietzsche"</strong> by John Kaag - A philosophical memoir that intertwines
+                        the author's love for hiking with the ideas of Friedrich Nietzsche.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Finished Listening -->
+            <section id="finished-listening" aria-labelledby="finished-listening-title" class="mt-8">
+                <h3 id="finished-listening-title" class="text-xl font-semibold mb-4">Finished Listening</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>"Atomic Habits"</strong> by James Clear - An exploration of the power of small habits
+                        and how they can lead to significant change.</li>
+                </ul>
+            </section>
+
+            <!-- Coffee Related -->
+            <section id="coffee-related" aria-labelledby="coffee-related-title" class="mt-8">
+                <h3 id="coffee-related-title" class="text-xl font-semibold mb-4">Coffee Related</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>"The World Atlas of Coffee"</strong> by James Hoffmann - A comprehensive guide to
+                        coffee-growing regions and their unique flavors.</li>
+                    <li><strong>"How to Make the Best Coffee at Home"</strong> by James Hoffmann - Expert tips and
+                        techniques for brewing coffee at home.</li>
+                </ul>
+            </section>
+
+            <p class="mt-6">Do you have any book recommendations? Feel free to share them with me—I’m always on the
+                lookout for my next great read!</p>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="/partials/footer.js" defer></script>
+
+    <!-- External script -->
+    <script src="script.js" defer></script>
+    <script src="books-script.js"></script>
+</body>
+
+</html>
