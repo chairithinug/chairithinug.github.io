@@ -88,5 +88,31 @@
     "sport-mini-ironman": "4:18:4 Mini Ironman",
     "sport-half-ironman": "Half Ironman (70.3)",
 
-    "books-cta": "Do you have any book recommendations? Feel free to share them with me—I'm always on the lookout for my next great read!"
+    "books-cta": "Do you have any book recommendations? Feel free to share them with me—I'm always on the lookout for my next great read!",
+
+    "faq-q-1": "Where are you originally from?",
+    "faq-q-2": "Why did you study in the US?",
+    "faq-q-3": "Why are you in Denmark now?",
+    "faq-q-4": "Cool website! How did you make it?",
+    "faq-q-5": "Are you a robot?",
+    "faq-q-6": "What are you doing now?",
+    "faq-q-7": "How can I contact you?",
+
+    "faq-a-1": "I was born and raised in Thailand, a beautiful country with amazing food in Southeast Asia.",
+    "faq-a-2": "Thanks to my family who were willing to send me to the US. It was a great experience. UW-Madison is awesome!",
+    "faq-a-3": "I got bored in Thailand, so I decided to take the matter in my own hand and move to Europe. Then, Denmark chose me.",
+    "faq-a-4": "Know the basic and helps from ChatGPT and Copilot.",
+    "faq-a-5": "No, I'm human. At least I think so. Are you?",
+    "faq-a-6": "I am currently looking for new opportunities! I am super eager to get something done! Are you hiring?",
+
+    "project-desc-1": "A simple note-taking Android app with SQLite database for local storage, built with Java and Android Studio. Features include adding, editing, deleting notes, and searching through notes. Dedicated to my mom.",
+    "project-desc-2": "A breathalyzer prototype using MQ-3 alcohol sensor, Arduino for fun.",
+    "project-desc-3": "Developed an IoT device to monitor dairy cattle's core body temperature using LoRa wireless technology. Contributed to a research publication on real-time monitoring with implantable biosensors and wearable scanners.",
+    "project-desc-4": "Implementation of the MSDU-NET architecture for blur image segmentation, based on the paper \"MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images\".",
+    "project-desc-5": "My guided attempt at exploiting the latent space of temporal graph neural networks to efficiently generate fluid dynamics simulations.",
+    "project-desc-6": "Developed together with a friend in medical field. Based on a given birthdate, time, risk factors, and Serum Bilirubin (mg/dl).",
+
+    "article-1-desc": "Coming soon… From engineering to data science - my personal journey through education and career transitions. Insights from UW-Madison and University of Copenhagen.",
+    "article-2-desc": "A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture.",
+    "article-3-desc": "Personal insights and experiences on using AI tools like ChatGPT and GitHub Copilot in software development. How these tools have shaped my coding practices and productivity."
 }
