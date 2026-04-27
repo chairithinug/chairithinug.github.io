@@ -20,9 +20,26 @@ function darkMode() {
 
 // ---------- Language ----------
 function applyTranslations(data) {
-    Object.keys(data).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = data[id];
+    // Pass 1: text content via data-i18n="key"
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (data[key] !== undefined) el.textContent = data[key];
+    });
+    // Pass 2: aria-label via data-i18n-aria-label="key"
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+        const key = el.dataset.i18nAriaLabel;
+        if (data[key] !== undefined) el.setAttribute('aria-label', data[key]);
+    });
+    // Pass 3: title attribute via data-i18n-title="key"
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.dataset.i18nTitle;
+        if (data[key] !== undefined) el.setAttribute('title', data[key]);
+    });
+    // Pass 4: backward-compat — translate elements whose id matches a key,
+    // unless they already opted into the data-i18n attribute system.
+    Object.keys(data).forEach(key => {
+        const el = document.getElementById(key);
+        if (el && !el.hasAttribute('data-i18n')) el.textContent = data[key];
     });
 }
 

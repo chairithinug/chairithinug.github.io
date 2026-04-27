@@ -34,5 +34,39 @@
     "nav-projects": "Projects",
     "nav-interests": "Interests",
     "nav-books": "Books",
-    "nav-faq": "FAQ"
+    "nav-faq": "FAQ",
+
+    "aria-prev": "Previous",
+    "aria-next": "Next",
+    "aria-flip-card": "Flip card",
+    "aria-toggle-dark": "Toggle dark mode",
+    "aria-open-nav": "Open navigation menu",
+    "aria-sidebar-nav": "Sidebar navigation",
+    "aria-sports-carousel": "Sports carousel",
+    "aria-cert-carousel": "Certifications carousel",
+    "aria-timeline-legend": "Legend for timeline types",
+    "aria-accept-cookies": "Accept cookies and continue",
+    "aria-reject-cookies": "Reject cookies and continue",
+    "aria-skip-to-main": "Skip to main content",
+
+    "faq-card-1-aria": "Where are you originally from? (flip to reveal)",
+    "faq-card-2-aria": "Why did you study in the US? (flip to reveal)",
+    "faq-card-3-aria": "Why are you in Denmark now? (flip to reveal)",
+    "faq-card-4-aria": "Cool website! How did you make it? (flip to reveal)",
+    "faq-card-5-aria": "Are you a robot? (flip to reveal)",
+    "faq-card-6-aria": "What are you doing now? (flip to reveal)",
+    "faq-card-7-aria": "How can I contact you? (flip to reveal)",
+
+    "lang-tooltip-native": "Native",
+    "lang-tooltip-english": "Proficient · TOEIC 980/990",
+    "lang-tooltip-danish": "PD3",
+
+    "theme-light": "Light",
+    "theme-dark": "Dark",
+
+    "cookie-accept": "Accept",
+    "cookie-reject": "Reject",
+
+    "footer-privacy": "Privacy",
+    "footer-accessibility": "Accessibility"
 }
