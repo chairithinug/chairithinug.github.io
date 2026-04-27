@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 swUrl = policy.createScriptURL(swUrl);
             }
             navigator.serviceWorker.register(swUrl)
-                .then(reg => console.log('Service Worker registered with scope:', reg.scope))
                 .catch(err => console.error('Service Worker registration failed:', err));
         }
     });
