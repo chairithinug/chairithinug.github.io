@@ -1,4 +1,4 @@
-<a href="#main-content"
+<a href="#main-content" data-i18n="aria-skip-to-main"
    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-blue-700 focus:rounded focus:shadow-lg focus:outline focus:outline-2 focus:outline-blue-600">
     Skip to main content
 </a>
@@ -86,21 +86,21 @@
 
             <!-- Dark Mode Toggle -->
             <div class="flex items-center">
-                <span class="text-sm text-gray-700 dark:text-gray-300">Light</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300" data-i18n="theme-light">Light</span>
 
                 <button id="dark-toggle"
                     class="relative w-12 h-6 mx-3 bg-gray-300 dark:bg-green-700 rounded-full transition-colors duration-300"
-                    aria-label="Toggle dark mode">
+                    aria-label="Toggle dark mode" data-i18n-aria-label="aria-toggle-dark">
                     <span id="dark-toggle-thumb"
                         class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transform transition-transform duration-300"></span>
                 </button>
 
-                <span class="text-sm text-gray-700 dark:text-gray-300">Dark</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300" data-i18n="theme-dark">Dark</span>
             </div>
         </div>
     </div>
     <!-- Hamburger for mobile -->
-    <button id="sidebar-toggle" aria-label="Open navigation menu"
+    <button id="sidebar-toggle" aria-label="Open navigation menu" data-i18n-aria-label="aria-open-nav"
         class="fixed bottom-4 left-4 z-60 md:hidden p-4 bg-gray-100 dark:bg-gray-800 rounded-full shadow-lg text-xl">
         ☰
     </button>

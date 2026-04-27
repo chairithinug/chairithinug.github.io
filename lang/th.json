@@ -34,5 +34,39 @@
     "nav-projects": "โครงการ",
     "nav-interests": "ความสนใจ",
     "nav-books": "หนังสือ",
-    "nav-faq": "คำถามที่พบบ่อย"
+    "nav-faq": "คำถามที่พบบ่อย",
+
+    "aria-prev": "ก่อนหน้า",
+    "aria-next": "ถัดไป",
+    "aria-flip-card": "พลิกการ์ด",
+    "aria-toggle-dark": "สลับโหมดมืด",
+    "aria-open-nav": "เปิดเมนูนำทาง",
+    "aria-sidebar-nav": "เมนูนำทาง",
+    "aria-sports-carousel": "แถบเลื่อนกีฬา",
+    "aria-cert-carousel": "แถบเลื่อนใบรับรอง",
+    "aria-timeline-legend": "คำอธิบายประเภทไทม์ไลน์",
+    "aria-accept-cookies": "ยอมรับคุกกี้และดำเนินการต่อ",
+    "aria-reject-cookies": "ปฏิเสธคุกกี้และดำเนินการต่อ",
+    "aria-skip-to-main": "ข้ามไปยังเนื้อหาหลัก",
+
+    "faq-card-1-aria": "คุณมาจากไหน? (พลิกเพื่อดู)",
+    "faq-card-2-aria": "ทำไมคุณถึงไปเรียนที่สหรัฐฯ? (พลิกเพื่อดู)",
+    "faq-card-3-aria": "ทำไมคุณถึงอยู่ที่เดนมาร์กตอนนี้? (พลิกเพื่อดู)",
+    "faq-card-4-aria": "เว็บไซต์เจ๋งมาก! ทำยังไง? (พลิกเพื่อดู)",
+    "faq-card-5-aria": "คุณเป็นหุ่นยนต์หรือเปล่า? (พลิกเพื่อดู)",
+    "faq-card-6-aria": "ตอนนี้คุณกำลังทำอะไร? (พลิกเพื่อดู)",
+    "faq-card-7-aria": "ติดต่อคุณได้อย่างไร? (พลิกเพื่อดู)",
+
+    "lang-tooltip-native": "ภาษาแม่",
+    "lang-tooltip-english": "เชี่ยวชาญ · TOEIC 980/990",
+    "lang-tooltip-danish": "PD3 (ระดับ 3)",
+
+    "theme-light": "สว่าง",
+    "theme-dark": "มืด",
+
+    "cookie-accept": "ยอมรับ",
+    "cookie-reject": "ปฏิเสธ",
+
+    "footer-privacy": "ความเป็นส่วนตัว",
+    "footer-accessibility": "การเข้าถึง"
 }
