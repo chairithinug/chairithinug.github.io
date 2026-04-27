@@ -451,6 +451,11 @@ html:not(.theme-loaded) .transition-colors {
     }
 }
 
+/* Cap content width on ultra-wide displays (>1920px) */
+main#main-content {
+    max-width: 120rem;
+}
+
 /* Print styles — hide chrome, force black on white, avoid bad page breaks */
 @media print {
     #main-header,
