@@ -15,6 +15,15 @@
                 opacity: 1;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            #main-container,
+            #footer-container,
+            body {
+                animation: none;
+                opacity: 1;
+            }
+        }
     </style>
     <script>
         document.documentElement.classList.toggle(
@@ -98,7 +107,7 @@
     <script src="/partials/sidebar.js" defer></script>
 
     <!-- Main Content -->
-    <main
+    <main id="main-content"
         class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
         <section id="books" aria-labelledby="books-title">

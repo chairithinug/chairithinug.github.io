@@ -43,3 +43,14 @@
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    @keyframes cookieSlideUp {
+        from { opacity: 1; transform: none; }
+        to   { opacity: 1; transform: none; }
+    }
+    @keyframes cookieFadeIn {
+        from { opacity: 1; }
+        to   { opacity: 1; }
+    }
+}

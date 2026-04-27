@@ -443,3 +443,64 @@ header#main-header {
 html:not(.theme-loaded) .transition-colors {
   transition: none;
 }
+
+/* Respect reduced-motion OS preference — suppress all animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Print styles — hide chrome, force black on white, avoid bad page breaks */
+@media print {
+    #main-header,
+    #sidebar-container,
+    #progress-bar,
+    #cookie-banner,
+    #cookie-overlay,
+    #footer-container,
+    #sidebar-toggle {
+        display: none !important;
+    }
+
+    .blobs-container {
+        display: none !important;
+    }
+
+    main {
+        margin: 0 !important;
+        padding: 1rem !important;
+    }
+
+    body,
+    * {
+        color: #000 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+    }
+
+    section,
+    .timeline-entry,
+    .flip-card {
+        break-inside: avoid;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+        color: #555 !important;
+    }
+
+    a[href^="/icons"]::after,
+    a[href^="/pdf"]::after {
+        content: "";
+    }
+}
