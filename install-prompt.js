@@ -1,0 +1,184 @@
+// ---------- PWA install prompt ----------
+// Hooks the beforeinstallprompt event (Chrome/Edge/Android) and falls back to a
+// brief "Add to Home Screen" instruction sheet for iOS Safari, where the API
+// isn't available. Saves dismissals/installs in localStorage so we don't pester
+// the same visitor repeatedly.
+(function () {
+    const STORAGE_KEY = 'pwa-install-dismissed-until';
+    const DISMISS_DAYS = 14;
+
+    function isStandalone() {
+        return window.matchMedia('(display-mode: standalone)').matches
+            || window.navigator.standalone === true; // iOS Safari
+    }
+
+    function isDismissed() {
+        try {
+            const until = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+            return until > Date.now();
+        } catch (e) { return false; }
+    }
+
+    function setDismissed() {
+        try {
+            localStorage.setItem(STORAGE_KEY, String(Date.now() + DISMISS_DAYS * 24 * 60 * 60 * 1000));
+        } catch (e) { /* ignore */ }
+    }
+
+    function isIos() {
+        return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    // Already installed → never show
+    if (isStandalone()) return;
+
+    let deferredPrompt = null;
+
+    // Build the install button
+    function makeButton() {
+        const btn = document.createElement('button');
+        btn.id = 'pwa-install-btn';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Install this site as an app');
+        btn.setAttribute('data-i18n-aria-label', 'aria-install-app');
+        btn.className = [
+            'fixed', 'bottom-4', 'right-4', 'z-40',
+            'min-h-[44px]', 'px-4', 'py-2', 'rounded-full',
+            'bg-blue-600', 'hover:bg-blue-700', 'text-white', 'text-sm', 'font-semibold',
+            'shadow-lg', 'transition-opacity', 'duration-300',
+            'focus:outline-2', 'focus:outline-blue-300', 'focus:outline-offset-2',
+            'flex', 'items-center', 'gap-2',
+            'hidden',
+        ].join(' ');
+        btn.innerHTML = [
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">',
+            '<path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M5 21h14"/>',
+            '</svg>',
+            '<span data-i18n="install-app">Install app</span>',
+        ].join('');
+        // Dismiss with right-click / long-press is unreliable; provide a small × button
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'fixed bottom-[60px] right-2 z-40 w-6 h-6 rounded-full bg-gray-700 text-white text-xs leading-6 text-center hidden';
+        close.id = 'pwa-install-dismiss';
+        close.setAttribute('aria-label', 'Dismiss install prompt');
+        close.setAttribute('data-i18n-aria-label', 'aria-dismiss-install');
+        close.textContent = '×';
+        close.addEventListener('click', () => {
+            setDismissed();
+            btn.classList.add('hidden');
+            close.classList.add('hidden');
+        });
+        document.body.appendChild(btn);
+        document.body.appendChild(close);
+        return { btn, close };
+    }
+
+    function init() {
+        if (isDismissed()) return;
+        const { btn, close } = makeButton();
+
+        // Re-translate the new elements if a non-English language is active
+        try {
+            const lang = localStorage.getItem('lang');
+            if (lang && lang !== 'en') {
+                fetch(`/lang/${lang}.json`).then(r => r.json()).then(data => {
+                    if (typeof window.applyTranslations === 'function') {
+                        window.applyTranslations(data);
+                    } else {
+                        // Fallback: apply minimally
+                        const txt = btn.querySelector('[data-i18n="install-app"]');
+                        if (txt && data['install-app']) txt.textContent = data['install-app'];
+                        if (data['aria-install-app']) btn.setAttribute('aria-label', data['aria-install-app']);
+                        if (data['aria-dismiss-install']) close.setAttribute('aria-label', data['aria-dismiss-install']);
+                    }
+                }).catch(() => {});
+            }
+        } catch (e) { /* ignore */ }
+
+        // Chrome/Edge/Android path
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            btn.classList.remove('hidden');
+            close.classList.remove('hidden');
+        });
+
+        btn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const choice = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                btn.classList.add('hidden');
+                close.classList.add('hidden');
+                if (choice.outcome !== 'accepted') setDismissed();
+            } else if (isIos()) {
+                // iOS: show a small modal with instructions
+                showIosInstructions();
+            }
+        });
+
+        // iOS Safari fallback: show button after a delay (no beforeinstallprompt support)
+        if (isIos()) {
+            // Heuristic: show after 5s if not already standalone
+            setTimeout(() => {
+                if (!isStandalone() && !isDismissed()) {
+                    btn.classList.remove('hidden');
+                    close.classList.remove('hidden');
+                }
+            }, 5000);
+        }
+
+        // Hide button + cleanup if user installed via OS-native UI later
+        window.addEventListener('appinstalled', () => {
+            btn.classList.add('hidden');
+            close.classList.add('hidden');
+            try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        });
+    }
+
+    function showIosInstructions() {
+        const overlay = document.createElement('div');
+        overlay.className = 'fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl shadow-2xl max-w-sm w-full p-6 space-y-4';
+        card.innerHTML = `
+          <h2 class="text-lg font-bold" data-i18n="ios-install-title">Install on iOS</h2>
+          <ol class="list-decimal list-inside text-sm space-y-2">
+            <li data-i18n="ios-install-step-1">Tap the Share button in Safari.</li>
+            <li data-i18n="ios-install-step-2">Choose “Add to Home Screen”.</li>
+            <li data-i18n="ios-install-step-3">Tap “Add” in the top-right corner.</li>
+          </ol>
+          <button type="button" id="ios-install-close"
+            class="w-full px-4 py-2 min-h-[44px] rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+            data-i18n="ios-install-got-it"
+            aria-label="Got it">Got it</button>
+        `;
+        overlay.appendChild(card);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+        card.querySelector('#ios-install-close').addEventListener('click', () => {
+            overlay.remove();
+            setDismissed();
+        });
+        document.body.appendChild(overlay);
+        // Translate the new dialog if non-English
+        try {
+            const lang = localStorage.getItem('lang');
+            if (lang && lang !== 'en') {
+                fetch(`/lang/${lang}.json`).then(r => r.json()).then(data => {
+                    if (typeof window.applyTranslations === 'function') {
+                        window.applyTranslations(data);
+                    }
+                }).catch(() => {});
+            }
+        } catch (e) {}
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
