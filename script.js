@@ -5,6 +5,7 @@ const random = (min, max) => Math.random() * (max - min) + min;
 
 // ---------- Blob Background ----------
 function blobBackground() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const colors = [
         "#FBB6CE", "#BFDBFE", "#C6F6D5", "#FEF08A", "#D8B4FE",
         "#F87171", "#34D399", "#60A5FA", "#FCD34D", "#A78BFA",
