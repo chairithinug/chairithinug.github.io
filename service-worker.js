@@ -3,12 +3,8 @@ const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/contact.html',
-  '/contact-script.js',
   '/articles.html',
-  '/articles-script.js',
   '/projects.html',
-  '/projects-script.js',
   '/interests.html',
   '/interests-script.js',
   '/skills.html',

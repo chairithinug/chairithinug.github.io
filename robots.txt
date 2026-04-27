@@ -1,22 +1,37 @@
-# Block everything for all bots by default
-User-agent: *
-Disallow: /
+# Social media previewers — must fetch pages for link unfurls to work
+User-agent: LinkedInBot
+Allow: /
 
-# Allow Google
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Search engines
 User-agent: Googlebot
 Allow: /
 
-# Allow Bing
 User-agent: Bingbot
 Allow: /
 
-# Allow Yahoo
 User-agent: Slurp
 Allow: /
 
-# Allow DuckDuckGo / Yahoo feed
 User-agent: DuckDuckBot
 Allow: /
 
-# Sitemap location (helps Google find your pages)
-Sitemap: https://chairithinug.github.io/sitemap.xml
+# Block everything else
+User-agent: *
+Disallow: /
+
+Sitemap: https://chairithinug.com/sitemap.xml
