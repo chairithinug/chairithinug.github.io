@@ -15,6 +15,15 @@
                 opacity: 1;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            #main-container,
+            #footer-container,
+            body {
+                animation: none;
+                opacity: 1;
+            }
+        }
     </style>
     <script>
         document.documentElement.classList.toggle(
@@ -30,9 +39,6 @@
 
     <link rel="canonical" href="https://chairithinug.com/">
 
-    <!-- Preload CSS -->
-    <link rel="preload" href="/styles.css" as="style">
-    <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
 
     <!-- Favicons / PWA manifest -->
@@ -181,7 +187,7 @@
     <div id="sidebar-container"></div>
     <script src="/partials/sidebar.js" defer></script>
 
-    <main
+    <main id="main-content"
         class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
 
@@ -194,6 +200,7 @@
             <div class="flex flex-col md:flex-row items-start gap-4">
                 <!-- Profile Image -->
                 <img src="/img/anapat_chairithinugull.jpeg" alt="Anapat Chairithinugull"
+                    width="80" height="80" fetchpriority="high"
                     class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover flex-shrink-0">
 
                 <!-- Profile Paragraph -->
@@ -209,7 +216,7 @@
             </div>
         </section>
 
-        <section id="Recent activities" aria-labelledby="recent-activities-title"
+        <section id="recent-activities" aria-labelledby="recent-activities-title"
             class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 id="recent-activities-title"
                 class="text-2xl font-semibold border-b-2 border-gray-300 dark:border-gray-600 pb-2 mb-6 text-gray-800 dark:text-gray-100">
@@ -225,7 +232,7 @@
                         </svg>
                     </span>
                     <div>
-                        <p class="font-semibold text-gray-900 dark:text-gray-200">10/18/2025</p>
+                        <time datetime="2025-10-18" class="font-semibold text-gray-900 dark:text-gray-200">2025-10-18</time>
                         <p class="text-gray-700 dark:text-gray-400">Learning a course on full stack development by
                             Microsoft on Coursera. Precisely, WebApp development, with C# and ASP.NET.</p>
                     </div>
@@ -239,7 +246,7 @@
                         </svg>
                     </span>
                     <div>
-                        <p class="font-semibold text-gray-900 dark:text-gray-200">10/17/2025</p>
+                        <time datetime="2025-10-17" class="font-semibold text-gray-900 dark:text-gray-200">2025-10-17</time>
                         <p class="text-gray-700 dark:text-gray-400">Published a new article on my blog discussing my
                             experience using AI tools to boost coding efficiency.</p>
                     </div>
@@ -253,7 +260,7 @@
                         </svg>
                     </span>
                     <div>
-                        <p class="font-semibold text-gray-900 dark:text-gray-200">9/20/2025</p>
+                        <time datetime="2025-09-20" class="font-semibold text-gray-900 dark:text-gray-200">2025-09-20</time>
                         <p class="text-gray-700 dark:text-gray-400">Became a VP in Digital System for TSAAD.</p>
                     </div>
                 </li>
@@ -266,7 +273,7 @@
                         </svg>
                     </span>
                     <div>
-                        <p class="font-semibold text-gray-900 dark:text-gray-200">6/22/2025</p>
+                        <time datetime="2025-06-22" class="font-semibold text-gray-900 dark:text-gray-200">2025-06-22</time>
                         <p class="text-gray-700 dark:text-gray-400">Completed the first Ironman 70.3 in Elsinore,
                             Denmark.</p>
                     </div>
@@ -279,7 +286,7 @@
                         </svg>
                     </span>
                     <div>
-                        <p class="font-semibold text-gray-900 dark:text-gray-200">6/18/2025</p>
+                        <time datetime="2025-06-18" class="font-semibold text-gray-900 dark:text-gray-200">2025-06-18</time>
                         <p class="text-gray-700 dark:text-gray-400">Graduated with an MSc in Computer Science from
                             the
                             University of Copenhagen.</p>

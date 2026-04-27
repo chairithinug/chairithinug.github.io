@@ -15,6 +15,15 @@
                 opacity: 1;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            #main-container,
+            #footer-container,
+            body {
+                animation: none;
+                opacity: 1;
+            }
+        }
     </style>
     <script>
         // remove trailing comma to avoid potential syntax issues in some environments
@@ -31,9 +40,6 @@
 
     <link rel="canonical" href="https://chairithinug.com/articles.html">
 
-    <!-- Preload CSS -->
-    <link rel="preload" href="/styles.css" as="style">
-    <!-- Regular stylesheet -->
     <link rel="stylesheet" href="/styles.css">
 
     <!-- Favicons / PWA manifest -->
@@ -59,7 +65,7 @@
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
-        style-src 'self' 'unsafe-inline';
+        style-src 'self';
         img-src 'self';
         connect-src 'self' https://api.open-meteo.com;
         font-src 'self';
@@ -160,7 +166,7 @@
     <div id="sidebar-container"></div>
     <script src="/partials/sidebar.js" defer></script>
 
-    <main
+    <main id="main-content"
         class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
         role="main">
         <section id="articles" aria-labelledby="articles-title">
