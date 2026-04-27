@@ -47,6 +47,10 @@ function loadLanguage(lang) {
             elements.forEach(id => {
                 if (data[id]) document.getElementById(id).textContent = data[id];
             });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
+            });
         })
         .catch(() => {});
 }

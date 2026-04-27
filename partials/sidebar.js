@@ -47,6 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (window.innerWidth < 768) sidebar.classList.add('-translate-x-full');
                     });
                 });
+
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape') sidebar.classList.add('-translate-x-full');
+                });
             }
         });
 
