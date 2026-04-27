@@ -1,0 +1,118 @@
+{
+    "name-title": "Anapat Chairithinugull (Mew)",
+    "profile-title": "Profilresumé",
+    "profile-summary": "MSc i datalogi fra Københavns Universitet med erfaring inden for datadreven softwareudvikling, machine learning og storskala-databehandling. Erfaren i Python og centrale data science-biblioteker, med projekter inden for biometri, mediearkiver og beregningsmodellering. Stærkt fundament i statistisk analyse, algoritmeudvikling og håndtering af forskellige datakilder. Trives både selvstændigt og i tværfaglige teams, og motiveres af at bygge datadrevne produkter med målbar effekt.",
+
+    "skills-title": "Tekniske færdigheder",
+    "cert-title": "Certificeringer",
+    "languages-title": "Sprogfærdigheder",
+
+    "timeline-title": "Tidslinje",
+    "work-title": "Erhvervserfaring",
+    "education-title": "Formel uddannelse",
+    "volunteer-title": "Frivilligt arbejde",
+
+    "interests-title": "Interesser",
+    "sports-title": "Sportsresultater",
+
+    "articles-title": "Artikler",
+    "books-title": "Bøger",
+    "projects-title": "Projekter",
+    "qa-title": "Ofte stillede spørgsmål",
+    "recent-activities-title": "Seneste aktiviteter",
+
+    "currently-reading-title": "Læser / lytter til lige nu",
+    "backlog-title": "Læsekø",
+    "finished-reading-title": "Færdiglæst",
+    "finished-listening-title": "Færdig med at lytte",
+    "coffee-related-title": "Kafferelateret",
+
+    "nav-home": "Hjem",
+    "nav-articles": "Artikler",
+    "nav-career": "Karriere",
+    "nav-skills": "Færdigheder",
+    "nav-projects": "Projekter",
+    "nav-interests": "Interesser",
+    "nav-books": "Bøger",
+    "nav-faq": "FAQ",
+
+    "aria-prev": "Forrige",
+    "aria-next": "Næste",
+    "aria-flip-card": "Vend kort",
+    "aria-toggle-dark": "Skift mørk tilstand",
+    "aria-open-nav": "Åbn navigationsmenu",
+    "aria-sidebar-nav": "Sidebar-navigation",
+    "aria-sports-carousel": "Sportskarrusel",
+    "aria-cert-carousel": "Certificeringskarrusel",
+    "aria-timeline-legend": "Forklaring af tidslinjetyper",
+    "aria-accept-cookies": "Accepter cookies og fortsæt",
+    "aria-reject-cookies": "Afvis cookies og fortsæt",
+    "aria-skip-to-main": "Gå direkte til hovedindhold",
+
+    "faq-card-1-aria": "Hvor kommer du oprindeligt fra? (vend for at se)",
+    "faq-card-2-aria": "Hvorfor studerede du i USA? (vend for at se)",
+    "faq-card-3-aria": "Hvorfor er du i Danmark nu? (vend for at se)",
+    "faq-card-4-aria": "Fed hjemmeside! Hvordan lavede du den? (vend for at se)",
+    "faq-card-5-aria": "Er du en robot? (vend for at se)",
+    "faq-card-6-aria": "Hvad laver du for tiden? (vend for at se)",
+    "faq-card-7-aria": "Hvordan kan jeg kontakte dig? (vend for at se)",
+
+    "lang-tooltip-native": "Modersmål",
+    "lang-tooltip-english": "Flydende · TOEIC 980/990",
+    "lang-tooltip-danish": "PD3",
+
+    "theme-light": "Lys",
+    "theme-dark": "Mørk",
+
+    "cookie-accept": "Accepter",
+    "cookie-reject": "Afvis",
+
+    "footer-privacy": "Privatliv",
+    "footer-accessibility": "Tilgængelighed",
+
+    "recent-activity-1": "Tager et kursus i full stack-udvikling fra Microsoft på Coursera. Mere specifikt webapp-udvikling med C# og ASP.NET.",
+    "recent-activity-2": "Udgivet en ny artikel på bloggen om mine erfaringer med at bruge AI-værktøjer til at øge kodningseffektiviteten.",
+    "recent-activity-3": "Blev VP for Digital System i TSAAD.",
+    "recent-activity-4": "Gennemførte den første Ironman 70.3 i Helsingør, Danmark.",
+    "recent-activity-5": "Færdiggjort MSc i datalogi fra Københavns Universitet.",
+
+    "interest-coffee": "Kaffe- og te-håndværk",
+    "interest-travel": "Rejser",
+    "interest-photography": "Fotografi",
+    "interest-training": "IronMan- og maratontræning",
+
+    "sport-swim-1k": "1000 m svømning",
+    "sport-run-13": "13,3 km løb",
+    "sport-half-marathon": "Halvmaraton",
+    "sport-full-marathon": "Fuldt maraton",
+    "sport-mini-ironman": "4:18:4 Mini Ironman",
+    "sport-half-ironman": "Halv Ironman (70.3)",
+
+    "books-cta": "Har du nogle boganbefalinger? Del dem gerne med mig — jeg er altid på udkig efter den næste gode bog!",
+
+    "faq-q-1": "Hvor kommer du oprindeligt fra?",
+    "faq-q-2": "Hvorfor studerede du i USA?",
+    "faq-q-3": "Hvorfor er du i Danmark nu?",
+    "faq-q-4": "Fed hjemmeside! Hvordan lavede du den?",
+    "faq-q-5": "Er du en robot?",
+    "faq-q-6": "Hvad laver du for tiden?",
+    "faq-q-7": "Hvordan kan jeg kontakte dig?",
+
+    "faq-a-1": "Jeg er født og opvokset i Thailand — et smukt land med fantastisk mad i Sydøstasien.",
+    "faq-a-2": "Tak til min familie, der gjorde det muligt at sende mig til USA. Det var en fantastisk oplevelse. UW-Madison er sejt!",
+    "faq-a-3": "Jeg blev rastløs i Thailand, så jeg besluttede at tage sagen i egen hånd og flytte til Europa. Så valgte Danmark mig.",
+    "faq-a-4": "Lidt grundlæggende viden plus hjælp fra ChatGPT og Copilot.",
+    "faq-a-5": "Nej, jeg er menneske. Det tror jeg da. Er du?",
+    "faq-a-6": "Jeg leder efter nye muligheder lige nu! Jeg er super klar til at få noget på benene — søger I medarbejdere?",
+
+    "project-desc-1": "En simpel notes-app til Android med SQLite-database til lokal opbevaring, bygget i Java og Android Studio. Funktioner inkluderer tilføjelse, redigering, sletning og søgning i noter. Tilegnet min mor.",
+    "project-desc-2": "En prototype-alkometer med MQ-3 alkoholsensor og Arduino — bygget for sjov.",
+    "project-desc-3": "Udviklet en IoT-enhed til at overvåge mælkekøers kropstemperatur i realtid via LoRa trådløs teknologi. Bidraget til en forskningspublikation om realtidsovervågning med implanterbare biosensorer og bærbare scannere.",
+    "project-desc-4": "Implementering af MSDU-NET-arkitekturen til segmentering af slørede billeder, baseret på artiklen \"MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images\".",
+    "project-desc-5": "Mit vejledte forsøg på at udnytte latent space i temporale graph neural networks til effektivt at generere fluiddynamik-simuleringer.",
+    "project-desc-6": "Udviklet sammen med en ven fra det medicinske felt. Baseret på fødselsdato, klokkeslæt, risikofaktorer og Serum Bilirubin (mg/dl).",
+
+    "article-1-desc": "Kommer snart … Fra ingeniørarbejde til data science — min personlige rejse gennem uddannelse og karriereskift. Indsigter fra UW-Madison og Københavns Universitet.",
+    "article-2-desc": "En grundig guide til at cykle i Danmark, med færdselsregler, etikette, praktiske tips og indsigt i den danske cykelkultur.",
+    "article-3-desc": "Personlige indsigter og erfaringer med at bruge AI-værktøjer som ChatGPT og GitHub Copilot i softwareudvikling. Hvordan disse værktøjer har formet min måde at kode på og min produktivitet."
+}
