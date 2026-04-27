@@ -1,17 +1,3 @@
-// ---------- Weather ----------
-async function getWeather() {
-    try {
-        const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=13.7563&longitude=100.5018&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation,weather_code");
-        const data = await res.json();
-        const current = data.current;
-
-        document.getElementById("weather-temp").textContent = `Bangkok: ${current.temperature_2m}°C`;
-        document.getElementById("weather-desc").textContent = `Humidity: ${current.relative_humidity_2m}%, Wind: ${current.wind_speed_10m} m/s`;
-    } catch (e) {
-        console.error("Weather fetch failed:", e);
-    }
-}
-
 // ---------- Dark Mode Toggle ----------
 function darkMode() {
     const toggle = document.getElementById("dark-toggle");
@@ -41,7 +27,7 @@ function loadLanguage(lang) {
             const elements = [
                 "name-title", "profile-title", "profile-summary", "skills-title",
                 "timeline-title", "work-title", "education-title", "further-title",
-                "volunteer-title", "languages-title", "interests-title", "sports-title", "weather-title"
+                "volunteer-title", "languages-title", "interests-title", "sports-title"
             ];
 
             elements.forEach(id => {
@@ -62,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(html => {
             document.getElementById('header-container').innerHTML = html;
             darkMode();
-            getWeather();
             // Language buttons
             document.querySelectorAll(".lang-btn").forEach(btn =>
                 btn.addEventListener("click", () => loadLanguage(btn.dataset.lang))

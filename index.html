@@ -63,7 +63,6 @@
 
 
     <!-- Resource hints -->
-    <link rel="preconnect" href="https://api.open-meteo.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
     <!-- Security / Policy headers -->
@@ -73,7 +72,7 @@
         script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
         style-src 'self';
         img-src 'self';
-        connect-src 'self' https://api.open-meteo.com;
+        connect-src 'self';
         font-src 'self';
         object-src 'none';
         base-uri 'self';
@@ -208,10 +207,10 @@
                 <!-- Profile Image -->
                 <picture>
                     <source type="image/webp"
-                        srcset="/img/anapat_chairithinugull-80.webp 1x, /img/anapat_chairithinugull-160.webp 2x">
+                        srcset="/img/anapat_chairithinugull-160.webp 1x, /img/anapat_chairithinugull-320.webp 2x">
                     <img src="/img/anapat_chairithinugull.jpeg" alt="Anapat Chairithinugull"
-                        width="80" height="80" fetchpriority="high"
-                        class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover flex-shrink-0">
+                        width="160" height="160" fetchpriority="high"
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover flex-shrink-0">
                 </picture>
 
                 <!-- Profile Paragraph -->
