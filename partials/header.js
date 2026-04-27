@@ -3,42 +3,51 @@ function darkMode() {
     const toggle = document.getElementById("dark-toggle");
     const thumb = document.getElementById("dark-toggle-thumb");
 
-    // 1. Apply initial theme from localStorage or default to dark
-    const isDark = localStorage.getItem("dark-mode") === "true";
-    document.documentElement.classList.toggle("dark", isDark);
-
-    // 2. Set initial thumb position
+    // The inline init script in <head> already sets the .dark class on <html>
+    // based on localStorage.theme + system preference. We just sync the toggle
+    // and add the click handler.
+    const isDark = document.documentElement.classList.contains("dark");
     if (thumb) thumb.classList.toggle("translate-x-6", isDark);
 
-    // 3. Add click listener
-    toggle.addEventListener("click", () => {
-        const dark = document.documentElement.classList.toggle("dark");
-        if (thumb) thumb.classList.toggle("translate-x-6");
-        localStorage.setItem("dark-mode", dark);
-        localStorage.theme = dark ? "dark" : "light";
-    });
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            const dark = document.documentElement.classList.toggle("dark");
+            if (thumb) thumb.classList.toggle("translate-x-6");
+            localStorage.theme = dark ? "dark" : "light";
+        });
+    }
 }
 
 // ---------- Language ----------
+function applyTranslations(data) {
+    Object.keys(data).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = data[id];
+    });
+}
+
 function loadLanguage(lang) {
-    fetch(`lang/${lang}.json`)
+    return fetch(`/lang/${lang}.json`)
         .then(res => res.json())
         .then(data => {
-            const elements = [
-                "name-title", "profile-title", "profile-summary", "skills-title",
-                "timeline-title", "work-title", "education-title", "further-title",
-                "volunteer-title", "languages-title", "interests-title", "sports-title"
-            ];
-
-            elements.forEach(id => {
-                if (data[id]) document.getElementById(id).textContent = data[id];
-            });
-
+            applyTranslations(data);
+            try { localStorage.lang = lang; } catch (e) {}
+            document.documentElement.lang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
             });
+            return data;
         })
-        .catch(() => {});
+        .catch(() => null);
+}
+
+// Re-apply current language after dynamically-injected partials (sidebar) land.
+function retranslateAfterPartials() {
+    const lang = (() => { try { return localStorage.lang; } catch (e) { return null; } })();
+    if (!lang || lang === "en") return;
+    setTimeout(() => {
+        fetch(`/lang/${lang}.json`).then(r => r.json()).then(applyTranslations).catch(() => {});
+    }, 300);
 }
 
 // ---------- Initialize Everything ----------
@@ -48,9 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(html => {
             document.getElementById('header-container').innerHTML = html;
             darkMode();
-            // Language buttons
             document.querySelectorAll(".lang-btn").forEach(btn =>
                 btn.addEventListener("click", () => loadLanguage(btn.dataset.lang))
             );
+            const savedLang = (() => { try { return localStorage.lang; } catch (e) { return null; } })();
+            if (savedLang && savedLang !== "en") loadLanguage(savedLang);
+            retranslateAfterPartials();
         });
 });
