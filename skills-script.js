@@ -34,6 +34,22 @@ function setupCarousel(carouselId, leftBtnId, rightBtnId, scrollAmount) {
             carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         }
     });
+
+    let touchStartX = 0;
+    let touchScrollLeft = 0;
+
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchScrollLeft = carousel.scrollLeft;
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', e => {
+        const walk = (touchStartX - e.touches[0].clientX) * 1.5;
+        carousel.scrollLeft = touchScrollLeft + walk;
+        e.preventDefault();
+    }, { passive: false });
+
+    carousel.addEventListener('touchend', () => {});
 }
 
 // ---------- Initialize Everything ----------
