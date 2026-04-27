@@ -1,7 +1,24 @@
 {
-  "name": "Anapat Chairithinugull Interactive Resume",
+  "id": "/?source=pwa",
+  "name": "Anapat Chairithinugull — Interactive Resume",
   "short_name": "Chairithinug",
+  "description": "Interactive resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "categories": ["personal", "portfolio", "productivity"],
   "icons": [
+    {
+      "src": "/icons/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icons/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -12,10 +29,43 @@
       "src": "/icons/favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/icons/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "shortcuts": [
+    {
+      "name": "Career timeline",
+      "short_name": "Career",
+      "description": "Work experience and education",
+      "url": "/career.html?source=pwa",
+      "icons": [{ "src": "/icons/favicon/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "Selected technical projects",
+      "url": "/projects.html?source=pwa",
+      "icons": [{ "src": "/icons/favicon/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Articles",
+      "short_name": "Articles",
+      "description": "Blog posts",
+      "url": "/articles.html?source=pwa",
+      "icons": [{ "src": "/icons/favicon/favicon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "prefer_related_applications": false
 }

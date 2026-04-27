@@ -42,6 +42,9 @@ function applyTranslations(data) {
         if (el && !el.hasAttribute('data-i18n')) el.textContent = data[key];
     });
 }
+// Exposed so dynamically-injected components (install prompt, back-to-top,
+// future widgets) can re-translate themselves after injection.
+window.applyTranslations = applyTranslations;
 
 function loadLanguage(lang) {
     return fetch(`/lang/${lang}.json`)
