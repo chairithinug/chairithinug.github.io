@@ -111,9 +111,11 @@ function blobBackground() {
         requestAnimationFrame(animate);
     };
 
-    setInterval(() => {
+    const blobInterval = setInterval(() => {
         if (blobsList.length < maxBlobs) createBlob();
     }, 2000);
+
+    window.addEventListener('pagehide', () => clearInterval(blobInterval));
 
     animate();
 }

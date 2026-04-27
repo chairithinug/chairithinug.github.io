@@ -48,7 +48,7 @@ function loadLanguage(lang) {
                 if (data[id]) document.getElementById(id).textContent = data[id];
             });
         })
-        .finally(() => console.log(`Language changed to: ${lang}`));
+        .catch(() => {});
 }
 
 // ---------- Initialize Everything ----------
