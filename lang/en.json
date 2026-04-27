@@ -2,13 +2,37 @@
     "name-title": "Anapat Chairithinugull (Mew)",
     "profile-title": "Profile Summary",
     "profile-summary": "MSc Computer Science graduate from the University of Copenhagen with experience in data-driven software development, machine learning, and large-scale data processing. Skilled in Python and core data science libraries, with projects spanning biometrics, media archives, and computational modeling. I have a strong foundation in statistical analysis, algorithm development, and handling diverse data sources. Comfortable working independently and in cross-functional teams, I am eager to contribute to building data-driven products with real-world impact.",
+
     "skills-title": "Technical Skills",
+    "cert-title": "Certifications",
+    "languages-title": "Language Skills",
+
     "timeline-title": "Timeline",
     "work-title": "Work Experience",
     "education-title": "Formal Education",
-    "cert-title": "Certifications",
     "volunteer-title": "Volunteer Work",
-    "languages-title": "Languages",
+
     "interests-title": "Interests",
-    "sports-title": "Sports Achievements"
+    "sports-title": "Sports Achievements",
+
+    "articles-title": "Articles",
+    "books-title": "Books",
+    "projects-title": "Projects",
+    "qa-title": "Frequently Asked Questions",
+    "recent-activities-title": "Recent Activities",
+
+    "currently-reading-title": "Currently Reading / Listening",
+    "backlog-title": "Backlog",
+    "finished-reading-title": "Finished Reading",
+    "finished-listening-title": "Finished Listening",
+    "coffee-related-title": "Coffee Related",
+
+    "nav-home": "Home",
+    "nav-articles": "Articles",
+    "nav-career": "Career",
+    "nav-skills": "Skills",
+    "nav-projects": "Projects",
+    "nav-interests": "Interests",
+    "nav-books": "Books",
+    "nav-faq": "FAQ"
 }
