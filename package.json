@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/chairithinug/myresume#readme",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
     "autoprefixer": "^10.4.21",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.4",
@@ -28,5 +29,8 @@
     "tailwindcss": "^4.1.14",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "postcss-cli": "^11.0.1"
   }
 }
