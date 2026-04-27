@@ -53,6 +53,7 @@ function setupCookies() {
             console.error("Error saving cookie consent to localStorage:", err);
         }
         hideBanner();
+        loadAnalytics();
     });
 
     rejectBtn?.addEventListener("click", (e) => {
@@ -92,15 +93,13 @@ function setupCookies() {
 
 // ---------- Google Analytics Loader ----------
 function loadAnalytics() {
-    if (localStorage.getItem("analytics-consent") === "true") return;
-
-    try {
-        localStorage.setItem("analytics-consent", "true");
-    } catch (e) {
-        console.error("Error saving analytics consent to localStorage:", e);
-    }
+    // Only fire when the user has explicitly accepted cookies
+    if (localStorage.getItem("cookieConsent") !== "accepted") return;
+    // Prevent double-injection on repeat calls
+    if (document.getElementById("ga-script")) return;
 
     const script = document.createElement("script");
+    script.id = "ga-script";
     script.src = "https://www.googletagmanager.com/gtag/js?id=G-FJQNSE4GQC";
     script.async = true;
     document.head.appendChild(script);
@@ -167,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             setupCookies();
+            loadAnalytics(); // fires immediately for returning visitors who already accepted
         })
         .catch((err) => {
             console.error("Failed to load footer partial:", err);
