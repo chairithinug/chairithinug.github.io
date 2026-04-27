@@ -68,5 +68,25 @@
     "cookie-reject": "Reject",
 
     "footer-privacy": "Privacy",
-    "footer-accessibility": "Accessibility"
+    "footer-accessibility": "Accessibility",
+
+    "recent-activity-1": "Learning a course on full stack development by Microsoft on Coursera. Precisely, WebApp development, with C# and ASP.NET.",
+    "recent-activity-2": "Published a new article on my blog discussing my experience using AI tools to boost coding efficiency.",
+    "recent-activity-3": "Became a VP in Digital System for TSAAD.",
+    "recent-activity-4": "Completed the first Ironman 70.3 in Elsinore, Denmark.",
+    "recent-activity-5": "Graduated with an MSc in Computer Science from the University of Copenhagen.",
+
+    "interest-coffee": "Coffee & Tea Crafting",
+    "interest-travel": "Travel",
+    "interest-photography": "Photography",
+    "interest-training": "IronMan & Marathon Training",
+
+    "sport-swim-1k": "1000m Swimming",
+    "sport-run-13": "13.3K Running",
+    "sport-half-marathon": "Half Marathon",
+    "sport-full-marathon": "Full Marathon",
+    "sport-mini-ironman": "4:18:4 Mini Ironman",
+    "sport-half-ironman": "Half Ironman (70.3)",
+
+    "books-cta": "Do you have any book recommendations? Feel free to share them with me—I'm always on the lookout for my next great read!"
 }

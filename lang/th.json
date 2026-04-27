@@ -68,5 +68,25 @@
     "cookie-reject": "ปฏิเสธ",
 
     "footer-privacy": "ความเป็นส่วนตัว",
-    "footer-accessibility": "การเข้าถึง"
+    "footer-accessibility": "การเข้าถึง",
+
+    "recent-activity-1": "กำลังเรียนคอร์สพัฒนา Full Stack ของ Microsoft บน Coursera โดยเน้นการพัฒนา WebApp ด้วย C# และ ASP.NET",
+    "recent-activity-2": "เผยแพร่บทความใหม่บนบล็อก เล่าประสบการณ์การใช้เครื่องมือ AI เพื่อเพิ่มประสิทธิภาพในการเขียนโค้ด",
+    "recent-activity-3": "ได้รับตำแหน่งรองประธานฝ่ายระบบดิจิทัลของ TSAAD",
+    "recent-activity-4": "พิชิต Ironman 70.3 ครั้งแรกที่เมืองเอลซินอร์ ประเทศเดนมาร์ก",
+    "recent-activity-5": "สำเร็จการศึกษาระดับปริญญาโทด้านวิทยาการคอมพิวเตอร์จากมหาวิทยาลัยโคเปนเฮเกน",
+
+    "interest-coffee": "การชงกาแฟและชา",
+    "interest-travel": "การท่องเที่ยว",
+    "interest-photography": "การถ่ายภาพ",
+    "interest-training": "ฝึกซ้อม IronMan และมาราธอน",
+
+    "sport-swim-1k": "ว่ายน้ำ 1000 ม.",
+    "sport-run-13": "วิ่ง 13.3 กม.",
+    "sport-half-marathon": "ฮาล์ฟมาราธอน",
+    "sport-full-marathon": "ฟูลมาราธอน",
+    "sport-mini-ironman": "4:18:4 มินิไอรอนแมน",
+    "sport-half-ironman": "ฮาล์ฟไอรอนแมน (70.3)",
+
+    "books-cta": "มีหนังสือที่อยากแนะนำไหม? บอกผมได้นะครับ—ผมกำลังมองหาเล่มต่อไปเสมอ!"
 }
