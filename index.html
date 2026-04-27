@@ -200,9 +200,13 @@
 
             <div class="flex flex-col md:flex-row items-start gap-4">
                 <!-- Profile Image -->
-                <img src="/img/anapat_chairithinugull.jpeg" alt="Anapat Chairithinugull"
-                    width="80" height="80" fetchpriority="high"
-                    class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover flex-shrink-0">
+                <picture>
+                    <source type="image/webp"
+                        srcset="/img/anapat_chairithinugull-80.webp 1x, /img/anapat_chairithinugull-160.webp 2x">
+                    <img src="/img/anapat_chairithinugull.jpeg" alt="Anapat Chairithinugull"
+                        width="80" height="80" fetchpriority="high"
+                        class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover flex-shrink-0">
+                </picture>
 
                 <!-- Profile Paragraph -->
                 <p id="profile-summary" class="text-gray-800 dark:text-gray-200">
