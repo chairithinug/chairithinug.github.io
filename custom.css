@@ -451,6 +451,16 @@ html:not(.theme-loaded) .transition-colors {
     }
 }
 
+/* PWA install button — must sit above cookie overlay (z-40) and cookie banner (z-50). */
+#pwa-install-btn {
+    z-index: 60;
+    bottom: 6rem; /* 96px, clear of cookie banner at bottom-4 */
+}
+#pwa-install-dismiss {
+    z-index: 60;
+    bottom: 8.75rem; /* 140px, just above the install button */
+}
+
 /* Cap content width on ultra-wide displays (>1920px) */
 main#main-content {
     max-width: 120rem;
