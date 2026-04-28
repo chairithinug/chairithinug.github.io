@@ -41,8 +41,11 @@
         btn.type = 'button';
         btn.setAttribute('aria-label', 'Install this site as an app');
         btn.setAttribute('data-i18n-aria-label', 'aria-install-app');
+        // Position + z-index live in custom.css (#pwa-install-btn) so the
+        // arbitrary z-60 / bottom-[6rem] don't depend on Tailwind picking up
+        // values out of JS strings. Tailwind utilities below are layout-only.
         btn.className = [
-            'fixed', 'bottom-4', 'right-4', 'z-40',
+            'fixed', 'right-4',
             'min-h-[44px]', 'px-4', 'py-2', 'rounded-full',
             'bg-blue-600', 'hover:bg-blue-700', 'text-white', 'text-sm', 'font-semibold',
             'shadow-lg', 'transition-opacity', 'duration-300',
@@ -59,7 +62,8 @@
         // Dismiss with right-click / long-press is unreliable; provide a small × button
         const close = document.createElement('button');
         close.type = 'button';
-        close.className = 'fixed bottom-[60px] right-2 z-40 w-6 h-6 rounded-full bg-gray-700 text-white text-xs leading-6 text-center hidden';
+        // Position + z-index in custom.css (#pwa-install-dismiss); these are layout-only
+        close.className = 'fixed right-2 w-6 h-6 rounded-full bg-gray-700 text-white text-xs leading-6 text-center hidden';
         close.id = 'pwa-install-dismiss';
         close.setAttribute('aria-label', 'Dismiss install prompt');
         close.setAttribute('data-i18n-aria-label', 'aria-dismiss-install');
@@ -74,9 +78,37 @@
         return { btn, close };
     }
 
+    function isCookieBannerVisible() {
+        const banner = document.getElementById('cookie-banner');
+        if (!banner) return false;
+        // Banner is "inert" + display:none after consent decided
+        return !banner.hasAttribute('inert');
+    }
+
     function init() {
         if (isDismissed()) return;
         const { btn, close } = makeButton();
+
+        // Hide install UI whenever the cookie banner is in the way; re-check
+        // periodically so we surface the install prompt as soon as the user
+        // dismisses the cookie banner.
+        function syncWithCookieBanner() {
+            if (isCookieBannerVisible()) {
+                btn.dataset.suppressed = 'cookie';
+                btn.classList.add('hidden');
+                close.classList.add('hidden');
+            } else if (btn.dataset.suppressed === 'cookie') {
+                delete btn.dataset.suppressed;
+                if (deferredPrompt || isIos()) {
+                    btn.classList.remove('hidden');
+                    close.classList.remove('hidden');
+                }
+            }
+        }
+        // Re-check every 500ms — cheap, no MutationObserver setup, fine for a
+        // one-time interaction that resolves within seconds.
+        const cookieWatcher = setInterval(syncWithCookieBanner, 500);
+        window.addEventListener('pagehide', () => clearInterval(cookieWatcher));
 
         // Re-translate the new elements if a non-English language is active
         try {
