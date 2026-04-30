@@ -3,6 +3,36 @@
 // ---------- Utility ----------
 const random = (min, max) => Math.random() * (max - min) + min;
 
+// ---------- Partial fetch fallback ----------
+// Renders an inline error notice in the given container when the partial
+// fetch fails. Used by header.js / sidebar.js / footer.js. Translatable copy
+// with English fallbacks so it shows something even before lang/*.json loads.
+window.showPartialError = function showPartialError(containerId, partName) {
+    const c = document.getElementById(containerId);
+    if (!c) return;
+    const wrap = document.createElement('div');
+    wrap.setAttribute('role', 'alert');
+    wrap.className = 'px-4 py-3 bg-amber-100 dark:bg-amber-900 text-amber-900 dark:text-amber-100 text-sm flex flex-wrap items-center justify-between gap-3 rounded shadow';
+    const msg = document.createElement('span');
+    msg.setAttribute('data-i18n', 'partial-error-message');
+    msg.textContent = `Couldn’t load the ${partName}. Check your connection and try again.`;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'px-3 py-1 rounded bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold min-h-[36px]';
+    btn.setAttribute('data-i18n', 'partial-error-reload');
+    btn.textContent = 'Reload';
+    btn.addEventListener('click', () => location.reload());
+    wrap.append(msg, btn);
+    c.replaceChildren(wrap);
+    // Translate immediately if a non-English language is active
+    try {
+        const lang = localStorage.lang;
+        if (lang && lang !== 'en' && typeof window.applyTranslations === 'function') {
+            fetch(`/lang/${lang}.json`).then(r => r.json()).then(window.applyTranslations).catch(() => {});
+        }
+    } catch (e) { /* ignore */ }
+};
+
 // ---------- Blob Background ----------
 function blobBackground() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

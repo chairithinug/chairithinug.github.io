@@ -61,19 +61,50 @@ function loadLanguage(lang) {
         .catch(() => null);
 }
 
-// Re-apply current language after dynamically-injected partials (sidebar) land.
+// Re-apply current language after dynamically-injected partials (sidebar,
+// footer) land. Uses a MutationObserver on the partial containers — fires
+// the moment the new DOM is added, no fixed-delay timeout needed.
 function retranslateAfterPartials() {
     const lang = (() => { try { return localStorage.lang; } catch (e) { return null; } })();
     if (!lang || lang === "en") return;
-    setTimeout(() => {
-        fetch(`/lang/${lang}.json`).then(r => r.json()).then(applyTranslations).catch(() => {});
-    }, 300);
+
+    let translated = null;
+    const fetchAndApply = () => {
+        if (translated) {
+            applyTranslations(translated);
+        } else {
+            fetch(`/lang/${lang}.json`)
+                .then(r => r.json())
+                .then(data => { translated = data; applyTranslations(data); })
+                .catch(() => {});
+        }
+    };
+
+    const targets = ['sidebar-container', 'footer-container']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    if (!targets.length) return;
+
+    const observer = new MutationObserver(() => fetchAndApply());
+    targets.forEach(t => observer.observe(t, { childList: true, subtree: true }));
+
+    // Stop watching after both containers have been populated (or 5s safety net)
+    let populated = 0;
+    const checkDone = () => {
+        populated = targets.filter(t => t.children.length > 0).length;
+        if (populated === targets.length) observer.disconnect();
+    };
+    targets.forEach(t => new MutationObserver(checkDone).observe(t, { childList: true }));
+    setTimeout(() => observer.disconnect(), 5000);
 }
 
 // ---------- Initialize Everything ----------
 document.addEventListener("DOMContentLoaded", () => {
     fetch('/partials/header.html')
-        .then(res => res.text())
+        .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
         .then(html => {
             document.getElementById('header-container').innerHTML = html;
             darkMode();
@@ -83,5 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const savedLang = (() => { try { return localStorage.lang; } catch (e) { return null; } })();
             if (savedLang && savedLang !== "en") loadLanguage(savedLang);
             retranslateAfterPartials();
+        })
+        .catch(err => {
+            console.error('Failed to load header partial:', err);
+            if (typeof window.showPartialError === 'function') {
+                window.showPartialError('header-container', 'header');
+            }
         });
 });
