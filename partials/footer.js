@@ -129,19 +129,20 @@ function trackLinks() {
         { selector: 'a[href*="skills.html"]', label: "Skills" },
     ];
 
-    links.forEach((link) => {
-        const element = document.querySelector(link.selector);
-        if (!element || typeof window.gtag !== "function") return;
+    if (typeof window.gtag !== "function") return;
 
-        element.addEventListener("click", () => {
-            try {
-                window.gtag("event", "click", {
-                    event_category: "Link",
-                    event_label: link.label,
-                });
-            } catch (e) {
-                console.error("Error tracking link click:", e);
-            }
+    links.forEach((link) => {
+        document.querySelectorAll(link.selector).forEach((element) => {
+            element.addEventListener("click", () => {
+                try {
+                    window.gtag("event", "click", {
+                        event_category: "Link",
+                        event_label: link.label,
+                    });
+                } catch (e) {
+                    console.error("Error tracking link click:", e);
+                }
+            });
         });
     });
 }
