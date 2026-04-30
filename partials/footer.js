@@ -172,6 +172,3 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Failed to load footer partial:", err);
         });
 });
-
-// Initialize cookies setup
-document.addEventListener("DOMContentLoaded", setupCookies);
