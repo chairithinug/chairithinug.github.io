@@ -111,7 +111,6 @@
     --radius-xl: 0.75rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    --blur-sm: 8px;
     --blur-2xl: 40px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1707,6 +1706,12 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .dark\:border {
+    &:where(.dark, .dark *) {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
   .dark\:border-gray-600 {
     &:where(.dark, .dark *) {
       border-color: var(--color-gray-600);
@@ -2057,6 +2062,14 @@
     }
   }
 }
+:root {
+  --color-focus-default: oklch(0.55 0.22 263.51);
+  --color-focus-flipped: oklch(0.75 0.18 70);
+}
+.dark {
+  --color-focus-default: oklch(0.72 0.22 263.51);
+  --color-focus-flipped: oklch(0.82 0.18 70);
+}
 html, body {
   overflow-x: hidden;
   width: 100%;
@@ -2134,11 +2147,11 @@ header#main-header {
   animation: none;
 }
 .flip-card:focus {
-  outline: 3px solid #007BFF;
+  outline: 3px solid var(--color-focus-default);
   outline-offset: 4px;
 }
 .flip-card.flipped:focus {
-  outline: 3px solid #FFAA00;
+  outline: 3px solid var(--color-focus-flipped);
 }
 .flip-card-back {
   display: flex;
