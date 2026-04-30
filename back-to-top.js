@@ -22,12 +22,28 @@
         document.body.appendChild(btn);
 
         let visible = false;
+        // Threshold caps at 600 px on long pages but scales down to 50 % of
+        // available scroll on shorter pages so the button still surfaces.
+        const computeThreshold = () => {
+            const scrollable = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            return Math.min(600, scrollable * 0.5);
+        };
+        let threshold = computeThreshold();
         const update = () => {
-            const shouldShow = window.scrollY > 600;
+            const shouldShow = scrollable() && window.scrollY > threshold;
             if (shouldShow && !visible) { btn.classList.remove('hidden'); visible = true; }
             else if (!shouldShow && visible) { btn.classList.add('hidden'); visible = false; }
         };
+        // Hide entirely if the page can't scroll meaningfully (e.g. < 200 px).
+        function scrollable() {
+            return (document.documentElement.scrollHeight - window.innerHeight) > 200;
+        }
+        const recompute = () => { threshold = computeThreshold(); update(); };
         window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', recompute, { passive: true });
+        // Recompute once after the dynamic partials (sidebar/footer) and async
+        // images settle, since they change scrollHeight.
+        window.addEventListener('load', recompute);
         update();
 
         btn.addEventListener('click', () => {

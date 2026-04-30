@@ -28,13 +28,55 @@ function setupCookies() {
         hideOverlay();
     };
 
-    // Read existing consent safely
-    let cookieConsent = null;
+    // Detect storage availability up-front so we can warn the user that their
+    // choice won't persist across sessions if storage is blocked.
+    let storageAvailable = true;
     try {
-        cookieConsent = localStorage.getItem("cookieConsent");
+        const testKey = '__cookie_storage_test__';
+        localStorage.setItem(testKey, '1');
+        localStorage.removeItem(testKey);
     } catch (e) {
-        console.error("Error reading cookie consent from localStorage:", e);
+        storageAvailable = false;
+        console.warn("localStorage unavailable; cookie consent won't persist:", e);
     }
+
+    // In-memory consent state used as a fallback when storage is blocked. Only
+    // good for the current page session, but at least the banner won't keep
+    // reappearing on every action within the same view.
+    let sessionConsent = null;
+
+    const readConsent = () => {
+        if (!storageAvailable) return sessionConsent;
+        try { return localStorage.getItem("cookieConsent"); }
+        catch (e) { return sessionConsent; }
+    };
+    const writeConsent = (value) => {
+        sessionConsent = value;
+        if (!storageAvailable) return;
+        try { localStorage.setItem("cookieConsent", value); }
+        catch (e) { storageAvailable = false; renderStorageNotice(); }
+    };
+
+    // Inline notice slot inside the banner: appears when storage is blocked.
+    const renderStorageNotice = () => {
+        if (storageAvailable) return;
+        if (banner.querySelector('.cookie-storage-notice')) return;
+        const notice = document.createElement('div');
+        notice.className = 'cookie-storage-notice text-xs text-amber-700 dark:text-amber-300 mt-2 w-full';
+        notice.setAttribute('data-i18n', 'cookie-storage-warning');
+        notice.textContent = 'Note: your browser is blocking storage, so this choice will not persist after you close the tab.';
+        banner.appendChild(notice);
+        // Translate immediately if a non-English language is active
+        try {
+            const lang = localStorage.lang;
+            if (lang && lang !== 'en' && typeof window.applyTranslations === 'function') {
+                fetch(`/lang/${lang}.json`).then(r => r.json()).then(window.applyTranslations).catch(() => {});
+            }
+        } catch (e) { /* ignore */ }
+    };
+
+    // Read existing consent
+    const cookieConsent = readConsent();
 
     // If consent already given, hide both
     if (cookieConsent === "accepted" || cookieConsent === "rejected") {
@@ -42,27 +84,20 @@ function setupCookies() {
     } else {
         // No consent yet -> ensure banner + overlay visible
         showBanner();
+        renderStorageNotice();
     }
 
     // Event listeners for buttons
     acceptBtn?.addEventListener("click", (e) => {
         e.stopPropagation();
-        try {
-            localStorage.setItem("cookieConsent", "accepted");
-        } catch (err) {
-            console.error("Error saving cookie consent to localStorage:", err);
-        }
+        writeConsent("accepted");
         hideBanner();
         loadAnalytics();
     });
 
     rejectBtn?.addEventListener("click", (e) => {
         e.stopPropagation();
-        try {
-            localStorage.setItem("cookieConsent", "rejected");
-        } catch (err) {
-            console.error("Error saving cookie consent to localStorage:", err);
-        }
+        writeConsent("rejected");
         hideBanner();
     });
 
@@ -150,7 +185,10 @@ function trackLinks() {
 // ---------- Initialize Everything ----------
 document.addEventListener("DOMContentLoaded", () => {
     fetch("/partials/footer.html")
-        .then((res) => res.text())
+        .then((res) => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
         .then((html) => {
             const container = document.getElementById("footer-container");
             if (!container) return;
@@ -171,5 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((err) => {
             console.error("Failed to load footer partial:", err);
+            if (typeof window.showPartialError === 'function') {
+                window.showPartialError('footer-container', 'footer');
+            }
         });
 });

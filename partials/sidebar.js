@@ -1,7 +1,10 @@
 // ---------- Initialize Everything ----------
 document.addEventListener("DOMContentLoaded", () => {
     fetch('/partials/sidebar.html')
-        .then(res => res.text())
+        .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
         .then(html => {
             document.getElementById('sidebar-container').innerHTML = html;
             // Scroll with offset
@@ -51,6 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.addEventListener('keydown', e => {
                     if (e.key === 'Escape') sidebar.classList.add('-translate-x-full');
                 });
+            }
+        })
+        .catch(err => {
+            console.error('Failed to load sidebar partial:', err);
+            if (typeof window.showPartialError === 'function') {
+                window.showPartialError('sidebar-container', 'sidebar navigation');
             }
         });
 
