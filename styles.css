@@ -2141,7 +2141,6 @@ header#main-header {
   perspective: 1000px;
   display: inline-block;
   transition: transform 0.3s ease;
-  animation: swing 6s ease-in-out infinite;
 }
 .flip-card.flipped {
   animation: none;
@@ -2266,6 +2265,13 @@ header#main-header {
 }
 .flip-card:not(.flipped) {
   animation: swing 6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.flip-card:not(.flipped).is-visible {
+  animation-play-state: running;
+}
+.is-tab-hidden .flip-card {
+  animation-play-state: paused !important;
 }
 .dark-mode #dark-toggle-thumb {
   transform: translateX(calc(100% + 0.25rem));

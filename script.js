@@ -123,7 +123,10 @@ function blobBackground() {
 
 // ---------- Flip Card (shared) ----------
 function setupFlipCards() {
-    document.querySelectorAll(".flip-card").forEach(card => {
+    const cards = document.querySelectorAll(".flip-card");
+    if (!cards.length) return;
+
+    cards.forEach(card => {
         card.addEventListener("click", () => card.classList.toggle("flipped"));
 
         card.addEventListener("keydown", e => {
@@ -138,6 +141,29 @@ function setupFlipCards() {
         card.style.transform = `rotateZ(${initialZ}deg)`;
         card.style.animationDuration = `${duration}s`;
     });
+
+    // Pause swing animation when off-screen — cards below the fold shouldn't
+    // burn compositing budget the user can't see. rootMargin keeps cards
+    // animating slightly before they enter so there's no visible "snap to life".
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+            entries => entries.forEach(e => e.target.classList.toggle('is-visible', e.isIntersecting)),
+            { rootMargin: '100px 0px' }
+        );
+        cards.forEach(card => observer.observe(card));
+    } else {
+        // Older browsers: fall back to always-running animations.
+        cards.forEach(card => card.classList.add('is-visible'));
+    }
+}
+
+// ---------- Tab visibility ----------
+// Pause every flip-card while the tab is hidden. The CSS rule
+// `.is-tab-hidden .flip-card { animation-play-state: paused }` does the actual work.
+function setupTabVisibilityPause() {
+    const sync = () => document.documentElement.classList.toggle('is-tab-hidden', document.hidden);
+    document.addEventListener('visibilitychange', sync);
+    sync();
 }
 
 // ---------- Carousel (shared) ----------
@@ -223,6 +249,7 @@ function progressBar() {
 document.addEventListener("DOMContentLoaded", () => {
     // Critical tasks
     progressBar();
+    setupTabVisibilityPause();
 
     // Non-critical background tasks
     const ric = window.requestIdleCallback || function (cb) { return setTimeout(cb, 1); };
