@@ -23,6 +23,7 @@ function updateCountdowns() {
 // ---------- Initialize Everything ----------
 document.addEventListener("DOMContentLoaded", () => {
     updateCountdowns();
-    setInterval(updateCountdowns, 1000);
+    const countdownInterval = setInterval(updateCountdowns, 1000);
+    window.addEventListener('pagehide', () => clearInterval(countdownInterval));
     setupCarousel('sports-carousel', 'left-sports', 'right-sports', 220);
 });
