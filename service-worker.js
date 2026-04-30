@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v7';
+const CACHE_NAME = 'pwa-cache-v8';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -12,32 +12,37 @@ const urlsToCache = [
   '/career.html',
   '/career-script.js',
   '/articles/reflections-on-ai-and-coding.html',
+  '/articles/cycling-in-denmark-how-to-ride-like-a-dane.html',
   '/articles/post-footer.html',
   '/articles/post-footer.js',
   '/faq.html',
   '/faq-script.js',
+  '/books.html',
+  '/privacy.html',
   '/404.html',
   '/styles.css',
   '/script.js',
+  '/back-to-top.js',
+  '/install-prompt.js',
+  '/index-script.js',
   '/partials/header.html',
   '/partials/footer.html',
   '/partials/sidebar.html',
   '/partials/footer.js',
   '/partials/header.js',
   '/partials/sidebar.js',
-  '/manifest.json',
   '/robots.txt',
   '/sitemap.xml',
   '/img/anapat_chairithinugull.jpeg',
-  '/icons/icon16.png',
-  '/icons/icon32.png',
-  '/icons/icon48.png',
-  '/icons/icon60.png',
-  '/icons/icon152.png',
-  '/icons/icon167.png',
-  '/icons/icon180.png',
-  '/icons/icon192.png',
-  '/icons/icon512.png'
+  '/icons/favicon/favicon.ico',
+  '/icons/favicon/favicon.svg',
+  '/icons/favicon/favicon-16x16.png',
+  '/icons/favicon/favicon-32x32.png',
+  '/icons/favicon/favicon-96x96.png',
+  '/icons/favicon/apple-touch-icon.png',
+  '/icons/favicon/site.webmanifest',
+  '/icons/favicon/web-app-manifest-192x192.png',
+  '/icons/favicon/web-app-manifest-512x512.png'
 ];
 
 // Helper: fetch and cache a request (same-origin only)

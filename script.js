@@ -121,6 +121,78 @@ function blobBackground() {
     animate();
 }
 
+// ---------- Flip Card (shared) ----------
+function setupFlipCards() {
+    document.querySelectorAll(".flip-card").forEach(card => {
+        card.addEventListener("click", () => card.classList.toggle("flipped"));
+
+        card.addEventListener("keydown", e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.classList.toggle("flipped");
+            }
+        });
+
+        const duration = 5 + Math.random() * 4;
+        const initialZ = (Math.random() - 0.5) * 4;
+        card.style.transform = `rotateZ(${initialZ}deg)`;
+        card.style.animationDuration = `${duration}s`;
+    });
+}
+
+// ---------- Carousel (shared) ----------
+function setupCarousel(carouselId, leftBtnId, rightBtnId, scrollAmount) {
+    const carousel = document.getElementById(carouselId);
+    const leftBtn = document.getElementById(leftBtnId);
+    const rightBtn = document.getElementById(rightBtnId);
+    if (!carousel || !leftBtn || !rightBtn) return;
+
+    let isDown = false, startX, scrollLeft;
+
+    leftBtn.addEventListener("click", () => carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" }));
+    rightBtn.addEventListener("click", () => carousel.scrollBy({ left: scrollAmount, behavior: "smooth" }));
+
+    carousel.addEventListener("mousedown", e => {
+        isDown = true;
+        carousel.classList.add("cursor-grabbing");
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+    carousel.addEventListener("mouseleave", () => { isDown = false; carousel.classList.remove("cursor-grabbing"); });
+    carousel.addEventListener("mouseup", () => { isDown = false; carousel.classList.remove("cursor-grabbing"); });
+    carousel.addEventListener("mousemove", e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const walk = (e.pageX - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    carousel.addEventListener('keydown', e => {
+        const keyScroll = 100;
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            carousel.scrollBy({ left: keyScroll, behavior: 'smooth' });
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            carousel.scrollBy({ left: -keyScroll, behavior: 'smooth' });
+        }
+    });
+
+    let touchStartX = 0;
+    let touchScrollLeft = 0;
+
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchScrollLeft = carousel.scrollLeft;
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', e => {
+        const walk = (touchStartX - e.touches[0].clientX) * 1.5;
+        carousel.scrollLeft = touchScrollLeft + walk;
+        e.preventDefault();
+    }, { passive: false });
+}
+
 // ---------- Progress Bar & Smooth Scroll ----------
 function progressBar() {
     const progress = document.getElementById("progress-bar");

@@ -25,13 +25,6 @@ const vocabList = [
     { word: "groundswell", definition: "a rapid increase in public support." }
 ];
 
-function getWordOfTheDay() {
-    // Deterministic “daily” pick using the date
-    const today = new Date().toDateString();
-    const index = Math.abs([...today].reduce((a, c) => a + c.charCodeAt(0), 0)) % vocabList.length;
-    return vocabList[index];
-}
-
 function getRandomWord() {
     const index = Math.floor(Math.random() * vocabList.length);
     return vocabList[index];
