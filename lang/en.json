@@ -121,6 +121,7 @@
     "faq-a-4": "Know the basic and helps from ChatGPT and Copilot.",
     "faq-a-5": "No, I'm human. At least I think so. Are you?",
     "faq-a-6": "I am currently looking for new opportunities! I am super eager to get something done! Are you hiring?",
+    "faq-a-7": "Easiest is to drop me an email or message me on LinkedIn — both links are at the top of every page!",
 
     "project-desc-1": "A simple note-taking Android app with SQLite database for local storage, built with Java and Android Studio. Features include adding, editing, deleting notes, and searching through notes. Dedicated to my mom.",
     "project-desc-2": "A breathalyzer prototype using MQ-3 alcohol sensor, Arduino for fun.",

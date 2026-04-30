@@ -121,6 +121,7 @@
     "faq-a-4": "Lidt grundlæggende viden plus hjælp fra ChatGPT og Copilot.",
     "faq-a-5": "Nej, jeg er menneske. Det tror jeg da. Er du?",
     "faq-a-6": "Jeg leder efter nye muligheder lige nu! Jeg er super klar til at få noget på benene — søger I medarbejdere?",
+    "faq-a-7": "Nemmeste er at sende mig en mail eller skrive på LinkedIn — begge links findes øverst på hver side!",
 
     "project-desc-1": "En simpel notes-app til Android med SQLite-database til lokal opbevaring, bygget i Java og Android Studio. Funktioner inkluderer tilføjelse, redigering, sletning og søgning i noter. Tilegnet min mor.",
     "project-desc-2": "En prototype-alkometer med MQ-3 alkoholsensor og Arduino — bygget for sjov.",
