@@ -2,13 +2,25 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* custom colors 
+/* custom colors
   https://oklch.com/
 */
 @theme {
   --color-thaiRed: oklch(0.6004 0.2268 26.85);
   --color-danishRed: oklch(0.6305 0.2145 20.63);
   --color-customBlue: oklch(0.4907 0.1954 263.51);
+}
+
+/* Focus indicator colors — picked for ≥3:1 contrast on both light (gray-50)
+   and dark (gray-900) backgrounds, with light-mode using a richer brand-blue
+   and dark-mode bumping lightness for visibility. */
+:root {
+  --color-focus-default: oklch(0.55 0.22 263.51);
+  --color-focus-flipped: oklch(0.75 0.18 70);
+}
+.dark {
+  --color-focus-default: oklch(0.72 0.22 263.51);
+  --color-focus-flipped: oklch(0.82 0.18 70);
 }
 
 
@@ -116,13 +128,12 @@ header#main-header {
 }
 
 .flip-card:focus {
-    outline: 3px solid #007BFF;
-    /* or any visible color */
+    outline: 3px solid var(--color-focus-default);
     outline-offset: 4px;
 }
 
 .flip-card.flipped:focus {
-    outline: 3px solid #FFAA00;
+    outline: 3px solid var(--color-focus-flipped);
 }
 
 .flip-card-back {
