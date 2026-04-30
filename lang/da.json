@@ -23,7 +23,7 @@
     "books-title": "Bøger",
     "projects-title": "Projekter",
     "qa-title": "Ofte stillede spørgsmål",
-    "recent-activities-title": "Seneste aktiviteter",
+    "recent-activities-title": "På det seneste",
 
     "currently-reading-title": "Læser / lytter til lige nu",
     "backlog-title": "Læsekø",
@@ -87,11 +87,11 @@
     "post-footer-role": "Data Scientist & softwareudvikler",
     "post-footer-email": "Email",
 
-    "recent-activity-1": "Tager et kursus i full stack-udvikling fra Microsoft på Coursera. Mere specifikt webapp-udvikling med C# og ASP.NET.",
-    "recent-activity-2": "Udgivet en ny artikel på bloggen om mine erfaringer med at bruge AI-værktøjer til at øge kodningseffektiviteten.",
-    "recent-activity-3": "Blev VP for Digital System i TSAAD.",
-    "recent-activity-4": "Gennemførte den første Ironman 70.3 i Helsingør, Danmark.",
-    "recent-activity-5": "Færdiggjort MSc i datalogi fra Københavns Universitet.",
+    "recent-activity-1": "Søger aktivt nye muligheder i Thailand.",
+    "recent-activity-2": "Bygger Natty (นัดตี), et personligt projekt til at planlægge badmintonkampe.",
+    "recent-activity-3": "Flyttede tilbage til Thailand i begyndelsen af april — lige i tide til Songkran.",
+    "recent-activity-4": "Tog på en to-ugers solorejse gennem München, Salzburg og Innsbruck i slutningen af marts.",
+    "recent-activity-5": "17-dages skandinavisk tur fra København op til Tromsø og tilbage via Stockholm — inklusive en uplanlagt nat strandet i Narvik.",
 
     "interest-coffee": "Kaffe- og te-håndværk",
     "interest-travel": "Rejser",
@@ -117,8 +117,8 @@
 
     "faq-a-1": "Jeg er født og opvokset i Thailand — et smukt land med fantastisk mad i Sydøstasien.",
     "faq-a-2": "Tak til min familie, der gjorde det muligt at sende mig til USA. Det var en fantastisk oplevelse. UW-Madison er sejt!",
-    "faq-a-3": "Jeg blev rastløs i Thailand, så jeg besluttede at tage sagen i egen hånd og flytte til Europa. Så valgte Danmark mig.",
-    "faq-a-4": "Lidt grundlæggende viden plus hjælp fra ChatGPT og Copilot.",
+    "faq-a-3": "Efter nogle år i Thailand havde jeg lyst til luftforandring, så jeg pakkede og tog til Europa. Danmark endte med at vælge mig.",
+    "faq-a-4": "Almindelig HTML og Tailwind CSS med lidt vanilla JS — plus rigeligt hjælp fra ChatGPT, Copilot og Claude Code undervejs.",
     "faq-a-5": "Nej, jeg er menneske. Det tror jeg da. Er du?",
     "faq-a-6": "Jeg leder efter nye muligheder lige nu! Jeg er super klar til at få noget på benene — søger I medarbejdere?",
     "faq-a-7": "Nemmeste er at sende mig en mail eller skrive på LinkedIn — begge links findes øverst på hver side!",
@@ -130,7 +130,6 @@
     "project-desc-5": "Mit vejledte forsøg på at udnytte latent space i temporale graph neural networks til effektivt at generere fluiddynamik-simuleringer.",
     "project-desc-6": "Udviklet sammen med en ven fra det medicinske felt. Baseret på fødselsdato, klokkeslæt, risikofaktorer og Serum Bilirubin (mg/dl).",
 
-    "article-1-desc": "Kommer snart … Fra ingeniørarbejde til data science — min personlige rejse gennem uddannelse og karriereskift. Indsigter fra UW-Madison og Københavns Universitet.",
     "article-2-desc": "En grundig guide til at cykle i Danmark, med færdselsregler, etikette, praktiske tips og indsigt i den danske cykelkultur.",
     "article-3-desc": "Personlige indsigter og erfaringer med at bruge AI-værktøjer som ChatGPT og GitHub Copilot i softwareudvikling. Hvordan disse værktøjer har formet min måde at kode på og min produktivitet."
 }
