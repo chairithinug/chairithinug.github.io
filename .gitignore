@@ -14,3 +14,12 @@ todo
 
 .github/
 icons/favicon.zip
+
+# Local Claude Code config + project notes — never committed
+.claude/
+CLAUDE.md
+
+# Private education documents — only the public resume PDFs are tracked
+pdf/*.pdf
+!pdf/ATS_friendly_Anapat_Chairithinugull.pdf
+!pdf/Anapat_Chairithinugull_Resume_polished.pdf
