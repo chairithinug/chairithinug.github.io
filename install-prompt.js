@@ -170,14 +170,19 @@
     }
 
     function showIosInstructions() {
+        // Stash the trigger so we can restore focus on close — required for
+        // screen-reader users so they don't lose context after dismissing.
+        const previouslyFocused = document.activeElement;
+
         const overlay = document.createElement('div');
         overlay.className = 'fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4';
         overlay.setAttribute('role', 'dialog');
         overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-labelledby', 'ios-install-title');
         const card = document.createElement('div');
         card.className = 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl shadow-2xl max-w-sm w-full p-6 space-y-4';
         card.innerHTML = `
-          <h2 class="text-lg font-bold" data-i18n="ios-install-title">Install on iOS</h2>
+          <h2 id="ios-install-title" class="text-lg font-bold" data-i18n="ios-install-title">Install on iOS</h2>
           <ol class="list-decimal list-inside text-sm space-y-2">
             <li data-i18n="ios-install-step-1">Tap the Share button in Safari.</li>
             <li data-i18n="ios-install-step-2">Choose “Add to Home Screen”.</li>
@@ -189,12 +194,50 @@
             aria-label="Got it">Got it</button>
         `;
         overlay.appendChild(card);
-        overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
-        card.querySelector('#ios-install-close').addEventListener('click', () => {
+
+        // close({ dismiss: true }) is "I read it, don't ask again for 14 days".
+        // close({ dismiss: false }) is "close for now" (Escape / click backdrop).
+        function close({ dismiss }) {
             overlay.remove();
-            setDismissed();
-        });
+            document.removeEventListener('keydown', onKeydown);
+            if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
+                previouslyFocused.focus();
+            }
+            if (dismiss) setDismissed();
+        }
+
+        function onKeydown(e) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                close({ dismiss: false });
+                return;
+            }
+            if (e.key !== 'Tab') return;
+            // Trap focus inside the dialog. Currently the only focusable
+            // element is the "Got it" button, so Tab just keeps focus on it.
+            const focusables = card.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) close({ dismiss: false }); });
+        card.querySelector('#ios-install-close').addEventListener('click', () => close({ dismiss: true }));
+        document.addEventListener('keydown', onKeydown);
         document.body.appendChild(overlay);
+
+        // Move focus into the dialog so screen readers announce it and Tab
+        // navigation starts inside the trap, not back on the install button.
+        const closeBtn = card.querySelector('#ios-install-close');
+        if (closeBtn) closeBtn.focus();
+
         // Translate the new dialog if non-English
         try {
             const lang = localStorage.getItem('lang');
