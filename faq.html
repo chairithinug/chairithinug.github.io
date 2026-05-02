@@ -95,10 +95,10 @@
     },
     {
       "@type": "Question",
-      "name": "Why are you in Denmark now?",
+      "name": "What brought you to Denmark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I got bored in Thailand, so I decided to take the matter in my own hand and move to Europe. Then, Denmark chose me."
+        "text": "After a few years working in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me — finished my MSc at the University of Copenhagen and moved back home in early 2026."
       }
     },
     {
@@ -106,7 +106,7 @@
       "name": "Cool website! How did you make it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Know the basic and helps from ChatGPT and Copilot."
+        "text": "Plain HTML and Tailwind CSS with a bit of vanilla JS — plus plenty of help from ChatGPT, Copilot, and Claude Code along the way."
       }
     },
     {
@@ -114,7 +114,7 @@
       "name": "Are you a robot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, I'm not a robot. I'm a human who loves technology and helping others."
+        "text": "No, I'm human. At least I think so. Are you?"
       }
     },
     {
@@ -122,7 +122,7 @@
       "name": "What are you doing now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I am currently looking for new opportunities! I am super eager to get something done! Are you hiring?"
+        "text": "Looking for new opportunities in Thailand! In the meantime I'm authoring Claude AI Skills, building Natty (a SvelteKit badminton scheduler), and tinkering with this site. Are you hiring?"
       }
     },
     {
@@ -130,7 +130,39 @@
       "name": "How can I contact you?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can contact me via email or through my LinkedIn."
+        "text": "Easiest is to drop me an email or message me on LinkedIn — both links are at the top of every page!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of role are you looking for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data Scientist, AI Engineer, or Machine Learning Engineer — any of those titles work. I'm not picky about the industry; what I want is something impactful and meaningful. Most skills are transferable, and I'm always up for learning whatever the role needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's your favorite tech stack right now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hooked on the Claude family — Cowork, Code, and Design — and getting comfortable with Svelte/SvelteKit on the Natty side project. Equal parts AI tooling and modern web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you do outside of coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coffee and endurance sports — running, swimming, biking. Lately badminton too, which is exactly why I'm building Natty to schedule sessions with friends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Open to remote work or relocation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hybrid is great, full remote less so — tried it during Covid and didn't love it. Just moved back to Bangkok so I'm not relocating right now, but a visa-friendly move down the road isn't off the table. I really enjoy multicultural teams."
       }
     }
   ]
@@ -187,7 +219,7 @@
 
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Flip Card 1 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Where are you originally from? (flip to reveal)" data-i18n-aria-label="faq-card-1-aria">
+                <div class="flip-card pulse-once cursor-pointer" role="button" tabindex="0" aria-label="Where are you originally from? (flip to reveal)" data-i18n-aria-label="faq-card-1-aria">
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
@@ -240,7 +272,7 @@
                     </div>
                 </div>
                 <!-- Flip Card 3 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Why are you in Denmark now? (flip to reveal)" data-i18n-aria-label="faq-card-3-aria">
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What brought you to Denmark? (flip to reveal)" data-i18n-aria-label="faq-card-3-aria">
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
@@ -249,7 +281,7 @@
                             <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
 
                             <h3 class="relative font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-3">
-                                Why are you in Denmark now?
+                                What brought you to Denmark?
                             </h3>
                             <p class="relative text-sm text-gray-600 dark:text-gray-300">
                             </p>
@@ -259,7 +291,7 @@
                         <div
                             class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
                             <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-3">
-                                After a few years in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me.
+                                After a few years working in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me — finished my MSc at the University of Copenhagen and moved back home in early 2026.
                             </p>
                         </div>
                     </div>
@@ -310,7 +342,7 @@
                 </div>
 
                 <!-- Flip Card 6 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What are you doing now? (flip to reveal)" data-i18n-aria-label="faq-card-6-aria">
+                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="What are you doing now? (flip to reveal)" data-i18n-aria-label="faq-card-6-aria">
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
@@ -325,21 +357,44 @@
                         <div
                             class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
                             <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-6">
-                                I am currently looking for new opportunities! I am super eager to get something done!
+                                Looking for new opportunities in Thailand! In the meantime I'm authoring Claude AI
+                                Skills, building Natty (a SvelteKit badminton scheduler), and tinkering with this site.
                                 Are you hiring?
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Flip Card 7 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="How can I contact you? (flip to reveal)" data-i18n-aria-label="faq-card-7-aria">
+                <!-- Flip Card 7 (Contact CTA) -->
+                <div class="flip-card cta-card cursor-pointer" role="button" tabindex="0" aria-label="How can I contact you? (flip to reveal)" data-i18n-aria-label="faq-card-7-aria">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold" data-i18n="faq-q-7">
+                                How can I contact you?
+                            </h3>
+                            <p class="text-sm">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p data-i18n="faq-a-7">
+                                Easiest is to drop me an email or message me on LinkedIn — both links are at the top of every page!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 8 (Career: role) -->
+                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="What kind of role are you looking for? (flip to reveal)" data-i18n-aria-label="faq-card-8-aria">
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div
                             class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-7">
-                                How can I contact you?
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-8">
+                                What kind of role are you looking for?
                             </h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">
                             </p>
@@ -347,8 +402,80 @@
                         <!-- Back -->
                         <div
                             class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-7">
-                                Easiest is to drop me an email or message me on LinkedIn — both links are at the top of every page!
+                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-8">
+                                Data Scientist, AI Engineer, or Machine Learning Engineer — any of those titles work.
+                                I'm not picky about the industry; what I want is something impactful and meaningful.
+                                Most skills are transferable, and I'm always up for learning whatever the role needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 9 (Tech stack) -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What's your favorite tech stack right now? (flip to reveal)" data-i18n-aria-label="faq-card-9-aria">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-9">
+                                What's your favorite tech stack right now?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-9">
+                                Hooked on the Claude family — Cowork, Code, and Design — and getting comfortable with
+                                Svelte/SvelteKit on the Natty side project. Equal parts AI tooling and modern web.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 10 (Outside coding) -->
+                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What do you do outside of coding? (flip to reveal)" data-i18n-aria-label="faq-card-10-aria">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-10">
+                                What do you do outside of coding?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-10">
+                                Coffee and endurance sports — running, swimming, biking. Lately badminton too, which
+                                is exactly why I'm building Natty to schedule sessions with friends.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 11 (Career: remote/relocation) -->
+                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="Open to remote work or relocation? (flip to reveal)" data-i18n-aria-label="faq-card-11-aria">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div
+                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
+                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-11">
+                                Open to remote work or relocation?
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                            </p>
+                        </div>
+                        <!-- Back -->
+                        <div
+                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
+                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-11">
+                                Hybrid is great, full remote less so — tried it during Covid and didn't love it. Just
+                                moved back to Bangkok so I'm not relocating right now, but a visa-friendly move down
+                                the road isn't off the table. I really enjoy multicultural teams.
                             </p>
                         </div>
                     </div>
