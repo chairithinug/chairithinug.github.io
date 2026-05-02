@@ -569,9 +569,6 @@
   .max-w-sm {
     max-width: var(--container-sm);
   }
-  .min-w-0 {
-    min-width: calc(var(--spacing) * 0);
-  }
   .min-w-\[44px\] {
     min-width: 44px;
   }
@@ -713,6 +710,10 @@
       margin-block-end: calc(calc(var(--spacing) * 10) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .gap-x-2 {
+    -moz-column-gap: calc(var(--spacing) * 2);
+         column-gap: calc(var(--spacing) * 2);
+  }
   .gap-x-6 {
     -moz-column-gap: calc(var(--spacing) * 6);
          column-gap: calc(var(--spacing) * 6);
@@ -739,11 +740,6 @@
   }
   .self-center {
     align-self: center;
-  }
-  .truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .overflow-hidden {
     overflow: hidden;
