@@ -132,6 +132,9 @@
     "project-desc-4": "นำสถาปัตยกรรม MSDU-NET มา implement สำหรับ blur image segmentation อ้างอิงจากเปเปอร์ \"MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images\"",
     "project-desc-5": "ความพยายามในการสำรวจ latent space ของ Temporal Graph Neural Networks เพื่อจำลอง Fluid Dynamics อย่างมีประสิทธิภาพ",
     "project-desc-6": "พัฒนาร่วมกับเพื่อนในวงการแพทย์ ใช้วันเกิด เวลา ปัจจัยเสี่ยง และค่า Serum Bilirubin (mg/dl) ในการประเมิน",
+    "project-desc-7": "พื้นที่สำหรับเขียน Claude AI Skills — playbook ขนาดเล็กที่ถูกโหลดเข้า context ของ Claude เมื่อมีงานที่เกี่ยวข้อง ครอบคลุมการตัดสินใจ การเล่นบท devil's advocate การเตรียมเจรจา การลดจำนวน token และอื่น ๆ พัฒนาโดยมี Claude ช่วย",
+    "project-desc-8": "ฟอร์มเก็บ feedback แบบไฟล์เดียว ใช้งานออฟไลน์ได้ สำหรับรายงานบั๊กและคำขอฟีเจอร์ ออกแบบมาเพื่อ workflow ของ Claude Code โดยเฉพาะ มีระบบ auto-save บีบรูปอัตโนมัติ และ export เป็น markdown หรือ zip",
+    "project-desc-9": "เว็บแอปส่วนตัวแบบ full-stack สำหรับนัดตีแบดมินตันกับเพื่อน ๆ ใช้ SvelteKit บน TypeScript, Postgres บน Supabase, deploy บน Vercel; ทดสอบด้วย Vitest (unit/component) และ Playwright (end-to-end)",
 
     "article-2-desc": "คู่มือฉบับสมบูรณ์สำหรับการปั่นจักรยานในเดนมาร์ก ครอบคลุมกฎจราจร มารยาท เคล็ดลับ และวัฒนธรรมจักรยานแบบเดนมาร์ก",
     "article-3-desc": "บทเรียนและประสบการณ์ส่วนตัวจากการใช้ AI tools อย่าง ChatGPT และ GitHub Copilot ในการพัฒนาซอฟต์แวร์ และเครื่องมือเหล่านี้เปลี่ยนวิธีเขียนโค้ดและประสิทธิภาพของผมอย่างไร"

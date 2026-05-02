@@ -132,6 +132,9 @@
     "project-desc-4": "Implementation of the MSDU-NET architecture for blur image segmentation, based on the paper \"MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images\".",
     "project-desc-5": "My guided attempt at exploiting the latent space of temporal graph neural networks to efficiently generate fluid dynamics simulations.",
     "project-desc-6": "Developed together with a friend in medical field. Based on a given birthdate, time, risk factors, and Serum Bilirubin (mg/dl).",
+    "project-desc-7": "A workspace of authored Claude AI Skills — small, triggered playbooks loaded into Claude's context for relevant tasks. Covers decision-making, devil's advocacy, negotiation prep, token optimization, and more. Built with help from Claude.",
+    "project-desc-8": "A single-file, offline-capable feedback form for structured bug reports and feature requests, built for the Claude Code workflow. Auto-saves drafts, compresses screenshots, and exports as markdown or zip.",
+    "project-desc-9": "Personal full-stack web app for scheduling badminton sessions with friends. Tech stack: SvelteKit on TypeScript, Postgres on Supabase, deployed on Vercel; Vitest for unit/component tests and Playwright for end-to-end.",
 
     "article-2-desc": "A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips, and insights into the Danish cycling culture.",
     "article-3-desc": "Personal insights and experiences on using AI tools like ChatGPT and GitHub Copilot in software development. How these tools have shaped my coding practices and productivity."

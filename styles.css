@@ -21,6 +21,11 @@
     --color-orange-700: oklch(55.3% 0.195 38.402);
     --color-orange-800: oklch(47% 0.157 37.304);
     --color-orange-900: oklch(40.8% 0.123 38.172);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-amber-900: oklch(41.4% 0.112 45.904);
     --color-yellow-50: oklch(98.7% 0.026 102.212);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-200: oklch(94.5% 0.129 101.54);
@@ -106,6 +111,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    --tracking-wide: 0.025em;
     --leading-tight: 1.25;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
@@ -518,6 +524,9 @@
   .h-full {
     height: 100%;
   }
+  .min-h-\[36px\] {
+    min-height: 36px;
+  }
   .min-h-\[44px\] {
     min-height: 44px;
   }
@@ -560,6 +569,9 @@
   .max-w-sm {
     max-width: var(--container-sm);
   }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
   .min-w-\[44px\] {
     min-width: 44px;
   }
@@ -573,6 +585,9 @@
     flex: 1;
   }
   .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .shrink-0 {
     flex-shrink: 0;
   }
   .flex-grow {
@@ -614,6 +629,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .list-inside {
     list-style-position: inside;
@@ -722,6 +740,11 @@
   .self-center {
     align-self: center;
   }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -808,6 +831,12 @@
   .border-yellow-600 {
     border-color: var(--color-yellow-600);
   }
+  .bg-amber-100 {
+    background-color: var(--color-amber-100);
+  }
+  .bg-amber-700 {
+    background-color: var(--color-amber-700);
+  }
   .bg-black {
     background-color: var(--color-black);
   }
@@ -834,6 +863,9 @@
   }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
+  }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
   }
   .bg-gray-200\/30 {
     background-color: color-mix(in srgb, oklch(92.8% 0.006 264.531) 30%, transparent);
@@ -1012,6 +1044,9 @@
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
+  }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
@@ -1097,6 +1132,16 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
+  }
+  .text-amber-700 {
+    color: var(--color-amber-700);
+  }
+  .text-amber-900 {
+    color: var(--color-amber-900);
   }
   .text-blue-500 {
     color: var(--color-blue-500);
@@ -1196,6 +1241,9 @@
   }
   .text-yellow-900 {
     color: var(--color-yellow-900);
+  }
+  .uppercase {
+    text-transform: uppercase;
   }
   .underline {
     text-decoration-line: underline;
@@ -1379,6 +1427,13 @@
         --tw-scale-y: 105%;
         --tw-scale-z: 105%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:bg-amber-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-amber-800);
       }
     }
   }
@@ -1722,6 +1777,11 @@
       border-color: var(--color-gray-700);
     }
   }
+  .dark\:bg-amber-900 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-amber-900);
+    }
+  }
   .dark\:bg-blue-700 {
     &:where(.dark, .dark *) {
       background-color: var(--color-blue-700);
@@ -1895,6 +1955,16 @@
   .dark\:bg-yellow-900 {
     &:where(.dark, .dark *) {
       background-color: var(--color-yellow-900);
+    }
+  }
+  .dark\:text-amber-100 {
+    &:where(.dark, .dark *) {
+      color: var(--color-amber-100);
+    }
+  }
+  .dark\:text-amber-300 {
+    &:where(.dark, .dark *) {
+      color: var(--color-amber-300);
     }
   }
   .dark\:text-blue-100 {
@@ -2529,6 +2599,10 @@ main#main-content {
   syntax: "*";
   inherits: false;
 }
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -2734,6 +2808,7 @@ main#main-content {
       --tw-gradient-to-position: 100%;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-tracking: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
