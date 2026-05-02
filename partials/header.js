@@ -111,8 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll(".lang-btn").forEach(btn =>
                 btn.addEventListener("click", () => loadLanguage(btn.dataset.lang))
             );
-            const savedLang = (() => { try { return localStorage.lang; } catch (e) { return null; } })();
-            if (savedLang && savedLang !== "en") loadLanguage(savedLang);
+            // Always set aria-current right after the buttons exist — including
+            // for the English default — so screen readers don't see the EN
+            // button briefly marked current before flipping to TH/DA.
+            const savedLang = (() => { try { return localStorage.lang; } catch (e) { return null; } })() || "en";
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                btn.setAttribute("aria-current", btn.dataset.lang === savedLang ? "true" : "false");
+            });
+            if (savedLang !== "en") loadLanguage(savedLang);
             retranslateAfterPartials();
         })
         .catch(err => {
