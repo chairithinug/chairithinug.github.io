@@ -4,14 +4,12 @@ function timelinePresent() {
     marker.textContent = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long" });
 }
 
-// ---------- Timeline Entry Flip & Hover ----------
+// ---------- Timeline left/right alternation ----------
+// Hover/focus scale lives in CSS (`.timeline-entry:hover, :focus-visible`)
+// so keyboard users get the same effect mouse users do.
 function setupTimelineEntries() {
-    const entries = document.querySelectorAll('.timeline-entry');
-    entries.forEach((entry, i) => {
+    document.querySelectorAll('.timeline-entry').forEach((entry, i) => {
         entry.classList.add(i % 2 === 0 ? 'left' : 'right');
-
-        entry.addEventListener("mouseenter", () => entry.classList.add("scale-110"));
-        entry.addEventListener("mouseleave", () => entry.classList.remove("scale-110"));
     });
 }
 

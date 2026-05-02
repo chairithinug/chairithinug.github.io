@@ -102,6 +102,15 @@ header#main-header {
     transition: transform 1s ease;
 }
 
+/* Match the hover-scale effect for keyboard users — :focus-visible so
+   mouse clicks don't lock entries into a scaled state. The existing
+   global :focus rule keeps the 2px blue outline for both pointer and
+   keyboard focus. */
+.timeline-entry:hover,
+.timeline-entry:focus-visible {
+    transform: scale(1.1);
+}
+
 .timeline-popup {
     transition: opacity 1s ease;
 }
