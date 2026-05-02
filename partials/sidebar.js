@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute("href").split("/").pop();
                 if (linkPath === currentPath) {
-                    link.classList.add("font-semibold", "text-customBlue");
+                    link.classList.add("font-semibold", "text-blue-600", "dark:text-blue-400");
                 } else {
-                    link.classList.remove("font-semibold", "text-customBlue");
+                    link.classList.remove("font-semibold", "text-blue-600", "dark:text-blue-400");
                 }
             });
 
