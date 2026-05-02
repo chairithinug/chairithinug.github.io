@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v11';
+const CACHE_NAME = 'pwa-cache-v12';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -33,6 +33,9 @@ const urlsToCache = [
   '/partials/sidebar.js',
   '/robots.txt',
   '/sitemap.xml',
+  '/lang/en.json',
+  '/lang/th.json',
+  '/lang/da.json',
   '/img/anapat_chairithinugull.jpeg',
   '/icons/favicon/favicon.ico',
   '/icons/favicon/favicon.svg',
