@@ -33,11 +33,11 @@
   ];
 
   const BANDS = [
-    { from: 2012,    to: 2016,    label: 'BANGKOK',    color: '#F3D8B5' },
-    { from: 2016,    to: 2020.4,  label: 'MADISON',    color: '#D6DCE8' },
-    { from: 2020.4,  to: 2023.7,  label: 'BANGKOK',    color: '#F3D8B5' },
-    { from: 2023.7,  to: 2026.3,  label: 'COPENHAGEN', color: '#CFD9DD' },
-    { from: 2026.3,  to: 2026.6,  label: 'BANGKOK',    color: '#F3D8B5' },
+    { from: 2012,    to: 2016,    label: 'BANGKOK',    color: 'var(--band-bangkok)' },
+    { from: 2016,    to: 2020.4,  label: 'MADISON',    color: 'var(--band-madison)' },
+    { from: 2020.4,  to: 2023.7,  label: 'BANGKOK',    color: 'var(--band-bangkok)' },
+    { from: 2023.7,  to: 2026.3,  label: 'COPENHAGEN', color: 'var(--band-copenhagen)' },
+    { from: 2026.3,  to: 2026.6,  label: 'BANGKOK',    color: 'var(--band-bangkok)' },
   ];
 
   const LANES = {
@@ -126,7 +126,7 @@
       const x1 = xFor(b.from), x2 = xFor(b.to);
       el('rect', {
         x: x1, y: PADT - 24, width: x2 - x1, height: CH - PADT - PADB + 50,
-        fill: b.color, opacity: 0.5,
+        fill: b.color, class: 'tl-band',
       });
       el('text', {
         x: x1 + 6, y: PADT - 28,
@@ -186,7 +186,7 @@
       g.dataset.from  = e.from;
       g.dataset.to    = e.to;
 
-      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, opacity: 0.18, rx: r }, g);
+      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, class: 'tl-pill-bg', rx: r }, g);
       el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor }, g);
       el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: pillColor, opacity: 0.6 }, g);
       // Generous hit-area covering label + pill so hover is forgiving.

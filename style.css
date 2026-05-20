@@ -56,6 +56,13 @@
   --stamp-th-2: var(--saffron);
   --stamp-dk:   var(--harbor);
   --stamp-th-3: var(--jade);
+
+  /* Timeline place-bands — light mode: warm pastels at 0.5 opacity look correct on cream */
+  --band-bangkok:    #F3D8B5;
+  --band-madison:    #D6DCE8;
+  --band-copenhagen: #CFD9DD;
+  --tl-band-opacity: 0.5;
+  --tl-pill-bg-opacity: 0.22;
 }
 
 [data-theme="dark"] {
@@ -66,11 +73,19 @@
   --paper-warm: #16243B;
   --paper-cool: #11253B;
   --paper-deep: #17304B;
-  --paper-card: #14253C;
+  --paper-card: #1B324F;
   --linen:      #14253C;
   --rule:       #2B405E;
   --rule-cool:  #2B405E;
   --frost:      #5A7593;
+
+  /* Dark mode: band tints sit on dark navy. Use the place's identity hue
+     at low saturation so they read as quiet zones, not loud tiles. */
+  --band-bangkok:    #C68D4A;
+  --band-madison:    #6B8AB8;
+  --band-copenhagen: #5E8B85;
+  --tl-band-opacity: 0.18;
+  --tl-pill-bg-opacity: 0.38;
 }
 
 /* Base */
@@ -453,6 +468,12 @@ ul, ol { list-style: none; }
   scrollbar-color: var(--rule) transparent;
 }
 .tl-chart svg { display: block; min-width: 100%; }
+.tl-chart .tl-band { opacity: var(--tl-band-opacity); }
+.tl-chart .tl-pill-bg { opacity: var(--tl-pill-bg-opacity); }
+[data-theme="dark"] .tl-figure {
+  background: var(--paper-card);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--ink) 6%, transparent) inset;
+}
 
 /* Mobile vertical timeline — also the canonical AT representation on desktop.
    Visually hidden but readable by screen readers when the SVG is shown. */
