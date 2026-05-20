@@ -8,6 +8,12 @@
 
   /* ───── DATA ───── */
   const TIMELINE = [
+    // Place lane — where I was living, color-keyed to city
+    { kind: 'place',     label: 'Bangkok',                      from: 2012,    to: 2016,    note: 'High school years',     color: 'var(--saffron)' },
+    { kind: 'place',     label: 'Madison',                      from: 2016,    to: 2020.4,  note: 'Undergrad',             color: 'var(--copen)'   },
+    { kind: 'place',     label: 'Bangkok',                      from: 2020.4,  to: 2023.7,  note: 'Kasikorn Labs era',     color: 'var(--saffron)' },
+    { kind: 'place',     label: 'Copenhagen',                   from: 2023.7,  to: 2026.3,  note: 'MSc + grad-life',       color: 'var(--harbor)'  },
+    { kind: 'place',     label: 'Bangkok',                      from: 2026.3,  to: 2026.6,  note: 'Back home',             color: 'var(--saffron)' },
     { kind: 'academic',  label: 'Suankularb HS',                from: 2012,    to: 2016,    note: 'OSK 134 · Bangkok' },
     { kind: 'volunteer', label: 'Secretary · SKCC',             from: 2014.5,  to: 2015.83, note: 'Suankularb Computer Club' },
     { kind: 'academic',  label: 'BS CE/CS · Wisconsin',         from: 2016,    to: 2020.4,  note: 'In: EE — Out: Computer Engineer' },
@@ -186,11 +192,12 @@
       const x1 = xFor(e.from), x2 = xFor(e.to);
       const w = Math.max(8, x2 - x1);
       const r = 7;
+      const pillColor = e.color || lane.color;
       // Pill
-      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: lane.color, opacity: 0.18, rx: r });
+      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, opacity: 0.18, rx: r });
       // Dots
-      el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: lane.color });
-      el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: lane.color, opacity: 0.6 });
+      el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor });
+      el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: pillColor, opacity: 0.6 });
       // Group for hover + accessibility
       const g = el('g', { class: 'tl-entry', tabindex: 0 });
       g.style.cursor = 'pointer';
