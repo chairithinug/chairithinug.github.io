@@ -178,6 +178,7 @@ ul, ol { list-style: none; }
 @media (max-width: 880px) {
   .nav-inner { gap: 12px; padding: 10px 20px; }
   .nav-links { display: none; }
+  .nav-tools { margin-left: auto; }
   .menu-btn { display: grid; }
   .lang-switch { font-size: 10px; }
   .nav-mark .meta { display: none; }
@@ -360,6 +361,13 @@ ul, ol { list-style: none; }
    ("University of Wisconsin–Madison", "Open to opportunities").
    Collapse to single column at iPhone-SE / mini widths. */
 @media (max-width: 400px) {
+  /* Nav: free up room so theme + hamburger don't get squeezed off-screen */
+  .nav-inner { gap: 8px; padding: 8px 14px; }
+  .nav-mark b { display: none; }
+  .nav-tools { gap: 2px; }
+  .lang-switch { padding: 1px; }
+  .lang-switch button { min-width: 32px; min-height: 44px; padding: 4px 6px; }
+  .theme-btn, .menu-btn { width: 40px; height: 44px; }
   .pp-fields { grid-template-columns: 1fr; gap: 12px; }
   .pp-photo { width: 140px; height: 182px; }
   .pp-title { font-size: 14px; }
