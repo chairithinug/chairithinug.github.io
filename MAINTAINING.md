@@ -11,9 +11,10 @@ A practical handbook for keeping the site current — adding projects, articles,
 
 | What | File(s) |
 |---|---|
-| Nav, mobile menu, footer, cookie banner, GA loader | `chrome.js` |
+| Nav, mobile menu (incl. lang switch), footer, cookie banner, GA loader | `chrome.js` |
 | Timeline data (career chapters) | `site.js` — `TIMELINE` const (≈ line 12) |
-| City bands (timeline background) | `site.js` — `BANDS` const (≈ line 35) |
+| City bands (timeline background) | `site.js` — `BANDS` const (≈ line 35); colors/opacity in `style.css` `:root` (`--band-bangkok`, `--band-madison`, `--band-copenhagen`, `--tl-band-opacity`, `--tl-pill-bg-opacity`) — swapped per theme |
+| Background pattern (guilloché) | `style.css` `:root` — `--bg-pattern` (dark strokes) / `--bg-pattern-light` (light strokes). Applied to `body::after` + section-local `::after` on colored panels |
 | Translations (3 languages) | `lang/en.json`, `lang/th.json`, `lang/da.json` |
 | All visual styles | `style.css` (single file, ~1900 lines, organized by `/* ───── SECTION ─────*/` banners) |
 | All interactive behavior | `site.js` (timeline render, theme, lang, menu, tweaks, scroll-spy, clocks) |
@@ -434,6 +435,10 @@ Production URL: `https://www.chairithinug.com` (fronted by Cloudflare). Updates 
 - **The lang switcher only flips what's wired**: ~75 of 84 keys are reachable today. If you add new visible copy that should translate, you need to (a) wrap in `[data-i18n]` and (b) add the key to all 3 lang JSONs.
 - **`I18N` inline const in `site.js`** (line ~52) holds 4 passport-card keys as a zero-fetch fallback. These keys are **deliberately not in lang JSONs**. If you change a passport label, edit the inline const, not the JSON.
 - **Filter chip counts are derived** (since the recent refactor) — adding a project automatically updates the count next page-load. No more hardcoded `All · 9`.
+- **Skill-tile proficiency labels are injected at runtime** by `initSkillTileLabels` in `site.js` based on the tile's `.fluent / .comfortable / .learning` class. Don't add a sr-only span manually; just set the right class.
+- **External-link "(opens in new tab)" hints are injected** by `initExternalLinkLabels` for any `a[target="_blank"]` without an explicit `aria-label`. If you need a custom label, set `aria-label` directly and the init will respect it.
+- **Timeline SVG is `aria-hidden`** — the canonical AT representation is the `<ol class="tl-mobile">` next to it. If you change the chart data, both `TIMELINE` (drives SVG) and `renderTimelineMobile` (drives the list) read from the same const, so they stay in sync automatically.
+- **Background guilloché must also be drawn on colored sections**, because `.section-block.alt/.warm/.deep/.ink`, `.timeline-section`, `.teasers`, `.contact` all sit at `z-index: 2` and would mask the `body::after`. The CSS uses `--bg-pattern` (dark strokes) / `--bg-pattern-light` (light strokes) and picks per section + per theme depending on whether the resulting surface is light or dark.
 - **`MAINTAINING.md` (this file) is gitignored only via `.claude/` and `CLAUDE.md` patterns** — confirm it's committed: `git ls-files MAINTAINING.md`.
 
 ---

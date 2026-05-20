@@ -8,7 +8,7 @@ Built as a **passport-as-portfolio** ("Bangkok Harbor" design system) — every 
 
 - **Vanilla HTML/CSS/JS** — no framework, no build step. Edit files, push, deploy.
 - **IBM Plex** type family (Sans / Sans Thai / Serif / Mono) loaded from Google Fonts.
-- **Hand-written `style.css`** (~1,800 lines) — design tokens in `:root`, single source of truth. No Tailwind, no PostCSS.
+- **Hand-written `style.css`** (~1,940 lines) — design tokens in `:root`, single source of truth. No Tailwind, no PostCSS.
 - **Cache-first service worker** for PWA offline shell.
 - **JSON i18n** (`/lang/{en,th,da}.json`) — language switcher swaps `[data-i18n]` text and `[data-i18n-aria-label]` attributes site-wide.
 - **GitHub Pages** deploy from `main`, custom domain via `CNAME`, fronted by Cloudflare for CDN + HTTPS.
@@ -119,12 +119,14 @@ One global script. Handles:
 - SVG career timeline render with greedy sub-row scheduling for overlapping entries
 - Theme toggle with `localStorage.theme` + system preference default
 - Language switcher (`/lang/{en,th,da}.json` fetched, applied via `[data-i18n]` / `[data-i18n-aria-label]`)
-- Mobile menu sheet (slide-up modal with focus management + Escape)
-- Tweaks panel (accent / theme / bilingual mode / background grain or grid)
+- Mobile menu sheet (slide-up modal with focus management + Escape) — also hosts the language switch on mobile
+- Tweaks panel (accent / theme / bilingual mode / background: guilloché · grain · grid · flat)
 - Scroll-spy on nav links
 - FAQ flip-card toggling with `aria-expanded` + answer-on-flip
-- Dual-city clocks (Bangkok / Copenhagen) via `Intl.DateTimeFormat`
+- Dual-city clocks (Bangkok / Copenhagen) via `Intl.DateTimeFormat`, with `<time datetime>` synced each tick
 - Project filter chips
+- Skill-tile a11y enrichment — appends sr-only "Fluent / Comfortable / Learning" labels per tile
+- External-link a11y enrichment — appends "(opens in new tab)" to every `target="_blank"` aria-label
 
 Each init is isolated in a try/catch so a single failure can't sink the rest of the page.
 
@@ -159,7 +161,9 @@ Targets **WCAG 2.2 Level AA**:
 - `prefers-reduced-motion` respected in animations
 - Modal dialogs (cookie banner, mobile menu) have proper `role="dialog"`, `aria-modal`, focus trap, and Escape
 - FAQ flip cards manage `aria-expanded` + announce answer on flip
-- SVG timeline pills are individually focusable with descriptive `aria-label`s
+- Timeline SVG is `aria-hidden`; the canonical AT representation is the `<ol class="tl-mobile">` (visible on mobile, sr-only on desktop) so screen readers get one coherent narrative
+- Skill-tile proficiency and external-link "(opens in new tab)" hints are injected at runtime by `site.js`
+- Project heatmap + tag bars carry per-`<li>` aria-labels so the visual chart has a text equivalent
 
 ## Page numbering
 
