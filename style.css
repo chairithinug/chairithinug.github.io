@@ -1324,6 +1324,49 @@ body[data-bg="grid"] .teasers {
 #cookie-banner button:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
 #cookie-banner #accept-cookies { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 #cookie-banner #accept-cookies:hover { background: var(--accent); border-color: var(--accent); }
+/* ───── TIMELINE TOOLTIP ───── */
+.tl-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(10,22,38,0.14);
+  display: flex;
+  min-width: 200px;
+  max-width: 280px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s, transform 0.12s;
+  z-index: 5;
+}
+.tl-tooltip[data-visible="true"] { opacity: 1; transform: translateY(0); }
+.tl-tt-bar { width: 3px; flex-shrink: 0; border-radius: 10px 0 0 10px; }
+.tl-tt-body { padding: 10px 14px; }
+.tl-tt-label {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.tl-tt-dates {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+.tl-tt-note {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-top: 6px;
+}
+.tl-entry:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;

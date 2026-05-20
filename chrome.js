@@ -78,7 +78,7 @@
         </div>
         <div class="foot-bar">
           <span>© 2026 Anapat Chairithinugull · <a href="/privacy.html#privacy" data-i18n="footer-privacy">Privacy</a> · <a href="/privacy.html#accessibility" data-i18n="footer-accessibility">Accessibility</a></span>
-          <span>EN · ไทย · DA &nbsp;·&nbsp; v6.4</span>
+          <span>EN · ไทย · DA</span>
         </div>
       </div>`;
   }

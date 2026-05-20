@@ -193,16 +193,19 @@
       const w = Math.max(8, x2 - x1);
       const r = 7;
       const pillColor = e.color || lane.color;
-      // Pill
-      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, opacity: 0.18, rx: r });
-      // Dots
-      el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor });
-      el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: pillColor, opacity: 0.6 });
-      // Group for hover + accessibility
+      // Group wraps pill + dots + label + invisible hit area so hover targets the whole thing
       const g = el('g', { class: 'tl-entry', tabindex: 0 });
       g.style.cursor = 'pointer';
-      el('title', {}, g).textContent = `${e.label} · ${e.note}`;
-      el('rect', { x: x1 - 3, y: yEntry - 18, width: Math.max(80, w + 6), height: 38, fill: 'transparent' }, g);
+      g.dataset.label = e.label;
+      g.dataset.note  = e.note || '';
+      g.dataset.from  = e.from;
+      g.dataset.to    = e.to;
+      // Pill + dots (now inside g so they receive pointer events)
+      el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, opacity: 0.18, rx: r }, g);
+      el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor }, g);
+      el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: pillColor, opacity: 0.6 }, g);
+      // Generous hit-area covering label + pill so hover is forgiving
+      el('rect', { x: x1 - 4, y: yEntry - 24, width: Math.max(120, w + 12), height: 50, fill: 'transparent' }, g);
 
       // Label placement:
       //  - single sub-row in lane → label above pill, note below
@@ -225,8 +228,17 @@
         }, g);
         note.textContent = e.note;
       }
-      g.addEventListener('mouseenter', () => label.setAttribute('fill', lane.color));
-      g.addEventListener('mouseleave', () => label.setAttribute('fill', 'var(--ink)'));
+      g.addEventListener('mouseenter', (ev) => {
+        label.setAttribute('fill', lane.color);
+        showTimelineTooltip(host, g, pillColor, ev);
+      });
+      g.addEventListener('mousemove', (ev) => moveTimelineTooltip(host, ev));
+      g.addEventListener('mouseleave', () => {
+        label.setAttribute('fill', 'var(--ink)');
+        hideTimelineTooltip(host);
+      });
+      g.addEventListener('focus',  (ev) => showTimelineTooltip(host, g, pillColor, ev));
+      g.addEventListener('blur',   () => hideTimelineTooltip(host));
     });
 
     // Now marker
@@ -243,6 +255,59 @@
     }).textContent = 'NOW';
 
     host.appendChild(svg);
+  }
+
+  /* ───── TIMELINE TOOLTIP ───── */
+  function fmtYear(y) {
+    const yr = Math.floor(y);
+    const frac = y - yr;
+    if (frac === 0) return String(yr);
+    const month = Math.round(frac * 12) + 1;
+    const names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${names[Math.min(11, Math.max(0, month - 1))]} ${yr}`;
+  }
+  function ensureTooltip(host) {
+    let tip = host.querySelector(':scope > .tl-tooltip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'tl-tooltip';
+      tip.setAttribute('role', 'tooltip');
+      tip.setAttribute('aria-hidden', 'true');
+      host.style.position = host.style.position || 'relative';
+      host.appendChild(tip);
+    }
+    return tip;
+  }
+  function showTimelineTooltip(host, g, color, ev) {
+    const tip = ensureTooltip(host);
+    const { label, note, from, to } = g.dataset;
+    tip.innerHTML = `
+      <div class="tl-tt-bar" style="background:${color}"></div>
+      <div class="tl-tt-body">
+        <div class="tl-tt-label">${label}</div>
+        <div class="tl-tt-dates">${fmtYear(parseFloat(from))} → ${fmtYear(parseFloat(to))}</div>
+        ${note ? `<div class="tl-tt-note">${note}</div>` : ''}
+      </div>`;
+    tip.dataset.visible = 'true';
+    tip.setAttribute('aria-hidden', 'false');
+    moveTimelineTooltip(host, ev);
+  }
+  function moveTimelineTooltip(host, ev) {
+    const tip = host.querySelector(':scope > .tl-tooltip');
+    if (!tip || tip.dataset.visible !== 'true') return;
+    const rect = host.getBoundingClientRect();
+    const px = ev.clientX - rect.left + 14;
+    const py = ev.clientY - rect.top + 14;
+    // Clamp to host bounds so it doesn't overflow on the right edge
+    const maxX = rect.width - tip.offsetWidth - 8;
+    tip.style.left = Math.min(px, Math.max(8, maxX)) + 'px';
+    tip.style.top  = py + 'px';
+  }
+  function hideTimelineTooltip(host) {
+    const tip = host.querySelector(':scope > .tl-tooltip');
+    if (!tip) return;
+    tip.dataset.visible = 'false';
+    tip.setAttribute('aria-hidden', 'true');
   }
 
   /* ───── MOBILE TIMELINE (vertical) ───── */
