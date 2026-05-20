@@ -1189,6 +1189,22 @@ body[data-bg="grid"] .teasers {
 }
 .proj-card[hidden] { display: none; }
 
+.proj-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 32px 24px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+
+.filter-chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 @media (max-width: 880px) {
   .proj-grid { grid-template-columns: 1fr; }
   .proj-card .year-stamp-circle { width: 54px; height: 54px; }
