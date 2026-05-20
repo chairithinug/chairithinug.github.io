@@ -1,77 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Books · Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/books.html">
+  <meta name="description" content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok. Non-fiction, tech, science, philosophy, and coffee.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Books | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/books.html">
+  <meta property="og:title" content="Books · Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/books.html">
+  <meta property="og:description" content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Books · Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Structured data for SEO -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -100,137 +76,105 @@
     ]
   }
 }
-    </script>
-
-    <!-- Metadata / SEO / Social -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok. Non-fiction, tech, science, and lifestyle reading list.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Books - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/books.html">
-    <meta property="og:description"
-        content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok. Non-fiction, tech, science, and lifestyle reading list.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Books - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Book recommendations by Anapat Chairithinugull — Data Scientist in Bangkok. Non-fiction, tech, science, and lifestyle reading list.">
+  </script>
 </head>
+<body data-page="books">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <!-- Main Content -->
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Books</h1>
-        <section id="books" aria-labelledby="books-title">
-            <h2 id="books-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Books</h2>
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-h">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">B</span><span class="label">Reading list</span></div>
+        <nav class="crumbs"><a href="/">Home</a><span>/</span><span>Books</span></nav>
+        <h1 id="page-h"><span class="num">§ 08 · Books</span>The stack on my <span class="accent">nightstand</span>.</h1>
+        <p class="bi-sub"><b>Reading list</b> · รายการอ่าน — non-fiction, tech, philosophy, coffee</p>
+        <p class="lede">What I'm reading now, what's queued, and what's already in the rear-view. If you have a recommendation, send it over — I'm always looking for the next great read.</p>
+        <div class="meta-row">
+          <span><b>1</b>&nbsp; currently reading</span>
+          <span><b>5</b>&nbsp; in the backlog</span>
+          <span><b>8</b>&nbsp; finished</span>
+          <span><b>2</b>&nbsp; on coffee</span>
+        </div>
+      </div>
+    </section>
 
-            <!-- Currently Reading / Listening -->
-            <section id="currently-reading" aria-labelledby="currently-reading-title">
-                <h3 id="currently-reading-title" class="text-xl font-semibold mb-4">Currently Reading / Listening</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>"Grunt"</strong> by Mary Roach - The Curious Science of Humans at War.</li>
-                </ul>
-            </section>
+    <section class="section-block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="currently-reading-title"><span class="num">§ 08.01</span>Currently reading.</h2>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong>"Grunt"</strong> by Mary Roach — The Curious Science of Humans at War.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <!-- Backlog -->
-            <section id="backlog" aria-labelledby="backlog-title" class="mt-8">
-                <h3 id="backlog-title" class="text-xl font-semibold mb-4">Backlog</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>"Thinking, Fast and Slow"</strong> by Daniel Kahneman - A deep dive into the two systems
-                        that drive the way we think.</li>
-                    <li><strong>"Can't Hurt Me"</strong> by David Goggins - The inspiring story of a former Navy SEAL
-                        and his relentless pursuit of excellence.</li>
-                    <li><strong>"The Pragmatic Programmer"</strong> by Andrew Hunt and David Thomas - A classic book on
-                        software development best practices.</li>
-                    <li><strong>"The Psychology of Money"</strong> by Morgan Housel - A compelling exploration of the
-                        ways in which
-                        people think about money and make financial decisions.</li>
-                    <li><strong>"Principles for Dealing with the Changing World Order"</strong> by Ray Dalio - A timely
-                        examination of the forces shaping our future.</li>
-                </ul>
-            </section>
+    <section class="section-block alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="backlog-title"><span class="num">§ 08.02</span>Backlog.</h2>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong>"Thinking, Fast and Slow"</strong> by Daniel Kahneman — A deep dive into the two systems that drive the way we think.</li>
+            <li><strong>"Can't Hurt Me"</strong> by David Goggins — The story of a former Navy SEAL and his relentless pursuit of excellence.</li>
+            <li><strong>"The Pragmatic Programmer"</strong> by Andrew Hunt and David Thomas — A classic on software development best practices.</li>
+            <li><strong>"The Psychology of Money"</strong> by Morgan Housel — How people think about money and make financial decisions.</li>
+            <li><strong>"Principles for Dealing with the Changing World Order"</strong> by Ray Dalio — A timely examination of the forces shaping our future.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <!-- Finished Reading -->
-            <section id="finished-reading" aria-labelledby="finished-reading-title" class="mt-8">
-                <h3 id="finished-reading-title" class="text-xl font-semibold mb-4">Finished Reading</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>"The Data Detective"</strong> by Tim Harford - A guide to using data to make better
-                        decisions.</li>
-                    <li><strong>"Start with Why"</strong> by Simon Sinek - A powerful exploration of the importance of
-                        understanding your "why."</li>
-                    <li><strong>"Man's Search for Meaning"</strong> by Viktor E. Frankl - A profound examination of
-                        finding purpose through suffering.</li>
-                    <li><strong>"Shoe Dog"</strong> by Phil Knight - The candid memoir of the Nike co-founder and his
-                        journey to success.</li>
-                    <li><strong>"Who Gets What - and Why"</strong> by Alvin E. Roth - A fascinating look at the
-                        economics
-                        of
-                        matching markets.</li>
-                    <li><strong>"Steve Jobs"</strong> by Walter Isaacson - A biography of the Apple co-founder that
-                        explores his life, innovations, and impact on technology.
-                    </li>
-                    <li><strong>"Hiking with Nietzsche"</strong> by John Kaag - A philosophical memoir that intertwines
-                        the author's love for hiking with the ideas of Friedrich Nietzsche.
-                    </li>
-                </ul>
-            </section>
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="finished-title"><span class="num">§ 08.03</span>Finished.</h2>
+        </div>
+        <div class="prose">
+          <h3>Read</h3>
+          <ul>
+            <li><strong>"The Data Detective"</strong> by Tim Harford — Using data to make better decisions.</li>
+            <li><strong>"Start with Why"</strong> by Simon Sinek — On the importance of understanding your "why".</li>
+            <li><strong>"Man's Search for Meaning"</strong> by Viktor E. Frankl — Finding purpose through suffering.</li>
+            <li><strong>"Shoe Dog"</strong> by Phil Knight — The candid memoir of the Nike co-founder.</li>
+            <li><strong>"Who Gets What — and Why"</strong> by Alvin E. Roth — The economics of matching markets.</li>
+            <li><strong>"Steve Jobs"</strong> by Walter Isaacson — Biography of the Apple co-founder.</li>
+            <li><strong>"Hiking with Nietzsche"</strong> by John Kaag — Philosophical memoir intertwining hiking with Nietzsche's ideas.</li>
+          </ul>
+          <h3>Listened</h3>
+          <ul>
+            <li><strong>"Atomic Habits"</strong> by James Clear — The power of small habits.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <!-- Finished Listening -->
-            <section id="finished-listening" aria-labelledby="finished-listening-title" class="mt-8">
-                <h3 id="finished-listening-title" class="text-xl font-semibold mb-4">Finished Listening</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>"Atomic Habits"</strong> by James Clear - An exploration of the power of small habits
-                        and how they can lead to significant change.</li>
-                </ul>
-            </section>
+    <section class="section-block deep">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="coffee-title"><span class="num">§ 08.04</span>Coffee shelf.</h2>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong>"The World Atlas of Coffee"</strong> by James Hoffmann — A comprehensive guide to coffee-growing regions and their unique flavors.</li>
+            <li><strong>"How to Make the Best Coffee at Home"</strong> by James Hoffmann — Expert tips and techniques for brewing at home.</li>
+          </ul>
+          <p data-i18n="books-cta">Do you have any book recommendations? Feel free to share them — I'm always on the lookout for the next great read.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            <!-- Coffee Related -->
-            <section id="coffee-related" aria-labelledby="coffee-related-title" class="mt-8">
-                <h3 id="coffee-related-title" class="text-xl font-semibold mb-4">Coffee Related</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong>"The World Atlas of Coffee"</strong> by James Hoffmann - A comprehensive guide to
-                        coffee-growing regions and their unique flavors.</li>
-                    <li><strong>"How to Make the Best Coffee at Home"</strong> by James Hoffmann - Expert tips and
-                        techniques for brewing coffee at home.</li>
-                </ul>
-            </section>
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
 
-            <p class="mt-6" data-i18n="books-cta">Do you have any book recommendations? Feel free to share them with me—I’m always on the lookout for my next great read!</p>
-        </section>
-    </main>
-
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
-
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="/install-prompt.js" defer></script>
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>

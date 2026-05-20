@@ -1,335 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Interests · Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/interests.html">
+  <meta name="description" content="Personal interests of Anapat Chairithinugull — Data Scientist in Bangkok. Coffee, cycling, running, triathlon, and data science.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Interests | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/interests.html">
-
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Interests – Anapat Chairithinugull",
-  "description": "Personal and professional interests including coffee crafting, cycling, running, triathlon, swimming, data science, and photography.",
-  "url": "https://chairithinug.com/interests.html",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Coffee & Tea Crafting" },
-    { "@type": "ListItem", "position": 2, "name": "Cycling" },
-    { "@type": "ListItem", "position": 3, "name": "Running" },
-    { "@type": "ListItem", "position": 4, "name": "Marathon" },
-    { "@type": "ListItem", "position": 5, "name": "Swimming" },
-    { "@type": "ListItem", "position": 6, "name": "Triathlon" },
-    { "@type": "ListItem", "position": 7, "name": "Ironman" },
-    { "@type": "ListItem", "position": 8, "name": "Data Science" },
-    { "@type": "ListItem", "position": 9, "name": "Machine Learning" },
-    { "@type": "ListItem", "position": 10, "name": "Traveling" },
-    { "@type": "ListItem", "position": 11, "name": "Photography" }
-  ]
-}
-</script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Personal interests of Anapat Chairithinugull — Data Scientist in Bangkok. Coffee, cycling, running, triathlon, and data science.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Interests – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/interests.html">
-    <meta property="og:description"
-        content="Personal interests of Anapat Chairithinugull — Data Scientist in Bangkok. Coffee, cycling, running, triathlon, and data science.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Interests – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Personal interests of Anapat Chairithinugull — Data Scientist in Bangkok. Coffee, cycling, running, triathlon, and data science.">
+  <meta property="og:title" content="Interests · Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/interests.html">
+  <meta property="og:description" content="Personal interests — coffee, cycling, running, triathlon, photography.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Interests · Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Personal interests — coffee, cycling, running, triathlon, photography.">
 </head>
+<body data-page="interests">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Interests &amp; Hobbies</h1>
-        <!-- Interests -->
-        <section id="interests" aria-labelledby="interests-title">
-            <h2 id="interests-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Interests
-            </h2>
-            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 relative z-10">
-                <div
-                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
-                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center" data-i18n="interest-coffee">Coffee &amp; Tea Crafting</span>
-                </div>
-                <div
-                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
-                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center" data-i18n="interest-travel">Travel</span>
-                </div>
-                <div
-                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
-                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center" data-i18n="interest-photography">Photography</span>
-                </div>
-                <div
-                    class="flex flex-col items-center bg-white dark:bg-gray-800 shadow rounded-xl p-4 hover:scale-105 transition">
-                    <span class="text-sm text-gray-700 dark:text-gray-200 text-center" data-i18n="interest-training">IronMan &amp; Marathon Training</span>
-                </div>
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-h">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">I</span><span class="label">Hobbies</span></div>
+        <nav class="crumbs"><a href="/">Home</a><span>/</span><span>Interests</span></nav>
+        <h1 id="page-h"><span class="num">§ 09 · Interests</span>What I do <span class="accent">off-screen</span>.</h1>
+        <p class="bi-sub"><b>Hobbies &amp; achievements</b> · งานอดิเรกและผลงาน — coffee, cameras, swim/bike/run</p>
+        <p class="lede">Outside the terminal: brewing coffee, chasing finish lines, and capturing places on the way. A short log of what I'm into and the races I've finished.</p>
+        <div class="meta-row">
+          <span><b>4</b>&nbsp; interests tracked</span>
+          <span><b>6</b>&nbsp; disciplines</span>
+          <span><b>9</b>&nbsp; races recorded</span>
+          <span><b>2025</b>&nbsp; latest season</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 09.01</span>Interests.</h2>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser">
+            <div class="eyebrow"><span>01</span><span>daily</span></div>
+            <h3 data-i18n="interest-coffee">Coffee &amp; Tea Crafting</h3>
+            <p>Pour-over, espresso, single-origins — the part of the morning that's mine.</p>
+          </div>
+          <div class="teaser">
+            <div class="eyebrow"><span>02</span><span>passport</span></div>
+            <h3 data-i18n="interest-travel">Travel</h3>
+            <p>Bangkok → Madison → Copenhagen, and every weekend trip in between.</p>
+          </div>
+          <div class="teaser">
+            <div class="eyebrow"><span>03</span><span>camera</span></div>
+            <h3 data-i18n="interest-photography">Photography</h3>
+            <p>Mostly streets and harbours. Quiet light, no people.</p>
+          </div>
+          <div class="teaser">
+            <div class="eyebrow"><span>04</span><span>endurance</span></div>
+            <h3 data-i18n="interest-training">IronMan &amp; Marathon Training</h3>
+            <p>Swim, bike, run — long sessions that pay back in clarity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="sports-title"><span class="num">§ 09.02</span>Sports achievements.</h2>
+          <div class="meta">Race results · Copenhagen</div>
+        </div>
+        <div class="proj-grid">
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-swim-1k">1000 m · Swimming</div>
+                <div class="org">Christiansborg Rundt 2025</div>
+              </div>
+              <span class="lane-dot" style="background:var(--copen)"></span>
             </div>
-        </section>
+            <ul class="bullets">
+              <li><a href="https://www.sportstiming.dk/event/15189/results/7091341" target="_blank" rel="noopener noreferrer"><b>26m 33s</b></a> · 29 Aug 2025</li>
+            </ul>
+          </article>
 
-        <section id="sports" aria-labelledby="sports-title">
-            <h2 id="sports-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Sports Achievements
-            </h2>
-
-            <div class="mt-4 relative">
-                <!-- Left Arrow -->
-                <button id="left-sports" aria-label="Previous" data-i18n-aria-label="aria-prev"
-                    class="absolute -left-8 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
-                    &#8592;
-                </button>
-
-                <!-- Right Arrow -->
-                <button id="right-sports" aria-label="Next" data-i18n-aria-label="aria-next"
-                    class="absolute -right-8 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
-                    &#8594;
-                </button>
-
-                <div id="sports-carousel" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth" tabindex="0"
-                    role="region" aria-label="Sports carousel" data-i18n-aria-label="aria-sports-carousel">
-
-                    <!-- Swimming Category -->
-                    <div
-                        class="min-w-[220px] bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-swim-1k">1000m Swimming</p>
-                        <div class="space-y-1">
-                            <div class="bg-blue-100 dark:bg-blue-800 p-2 rounded">
-                                <p class="text-blue-600 dark:text-blue-200 font-bold">
-                                    <a href="https://www.sportstiming.dk/event/15189/results/7091341" target="_blank"
-                                        rel="noopener noreferrer" class="hover:underline">
-                                        26m 33s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Christiansborg Rundt 2025</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">29 Aug 2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 13.3K Category -->
-                    <div
-                        class="min-w-[220px] bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-run-13">13.3K Running</p>
-                        <div class="space-y-1">
-                            <div class="bg-yellow-100 dark:bg-yellow-800 p-2 rounded">
-                                <p class="text-yellow-600 dark:text-yellow-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6743&pid=4484"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        1h 14m 59s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Eremitageløbet 2025</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">05 Oct 2025</p>
-                                <!-- <p class="font-medium text-gray-700 dark:text-gray-200 countdown h-6 leading-6 w-full text-center"
-                                    data-date="2025-10-05T09:00:00"></p> -->
-                            </div>
-                            <div class="bg-yellow-100 dark:bg-yellow-800 p-2 rounded">
-                                <p class="text-yellow-600 dark:text-yellow-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6235&pid=12340"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        1h 26m 45s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Eremitageløbet 2024</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">06 Oct 2024</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Half Marathon Category -->
-                    <div
-                        class="min-w-[220px] bg-green-50 dark:bg-green-900 border-l-4 border-green-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-half-marathon">Half Marathon</p>
-                        <div class="space-y-1">
-                            <div class="bg-green-100 dark:bg-green-800 p-2 rounded">
-                                <p class="text-green-600 dark:text-green-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6736&pid=33131"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        2h 09m 50s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Half Marathon 2025
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">14 Sep 2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Full Marathon Category -->
-                    <div
-                        class="min-w-[220px] bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-full-marathon">Full Marathon</p>
-                        <div class="space-y-1">
-                            <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
-                                <p class="text-purple-600 dark:text-purple-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6591&pid=1698"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        5h 43m 53s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Marathon 2025</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">11 May 2025</p>
-                            </div>
-                            <div class="bg-purple-100 dark:bg-purple-800 p-2 rounded">
-                                <p class="text-purple-600 dark:text-purple-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6087&pid=3675"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        6h 03m 22s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen Marathon 2024</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">05 May 2024</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4:18:4 Mini Ironman Category -->
-                    <div
-                        class="min-w-[220px] bg-red-50 dark:bg-red-900 border-l-4 border-red-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-mini-ironman">4:18:4 Mini Ironman</p>
-                        <div class="space-y-1">
-                            <div class="bg-red-100 dark:bg-red-800 p-2 rounded">
-                                <p class="text-red-600 dark:text-red-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/?eventid=7063&pid=582"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        1h 11m 02s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Copenhagen 2025</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">15 Aug 2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Half Ironman Category -->
-                    <div
-                        class="min-w-[220px] bg-orange-50 dark:bg-orange-900 border-l-4 border-orange-600 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold mb-2" data-i18n="sport-half-ironman">Half Ironman (70.3)</p>
-                        <div class="space-y-1">
-                            <div class="bg-orange-100 dark:bg-orange-800 p-2 rounded">
-                                <p class="text-orange-600 dark:text-orange-200 font-bold">
-                                    <a href="https://live.ultimate.dk/desktop/front/index.php?eventid=7007&pid=1381"
-                                        target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        7h 34m 12s
-                                    </a>
-                                </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">Elsinore 2025</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-300">22 Jun 2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-run-13">13.3 km · Running</div>
+                <div class="org">Eremitageløbet</div>
+              </div>
+              <span class="lane-dot" style="background:var(--gold)"></span>
             </div>
-        </section>
-    </main>
+            <ul class="bullets">
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6743&pid=4484" target="_blank" rel="noopener noreferrer"><b>1h 14m 59s</b></a> · 05 Oct 2025</li>
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6235&pid=12340" target="_blank" rel="noopener noreferrer"><b>1h 26m 45s</b></a> · 06 Oct 2024</li>
+            </ul>
+          </article>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-half-marathon">Half Marathon</div>
+                <div class="org">Copenhagen Half Marathon</div>
+              </div>
+              <span class="lane-dot" style="background:var(--jade)"></span>
+            </div>
+            <ul class="bullets">
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6736&pid=33131" target="_blank" rel="noopener noreferrer"><b>2h 09m 50s</b></a> · 14 Sep 2025</li>
+            </ul>
+          </article>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="interests-script.js" defer></script>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-full-marathon">Full Marathon</div>
+                <div class="org">Copenhagen Marathon</div>
+              </div>
+              <span class="lane-dot" style="background:var(--saffron)"></span>
+            </div>
+            <ul class="bullets">
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6591&pid=1698" target="_blank" rel="noopener noreferrer"><b>5h 43m 53s</b></a> · 11 May 2025</li>
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=6087&pid=3675" target="_blank" rel="noopener noreferrer"><b>6h 03m 22s</b></a> · 05 May 2024</li>
+            </ul>
+          </article>
 
-    <script src="/install-prompt.js" defer></script>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-mini-ironman">4:18:4 Mini Ironman</div>
+                <div class="org">Copenhagen 2025</div>
+              </div>
+              <span class="lane-dot" style="background:var(--chili)"></span>
+            </div>
+            <ul class="bullets">
+              <li><a href="https://live.ultimate.dk/desktop/front/?eventid=7063&pid=582" target="_blank" rel="noopener noreferrer"><b>1h 11m 02s</b></a> · 15 Aug 2025</li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <div class="role" data-i18n="sport-half-ironman">Half Ironman (70.3)</div>
+                <div class="org">Elsinore 2025</div>
+              </div>
+              <span class="lane-dot" style="background:var(--harbor)"></span>
+            </div>
+            <ul class="bullets">
+              <li><a href="https://live.ultimate.dk/desktop/front/index.php?eventid=7007&pid=1381" target="_blank" rel="noopener noreferrer"><b>7h 34m 12s</b></a> · 22 Jun 2025</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>

@@ -1,193 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Page Not Found · Anapat Chairithinugull</title>
+  <link rel="canonical" href="https://chairithinug.com/404.html">
+  <meta name="description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="noindex, follow">
+  <meta name="googlebot" content="noindex, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Page Not Found · Anapat Chairithinugull</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/404.html">
+  <meta property="og:title" content="Page Not Found · Anapat Chairithinugull">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/404.html">
+  <meta property="og:description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Not Found · Anapat Chairithinugull">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://chairithinug.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Career",
-      "item": "https://chairithinug.com/career.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "FAQ",
-      "item": "https://chairithinug.com/faq.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Articles",
-      "item": "https://chairithinug.com/articles.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "Interests",
-      "item": "https://chairithinug.com/interests.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "name": "Projects",
-      "item": "https://chairithinug.com/projects.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "name": "Skills",
-      "item": "https://chairithinug.com/skills.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "name": "404 Not Found",
-      "item": "https://chairithinug.com/404.html"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://chairithinug.com/" },
+    { "@type": "ListItem", "position": 2, "name": "404 Not Found", "item": "https://chairithinug.com/404.html" }
   ]
 }
-</script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="noindex, follow">
-    <meta name="googlebot" content="noindex, follow">
-    <meta name="description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title" content="Page Not Found · Anapat Chairithinugull">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/404.html">
-    <meta property="og:description"
-        content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Page Not Found · Anapat Chairithinugull">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description" content="Oops! Page not found. Explore the portfolio, resume, and projects of Anapat Chairithinugull – Data Scientist & Software Engineer in Bangkok.">
+  </script>
 </head>
+<body data-page="404">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
-    <main id="main-content"
-        class="text-center relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="text-4xl font-bold">404</h1>
-        <p class="text-xl mt-2">Oops! The page you are looking for cannot be found.</p>
-        <p class="text-gray-700 dark:text-gray-300">
-            It seems the link you followed is broken or the page has been removed.
-        </p>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-        <a href="/"
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition-colors duration-300">
-            Go Back Home
-        </a>
-
-        <div class="mt-6 text-gray-500 dark:text-gray-400 text-sm">
-            If you typed the URL manually, please check for errors.
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-h">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">4</span><span class="label">Not found</span></div>
+        <nav class="crumbs"><a href="/">Home</a><span>/</span><span>404</span></nav>
+        <h1 id="page-h"><span class="num">§ 404</span>This page is <span class="accent">missing</span>.</h1>
+        <p class="bi-sub"><b>Lost page</b> · ไม่พบหน้านี้ — the URL you followed is broken or the page has moved.</p>
+        <p class="lede">If you typed the URL by hand, double-check for typos. Otherwise, try one of the entries below — most of the site is one click away.</p>
+        <div class="meta-row">
+          <span><b>404</b>&nbsp; HTTP status</span>
+          <span><b>0</b>&nbsp; bytes lost forever</span>
+          <span><b>6</b>&nbsp; chapters still here</span>
+          <span><b>1</b>&nbsp; click&nbsp;home</span>
         </div>
-    </main>
+      </div>
+    </section>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 404.01</span>Where to go next.</h2>
+        </div>
+        <div class="teaser-grid">
+          <a class="teaser" href="/" aria-label="Home">
+            <div class="eyebrow"><span>§ 01</span><span>Cover</span></div>
+            <h3>Home</h3>
+            <p>Passport identity card, career timeline, and what I'm building right now.</p>
+            <span class="more">Open</span>
+          </a>
+          <a class="teaser" href="/career.html" aria-label="Career">
+            <div class="eyebrow"><span>§ 02</span><span>11 entries</span></div>
+            <h3>Career</h3>
+            <p>Full interactive timeline, work history, education, and volunteer work.</p>
+            <span class="more">Open</span>
+          </a>
+          <a class="teaser" href="/projects.html" aria-label="Projects">
+            <div class="eyebrow"><span>§ 03</span><span>9 entries</span></div>
+            <h3>Projects</h3>
+            <p>Filterable grid of shipped work — AI/ML, web, hardware, vision, research.</p>
+            <span class="more">See all</span>
+          </a>
+          <a class="teaser" href="/faq.html" aria-label="FAQ">
+            <div class="eyebrow"><span>§ 06</span><span>11 questions</span></div>
+            <h3>FAQ</h3>
+            <p>Honest answers to the questions I get asked most.</p>
+            <span class="more">Read</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="/install-prompt.js" defer></script>
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>
