@@ -57,7 +57,7 @@
     return `
       <div class="top">
         <span class="eyebrow">Navigate</span>
-        <button id="menu-close" aria-label="Close menu" style="font-size:24px">×</button>
+        <button id="menu-close" aria-label="Close menu">×</button>
       </div>
       <ul>${items}</ul>`;
   }
