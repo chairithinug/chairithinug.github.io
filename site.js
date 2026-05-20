@@ -177,8 +177,9 @@
       const pillColor = e.color || lane.color;
 
       // Group wraps pill + dots + label + invisible hit area so hover targets the whole thing.
-      const g = el('g', { class: 'tl-entry', tabindex: 0, role: 'group' });
-      g.setAttribute('aria-label', `${e.label}${e.note ? ', ' + e.note : ''}, ${fmtYear(e.from)} to ${fmtYear(e.to)}`);
+      // SVG is aria-hidden on the outer <svg>; the canonical AT representation is the
+      // sr-only-on-desktop <ol class="tl-mobile">, so no aria-label/tabindex here.
+      const g = el('g', { class: 'tl-entry' });
       g.style.cursor = 'pointer';
       g.dataset.label = e.label;
       g.dataset.note  = e.note || '';
@@ -257,9 +258,10 @@
     const svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('viewBox', `0 0 ${CW} ${CH}`);
     svg.setAttribute('width', '100%');
-    // Group role + descendant aria-labels — using role="img" would hide the focusable <g>s
-    svg.setAttribute('role', 'group');
-    svg.setAttribute('aria-label', `Career timeline from 2012 to present, ${TIMELINE.length} entries across ${LANE_ORDER.length} lanes`);
+    // SVG is decorative for AT — the <ol class="tl-mobile"> next to it carries the
+    // canonical accessible representation on every viewport (sr-only on desktop).
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
 
     const el = makeEl(svgNS, svg);
 

@@ -32,7 +32,7 @@
   --gold:       #C29A47;   /* Vintage Gold — decorative only */
 
   /* Darkened variants for body-size text (≥4.5:1 on --paper) */
-  --saffron-text: #B5641A;
+  --saffron-text: #9E5415;
   --gold-text:    #8F6F1E;
   --jade-text:    #3F6353;
 
@@ -441,13 +441,22 @@ ul, ol { list-style: none; }
 }
 .tl-chart svg { display: block; min-width: 100%; }
 
-/* Mobile vertical timeline */
-.tl-mobile { display: none; }
+/* Mobile vertical timeline — also the canonical AT representation on desktop.
+   Visually hidden but readable by screen readers when the SVG is shown. */
+.tl-mobile {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
 
 @media (max-width: 880px) {
   .timeline-section { padding: 40px 0 36px; }
   .tl-desktop { display: none; }
-  .tl-mobile { display: block; padding-top: 8px; }
+  .tl-mobile {
+    position: static; width: auto; height: auto;
+    margin: 0; overflow: visible; clip: auto; white-space: normal;
+    padding-top: 8px;
+  }
   .section-head h2 { font-size: 28px; }
   .tl-figure { padding: 18px 18px 12px; }
 }
