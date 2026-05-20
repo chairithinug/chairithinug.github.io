@@ -59,7 +59,15 @@
         <span class="eyebrow">Navigate</span>
         <button id="menu-close" aria-label="Close menu">×</button>
       </div>
-      <ul>${items}</ul>`;
+      <ul>${items}</ul>
+      <div class="menu-lang">
+        <span class="eyebrow">Language</span>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button data-lang="en" aria-pressed="true">EN</button>
+          <button data-lang="th" aria-pressed="false">ไทย</button>
+          <button data-lang="da" aria-pressed="false">DA</button>
+        </div>
+      </div>`;
   }
 
   function footerHTML() {

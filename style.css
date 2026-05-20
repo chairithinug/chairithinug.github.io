@@ -179,12 +179,12 @@ ul, ol { list-style: none; }
   .nav-inner { gap: 12px; padding: 10px 20px; }
   .nav-links { display: none; }
   .nav-tools { margin-left: auto; }
+  .nav-tools .lang-switch { display: none; }
   .menu-btn { display: grid; }
-  .lang-switch { font-size: 10px; }
   .nav-mark .meta { display: none; }
   /* Tap targets — WCAG 2.5.5 minimum 44×44 */
   .theme-btn, .menu-btn { width: 44px; height: 44px; }
-  .lang-switch button { min-width: 44px; min-height: 44px; }
+  .menu-sheet .lang-switch button { min-width: 56px; min-height: 44px; font-size: 13px; }
   .menu-sheet .top button,
   .tweaks .title button { min-width: 44px; min-height: 44px; display: grid; place-items: center; font-size: 24px; }
   /* Tweaks panel swatches are host-activated only (iframe protocol);
@@ -210,6 +210,15 @@ ul, ol { list-style: none; }
   font-family: var(--font-serif); font-size: 28px;
 }
 .menu-sheet li a span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
+.menu-lang {
+  padding: 24px 20px; border-top: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.menu-lang .eyebrow {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.menu-lang .lang-switch { align-self: flex-start; }
 
 
 /* ───── PASSPORT IDENTITY (hero) ───── */
@@ -361,12 +370,9 @@ ul, ol { list-style: none; }
    ("University of Wisconsin–Madison", "Open to opportunities").
    Collapse to single column at iPhone-SE / mini widths. */
 @media (max-width: 400px) {
-  /* Nav: free up room so theme + hamburger don't get squeezed off-screen */
+  /* Nav: tighten further on iPhone SE; lang-switch is in the menu sheet now */
   .nav-inner { gap: 8px; padding: 8px 14px; }
-  .nav-mark b { display: none; }
   .nav-tools { gap: 2px; }
-  .lang-switch { padding: 1px; }
-  .lang-switch button { min-width: 32px; min-height: 44px; padding: 4px 6px; }
   .theme-btn, .menu-btn { width: 40px; height: 44px; }
   .pp-fields { grid-template-columns: 1fr; gap: 12px; }
   .pp-photo { width: 140px; height: 182px; }
