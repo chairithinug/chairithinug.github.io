@@ -778,6 +778,34 @@ body:not([data-bg]) .contact::after {
 .teasers > .wrap,
 .contact > .wrap { position: relative; z-index: 1; }
 
+/* Dark mode: light/dark-stroke choice inverts per section.
+   - .alt/.warm/.deep/.timeline-section/.teasers backgrounds turn dark
+     navy in dark mode → use light strokes + screen blend.
+   - .ink/.contact use var(--ink) which flips to LIGHT cream in dark
+     mode → keep dark strokes + multiply blend. */
+[data-theme="dark"] body[data-bg="guilloche"] .section-block.alt::after,
+[data-theme="dark"] body[data-bg="guilloche"] .section-block.warm::after,
+[data-theme="dark"] body[data-bg="guilloche"] .section-block.deep::after,
+[data-theme="dark"] body[data-bg="guilloche"] .timeline-section::after,
+[data-theme="dark"] body[data-bg="guilloche"] .teasers::after,
+[data-theme="dark"] body:not([data-bg]) .section-block.alt::after,
+[data-theme="dark"] body:not([data-bg]) .section-block.warm::after,
+[data-theme="dark"] body:not([data-bg]) .section-block.deep::after,
+[data-theme="dark"] body:not([data-bg]) .timeline-section::after,
+[data-theme="dark"] body:not([data-bg]) .teasers::after {
+  background-image: var(--bg-pattern-light);
+  mix-blend-mode: screen;
+  opacity: 0.06;
+}
+[data-theme="dark"] body[data-bg="guilloche"] .section-block.ink::after,
+[data-theme="dark"] body[data-bg="guilloche"] .contact::after,
+[data-theme="dark"] body:not([data-bg]) .section-block.ink::after,
+[data-theme="dark"] body:not([data-bg]) .contact::after {
+  background-image: var(--bg-pattern);
+  mix-blend-mode: multiply;
+  opacity: 0.06;
+}
+
 /* ───── PAGE-HERO WATERMARK ─────
  * Faint giant § seal sitting behind every page-hero, anchored bottom-right.
  * Adds quiet personality without competing with content. */
