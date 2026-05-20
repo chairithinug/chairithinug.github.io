@@ -26,14 +26,20 @@
   --copen-soft: #6B8DB5;
 
   /* ── Warm Thai ───────────────────────────────────── */
-  --saffron:    #D97E3D;   /* Monk's Saffron */
+  --saffron:    #D97E3D;   /* Monk's Saffron — decorative / large text only */
   --chili:      #A8342E;   /* Thai Chili */
   --jade:       #5A8270;   /* Tea Jade */
-  --gold:       #C29A47;   /* Vintage Gold */
+  --gold:       #C29A47;   /* Vintage Gold — decorative only */
+
+  /* Darkened variants for body-size text (≥4.5:1 on --paper) */
+  --saffron-text: #B5641A;
+  --gold-text:    #8F6F1E;
+  --jade-text:    #3F6353;
 
   /* Tweakable */
-  --accent:     var(--saffron);
-  --accent-2:   var(--copen);
+  --accent:      var(--saffron);
+  --accent-text: var(--saffron-text);
+  --accent-2:    var(--copen);
 
   --font-sans:  'IBM Plex Sans', 'IBM Plex Sans Thai', system-ui, sans-serif;
   --font-serif: 'IBM Plex Serif', Georgia, serif;
@@ -111,7 +117,7 @@ ul, ol { list-style: none; }
   padding: 8px 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 12px;
   z-index: 100; transition: top 0.15s;
 }
-.skip:focus { top: 12px; }
+.skip:focus-visible { top: 12px; }
 
 /* ───── NAV ───── */
 .nav {
@@ -456,7 +462,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
   text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
 }
-.tag-now { background: var(--accent); color: #fff; }
+.tag-now { background: var(--accent-text); color: #fff; }
 .tag-build { background: var(--copen); color: #fff; }
 .tag-life { background: var(--jade); color: #fff; }
 .tag-travel { background: var(--paper-deep); color: var(--ink); }
@@ -526,7 +532,7 @@ ul, ol { list-style: none; }
 .teaser p { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); flex: 1; }
 .teaser .more {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--accent);
+  text-transform: uppercase; color: var(--accent-text);
   display: flex; align-items: center; gap: 8px;
 }
 .teaser .more::after { content: '→'; transition: transform 0.15s; }
@@ -1270,7 +1276,7 @@ body[data-bg="grid"] .teasers {
 .cert-card .issuer { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
 .cert-card .when { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
 .cert-card .link {
-  font-family: var(--font-mono); font-size: 11px; color: var(--accent);
+  font-family: var(--font-mono); font-size: 11px; color: var(--accent-text);
   margin-top: 6px; border-bottom: 1px solid transparent;
   align-self: flex-start;
 }
@@ -1336,8 +1342,8 @@ body[data-bg="grid"] .teasers {
   position: absolute; top: 10px; right: 16px;
   font-family: var(--font-mono); font-size: 8.5px;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-text);
   padding: 3px 8px; border-radius: 3px;
   rotate: -3deg;
 }
@@ -1405,7 +1411,7 @@ body[data-bg="grid"] .teasers {
 }
 .article-item .read {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--accent); padding-top: 4px;
+  text-transform: uppercase; color: var(--accent-text); padding-top: 4px;
   white-space: nowrap;
 }
 .article-item .read::after { content: ' →'; display: inline-block; transition: transform 0.15s; }
@@ -1488,9 +1494,9 @@ body[data-bg="grid"] .teasers {
 .prose ul, .prose ol { padding-left: 1.25em; }
 .prose li + li { margin-top: 0.35em; }
 .prose a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-text) 35%, transparent);
 }
 .prose a:hover { border-bottom-color: var(--accent); }
 .prose code {
@@ -1697,10 +1703,10 @@ body[data-bg="grid"] .teasers {
 }
 .article-view .post-byline a {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--accent);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  text-transform: uppercase; color: var(--accent-text);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-text) 35%, transparent);
 }
-.article-view .post-byline a:hover { border-bottom-color: var(--accent); }
+.article-view .post-byline a:hover { border-bottom-color: var(--accent-text); }
 @media (max-width: 880px) {
   .article-view h1 { font-size: 32px; }
 }
