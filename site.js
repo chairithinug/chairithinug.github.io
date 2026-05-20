@@ -15,7 +15,7 @@
     { kind: 'parttime',  label: 'RIS API Intern',               from: 2019.5,  to: 2019.6,  note: 'Mulesoft RESTful APIs' },
     { kind: 'parttime',  label: 'UG Lab Asst · UW',             from: 2019.67, to: 2019.99, note: 'Madison' },
     { kind: 'volunteer', label: 'CS Tutor · CSLC',              from: 2019.67, to: 2019.99, note: 'UW Madison' },
-    { kind: 'volunteer', label: 'Webmaster · Tau Beta Pi WI-A', from: 2019.67, to: 2020.4,  note: 'UW Madison' },
+    { kind: 'volunteer', label: 'Webmaster · Tau Beta Pi WI-A', from: 2019.25, to: 2020.4,  note: 'UW Madison' },
     { kind: 'fulltime',  label: 'Kasikorn Labs · Biometrics',   from: 2020.5,  to: 2023.7,  note: 'Face recognition for K+ app' },
     { kind: 'academic',  label: 'MSc CS · UCPH',                from: 2023.7,  to: 2025.5,  note: 'Thesis: Temporal GNNs for CFD · 9.5/12' },
     { kind: 'volunteer', label: 'Studenterhuset Bar',           from: 2023.67, to: 2024.83, note: 'Copenhagen' },
