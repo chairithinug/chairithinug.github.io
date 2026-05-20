@@ -1,0 +1,50 @@
+{
+  "name": "Anapat Chairithinugull — Personal Portfolio",
+  "short_name": "Chairithinug",
+  "description": "Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F1ECE2",
+  "theme_color": "#0E1A2B",
+  "lang": "en",
+  "categories": ["productivity", "education", "portfolio"],
+  "icons": [
+    {
+      "src": "../icons/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "../icons/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../icons/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../icons/favicon/web-app-manifest-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "../icons/favicon/web-app-manifest-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Career",   "url": "./career.html",   "description": "Career timeline and work history" },
+    { "name": "Projects", "url": "./projects.html", "description": "Shipped projects" },
+    { "name": "FAQ",      "url": "./faq.html",      "description": "Frequently asked questions" }
+  ]
+}

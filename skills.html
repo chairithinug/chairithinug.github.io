@@ -1,78 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Skills — Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/skills.html">
+  <meta name="description" content="Technical skills and certifications of Anapat Chairithinugull — Data Scientist in Bangkok.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Skills | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/skills.html">
+  <meta property="og:title" content="Skills — Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/skills.html">
+  <meta property="og:description" content="Technical skills and certifications of Anapat Chairithinugull — Data Scientist in Bangkok.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skills — Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Technical skills and certifications of Anapat Chairithinugull — Data Scientist in Bangkok.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -102,385 +81,230 @@
   ]
 }
 </script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Technical skills of Anapat Chairithinugull — Data Scientist in Bangkok. Python, AI, machine learning, C#, and software development.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Skills - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/skills.html">
-    <meta property="og:description"
-        content="Technical skills of Anapat Chairithinugull — Data Scientist in Bangkok. Python, AI, machine learning, C#, and software development.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Skills - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Technical skills of Anapat Chairithinugull — Data Scientist in Bangkok. Python, AI, machine learning, C#, and software development.">
 </head>
+<body data-page="skills">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Technical Skills</h1>
-        <!-- Skills -->
-        <section id="skills" aria-labelledby="skills-title">
-            <h2 id="skills-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Technical
-                Skills
-            </h2>
-            <!-- Languages -->
-            <div class="mt-6">
-                <h3 class="font-semibold mb-2">Languages</h3>
-                <!-- <p class="sr-only">Python, JavaScript, C, C++, C#, .NET, MySQL</p> -->
-                <div class="flex flex-wrap gap-4 items-center">
-                    <!-- Python -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/python.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Python">
-                        <span class="text-sm">Python</span>
-                    </div>
-                    <!-- Java -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/java.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Java">
-                        <span class="text-sm">Java</span>
-                    </div>
-                    <!-- C -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/c.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="C">
-                        <span class="text-sm mt-1">C</span>
-                    </div>
-                    <!-- C++ -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/cplusplus.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="C++">
-                        <span class="text-sm">C++</span>
-                    </div>
-                    <!-- C# -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/csharp.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="C#">
-                        <span class="text-sm mt-1">C#/.NET</span>
-                    </div>
-                    <!-- SQL -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/mysql.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="MySQL">
-                        <span class="text-sm">MySQL</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/html-5-logo-svgrepo-com.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="HTML">
-                        <span class="text-sm">HTML</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/javascript-logo-svgrepo-com.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="JavaScript">
-                        <span class="text-sm">JavaScript</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/Official_CSS_Logo.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="CSS">
-                        <span class="text-sm">CSS</span>
-                    </div>
-                </div>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">S</span><span class="label">Inventory</span></div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>Skills</span>
+        </nav>
+        <h1><span class="num">§ 04 · Skills</span>The <span class="accent">toolbox</span>.</h1>
+        <p class="bi-sub"><b>Skills Inventory</b> · บัญชีทักษะ — รายการเครื่องมือและภาษาที่ใช้</p>
+        <p class="lede">
+          Languages I'm fluent in (the programming kind and the human kind), tools I reach for, and the
+          certifications I picked up while making sense of all of it.
+        </p>
+        <div class="meta-row">
+          <span><b>9</b>&nbsp; programming languages</span>
+          <span><b>13</b>&nbsp; ML &amp; workflow tools</span>
+          <span><b>3</b>&nbsp; spoken languages</span>
+          <span><b>12</b>&nbsp; certifications</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 04.01</span>Technical toolkit.</h2>
+        </div>
+
+        <div class="skill-cluster">
+          <div class="form-eyebrow">
+            <span class="code">04.01.A</span>
+            <span class="name">Programming languages</span>
+            <span class="thai">ภาษาโปรแกรม</span>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-tile"><img src="/icons/python.svg" alt=""><span>Python</span></div>
+            <div class="skill-tile"><img src="/icons/java.svg" alt=""><span>Java</span></div>
+            <div class="skill-tile"><img src="/icons/c.svg" alt=""><span>C</span></div>
+            <div class="skill-tile"><img src="/icons/cplusplus.svg" alt=""><span>C++</span></div>
+            <div class="skill-tile"><img src="/icons/csharp.svg" alt=""><span>C# / .NET</span></div>
+            <div class="skill-tile"><img src="/icons/javascript-logo-svgrepo-com.svg" alt=""><span>JavaScript</span></div>
+            <div class="skill-tile"><img src="/icons/html-5-logo-svgrepo-com.svg" alt=""><span>HTML</span></div>
+            <div class="skill-tile"><img src="/icons/Official_CSS_Logo.svg" alt=""><span>CSS</span></div>
+            <div class="skill-tile"><img src="/icons/mysql.svg" alt=""><span>MySQL</span></div>
+          </div>
+        </div>
+
+        <div class="skill-cluster">
+          <div class="form-eyebrow">
+            <span class="code">04.01.B</span>
+            <span class="name">ML &amp; data tools</span>
+            <span class="thai">เครื่องมือ ML</span>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-tile"><img src="/icons/tensorflow.svg" alt=""><span>TensorFlow</span></div>
+            <div class="skill-tile"><img src="/icons/pytorch.svg" alt=""><span>PyTorch</span></div>
+            <div class="skill-tile"><img src="/icons/pandas.svg" alt=""><span>pandas</span></div>
+            <div class="skill-tile"><img src="/icons/opencv.svg" alt=""><span>OpenCV</span></div>
+            <div class="skill-tile"><img src="/icons/scikit-learn.svg" alt=""><span>scikit-learn</span></div>
+            <div class="skill-tile"><img src="/icons/matplotlib-icon-logo.svg" alt=""><span>matplotlib</span></div>
+            <div class="skill-tile"><img src="/icons/matlab.svg" alt=""><span>MATLAB</span></div>
+          </div>
+        </div>
+
+        <div class="skill-cluster">
+          <div class="form-eyebrow">
+            <span class="code">04.01.C</span>
+            <span class="name">Workflow</span>
+            <span class="thai">กระบวนการทำงาน</span>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-tile"><img src="/icons/git.svg" alt=""><span>Git</span></div>
+            <div class="skill-tile"><img src="/icons/agile.svg" alt=""><span>Agile</span></div>
+            <div class="skill-tile"><img src="/icons/microsoft-office.svg" alt=""><span>MS Office</span></div>
+            <div class="skill-tile"><img src="/icons/windows.svg" alt=""><span>Windows</span></div>
+            <div class="skill-tile"><img src="/icons/macos.svg" alt=""><span>macOS</span></div>
+            <div class="skill-tile"><img src="/icons/linux.svg" alt=""><span>Linux</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Spoken languages -->
+    <section class="section-block alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 04.02</span>Spoken languages.</h2>
+        </div>
+        <div class="lang-grid">
+          <div class="lang-card">
+            <div class="name">ภาษาไทย <small>Thai</small></div>
+            <div class="level" aria-label="Proficiency 5 of 5">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
             </div>
-
-            <!-- Tools -->
-            <div class="mt-6">
-                <h3 class="font-semibold mb-2">Tools & Frameworks</h3>
-                <p class="sr-only">TensorFlow, PyTorch, Git, MATLAB, Pandas, OpenCV, Scikit-Learn, Matplotlib, Agile,
-                    Microsoft
-                    Office</p>
-                <div class="flex flex-wrap gap-4 items-center">
-                    <div class="flex flex-col items-center">
-                        <img src="icons/tensorflow.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="TensorFlow">
-                        <span class="text-sm">TensorFlow</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/pytorch.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="PyTorch">
-                        <span class="text-sm">PyTorch</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/git.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Git">
-                        <span class="text-sm">Git</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/matlab.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="MATLAB">
-                        <span class="text-sm">MATLAB</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/pandas.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Pandas">
-                        <span class="text-sm">Pandas</span>
-                    </div>
-                    <!-- OpenCV -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/opencv.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="OpenCV Logo">
-                        <span class="text-sm">OpenCV</span>
-                    </div>
-                    <!-- Scikit-Learn -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/scikit-learn.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Scikit-Learn Logo">
-                        <span class="text-sm">Scikit-Learn</span>
-                    </div>
-                    <!-- Matplotlib -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/matplotlib-icon-logo.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Matplotlib Logo">
-                        <span class="text-sm">Matplotlib</span>
-                    </div>
-                    <!-- Agile -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/agile.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Agile Logo">
-                        <span class="text-sm">Agile</span>
-                    </div>
-                    <!-- Microsoft Office -->
-                    <div class="flex flex-col items-center">
-                        <img src="icons/microsoft-office.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Microsoft Office Logo">
-                        <span class="text-sm">MS Office</span>
-                    </div>
-
-                </div>
+            <div class="note">Native</div>
+          </div>
+          <div class="lang-card">
+            <div class="name">English</div>
+            <div class="level" aria-label="Proficiency 5 of 5">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
             </div>
-
-            <!-- OS -->
-            <div class="mt-6">
-                <h3 class="font-semibold mb-2">Operating Systems</h3>
-                <p class="sr-only">Windows, macOS, Linux</p>
-                <div class="flex flex-wrap gap-4 items-center">
-                    <div class="flex flex-col items-center">
-                        <img src="icons/windows.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="Windows">
-                        <span class="text-sm">Windows</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/macos.svg" class="w-12 h-12" width="48" height="48" loading="lazy" alt="macOS">
-                        <span class="text-sm">macOS</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="icons/linux.svg" class="w-12 h-12 dark:invert" width="48" height="48" loading="lazy" alt="Linux">
-                        <span class="text-sm">Linux</span>
-                    </div>
-                </div>
+            <div class="note">Proficient · TOEIC 980 / 990</div>
+          </div>
+          <div class="lang-card">
+            <div class="name">Dansk <small>Danish</small></div>
+            <div class="level" aria-label="Proficiency 3 of 5">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
             </div>
-        </section>
-        <!-- Certifications Carousel -->
-        <section id="cert" aria-labelledby="cert-title">
-            <h2 id="cert-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Certifications
-            </h2>
+            <div class="note">PD3</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Carousel Container -->
-            <div class="relative">
-                <!-- Left Arrow -->
-                <button id="left-arrow" aria-label="Previous" data-i18n-aria-label="aria-prev"
-                    class="absolute -left-6 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
-                    &#8592;
-                </button>
 
-                <!-- Right Arrow -->
-                <button id="right-arrow" aria-label="Next" data-i18n-aria-label="aria-next"
-                    class="absolute -right-6 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow rounded-full p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition hidden md:block">
-                    &#8594;
-                </button>
+    <!-- Certifications -->
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 04.03</span>Certifications.</h2>
+        </div>
 
-                <div id="carousel" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth cursor-grab py-2">
+        <div class="cert-grid">
+          <article class="cert-card">
+            <div class="name">Microsoft Full-Stack Developer</div>
+            <div class="issuer">Microsoft</div>
+            <div class="when">In progress</div>
+          </article>
 
-                    <!-- <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">MLOps – Duke University</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
-                    </div>
+          <article class="cert-card">
+            <div class="name">TOEIC Listening &amp; Reading</div>
+            <div class="issuer">ETS</div>
+            <div class="when">Apr 2026 · Score 980 / 990</div>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Microsoft Power BI Data Analyst</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Expected Oct 2025</p>
-                    </div> -->
+          <article class="cert-card">
+            <div class="name">Introduction to Subagents</div>
+            <div class="issuer">Anthropic Education</div>
+            <div class="when">May 2026</div>
+            <a class="link" href="https://verify.skilljar.com/c/9chhgcvjxhnr" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Microsoft Full-Stack Developer</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Current</p>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Introduction to Agent Skills</div>
+            <div class="issuer">Anthropic Education</div>
+            <div class="when">May 2026</div>
+            <a class="link" href="https://verify.skilljar.com/c/j73zp7tze36u" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">TOEIC Listening &amp; Reading – ETS</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Apr 2026</p>
-                        <p class="text-blue-600 dark:text-blue-400 text-sm mt-1">Score: 980/990</p>
-                    </div>
+          <article class="cert-card">
+            <div class="name">AI Fluency: Framework &amp; Foundations</div>
+            <div class="issuer">Anthropic Education</div>
+            <div class="when">Apr 2026</div>
+            <a class="link" href="https://verify.skilljar.com/c/j8awgjmthkyd" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Introduction to Subagents – Anthropic Education</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">May 2026</p>
-                        <a href="https://verify.skilljar.com/c/9chhgcvjxhnr" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Claude 101</div>
+            <div class="issuer">Anthropic Education</div>
+            <div class="when">Mar 2026</div>
+            <a class="link" href="https://verify.skilljar.com/c/gfz53evcm6iv" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Introduction to Agent Skills – Anthropic Education</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">May 2026</p>
-                        <a href="https://verify.skilljar.com/c/j73zp7tze36u" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">TensorFlow: Advanced Techniques</div>
+            <div class="issuer">DeepLearning.AI</div>
+            <div class="when">Jun 2022</div>
+            <a class="link" href="https://coursera.org/share/f4199d315987b89b18749ce4839b501a" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">AI Fluency: Framework &amp; Foundations – Anthropic Education</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Apr 2026</p>
-                        <a href="https://verify.skilljar.com/c/j8awgjmthkyd" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Investment Management</div>
+            <div class="issuer">University of Geneva</div>
+            <div class="when">Jan 2022</div>
+            <a class="link" href="https://coursera.org/share/3264aa3116d324ae23c24b2ac9d9a0bf" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Claude 101 – Anthropic Education</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Mar 2026</p>
-                        <a href="https://verify.skilljar.com/c/gfz53evcm6iv" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Math for Machine Learning</div>
+            <div class="issuer">Imperial College London</div>
+            <div class="when">Dec 2021</div>
+            <a class="link" href="https://coursera.org/share/d62489bc7387ecf06de112843545cbdf" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">TensorFlow: Advanced Techniques – DeepLearning.AI</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Jun 2022</p>
-                        <a href="https://coursera.org/share/f4199d315987b89b18749ce4839b501a" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">TensorFlow Developer</div>
+            <div class="issuer">DeepLearning.AI</div>
+            <div class="when">May 2021</div>
+            <a class="link" href="https://coursera.org/share/5ddc9f9ed31a9059f13a678eda70326a" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Investment Management – University of Geneva</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Jan 2022</p>
-                        <a href="https://coursera.org/share/3264aa3116d324ae23c24b2ac9d9a0bf" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Machine Learning</div>
+            <div class="issuer">Stanford University</div>
+            <div class="when">Sep 2020</div>
+            <a class="link" href="https://coursera.org/share/0e076ed878d11d28bb360090ff42d123" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Math for ML – Imperial College London</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Dec 2021</p>
-                        <a href="https://coursera.org/share/d62489bc7387ecf06de112843545cbdf" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+          <article class="cert-card">
+            <div class="name">Deep Learning Specialization</div>
+            <div class="issuer">DeepLearning.AI</div>
+            <div class="when">Aug 2020</div>
+            <a class="link" href="https://coursera.org/share/1b5bffaa2184980800af210f38d5969b" target="_blank" rel="noopener">View certificate ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">TensorFlow Developer – DeepLearning.AI</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">May 2021</p>
-                        <a href="https://coursera.org/share/5ddc9f9ed31a9059f13a678eda70326a" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+  </main>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Machine Learning – Stanford</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Sep 2020</p>
-                        <a href="https://coursera.org/share/0e076ed878d11d28bb360090ff42d123" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
 
-                    <div
-                        class="min-w-[250px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow rounded-xl p-4 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                        <p class="font-semibold">Deep Learning Specialization – DeepLearning.AI</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Aug 2020</p>
-                        <a href="https://coursera.org/share/1b5bffaa2184980800af210f38d5969b" target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 dark:text-blue-400 text-sm mt-1 inline-block hover:underline">View
-                            Certificate</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Languages -->
-        <section id="languages" aria-labelledby="languages-title">
-            <h2 id="languages-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Language Skills
-            </h2>
-
-            <div class="mt-4 flex flex-wrap gap-4">
-
-                <!-- Thai -->
-                <div
-                    class="group relative cursor-pointer bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
-                    ไทย (Thai)
-                    <div data-i18n="lang-tooltip-native"
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
-                        Native
-                    </div>
-                </div>
-
-                <!-- English -->
-                <div
-                    class="group relative cursor-pointer bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
-                    English
-                    <div data-i18n="lang-tooltip-english"
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
-                        Proficient · TOEIC 980/990
-                    </div>
-                </div>
-
-                <!-- Danish -->
-                <div
-                    class="group relative cursor-pointer bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full shadow hover:scale-105 transition-transform duration-300">
-                    Dansk (Danish)
-                    <div data-i18n="lang-tooltip-danish"
-                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800 text-white text-xs rounded py-1 px-2 shadow-lg text-center">
-                        PD3
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
-
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="skills-script.js" defer></script>
-
-    <script src="/install-prompt.js" defer></script>
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>

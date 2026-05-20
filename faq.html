@@ -1,78 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>FAQ — Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/faq.html">
+  <meta name="description" content="Frequently asked questions about Anapat Chairithinugull. Where I'm from, what I'm building, and how to reach me.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>FAQ | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/faq.html">
+  <meta property="og:title" content="FAQ — Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/faq.html">
+  <meta property="og:description" content="Frequently asked questions about Anapat Chairithinugull. Where I'm from, what I'm building, and how to reach me.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ — Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Frequently asked questions about Anapat Chairithinugull. Where I'm from, what I'm building, and how to reach me.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -168,328 +147,214 @@
   ]
 }
 </script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Bangkok. Learn about skills, projects, and career.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title" content="FAQ – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/faq.html">
-    <meta property="og:description"
-        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Bangkok. Explore skills, projects, and career details.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FAQ – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Frequently asked questions about Anapat Chairithinugull – Data Scientist & Software Engineer based in Bangkok. Explore skills, projects, and career details.">
 </head>
+<body data-page="faq">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Frequently Asked Questions</h1>
-        <section id="qa" aria-labelledby="qa-title">
-            <h2 id="qa-title" class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Frequently Asked Questions
-            </h2>
+  <main id="main">
 
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Flip Card 1 -->
-                <div class="flip-card pulse-once cursor-pointer" role="button" tabindex="0" aria-label="Where are you originally from? (flip to reveal)" data-i18n-aria-label="faq-card-1-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
-                   bg-[url('/icons/th-flag.svg')] bg-cover bg-center bg-no-repeat bg-full">
-                            <!-- Overlay to improve text readability -->
-                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">Q</span><span class="label">Q & A</span></div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>FAQ</span>
+        </nav>
+        <h1><span class="num">§ 06 · FAQ</span>Honest <span class="accent">answers</span>.</h1>
+        <p class="bi-sub"><b>Personal Questionnaire</b> · แบบสอบถามส่วนตัว — ๑๑ คำถามที่ถูกถามบ่อยที่สุด</p>
+        <p class="lede">
+          Eleven questions I get asked the most. Tap any card to flip it. If you have a question that isn't here,
+          <a href="mailto:chairithinug@uwalumni.com" style="border-bottom:1px solid var(--accent); color:inherit;">drop me a line</a>.
+        </p>
+        <div class="meta-row">
+          <span><b>11</b>&nbsp; questions</span>
+          <span><b>3</b>&nbsp; languages I'll happily reply in</span>
+          <span><b>&lt;24 h</b>&nbsp; typical reply time</span>
+          <span><b>last update</b>&nbsp; Apr 2026</span>
+        </div>
+      </div>
+    </section>
 
-                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-1">
-                                Where are you originally from?
-                            </h3>
-                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 06.01</span>Tap to flip.</h2>
+        </div>
+        <div class="faq-grid" id="faq-grid">
 
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-1">
-                                I was born and raised in Thailand, a beautiful country with amazing food in Southeast
-                                Asia.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Flip Card 2 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Why did you study in the US? (flip to reveal)" data-i18n-aria-label="faq-card-2-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
-                   bg-[url('/icons/us-flag.svg')] bg-cover bg-center bg-no-repeat">
-                            <!-- Optional overlay to improve text readability -->
-                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
-
-                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-2">
-                                Why did you study in the US?
-                            </h3>
-                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
-
-                            </p>
-                        </div>
-
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-2">
-                                Thanks to my family who were willing to send me to the US. It was a great experience.
-                                UW-Madison is awesome!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Flip Card 3 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What brought you to Denmark? (flip to reveal)" data-i18n-aria-label="faq-card-3-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div class="flip-card-front relative bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300
-                   bg-[url('/icons/dk-flag.svg')] bg-cover bg-center bg-no-repeat">
-                            <!-- Overlay to improve text readability -->
-                            <div class="absolute inset-0 bg-white/60 dark:bg-gray-800/60 rounded-xl"></div>
-
-                            <h3 class="relative font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-3">
-                                What brought you to Denmark?
-                            </h3>
-                            <p class="relative text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-3">
-                                After a few years working in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me — finished my MSc at the University of Copenhagen and moved back home in early 2026.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 4 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Cool website! How did you make it? (flip to reveal)" data-i18n-aria-label="faq-card-4-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-4">
-                                Cool website! How did you make it?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-4">
-                                Plain HTML and Tailwind CSS with a bit of vanilla JS — plus plenty of help from ChatGPT, Copilot, and Claude Code along the way.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 5 -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Are you a robot? (flip to reveal)" data-i18n-aria-label="faq-card-5-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-5">
-                                Are you a robot?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-5">
-                                No, I'm human. At least I think so. Are you?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 6 -->
-                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="What are you doing now? (flip to reveal)" data-i18n-aria-label="faq-card-6-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-6">
-                                What are you doing now?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-6">
-                                Looking for new opportunities in Thailand! In the meantime I'm authoring Claude AI
-                                Skills, building Natty (a SvelteKit badminton scheduler), and tinkering with this site.
-                                Are you hiring?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 7 (Contact CTA) -->
-                <div class="flip-card cta-card cursor-pointer" role="button" tabindex="0" aria-label="How can I contact you? (flip to reveal)" data-i18n-aria-label="faq-card-7-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold" data-i18n="faq-q-7">
-                                How can I contact you?
-                            </h3>
-                            <p class="text-sm">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p data-i18n="faq-a-7">
-                                Easiest is to drop me an email or message me on LinkedIn — both links are at the top of every page!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 8 (Career: role) -->
-                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="What kind of role are you looking for? (flip to reveal)" data-i18n-aria-label="faq-card-8-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-8">
-                                What kind of role are you looking for?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-8">
-                                Data Scientist, AI Engineer, or Machine Learning Engineer — any of those titles work.
-                                I'm not picky about the industry; what I want is something impactful and meaningful.
-                                Most skills are transferable, and I'm always up for learning whatever the role needs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 9 (Tech stack) -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What's your favorite tech stack right now? (flip to reveal)" data-i18n-aria-label="faq-card-9-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-9">
-                                What's your favorite tech stack right now?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-9">
-                                Hooked on the Claude family — Cowork, Code, and Design — and getting comfortable with
-                                Svelte/SvelteKit on the Natty side project. Equal parts AI tooling and modern web.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 10 (Outside coding) -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="What do you do outside of coding? (flip to reveal)" data-i18n-aria-label="faq-card-10-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-10">
-                                What do you do outside of coding?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-10">
-                                Coffee and endurance sports — running, swimming, biking. Lately badminton too, which
-                                is exactly why I'm building Natty to schedule sessions with friends.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flip Card 11 (Career: remote/relocation) -->
-                <div class="flip-card career-accent cursor-pointer" role="button" tabindex="0" aria-label="Open to remote work or relocation? (flip to reveal)" data-i18n-aria-label="faq-card-11-aria">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 dark:border dark:border-gray-700 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100" data-i18n="faq-q-11">
-                                Open to remote work or relocation?
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                            </p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back text-center bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <p class="text-gray-700 dark:text-gray-200" data-i18n="faq-a-11">
-                                Hybrid is great, full remote less so — tried it during Covid and didn't love it. Just
-                                moved back to Bangkok so I'm not relocating right now, but a visa-friendly move down
-                                the road isn't off the table. I really enjoy multicultural teams.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          <button class="faq-card" type="button" aria-label="Where are you originally from? (flip to reveal)">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 01</div>
+                <p class="q">Where are you originally from?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 01">
+                <p class="a">I was born and raised in Thailand — a beautiful country with amazing food in Southeast Asia.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
             </div>
-        </section>
-    </main>
+          </button>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+          <button class="faq-card" type="button" aria-label="Why did you study in the US?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 02</div>
+                <p class="q">Why did you study in the US?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 02">
+                <p class="a">Thanks to my family who were willing to send me to the US. It was a great experience. UW–Madison is awesome.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="faq-script.js" defer></script>
+          <button class="faq-card" type="button" aria-label="What brought you to Denmark?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 03</div>
+                <p class="q">What brought you to Denmark?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 03">
+                <p class="a">After a few years working in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me — finished my MSc at UCPH and moved back home in early 2026.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
 
-    <script src="/install-prompt.js" defer></script>
+          <button class="faq-card" type="button" aria-label="Cool website! How did you make it?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 04</div>
+                <p class="q">Cool website! How did you make it?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 04">
+                <p class="a">Plain HTML, vanilla JS, and IBM Plex — plus plenty of help from Claude Code along the way.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="Are you a robot?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 05</div>
+                <p class="q">Are you a robot?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 05">
+                <p class="a">No, I'm human. At least I think so. Are you?</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="What are you doing now?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 06</div>
+                <p class="q">What are you doing now?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 06">
+                <p class="a">Looking for new opportunities in Thailand. In the meantime I'm authoring Claude AI Skills, building Natty (a SvelteKit badminton scheduler), and tinkering with this site. Are you hiring?</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="How can I contact you?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 07</div>
+                <p class="q">How can I contact you?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 07">
+                <p class="a">Easiest is to drop me an email or message me on LinkedIn — both are linked at the top of every page.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="What kind of role are you looking for?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 08</div>
+                <p class="q">What kind of role are you looking for?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 08">
+                <p class="a">Data Scientist, AI Engineer, or ML Engineer — any of those titles work. I'm not picky about the industry; what I want is something impactful and meaningful. Most skills are transferable, and I'm always up for learning whatever the role needs.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="What's your favorite tech stack right now?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 09</div>
+                <p class="q">What's your favorite tech stack right now?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 09">
+                <p class="a">Hooked on the Claude family — Cowork, Code, and Design — and getting comfortable with Svelte/SvelteKit on the Natty side project. Equal parts AI tooling and modern web.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="What do you do outside of coding?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 10</div>
+                <p class="q">What do you do outside of coding?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 10">
+                <p class="a">Coffee and endurance sports — running, swimming, biking. Lately badminton too, which is exactly why I'm building Natty to schedule sessions with friends.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="faq-card" type="button" aria-label="Open to remote work or relocation?">
+            <div class="faq-inner">
+              <div class="faq-side front">
+                <div class="num">Q · 11</div>
+                <p class="q">Open to remote work or relocation?</p>
+                <div class="hint">Tap to flip ↺</div>
+              </div>
+              <div class="faq-side back" data-acode="A · 11">
+                <p class="a">Hybrid is great, full remote less so — tried it during Covid and didn't love it. Just moved back to Bangkok so I'm not relocating right now, but a visa-friendly move down the road isn't off the table. I really enjoy multicultural teams.</p>
+                <div class="hint">↺ Flip back</div>
+              </div>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
+  <script>
+    // Flip behavior — click anywhere on the card; keyboard Enter/Space works
+    // because it's a <button>.
+    document.querySelectorAll('#faq-grid .faq-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+  </script>
 </body>
-
 </html>

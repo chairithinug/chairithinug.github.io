@@ -1,78 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Writing — Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/articles.html">
+  <meta name="description" content="Articles and long-form notes by Anapat Chairithinugull on engineering, AI, and life abroad.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Articles | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/articles.html">
+  <meta property="og:title" content="Writing — Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/articles.html">
+  <meta property="og:description" content="Articles and long-form notes by Anapat Chairithinugull on engineering, AI, and life abroad.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Writing — Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Articles and long-form notes by Anapat Chairithinugull on engineering, AI, and life abroad.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -120,148 +99,120 @@
   ]
 }
 </script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Articles by Anapat Chairithinugull — Data Scientist in Bangkok. Insights on AI, machine learning, coding, and personal experiences.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Articles – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/articles.html">
-    <meta property="og:description"
-        content="Articles by Anapat Chairithinugull — Data Scientist in Bangkok. Insights on AI, machine learning, coding, and personal experiences.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Articles – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Articles by Anapat Chairithinugull — Data Scientist in Bangkok. Insights on AI, machine learning, coding, and personal experiences.">
 </head>
+<body data-page="articles">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Articles</h1>
-        <section id="articles" aria-labelledby="articles-title">
-            <h2 id="articles-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Articles
-            </h2>
-            <div class="mt-4 grid gap-6 md:grid-cols-2">
-                <!-- Article Card 2 - Shiny Neutral / Just Released -->
-                <div class="bg-white/80 dark:bg-gray-900/70 
-    text-gray-900 dark:text-gray-100 shadow-lg rounded-xl p-6 
-    hover:scale-105 hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] 
-    transition-transform duration-300 relative overflow-hidden" role="group"
-                    aria-label="Reflections on AI article card - just released">
+  <main id="main">
 
-                    <!-- Shiny overlay -->
-                    <div class="absolute inset-0 bg-white/20 mix-blend-screen pointer-events-none rounded-xl z-0"></div>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">W</span><span class="label">Field Notes</span></div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>Writing</span>
+        </nav>
+        <h1><span class="num">§ 05 · Writing</span>Notes from the <span class="accent">field</span>.</h1>
+        <p class="bi-sub"><b>Field Notes</b> · บันทึก — เขียนเมื่อมีอะไรเก็บได้</p>
+        <p class="lede">
+          Long-form notes on engineering, AI, and life abroad. I write rarely but slowly — only when I have
+          something worth keeping. More on the way.
+        </p>
+        <div class="meta-row">
+          <span><b>2</b>&nbsp; published</span>
+          <span><b>1</b>&nbsp; in progress</span>
+          <span><b>~20 min</b>&nbsp; total reading</span>
+          <span><b>last update</b>&nbsp; Feb 2026</span>
+        </div>
+      </div>
+    </section>
 
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <svg class="w-6 h-6 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2">
-                                </path>
-                            </svg>
-                            <a href="/articles/cycling-in-denmark-how-to-ride-like-a-dane.html" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-gray-900 dark:text-gray-100 hover:underline text-lg z-50">
-                                Cycling in Denmark: How to Ride Like a Dane
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm z-20">October 24, 2025</span>
-                    </div>
+    <section class="section-block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 05.01</span>Archive.</h2>
+        </div>
+        <ol class="article-list" aria-label="Article archive">
 
-                    <p class="text-gray-800 dark:text-gray-200 mb-2 relative z-10" data-i18n="article-2-desc">
-                        A comprehensive guide to cycling in Denmark, including bike rules, etiquette, practical tips,
-                        and
-                        insights into the Danish cycling culture.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mt-2 relative z-10">
-                        <span class="px-2 py-1 bg-yellow-300/30 text-yellow-900 text-xs rounded-full">Denmark</span>
-                        <span class="px-2 py-1 bg-yellow-300/30 text-yellow-900 text-xs rounded-full">Cycling</span>
-                        <span class="px-2 py-1 bg-yellow-300/30 text-yellow-900 text-xs rounded-full">Travel</span>
-                    </div>
-
-                    <!-- NEW badge -->
-                    <span
-                        class="absolute top-3 right-3 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded-full shadow-md animate-pulse z-20">
-                        NEW
-                    </span>
-                </div>
-
-                <!-- Article Card 3 - Standard / Published -->
-                <div class="bg-white dark:bg-gray-800 
-            text-gray-900 dark:text-gray-100 shadow rounded-xl p-6 
-            hover:scale-105 hover:shadow-lg 
-            transition-transform duration-300 relative overflow-hidden" role="group"
-                    aria-label="Reflections on AI article card">
-
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2">
-                                </path>
-                            </svg>
-                            <a href="/articles/reflections-on-ai-and-coding.html" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-gray-900 dark:text-gray-100 hover:underline text-lg">
-                                Reflections on AI and Coding
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">October 17, 2025</span>
-                    </div>
-
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="article-3-desc">
-                        Personal insights and experiences on using AI tools like ChatGPT and GitHub Copilot in software
-                        development. How these tools have shaped my coding practices and productivity.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-200/30 text-gray-800 dark:bg-gray-700/30 dark:text-gray-200 text-xs rounded-full">AI</span>
-                        <span
-                            class="px-2 py-1 bg-gray-200/30 text-gray-800 dark:bg-gray-700/30 dark:text-gray-200 text-xs rounded-full">Programming</span>
-                        <span
-                            class="px-2 py-1 bg-gray-200/30 text-gray-800 dark:bg-gray-700/30 dark:text-gray-200 text-xs rounded-full">Productivity</span>
-                    </div>
-                </div>
+          <li class="article-item">
+            <time class="date" datetime="2026-02">2026 · Feb</time>
+            <div class="body">
+              <h3><a href="https://chairithinug.com/articles/cycling-in-denmark-how-to-ride-like-a-dane.html">Cycling in Denmark — how to ride like a Dane</a></h3>
+              <p>A comprehensive guide to cycling in Denmark: bike rules, etiquette, practical tips, and the small unwritten codes of Danish cycling culture that make the difference between tourist and local.</p>
+              <div class="meta">
+                <span>11 min read</span>
+                <span>·</span>
+                <span>Copenhagen · cycling · daily life</span>
+              </div>
             </div>
-        </section>
-    </main>
+            <span class="read">Read</span>
+          </li>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+          <li class="article-item">
+            <time class="date" datetime="2025-11">2025 · Nov</time>
+            <div class="body">
+              <h3><a href="https://chairithinug.com/articles/reflections-on-ai-and-coding.html">Reflections on AI and coding</a></h3>
+              <p>Personal insights from using AI tools — ChatGPT, GitHub Copilot, Claude Code — in everyday software development. How these tools changed my coding practice, what they still get wrong, and the habits that compound over time.</p>
+              <div class="meta">
+                <span>9 min read</span>
+                <span>·</span>
+                <span>AI · workflow · craft</span>
+              </div>
+            </div>
+            <span class="read">Read</span>
+          </li>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="/install-prompt.js" defer></script>
+          <li class="article-item" style="opacity:0.65">
+            <time class="date" datetime="2026">Soon</time>
+            <div class="body">
+              <h3 style="color:var(--ink-muted)">Building Natty — what I learned shipping a SvelteKit app solo</h3>
+              <p>Notes from a side project on architecture decisions, what Supabase gets right and wrong, and the small wins of running Playwright as your safety net. Drafting now.</p>
+              <div class="meta">
+                <span>~ in progress</span>
+              </div>
+            </div>
+            <span class="read" style="color:var(--ink-muted)">Soon</span>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 05.02</span>What I'm reading.</h2>
+        </div>
+        <div class="proj-grid">
+          <article class="proj-card">
+            <div class="head">
+              <div class="ttl-row">
+                <h3>Designing Data-Intensive Applications</h3>
+              </div>
+              <span class="year-stamp">Now</span>
+            </div>
+            <p>Martin Kleppmann · O'Reilly. 62% through, currently on Chapter 7 — Transactions. The clearest book on distributed-systems trade-offs I've read.</p>
+          </article>
+          <article class="proj-card">
+            <div class="head">
+              <div class="ttl-row">
+                <h3>Backlog</h3>
+              </div>
+            </div>
+            <p>Build a Large Language Model From Scratch · Sebastian Raschka. The Pragmatic Programmer · Hunt &amp; Thomas. Suggestions welcome — drop me a line.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>

@@ -1,78 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Projects — Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/projects.html">
+  <meta name="description" content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, ML, software engineering, and biometrics work.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Projects | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/projects.html">
+  <meta property="og:title" content="Projects — Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/projects.html">
+  <meta property="og:description" content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, ML, software engineering, and biometrics work.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects — Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, ML, software engineering, and biometrics work.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -172,343 +151,203 @@
   ]
 }
 </script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, machine learning, software engineering, and bioinformatics work.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Projects – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/projects.html">
-    <meta property="og:description"
-        content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, machine learning, software engineering, and bioinformatics work.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Projects – Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Projects by Anapat Chairithinugull — Data Scientist in Bangkok. AI, machine learning, software engineering, and bioinformatics work.">
 </head>
+<body data-page="projects">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Projects</h1>
-        <section id="projects" aria-labelledby="projects-title">
-            <h2 id="projects-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Projects
-            </h2>
-            <div class="mt-4 grid gap-6 md:grid-cols-2">
-                <div class="bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500 
-            shadow-lg rounded-xl p-6 
-            hover:scale-105 hover:shadow-[0_0_20px_rgba(255,223,0,0.6)] 
-            transition-transform duration-300 border border-yellow-600" role="group"
-                    aria-label="Android Notes App project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/Notes" target="_blank" rel="noopener noreferrer"
-                                class="font-semibold text-yellow-900 hover:underline text-lg"
-                                aria-label="Open Android Notes App GitHub repository">
-                                Android Notes App
-                            </a>
-                        </div>
-                        <span class="text-yellow-800 text-sm">January 2020</span>
-                    </div>
-                    <p class="text-yellow-900 mb-2" data-i18n="project-desc-1">
-                        A simple note-taking Android app with SQLite database for local storage, built with Java and
-                        Android Studio. Features include adding, editing, deleting notes, and searching through notes.
-                        Dedicated to my mom.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="px-2 py-1 bg-yellow-200 text-yellow-900 text-xs rounded-full">Java</span>
-                        <span class="px-2 py-1 bg-yellow-200 text-yellow-900 text-xs rounded-full">Android
-                            Development</span>
-                        <span class="px-2 py-1 bg-yellow-200 text-yellow-900 text-xs rounded-full">SQLite</span>
-                    </div>
-                </div>
-                <!-- Claude Skills -->
-                <div class="bg-gradient-to-br from-violet-400 via-purple-300 to-violet-500
-            shadow-lg rounded-xl p-6
-            hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]
-            transition-transform duration-300 border border-violet-600"
-                    role="group" aria-label="Claude Skills project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/Claude_Skills" target="_blank" rel="noopener noreferrer"
-                                class="font-semibold text-violet-900 hover:underline text-lg"
-                                aria-label="Open Claude Skills GitHub repository">
-                                Claude Skills
-                            </a>
-                        </div>
-                        <span class="text-violet-800 text-sm">May 2026</span>
-                    </div>
-                    <p class="text-violet-900 mb-2" data-i18n="project-desc-7">
-                        A workspace of authored Claude AI Skills — small, triggered playbooks loaded into Claude's
-                        context for relevant tasks. Covers decision-making, devil's advocacy, negotiation prep, token
-                        optimization, and more. Built with help from Claude.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Claude
-                            AI</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Agent
-                            Skills</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Prompt
-                            Engineering</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Markdown</span>
-                    </div>
-                </div>
-                <!-- Claude Code Feedback Tool -->
-                <div class="bg-gradient-to-br from-violet-400 via-purple-300 to-violet-500
-            shadow-lg rounded-xl p-6
-            hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]
-            transition-transform duration-300 border border-violet-600"
-                    role="group" aria-label="Claude Code Feedback Tool project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/project_feedback_reporter" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-violet-900 hover:underline text-lg"
-                                aria-label="Open Claude Code Feedback Tool GitHub repository">
-                                Claude Code Feedback Tool
-                            </a>
-                        </div>
-                        <span class="text-violet-800 text-sm">April 2026</span>
-                    </div>
-                    <p class="text-violet-900 mb-2" data-i18n="project-desc-8">
-                        A single-file, offline-capable feedback form for structured bug reports and feature requests,
-                        built for the Claude Code workflow. Auto-saves drafts, compresses screenshots, and exports as
-                        markdown or zip.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">HTML</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">JavaScript</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Offline-first</span>
-                        <span class="px-2 py-1 bg-violet-200 text-violet-900 text-xs rounded-full">Tooling</span>
-                    </div>
-                </div>
-                <!-- Natty (private) -->
-                <div class="bg-gradient-to-br from-emerald-400 via-teal-300 to-emerald-500
-            shadow-lg rounded-xl p-6
-            hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]
-            transition-transform duration-300 border border-emerald-600"
-                    role="group" aria-label="Natty badminton scheduler project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center flex-wrap gap-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/nat" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-emerald-900 hover:underline text-lg"
-                                aria-label="Open Natty (นัดตี) GitHub repository">
-                                Natty (นัดตี)
-                            </a>
-                            <span
-                                class="px-2 py-0.5 bg-emerald-100 text-emerald-900 text-xs rounded-full uppercase tracking-wide shrink-0"
-                                aria-label="Private repository">Private</span>
-                        </div>
-                        <span class="text-emerald-800 text-sm">April 2026 – Present</span>
-                    </div>
-                    <p class="text-emerald-900 mb-2" data-i18n="project-desc-9">
-                        Personal full-stack web app for scheduling badminton sessions with friends. Tech stack:
-                        SvelteKit on TypeScript, Postgres on Supabase, deployed on Vercel; Vitest for unit/component
-                        tests and Playwright for end-to-end.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">TypeScript</span>
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">SvelteKit</span>
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">PostgreSQL</span>
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">Supabase</span>
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">Vercel</span>
-                        <span class="px-2 py-1 bg-emerald-200 text-emerald-900 text-xs rounded-full">Playwright</span>
-                    </div>
-                </div>
-                <!-- IEEE Breathalyzer -->
-                <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:scale-105 transition-transform duration-300"
-                    role="group" aria-label="IEEE@UW-Madison Breathalyzer project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/IEEE-Breathalyzer-SP19" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                                aria-label="Open IEEE@UW-Madison Breathalyzer GitHub repository">
-                                IEEE@UW-Madison Breathalyzer
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">April 2019</span>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="project-desc-2">
-                        A breathalyzer prototype using MQ-3 alcohol sensor, Arduino for fun.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">C</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Arduino</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Prototyping</span>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:scale-105 transition-transform duration-300"
-                    role="group" aria-label="Dairy IOT Project (WISEST) project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/Dairy-IOT-Project-WISEST" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                                aria-label="Open Dairy IOT Project (WISEST) GitHub repository">
-                                Dairy IOT Project (WISEST)
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">May – August 2018</span>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="project-desc-3">
-                        Developed an IoT device to monitor dairy cattle's core body temperature using LoRa wireless
-                        technology. Contributed to a research publication on real-time monitoring with implantable
-                        biosensors and
-                        wearable scanners.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">C++</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">MATLAB</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Arduino</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Prototyping</span>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:scale-105 transition-transform duration-300"
-                    role="group" aria-label="MSDU-NET project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/MSDU-NET" target="_blank" rel="noopener noreferrer"
-                                class="font-semibold text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                                aria-label="Open MSDU-NET Implementation in TensorFlow GitHub repository">
-                                MSDU-NET Implementation in TensorFlow
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">December 2020</span>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="project-desc-4">
-                        Implementation of the MSDU-NET architecture for blur image segmentation, based on the paper
-                        "MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images".
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Python</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">TensorFlow</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Computer
-                            Vision</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Modeling</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Deep
-                            Learning</span>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:scale-105 transition-transform duration-300"
-                    role="group" aria-label="Temporal Latent Exploration project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/temporal_latent_exploration" target="_blank"
-                                rel="noopener noreferrer"
-                                class="font-semibold text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                                aria-label="Open Temporal Latent Exploration for CFD GitHub repository">
-                                Temporal Latent Exploration for CFD (MSc Thesis)
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">April – June 2025</span>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="project-desc-5">
-                        My guided attempt at exploiting the latent space of temporal graph neural networks to
-                        efficiently
-                        generate fluid dynamics simulations.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Python</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">PyTorch</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">SLURM</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Deep
-                            Learning</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">GNN</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">CFD</span>
-                    </div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:scale-105 transition-transform duration-300"
-                    role="group" aria-label="Jaundice Next Action project card">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center space-x-2">
-                            <img src="/icons/github-mark.svg" alt="GitHub Logo" class="w-6 h-6" width="24" height="24" loading="lazy">
-                            <a href="https://github.com/chairithinug/Forfun" target="_blank" rel="noopener noreferrer"
-                                class="font-semibold text-blue-600 dark:text-blue-400 hover:underline text-lg"
-                                aria-label="Open Jaundice Next Action GitHub repository">
-                                Jaundice Next Action
-                            </a>
-                        </div>
-                        <span class="text-gray-500 dark:text-gray-400 text-sm">August 2021</span>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-200 mb-2" data-i18n="project-desc-6">
-                        Developed together with a friend in medical field. Based on a given birthdate, time, risk
-                        factors, and Serum Bilirubin (mg/dl).
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Python</span>
-                        <span
-                            class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">Medical</span>
-                    </div>
-                </div>
-                <!-- Add more projects as needed -->
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">P</span><span class="label">Manifest</span></div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>Projects</span>
+        </nav>
+        <h1><span class="num">§ 03 · Projects</span>Things I've <span class="accent">shipped</span>.</h1>
+        <p class="bi-sub"><b>Project Manifest</b> · บัญชีโครงการ — บันทึกผลงานนับตั้งแต่ ๒๕๖๑</p>
+        <p class="lede">
+          Selected projects since 2018 — biometrics, IoT, neural-network experiments, and lately a stack of AI tooling
+          and a SvelteKit badminton scheduler. Tap a chip to filter by tech.
+        </p>
+        <div class="meta-row">
+          <span><b>9</b>&nbsp; shipped projects</span>
+          <span><b>8</b>&nbsp; years of side work · 2018 → today</span>
+          <span><b>15+</b>&nbsp; languages &amp; frameworks</span>
+          <span><b>2</b>&nbsp; active this year</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 03.01</span>The portfolio.</h2>
+        </div>
+
+        <div class="mrz-divider">
+          <div class="cap">Filter</div>
+          <pre>P&lt;THAPROJECTS&lt;&lt;CHAIRITHINUGULL&lt;&lt;9&lt;ENTRIES&lt;FILED&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</pre>
+        </div>
+
+        <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter by tag">
+          <span class="label">Filter</span>
+          <button class="filter-chip active" data-tag="all">All · 9</button>
+          <button class="filter-chip" data-tag="ai">AI / ML</button>
+          <button class="filter-chip" data-tag="web">Web</button>
+          <button class="filter-chip" data-tag="iot">Hardware / IoT</button>
+          <button class="filter-chip" data-tag="vision">Computer Vision</button>
+          <button class="filter-chip" data-tag="research">Research</button>
+        </div>
+
+        <div class="proj-grid" id="proj-grid">
+
+          <article class="proj-card" data-tags="ai web">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/Claude_Skills" target="_blank" rel="noopener">Claude Skills</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--saffron); --stamp-r: -6deg"><span class="yr">2026</span></div>
             </div>
-        </section>
+            <p>A workspace of authored Claude AI Skills — small, triggered playbooks loaded into Claude's context for relevant tasks. Covers decision-making, devil's advocacy, negotiation prep, token optimization, and more.</p>
+            <div class="tags"><span>Claude AI</span><span>Agent Skills</span><span>Markdown</span></div>
+          <div class="file-code">DKT · PROJ-2026/01</div>
+          </article>
 
-    </main>
+          <article class="proj-card" data-tags="web ai">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3>Natty (นัดตี)</h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--saffron); --stamp-r: 4deg"><span class="yr">2026 →</span></div>
+            </div>
+            <span class="private">Private</span>
+            <p>Personal full-stack web app for scheduling badminton sessions with friends. SvelteKit on TypeScript, Postgres on Supabase, deployed on Vercel; Vitest for unit/component tests and Playwright for end-to-end.</p>
+            <div class="tags"><span>TypeScript</span><span>SvelteKit</span><span>PostgreSQL</span><span>Supabase</span><span>Vercel</span><span>Playwright</span></div>
+          <div class="file-code">DKT · PROJ-2026/02</div>
+          </article>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+          <article class="proj-card" data-tags="web">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/project_feedback_reporter" target="_blank" rel="noopener">Claude Code Feedback Tool</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--saffron); --stamp-r: -3deg"><span class="yr">2026</span></div>
+            </div>
+            <p>Single-file, offline-capable feedback form for structured bug reports and feature requests, built for the Claude Code workflow. Auto-saves drafts, compresses screenshots, and exports as markdown or zip.</p>
+            <div class="tags"><span>HTML</span><span>JavaScript</span><span>Offline-first</span><span>Tooling</span></div>
+          <div class="file-code">DKT · PROJ-2026/03</div>
+          </article>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
+          <article class="proj-card" data-tags="ai research">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/temporal_latent_exploration" target="_blank" rel="noopener">Temporal Latent Exploration for CFD</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--jade); --stamp-r: 5deg"><span class="yr">2025</span></div>
+            </div>
+            <p>MSc thesis. My guided attempt at exploiting the latent space of temporal graph neural networks to efficiently generate fluid-dynamics simulations.</p>
+            <div class="tags"><span>Python</span><span>PyTorch</span><span>GNN</span><span>CFD</span><span>SLURM</span></div>
+          <div class="file-code">DKT · PROJ-2025/01</div>
+          </article>
 
-    <script src="/install-prompt.js" defer></script>
+          <article class="proj-card" data-tags="ai research">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/Forfun" target="_blank" rel="noopener">Jaundice Next Action</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--copen); --stamp-r: -7deg"><span class="yr">2021</span></div>
+            </div>
+            <p>Tool built with a friend in the medical field. Evaluates neonatal jaundice risk from birth data, risk factors, and serum bilirubin.</p>
+            <div class="tags"><span>Python</span><span>Medical</span></div>
+          <div class="file-code">DKT · PROJ-2021/01</div>
+          </article>
+
+          <article class="proj-card" data-tags="ai vision">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/MSDU-NET" target="_blank" rel="noopener">MSDU-NET in TensorFlow</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--harbor); --stamp-r: 3deg"><span class="yr">2020</span></div>
+            </div>
+            <p>Implementation of the MSDU-NET architecture for blur image segmentation, based on the paper "MSDU-NET: Multi-Scale Dilated U-Net for Image Segmentation in Blur Images".</p>
+            <div class="tags"><span>Python</span><span>TensorFlow</span><span>Computer Vision</span><span>Deep Learning</span></div>
+          <div class="file-code">DKT · PROJ-2020/01</div>
+          </article>
+
+          <article class="proj-card" data-tags="web">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/Notes" target="_blank" rel="noopener">Android Notes App</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--harbor); --stamp-r: -4deg"><span class="yr">2020</span></div>
+            </div>
+            <p>A simple note-taking Android app with SQLite database for local storage, built with Java and Android Studio. Add, edit, delete, and search notes. Dedicated to my mom.</p>
+            <div class="tags"><span>Java</span><span>Android</span><span>SQLite</span></div>
+          <div class="file-code">DKT · PROJ-2020/02</div>
+          </article>
+
+          <article class="proj-card" data-tags="iot">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/IEEE-Breathalyzer-SP19" target="_blank" rel="noopener">IEEE @ UW-Madison Breathalyzer</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--chili); --stamp-r: 6deg"><span class="yr">2019</span></div>
+            </div>
+            <p>A breathalyzer prototype using an MQ-3 alcohol sensor and Arduino, built for IEEE student-chapter demos.</p>
+            <div class="tags"><span>C</span><span>Arduino</span><span>Prototyping</span></div>
+          <div class="file-code">DKT · PROJ-2019/01</div>
+          </article>
+
+          <article class="proj-card" data-tags="iot research">
+            <div class="head">
+              <div class="ttl-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 1.9 3 1.4 3.7 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.4-2.4 1.2-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.6-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                <h3><a href="https://github.com/chairithinug/Dairy-IOT-Project-WISEST" target="_blank" rel="noopener">Dairy IoT Project (WISEST)</a></h3>
+              </div>
+              <div class="year-stamp-circle" style="--year-color: var(--saffron); --stamp-r: -5deg"><span class="yr">2018</span></div>
+            </div>
+            <p>IoT device monitoring dairy cattle core body temperature via LoRa wireless. Contributed to a research publication on implantable biosensors and wearable scanners.</p>
+            <div class="tags"><span>C++</span><span>MATLAB</span><span>Arduino</span><span>LoRa</span></div>
+          <div class="file-code">DKT · PROJ-2018/01</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="slim-footer" data-chrome="footer"></footer>
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
+  <script>
+    // Tag filter
+    (() => {
+      const chips = document.querySelectorAll('#filter-bar .filter-chip');
+      const cards = document.querySelectorAll('#proj-grid .proj-card');
+      chips.forEach(c => c.addEventListener('click', () => {
+        chips.forEach(x => x.classList.remove('active'));
+        c.classList.add('active');
+        const tag = c.dataset.tag;
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || '').split(' ');
+          card.hidden = !(tag === 'all' || tags.includes(tag));
+        });
+      }));
+    })();
+  </script>
 </body>
-
 </html>

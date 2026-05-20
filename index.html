@@ -1,265 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    // Dark-mode FOUC guard — must run inline before stylesheet (per CLAUDE.md)
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Anapat Chairithinugull – Data Scientist & Engineer · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/">
+  <meta name="description" content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Anapat Chairithinugull – Data Scientist & Engineer · Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/">
+  <meta property="og:title" content="Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/">
+  <meta property="og:description" content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <!-- Structured data for SEO and search engines: Profile and Person schema -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 {
-    "@graph": [
-        {
-            "@context": "https://schema.org",
-            "@type": "ProfilePage",
-            "dateCreated": "2025-09-17T09:35:00+02:00",
-            "dateModified": "2025-10-18T22:41:33+02:00",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Anapat Chairithinugull",
-                "givenName": "Anapat",
-                "familyName": "Chairithinugull",
-                "url": "https://chairithinug.com/",
-                "jobTitle": "Data Scientist, Software Engineer, Software Developer, Programmer, Machine Learning Engineer",
-                "description": "MSc Computer Science graduate from the University of Copenhagen with experience in data-driven software development, machine learning, and large-scale data processing. Skilled in Python and core data science libraries, with projects spanning biometrics, media archives, and computational modeling. I have a strong foundation in statistical analysis, algorithm development, and handling diverse data sources. Comfortable working independently and in cross-functional teams, I am eager to contribute to building data-driven products with real-world impact.",
-                "gender": "Male",
-                "honorificPrefix": "Mr.",
-                "email": "chairithinug@uwalumni.com",
-                "image": "https://chairithinug.com/img/anapat_chairithinugull.jpeg",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Bangkok",
-                    "addressRegion": "Bangkok",
-                    "addressCountry": "Thailand"
-                },
-                "telephone": "+66873246940",
-                "sameAs": [
-                    "https://www.linkedin.com/in/anapat-chairithinugull",
-                    "https://github.com/chairithinug",
-                    "https://www.strava.com/athletes/137178417",
-                    "https://chairithinug.dk",
-                    "https://chairithinug.github.io"
-                ],
-                "alumniOf": [
-                    {
-                        "@type": "EducationalOrganization",
-                        "name": "University of Wisconsin-Madison",
-                        "url": "https://www.wisc.edu"
-                    },
-                    {
-                        "@type": "EducationalOrganization",
-                        "name": "University of Copenhagen",
-                        "url": "https://www.ku.dk/en"
-                    },
-                    {
-                        "@type": "EducationalOrganization",
-                        "name": "Suankularb Wittayalai School",
-                        "url": "https://www.sk.ac.th"
-                    }
-                ],
-                "knowsLanguage": [
-                    {
-                        "@type": "Language",
-                        "name": "Thai"
-                    },
-                    {
-                        "@type": "Language",
-                        "name": "English"
-                    },
-                    {
-                        "@type": "Language",
-                        "name": "Danish"
-                    }
-                ]
-            }
-        }
-    ]
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "dateCreated": "2025-09-17T09:35:00+02:00",
+      "dateModified": "2026-05-20T00:00:00+02:00",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Anapat Chairithinugull",
+        "givenName": "Anapat",
+        "familyName": "Chairithinugull",
+        "url": "https://chairithinug.com/",
+        "jobTitle": "Data Scientist, Software Engineer, Software Developer, Programmer, Machine Learning Engineer",
+        "description": "MSc Computer Science graduate from the University of Copenhagen with experience in data-driven software development, machine learning, and large-scale data processing.",
+        "gender": "Male",
+        "honorificPrefix": "Mr.",
+        "email": "chairithinug@uwalumni.com",
+        "image": "https://chairithinug.com/img/anapat_chairithinugull.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangkok",
+          "addressRegion": "Bangkok",
+          "addressCountry": "Thailand"
+        },
+        "telephone": "+66873246940",
+        "sameAs": [
+          "https://www.linkedin.com/in/anapat-chairithinugull",
+          "https://github.com/chairithinug",
+          "https://www.strava.com/athletes/137178417",
+          "https://chairithinug.dk",
+          "https://chairithinug.github.io"
+        ],
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "University of Wisconsin-Madison", "url": "https://www.wisc.edu" },
+          { "@type": "EducationalOrganization", "name": "University of Copenhagen", "url": "https://www.ku.dk/en" },
+          { "@type": "EducationalOrganization", "name": "Suankularb Wittayalai School", "url": "https://www.sk.ac.th" }
+        ],
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Thai" },
+          { "@type": "Language", "name": "English" },
+          { "@type": "Language", "name": "Danish" }
+        ]
+      }
+    }
+  ]
 }
-    </script>
-
-    <!-- Metadata / SEO / Social (non-critical, load last) -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chairithinug.com/">
-    <meta property="og:description"
-        content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Resume and portfolio of Anapat Chairithinugull — Data Scientist & Software Engineer in Bangkok, skilled in Python, AI, and machine learning.">
+  </script>
 </head>
+<body data-page="home">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Anapat Chairithinugull — Data Scientist &amp; Software Engineer</h1>
+  <main id="main">
 
-        <!-- Profile -->
-        <section id="profile" aria-labelledby="profile-title" class="space-y-4">
-            <h2 id="profile-title" class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2">
-                Profile Summary
-            </h2>
+    <!-- ───── PASSPORT IDENTITY ───── -->
+    <section class="passport" id="cover" aria-labelledby="cover-h">
+      <div class="wrap">
+        <header class="pp-head">
+          <div class="pp-crest" aria-hidden="true">A</div>
+          <h1 class="pp-title" id="cover-h" data-i18n="title">
+            Personal Portfolio &nbsp;·&nbsp; Type P
+            <small data-i18n="title-th">หนังสือพอร์ตโฟลิโอส่วนตัว</small>
+          </h1>
+          <div class="pp-issue">
+            <b>chairithinug.com</b>
+            <span>06 / 2026 · Bangkok</span>
+          </div>
+        </header>
 
-            <div class="flex flex-col md:flex-row items-start gap-4">
-                <!-- Profile Image -->
-                <picture class="self-center md:self-start flex-shrink-0">
-                    <source type="image/webp"
-                        srcset="/img/anapat_chairithinugull-224.webp 1x, /img/anapat_chairithinugull-448.webp 2x">
-                    <img src="/img/anapat_chairithinugull.jpeg" alt="Anapat Chairithinugull"
-                        width="224" height="224" fetchpriority="high"
-                        class="w-40 h-40 md:w-56 md:h-56 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover">
-                </picture>
-
-                <!-- Profile Paragraph -->
-                <p id="profile-summary" class="text-gray-800 dark:text-gray-200">
-                    Data Scientist and Software Engineer based in Bangkok, with an MSc in Computer Science from the
-                    University of Copenhagen and 4+ years of cross-disciplinary experience. Recent work spans
-                    authoring Claude AI Skills, building Natty (นัดตี) — a SvelteKit + Postgres full-stack
-                    badminton scheduler — and an MSc thesis exploring temporal graph neural networks for fluid
-                    dynamics. Strong foundation in Python, machine learning, and statistical analysis, with
-                    growing skills in TypeScript, modern web stacks, and AI engineering. Currently looking for
-                    opportunities in Thailand to ship data and AI products with real-world impact.
-                </p>
+        <div class="pp-body">
+          <div>
+            <img class="pp-photo" src="/img/anapat_chairithinugull-448.webp" alt="Portrait of Anapat" width="232" height="300">
+            <div class="pp-photo-cap" data-i18n="holder">Holder · ผู้ถือ</div>
+            <div class="pp-sig">
+              <svg width="180" height="40" viewBox="0 0 180 40" aria-hidden="true">
+                <path d="M5 28 Q15 8 28 22 T55 18 Q70 38 85 14 T120 22 Q140 8 158 28 L175 22"
+                      fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <small data-i18n="signature">Signature</small>
             </div>
-        </section>
+          </div>
 
-        <section id="recent-activities" aria-labelledby="recent-activities-title"
-            class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 id="recent-activities-title"
-                class="text-2xl font-semibold border-b-2 border-gray-300 dark:border-gray-600 pb-2 mb-6 text-gray-800 dark:text-gray-100">
-                Lately
-            </h2>
-            <ul class="space-y-4">
-                <li>
-                    <time datetime="2026-04-30" class="block font-semibold text-gray-900 dark:text-gray-200">2026-04-30</time>
-                    <p class="text-gray-700 dark:text-gray-400" data-i18n="recent-activity-1">Actively looking for new opportunities in Thailand.</p>
-                </li>
-                <li>
-                    <time datetime="2026-04-25" class="block font-semibold text-gray-900 dark:text-gray-200">2026-04-25</time>
-                    <p class="text-gray-700 dark:text-gray-400" data-i18n="recent-activity-2">Building Natty (นัดตี), a personal project for scheduling badminton sessions.</p>
-                </li>
-                <li>
-                    <time datetime="2026-04-12" class="block font-semibold text-gray-900 dark:text-gray-200">2026-04-12</time>
-                    <p class="text-gray-700 dark:text-gray-400" data-i18n="recent-activity-3">Moved back to Thailand in early April, just in time for Songkran.</p>
-                </li>
-                <li>
-                    <time datetime="2026-03-20" class="block font-semibold text-gray-900 dark:text-gray-200">2026-03-20</time>
-                    <p class="text-gray-700 dark:text-gray-400" data-i18n="recent-activity-4">Took a two-week solo trip through Munich, Salzburg, and Innsbruck in late March.</p>
-                </li>
-                <li>
-                    <time datetime="2026-02-14" class="block font-semibold text-gray-900 dark:text-gray-200">2026-02-14</time>
-                    <p class="text-gray-700 dark:text-gray-400" data-i18n="recent-activity-5">17-day Scandinavian trip from Copenhagen up to Tromsø and back via Stockholm — including an unplanned night stranded in Narvik.</p>
-                </li>
-            </ul>
-        </section>
+          <div class="pp-fields">
+            <div class="pp-field pp-field--full">
+              <div class="k"><span>Surname</span><em>นามสกุล</em></div>
+              <div class="v">Chairithinugull</div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Given names</span><em>ชื่อ</em></div>
+              <div class="v">Anapat <span class="accent">"Mew"</span></div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Nationality</span><em>สัญชาติ</em></div>
+              <div class="v">Thai <small>ไทย · TH</small></div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Occupation</span><em>อาชีพ</em></div>
+              <div class="v" style="font-size:18px">Data Scientist &amp; Software Engineer</div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Residence</span><em>ที่อยู่</em></div>
+              <div class="v">Bangkok, Thailand</div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Education</span><em>การศึกษา</em></div>
+              <div class="v" style="font-size:16px">
+                MSc CS · UCPH
+                <small>BS CE/CS · Wisconsin–Madison</small>
+              </div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Languages</span><em>ภาษา</em></div>
+              <div class="v mono">ไทย · EN · DA</div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Status</span><em>สถานะ</em></div>
+              <div class="v" style="color: var(--jade)">Open to opportunities</div>
+            </div>
+            <div class="pp-field">
+              <div class="k"><span>Date of issue</span><em>วันออก</em></div>
+              <div class="v mono">2024.08.15</div>
+            </div>
+          </div>
+        </div>
 
-        <section id="vocab" aria-labelledby="vocab-title" class="space-y-4">
-            <div id="wotd-word" class="text-center text-6xl font-extrabold mb-2"></div>
-            <div id="wotd-definition" class="text-center text-xl text-gray-800 dark:text-gray-200"></div>
-        </section>
+        <div class="pp-stamps">
+          <div class="label"><span>Entry stamps · ตราประทับการเข้าเมือง</span><span>← swipe →</span></div>
+          <div class="pp-stamps-row" role="list">
+            <div class="stamp" style="color:var(--stamp-th-1); --r:-8deg" role="listitem">
+              <div class="country">THA</div>
+              <div class="city">Bangkok</div>
+              <div class="date">2012–16</div>
+              <div class="role">Suankularb HS</div>
+            </div>
+            <div class="stamp" style="color:var(--stamp-us); --r:5deg" role="listitem">
+              <div class="country">USA</div>
+              <div class="city">Madison</div>
+              <div class="date">2016–20</div>
+              <div class="role">BS Computer Eng</div>
+            </div>
+            <div class="stamp" style="color:var(--stamp-th-2); --r:-3deg" role="listitem">
+              <div class="country">THA</div>
+              <div class="city">Bangkok</div>
+              <div class="date">2020–23</div>
+              <div class="role">Kasikorn Labs</div>
+            </div>
+            <div class="stamp" style="color:var(--stamp-dk); --r:7deg" role="listitem">
+              <div class="country">DNK</div>
+              <div class="city">Copenhagen</div>
+              <div class="date">2023–26</div>
+              <div class="role">MSc CS · UCPH</div>
+            </div>
+            <div class="stamp" style="color:var(--stamp-th-3); --r:-4deg" role="listitem">
+              <div class="country">THA</div>
+              <div class="city">Bangkok</div>
+              <div class="date">2026 →</div>
+              <div class="role">Home base</div>
+            </div>
+          </div>
+        </div>
 
-    </main>
+        <div class="pp-mrz" id="mrz">
+          <div class="cap">Machine-readable zone</div>
+          <pre>P&lt;THACHAIRITHINUGULL&lt;&lt;ANAPAT&lt;MEW&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+AC2026MSC&lt;7THA9810205M2606304&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;06</pre>
+        </div>
+      </div>
+    </section>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="index-script.js" defer></script>
+    <!-- ───── TIMELINE ───── -->
+    <section class="timeline-section" id="timeline" aria-labelledby="timeline-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="timeline-h"><span class="num">§ 02 · Career</span>A life on five lanes.</h2>
+          <div class="meta" role="list">
+            <span><i style="background:var(--ink)"></i>Place</span>
+            <span><i style="background:var(--jade)"></i>Academic</span>
+            <span><i style="background:var(--copen)"></i>Full-time</span>
+            <span><i style="background:var(--saffron)"></i>Part-time</span>
+            <span><i style="background:var(--chili)"></i>Volunteer</span>
+          </div>
+        </div>
 
-    <script src="/install-prompt.js" defer></script>
+        <div class="tl-figure tl-desktop">
+          <div class="figcap">
+            <span>Fig. 01 — 2012 → 2026 · n = 11 chapters</span>
+            <span>Hover for detail</span>
+          </div>
+          <div class="tl-chart" id="tl-chart"></div>
+        </div>
+
+        <!-- Vertical timeline for mobile -->
+        <ol class="tl-mobile" id="tl-mobile" aria-label="Career timeline"></ol>
+      </div>
+    </section>
+
+
+    <!-- ───── LATELY + CURRENTLY BUILDING ───── -->
+    <section class="lately" id="lately" aria-labelledby="lately-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="lately-h"><span class="num">Daily dispatch</span>What I'm doing right now.</h2>
+        </div>
+        <div class="lately-grid">
+
+          <ul class="feed">
+            <li>
+              <time datetime="2026-04-30">2026-04-30</time>
+              <span class="tag tag-now">Now</span>
+              <p>Actively looking for new opportunities in Thailand.</p>
+            </li>
+            <li>
+              <time datetime="2026-04-25">2026-04-25</time>
+              <span class="tag tag-build">Build</span>
+              <p>Building Natty (นัดตี), a personal app for scheduling badminton with friends.</p>
+            </li>
+            <li>
+              <time datetime="2026-04-12">2026-04-12</time>
+              <span class="tag tag-life">Life</span>
+              <p>Moved back to Thailand in early April, just in time for Songkran.</p>
+            </li>
+            <li>
+              <time datetime="2026-03-20">2026-03-20</time>
+              <span class="tag tag-travel">Travel</span>
+              <p>Two-week solo trip through Munich, Salzburg, and Innsbruck in late March.</p>
+            </li>
+            <li>
+              <time datetime="2026-02-14">2026-02-14</time>
+              <span class="tag tag-travel">Travel</span>
+              <p>17-day Scandinavian trip from Copenhagen up to Tromsø and back via Stockholm — including an unplanned night stranded in Narvik.</p>
+            </li>
+          </ul>
+
+          <div class="now-cards">
+            <article class="now-card" aria-labelledby="natty-h">
+              <span class="pill">Currently building</span>
+              <h3 id="natty-h">Natty (นัดตี) — scheduling badminton with friends</h3>
+              <p>Personal full-stack web app. SvelteKit on TypeScript, Postgres on Supabase, deployed on Vercel. Vitest for unit/component tests, Playwright for end-to-end.</p>
+              <div class="tags">
+                <span>TypeScript</span><span>SvelteKit</span><span>PostgreSQL</span>
+                <span>Supabase</span><span>Vercel</span><span>Playwright</span>
+              </div>
+            </article>
+
+            <article class="now-card book" aria-labelledby="book-h">
+              <div class="cover"><span>Designing Data-Intensive Applications</span></div>
+              <div class="body">
+                <span class="pill">Now reading</span>
+                <h3 id="book-h" class="ttl" style="margin:8px 0 0">Designing Data-Intensive Applications</h3>
+                <div class="auth">Martin Kleppmann</div>
+                <div class="bar" style="--pct:62%"><i></i></div>
+                <div class="pct">62% · Chapter 7 · Transactions</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ───── TEASERS ───── -->
+    <section class="teasers" id="more" aria-labelledby="teasers-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="teasers-h"><span class="num">Table of contents</span>Inside this issue.</h2>
+        </div>
+        <div class="teaser-grid">
+          <a class="teaser" href="career.html" aria-label="Open career page">
+            <div class="eyebrow"><span>§ 02</span><span>11 entries</span></div>
+            <h3>Career</h3>
+            <p>Madison → Bangkok → Copenhagen → Bangkok. Work history, education, and the timeline behind every stamp.</p>
+            <span class="more">Open</span>
+          </a>
+          <a class="teaser" href="projects.html" aria-label="Open projects page">
+            <div class="eyebrow"><span>§ 03</span><span>9 entries</span></div>
+            <h3>Projects</h3>
+            <p>Claude Skills, Natty, Temporal GNNs for CFD, MSDU-NET, Dairy IoT — software and ML built since 2018.</p>
+            <span class="more">See all</span>
+          </a>
+          <a class="teaser" href="skills.html" aria-label="Open skills page">
+            <div class="eyebrow"><span>§ 04</span><span>22 entries</span></div>
+            <h3>Skills</h3>
+            <p>Python, PyTorch, TensorFlow, SvelteKit, Postgres, plus 9 Anthropic & DeepLearning.AI certifications.</p>
+            <span class="more">See all</span>
+          </a>
+          <a class="teaser" href="articles.html" aria-label="Open articles page">
+            <div class="eyebrow"><span>§ 05</span><span>2 entries</span></div>
+            <h3>Writing</h3>
+            <p>Cycling in Denmark · Reflections on AI and coding. Long-form notes on engineering and life abroad.</p>
+            <span class="more">Read</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ───── CONTACT ───── -->
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div class="contact-inner">
+          <div>
+            <h2 id="contact-h">Let's <span class="accent">build</span><br/>something useful.</h2>
+            <p class="sub">I'm open to AI, ML, and data-engineering roles in Thailand — hybrid preferred. Drop me a line; I read everything and reply within a day.</p>
+            <p class="thai-line">หรือทักภาษาไทยมาก็ได้นะครับ — ยินดีรับฟังเสมอ</p>
+            <a class="cta" href="mailto:chairithinug@uwalumni.com">Say hello</a>
+          </div>
+          <aside class="contact-side">
+            <dl>
+              <div>
+                <dt>Email</dt>
+                <dd><a href="mailto:chairithinug@uwalumni.com">chairithinug@uwalumni.com</a></dd>
+              </div>
+              <div>
+                <dt>LinkedIn</dt>
+                <dd><a href="https://www.linkedin.com/in/anapat-chairithinugull">in/anapat-chairithinugull</a></dd>
+              </div>
+              <div>
+                <dt>GitHub</dt>
+                <dd><a href="https://github.com/chairithinug">github.com/chairithinug</a></dd>
+              </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Bangkok, Thailand · UTC+7</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="foot-bar">
+          <span>© 2026 Anapat Chairithinugull · Built with HTML, Plex &amp; care</span>
+          <span>EN · ไทย · DA &nbsp;·&nbsp; v6.4</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───── TWEAKS panel (host-activated) ───── -->
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>

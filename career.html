@@ -1,77 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <style>
-        #main-container,
-        #footer-container,
-        body {
-            opacity: 0;
-            animation: fadeIn 0.3s forwards;
-        }
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light"
+    );
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Career — Anapat Chairithinugull · Bangkok</title>
+  <link rel="canonical" href="https://chairithinug.com/career.html">
+  <meta name="description" content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
+  <meta name="author" content="Anapat Chairithinugull">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="theme-color" content="#0A1626" />
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Chairithinug" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        @media (prefers-reduced-motion: reduce) {
-            #main-container,
-            #footer-container,
-            body {
-                animation: none;
-                opacity: 1;
-            }
-        }
-    </style>
-    <script>
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <title>Career | Anapat Chairithinugull – Bangkok</title>
+  <link rel="stylesheet" href="/style.css" />
 
-    <link rel="canonical" href="https://chairithinug.com/career.html">
+  <meta property="og:title" content="Career — Anapat Chairithinugull · Bangkok">
+  <meta property="og:site_name" content="Chairithinug">
+  <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chairithinug.com/career.html">
+  <meta property="og:description" content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Career — Anapat Chairithinugull · Bangkok">
+  <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
+  <meta name="twitter:description" content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
 
-    <link rel="stylesheet" href="/styles.css">
-
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Chairithinug" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#2563eb" />
-    <link rel="manifest" href="/icons/favicon/site.webmanifest" />
-
-    <!-- Resource hints -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-    <!-- Security / Policy headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'sha256-ZkhhoPSOaqbppPzIQNCdNU1ueQioJZrAM1+1WR9hpw8=' https://www.googletagmanager.com;
-        style-src 'self';
-        img-src 'self';
-        connect-src 'self';
-        font-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        frame-src 'none';
-    ">
-
-    <!-- Optional structured data -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
@@ -100,594 +80,291 @@
         }
     }
     </script>
-
-    <!-- Metadata / SEO / Social -->
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="description"
-        content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
-    <meta name="author" content="Anapat Chairithinugull">
-
-    <meta property="og:title"
-        content="Career - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta property="og:site_name" content="Chairithinug">
-    <meta property="og:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta property="og:image:alt" content="Anapat Chairithinugull — Data Scientist & Software Engineer based in Bangkok, Thailand">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://chairithinug.com/career.html">
-    <meta property="og:description"
-        content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-        content="Career - Anapat Chairithinugull – Data Scientist & Software Engineer | Resume | Bangkok, Thailand">
-    <meta name="twitter:image" content="https://chairithinug.com/img/og-card-1200x630.jpg">
-    <meta name="twitter:description"
-        content="Career timeline and work experience of Anapat Chairithinugull — Data Scientist in Bangkok. Education, work history, and achievements.">
 </head>
+<body data-page="career">
+  <a class="skip" href="#main">Skip to content</a>
 
-<body
-    class="scroll-smooth bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden w-full max-w-full ease-in-out min-h-screen flex flex-col">
-    <!-- Header -->
-    <div id="header-container"></div>
-    <script src="/partials/header.js" defer></script>
-    <!-- Progress Bar Container -->
-    <div id="progress-bar"></div>
-    <!-- Sidebar -->
-    <div id="sidebar-container"></div>
-    <script src="/partials/sidebar.js" defer></script>
+  <header class="nav" role="banner" data-chrome="nav"></header>
+  <aside class="menu-sheet" id="menu-sheet" aria-hidden="true" data-chrome="menu"></aside>
 
-    <main id="main-content"
-        class="relative z-10 space-y-10 mx-auto px-6 py-8 w-full md:pl-[12rem] md:pr-10 duration-300 ease-in-out flex-1"
-        role="main">
-        <h1 class="sr-only">Career Timeline</h1>
-        <!-- Timeline -->
-        <section id="timeline" aria-labelledby="timeline-title">
-            <h2 id="timeline-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Timeline</h2>
+  <main id="main">
 
-            <!-- Legend -->
-            <ul class="mt-8 flex flex-wrap md:flex-nowrap gap-x-6 gap-y-4 justify-center" role="list"
-                aria-label="Legend for timeline types" data-i18n-aria-label="aria-timeline-legend">
-                <li class="flex items-center space-x-2">
-                    <span class="w-4 h-4 bg-blue-600 rounded-full"></span>
-                    <span>Full-time</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <span class="w-4 h-4 bg-orange-600 rounded-full"></span>
-                    <span>Part-time</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <span class="w-4 h-4 bg-green-600 rounded-full"></span>
-                    <span>Academic</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                    <span class="w-4 h-4 bg-purple-600 rounded-full"></span>
-                    <span>Volunteer</span>
-                </li>
+    <!-- ───── PAGE HERO ───── -->
+    <section class="page-hero" aria-labelledby="page-h">
+      <div class="wrap">
+        <div class="page-mark"><span class="letter">C</span><span class="label">Annex II</span></div>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span>Career</span>
+        </nav>
+        <h1 id="page-h"><span class="num">§ 02 · Career</span>A life on <span class="accent">five lanes</span>.</h1>
+        <p class="bi-sub"><b>Annex II</b> · ภาคผนวก ๒ — บันทึกการทำงานและการศึกษา</p>
+        <p class="lede">
+          Fourteen years across three continents — Madison, Bangkok, Copenhagen, and back. The timeline below shows
+          every chapter colored by kind, banded by city. Hover (or tap) any pill for context.
+        </p>
+        <div class="meta-row">
+          <span><b>4+</b>&nbsp; years of professional experience</span>
+          <span><b>3</b>&nbsp; cities lived in</span>
+          <span><b>3</b>&nbsp; languages</span>
+          <span><b>11</b>&nbsp; chapters · 2012 → today</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ───── TIMELINE ───── -->
+    <section class="timeline-section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 02.01</span>The timeline.</h2>
+          <div class="meta">
+            <span><i style="background:var(--ink)"></i>Place</span>
+            <span><i style="background:var(--jade)"></i>Academic</span>
+            <span><i style="background:var(--copen)"></i>Full-time</span>
+            <span><i style="background:var(--saffron)"></i>Part-time</span>
+            <span><i style="background:var(--chili)"></i>Volunteer</span>
+          </div>
+        </div>
+
+        <div class="tl-figure tl-desktop">
+          <div class="figcap">
+            <span>Fig. 01 — 2012 → 2026 · n = 11 chapters</span>
+            <span>Hover for detail</span>
+          </div>
+          <div class="tl-chart" id="tl-chart"></div>
+        </div>
+
+        <ol class="tl-mobile" id="tl-mobile" aria-label="Career timeline"></ol>
+      </div>
+    </section>
+
+
+    <!-- ───── WORK EXPERIENCE ───── -->
+    <section class="section-block">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 02.02</span>Work experience.</h2>
+        </div>
+        <div class="work-grid">
+
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--saffron)"></span>Resident Assistant</h3>
+                <p class="org">Housing Foundation Copenhagen, Denmark</p>
+              </div>
+              <div class="when">Jul 2024 – Aug 2025</div>
+            </div>
+            <ul class="bullets">
+              <li>Supported ~80 tenants across two buildings at Bispebjerg Kollegiet</li>
+              <li>Reported building issues to management for a better living environment</li>
+              <li>Organized social events to strengthen community engagement</li>
             </ul>
+          </article>
 
-            <div class="relative mt-8">
-                <!-- Vertical line -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l border-gray-300"></div>
-
-                <!-- Current Date Marker -->
-                <div class="mb-12 flex justify-center relative">
-                    <div id="current-date-marker"
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                    </div>
-                </div>
-
-                <!-- Timeline Entries -->
-                <div class="timeline-entry left" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content left">
-                        <h3>VP of Digital System – Thai Student and Alumni Association in Denmark (TSAAD)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2025 – Present</p>
-                        <p>I became one of VPs ...</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2025 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2025
-                    </div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="parttime">
-                    <div class="timeline-content right">
-                        <h3>Resident Assistant – Housing Foundation Copenhagen</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Jul 2024 – Aug 2025</p>
-                        <p>Go-to person at Bispebjerg Kollegiet</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="parttime">
-                    <div class="timeline-content left">
-                        <h3>Student Assistant - Det Kongelige Bibliotek</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Jun 2024 – Jun 2025</p>
-                        <p>Made sense of Danish heritage through TeraBytes of Radio and TV shows</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2024 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2024
-                    </div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content right">
-                        <h3>Student Bar Volunteer – Studenterhuset</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2023 – Oct 2024</p>
-                        <p>Coffee crafted</p>
-                        <p>Beer served</p>
-                        <p>100% fun</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="academic">
-                    <div class="timeline-content left">
-                        <h3>MSc Computer Science – University of Copenhagen</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2023 – Jun 2025</p>
-                        <p>Hungry for more ML knowledge</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2023 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2023
-                    </div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="fulltime">
-                    <div class="timeline-content right">
-                        <h3>Research Engineer - Kasikorn Labs</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Jun 2020 – Aug 2023</p>
-                        <p>Landed on cool ML job</p>
-                        <p>Interests piqued</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <!-- Year Marker 2020 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2020
-                    </div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content left">
-                        <h3>VP - IEEE-UW Madison Student Chapter</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2019 – May 2020</p>
-                        <p>Last two standing (P vs VP)</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content right">
-                        <h3>CS Tutor – University of Wisconsin-Madison (CSLC)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2019 – Dec 2019</p>
-                        <p>Tutored grown-up kids in college</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="parttime">
-                    <div class="timeline-content left">
-                        <h3>Undergraduate Lab Assistant – University of Wisconsin-Madison</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2019 – Dec 2019</p>
-                        <p>Tried to help college kids build adult Lego</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="parttime">
-                    <div class="timeline-content right">
-                        <h3>API Developer Intern – RIS Company Limited</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Jun 2019 – Jul 2019</p>
-                        <p>Data in</p>
-                        <p>Data matched</p>
-                        <p>Data out</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content left">
-                        <h3>Webmaster - Tau Beta Pi WI-A</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Apr 2019 – May 2020</p>
-                        <p>Kept the site updated</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2019 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2019
-                    </div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="parttime">
-                    <div class="timeline-content right">
-                        <h3>Undergraduate Project Assistant – University of Wisconsin-Madison (WISEST)</h3>
-                        <p class="text-gray-500 dark:text-gray-400">May 2018 – Aug 2018</p>
-                        <p>Circuit</p>
-                        <p>Programming</p>
-                        <p>...</p>
-                        <p>A cow's ear</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="volunteer">
-                    <div class="timeline-content left">
-                        <h3>Project Officer - IEEE-UW Madison Student Chapter</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Feb 2018 – May 2020</p>
-                        <p>Built and shared cool custom-made stuff</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2018 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2018
-                    </div>
-                </div>
-
-                <div class="timeline-entry right" tabindex="0" data-type="academic">
-                    <div class="timeline-content right">
-                        <h3>BS Computer Engineering & Computer Sciences – University of Wisconsin-Madison</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Sep 2016 – May 2020</p>
-                        <p>In: Electrical Engineer</p>
-                        <p>Out: Computer Engineer</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left"></div>
-                </div>
-
-                <!-- Year Marker 2016 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2016
-                    </div>
-                </div>
-
-                <div class="timeline-entry left" tabindex="0" data-type="academic">
-                    <div class="timeline-content left">
-                        <h3>HS Student – Suankularb Wittayalai School</h3>
-                        <p class="text-gray-500 dark:text-gray-400">2012 – 2016</p>
-                        <p>2nd home</p>
-                        <p>OSK 134</p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right"></div>
-                </div>
-
-                <!-- Year Marker 2012 -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        2012
-                    </div>
-                </div>
-
-                <!-- Final Marker -->
-                <div class="mb-12 flex justify-center relative">
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full">
-                        A Distant Past
-                    </div>
-                </div>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--saffron)"></span>Student Assistant</h3>
+                <p class="org">Det Kongelige Bibliotek (DR Project Team 3), Denmark</p>
+              </div>
+              <div class="when">Jun 2024 – Jun 2025</div>
             </div>
-        </section>
+            <ul class="bullets">
+              <li>Segmented Denmark's radio &amp; TV archives to enhance accessibility and discovery</li>
+              <li>Detected duplicate / retransmitted broadcasts to optimize storage and retrieval</li>
+              <li>Analyzed metadata of Danish radio archives (DR P1–P3) from 1989 to 2006</li>
+              <li>Presented sprint results to non-technical stakeholders</li>
+            </ul>
+            <div class="stack"><span>Python</span><span>Pandas</span><span>Jira</span><span>Confluence</span><span>Bitbucket</span></div>
+          </article>
 
-        <!-- Work Experience -->
-        <section id="work" aria-labelledby="work-title">
-            <h2 id="work-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">Work Experience
-            </h2>
-            <div class="mt-4 grid gap-6 md:grid-cols-2">
-
-                <!-- Resident Assistant -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">Resident Assistant</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">Housing Foundation Copenhagen,
-                                Denmark</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">July 2024 – August 2025</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Support approx. 80 tenants across two buildings at Bispebjerg Kollegiet</li>
-                                <li>Report building issues to management for a better living environment</li>
-                                <li>Organize social events to strengthen community engagement</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Studentermedhjælper -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">Student Assistant</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">
-                                Det Kongelige Bibliotek (DR Project Team 3), Denmark
-                            </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">June 2024 – June 2025</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Segmented Denmark’s radio and TV archives to enhance accessibility and discovery
-                                </li>
-                                <li>Detected duplicate or retransmitted broadcasts to optimize storage and retrieval
-                                </li>
-                                <li>Analyzed metadata of Danish radio archives (DR P1-P3) from 1989 to 2006</li>
-                                <li>Presented sprint’s results to non-technical stakeholders and shared knowledge
-                                    among the team</li>
-                                <li>Worked in Agile environments (Jira, Confluence, Bitbucket by Atlassian)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Research Engineer -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">Research Engineer</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">Kasikorn Labs (Biometrics Team),
-                                Thailand</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">June 2020 – August 2023</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Built deep learning models for face recognition in Kasikornbank’s mobile app
-                                </li>
-                                <li>Enhanced authentication accuracy with facial biometrics research</li>
-                                <li>Submitted a C++ library for NIST FRVT 1:1 Verification benchmark</li>
-                                <li>Created face image quality models using Python, TensorFlow, and OpenCV</li>
-                                <li>Improved in-house biometric verification for secure digital identity</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Undergraduate Lab Assistant -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">Undergraduate Lab Assistant
-                            </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">University of Wisconsin-Madison, USA
-                            </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">September – December 2019</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Assisted students in Digital Systems and Circuits class</li>
-                                <li>Supported lab assignments using Cadence Virtuoso</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- API Developer Intern -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">API Developer Intern</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">RIS Company Limited, Thailand</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">June – July 2019</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Developed and documented Java RESTful APIs for seamless integration</li>
-                                <li>Troubleshot and optimized API performance with Mulesoft</li>
-                                <li>Provided technical support to business units and partners</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Undergraduate Project Assistant -->
-                <div class="flip-card cursor-pointer" role="button" tabindex="0" aria-label="Flip card" data-i18n-aria-label="aria-flip-card">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div
-                            class="flip-card-front bg-white dark:bg-gray-800 shadow rounded-xl p-4 transition-colors duration-300">
-                            <h3 class="font-semibold text-gray-900 dark:text-gray-100">Undergraduate Project
-                                Assistant</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">WISEST Lab, University of
-                                Wisconsin-Madison, USA</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">May – August 2018</p>
-                        </div>
-                        <!-- Back -->
-                        <div
-                            class="flip-card-back bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 transition-colors duration-300">
-                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-200 space-y-1">
-                                <li>Designed and prototyped an IoT device in C++ and experimented using MATLAB</li>
-                                <li>Integrated LoRa wireless microcontroller technology</li>
-                                <li>Contributed to the publication 'Utilizing Implantable Biosensors and Wearable
-                                    Scanners for Real-time Monitoring of Dairy Cattle's Core Body Temperature'</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--copen)"></span>Research Engineer</h3>
+                <p class="org">Kasikorn Labs (Biometrics Team), Thailand</p>
+              </div>
+              <div class="when">Jun 2020 – Aug 2023</div>
             </div>
-        </section>
+            <ul class="bullets">
+              <li>Built deep-learning face-recognition models for Kasikornbank's mobile app</li>
+              <li>Enhanced authentication accuracy with facial biometrics research</li>
+              <li>Submitted a C++ library for NIST FRVT 1:1 Verification benchmark</li>
+              <li>Created face image quality models</li>
+              <li>Improved in-house biometric verification for secure digital identity</li>
+            </ul>
+            <div class="stack"><span>Python</span><span>TensorFlow</span><span>OpenCV</span><span>C++</span><span>NIST FRVT</span></div>
+          </article>
 
-        <!-- Education -->
-        <section id="education" aria-labelledby="education-title">
-            <h2 id="education-title"
-                class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-6">
-                Education
-            </h2>
-
-            <!-- University of Copenhagen -->
-            <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300 mb-6">
-                <h3 class="font-semibold text-gray-900 dark:text-gray-100">
-                    <a href="https://www.ku.dk" target="_blank" rel="noopener noreferrer">
-                        University of Copenhagen, Denmark
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">MSc Computer Science, September 2023 - June
-                    2025</p>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">GPA: 9.5 / 12</p>
-                <p class="text-gray-700 dark:text-gray-200 mt-2">Thesis: Temporal Graph Latent Space Exploration for
-                    Computational Fluid Dynamics</p>
-
-                <!-- Subjects Pills -->
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span
-                        class="px-3 py-1 bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-100 text-sm rounded-full">MLA
-                        + B</span>
-                    <span
-                        class="px-3 py-1 bg-green-100 dark:bg-green-700 text-green-700 dark:text-green-100 text-sm rounded-full">NLP</span>
-                    <span
-                        class="px-3 py-1 bg-purple-100 dark:bg-purple-700 text-purple-700 dark:text-purple-100 text-sm rounded-full">Online
-                        & RL</span>
-                    <span
-                        class="px-3 py-1 bg-pink-100 dark:bg-pink-700 text-pink-700 dark:text-pink-100 text-sm rounded-full">Advanced
-                        Topics in DL</span>
-                    <span
-                        class="px-3 py-1 bg-yellow-100 dark:bg-yellow-700 text-yellow-700 dark:text-yellow-100 text-sm rounded-full">Neural
-                        IR</span>
-                    <span
-                        class="px-3 py-1 bg-orange-100 dark:bg-orange-700 text-orange-700 dark:text-orange-100 text-sm rounded-full">Signal
-                        & Image Processing</span>
-                </div>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--saffron)"></span>Undergraduate Lab Assistant</h3>
+                <p class="org">University of Wisconsin–Madison, USA</p>
+              </div>
+              <div class="when">Sep – Dec 2019</div>
             </div>
+            <ul class="bullets">
+              <li>Assisted students in the Digital Systems &amp; Circuits course</li>
+              <li>Supported lab assignments using Cadence Virtuoso</li>
+            </ul>
+          </article>
 
-            <!-- University of Wisconsin-Madison -->
-            <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300 mb-6">
-                <h3 class="font-semibold text-gray-900 dark:text-gray-100">
-                    <a href="https://www.wisc.edu" target="_blank" rel="noopener noreferrer">
-                        University of Wisconsin-Madison, USA
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">BS Computer Engineering & Computer
-                    Sciences, September 2016 – May 2020</p>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">GPA: 3.70 / 4</p>
-
-                <!-- Subjects Pills -->
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <span
-                        class="px-3 py-1 bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-100 text-sm rounded-full">Theory
-                        and Practice in CS Education</span>
-                    <span
-                        class="px-3 py-1 bg-green-100 dark:bg-green-700 text-green-700 dark:text-green-100 text-sm rounded-full">Mobile
-                        Computing Lab</span>
-                    <span
-                        class="px-3 py-1 bg-purple-100 dark:bg-purple-700 text-purple-700 dark:text-purple-100 text-sm rounded-full">Matrix
-                        Methods in ML</span>
-                    <span
-                        class="px-3 py-1 bg-pink-100 dark:bg-pink-700 text-pink-700 dark:text-pink-100 text-sm rounded-full">Electro-Acoustical
-                        Engineering</span>
-                    <span
-                        class="px-3 py-1 bg-yellow-100 dark:bg-yellow-700 text-yellow-700 dark:text-yellow-100 text-sm rounded-full">Digital
-                        System Design & Synthesis</span>
-                    <span
-                        class="px-3 py-1 bg-red-100 dark:bg-red-700 text-red-700 dark:text-red-100 text-sm rounded-full">Digital
-                        Circuits & Components</span>
-                    <span
-                        class="px-3 py-1 bg-indigo-100 dark:bg-indigo-700 text-indigo-700 dark:text-indigo-100 text-sm rounded-full">Intro
-                        to AI</span>
-                    <span
-                        class="px-3 py-1 bg-teal-100 dark:bg-teal-700 text-teal-700 dark:text-teal-100 text-sm rounded-full">Intro
-                        to Computer Architecture</span>
-                    <span
-                        class="px-3 py-1 bg-cyan-100 dark:bg-cyan-700 text-cyan-700 dark:text-cyan-100 text-sm rounded-full">Intro
-                        to Microprocessor Systems</span>
-                    <span
-                        class="px-3 py-1 bg-lime-100 dark:bg-lime-700 text-lime-700 dark:text-lime-100 text-sm rounded-full">Intro
-                        to OS</span>
-                    <span
-                        class="px-3 py-1 bg-rose-100 dark:bg-rose-700 text-rose-700 dark:text-rose-100 text-sm rounded-full">Intro
-                        to Robotics</span>
-                </div>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--saffron)"></span>API Developer Intern</h3>
+                <p class="org">RIS Company Limited, Thailand</p>
+              </div>
+              <div class="when">Jun – Jul 2019</div>
             </div>
+            <ul class="bullets">
+              <li>Developed and documented Java RESTful APIs for seamless integration</li>
+              <li>Troubleshot and optimized API performance with Mulesoft</li>
+              <li>Provided technical support to business units and partners</li>
+            </ul>
+            <div class="stack"><span>Java</span><span>Mulesoft</span><span>REST</span></div>
+          </article>
 
-            <!-- High School -->
-            <div
-                class="relative bg-white dark:bg-gray-800 shadow rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-300">
-                <h3 class="font-semibold text-gray-900 dark:text-gray-100">
-                    <a href="https://www.sk.ac.th" target="_blank" rel="noopener noreferrer">
-                        Suankularb Wittayalai School, Thailand
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">High School, 2012 – 2016</p>
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--saffron)"></span>Undergraduate Project Assistant</h3>
+                <p class="org">WISEST Lab, University of Wisconsin–Madison, USA</p>
+              </div>
+              <div class="when">May – Aug 2018</div>
             </div>
-        </section>
-    </main>
+            <ul class="bullets">
+              <li>Designed and prototyped an IoT device in C++ with MATLAB experiments</li>
+              <li>Integrated LoRa wireless microcontroller technology</li>
+              <li>Contributed to a publication on real-time monitoring of dairy cattle core body temperature using implantable biosensors and wearable scanners</li>
+            </ul>
+            <div class="stack"><span>C++</span><span>MATLAB</span><span>LoRa</span><span>Arduino</span></div>
+          </article>
 
-    <div id="footer-container"></div>
-    <script src="/partials/footer.js" defer></script>
+        </div>
+      </div>
+    </section>
 
-    <!-- External script -->
-    <script src="script.js" defer></script>
-    <script src="career-script.js" defer></script>
-    <script src="/back-to-top.js" defer></script>
 
-    <script src="/install-prompt.js" defer></script>
+    <!-- ───── EDUCATION ───── -->
+    <section class="section-block warm">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 02.03</span>Education.</h2>
+        </div>
+
+        <article class="edu-card">
+          <div>
+            <h3 class="school"><a href="https://www.ku.dk" target="_blank" rel="noopener">University of Copenhagen, Denmark</a></h3>
+            <p class="degree">MSc Computer Science</p>
+            <p class="gpa">GPA 9.5 / 12</p>
+          </div>
+          <div class="when">Sep 2023 – Jun 2025</div>
+          <p class="thesis">Thesis — Temporal Graph Latent Space Exploration for Computational Fluid Dynamics.</p>
+          <div class="subjects">
+            <span>MLA + B</span><span>NLP</span><span>Online &amp; RL</span><span>Advanced Topics in DL</span>
+            <span>Neural IR</span><span>Signal &amp; Image Processing</span>
+          </div>
+        </article>
+
+        <article class="edu-card">
+          <div>
+            <h3 class="school"><a href="https://www.wisc.edu" target="_blank" rel="noopener">University of Wisconsin–Madison, USA</a></h3>
+            <p class="degree">BS Computer Engineering &amp; Computer Sciences</p>
+            <p class="gpa">GPA 3.70 / 4</p>
+          </div>
+          <div class="when">Sep 2016 – May 2020</div>
+          <div class="subjects">
+            <span>Matrix Methods in ML</span><span>Intro to AI</span><span>Computer Architecture</span>
+            <span>Microprocessor Systems</span><span>OS</span><span>Robotics</span>
+            <span>Mobile Computing Lab</span><span>Digital System Design</span><span>Digital Circuits</span>
+            <span>Electro-Acoustical Eng</span>
+          </div>
+        </article>
+
+        <article class="edu-card">
+          <div>
+            <h3 class="school"><a href="https://www.sk.ac.th" target="_blank" rel="noopener">Suankularb Wittayalai School, Thailand</a></h3>
+            <p class="degree">High School · OSK 134</p>
+          </div>
+          <div class="when">2012 – 2016</div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ───── VOLUNTEER ───── -->
+    <section class="section-block deep">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="num">§ 02.04</span>Volunteer work.</h2>
+        </div>
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--chili)"></span>VP of Digital System</h3>
+                <p class="org">Thai Student &amp; Alumni Association in Denmark (TSAAD)</p>
+              </div>
+              <div class="when">Sep 2025 – Present</div>
+            </div>
+            <ul class="bullets">
+              <li>Maintain the TSAAD membership-approval system &amp; website</li>
+              <li>Coordinate digital tooling for events and communications</li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--chili)"></span>Student Bar Volunteer</h3>
+                <p class="org">Studenterhuset, Copenhagen</p>
+              </div>
+              <div class="when">Sep 2023 – Oct 2024</div>
+            </div>
+            <ul class="bullets">
+              <li>Coffee crafted · Beer served · 100% fun</li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--chili)"></span>VP — IEEE @ UW Madison</h3>
+                <p class="org">Student Chapter, University of Wisconsin–Madison</p>
+              </div>
+              <div class="when">Sep 2019 – May 2020</div>
+            </div>
+            <ul class="bullets">
+              <li>Last two standing (P vs VP)</li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <div class="head">
+              <div>
+                <h3 class="role"><span class="lane-dot" style="background:var(--chili)"></span>CS Tutor</h3>
+                <p class="org">University of Wisconsin–Madison (CSLC)</p>
+              </div>
+              <div class="when">Sep – Dec 2019</div>
+            </div>
+            <ul class="bullets">
+              <li>Tutored grown-up kids in college</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="slim-footer" data-chrome="footer"></footer>
+
+  <aside class="tweaks" id="tweaks" aria-hidden="true" data-chrome="tweaks"></aside>
+
+  <script src="/chrome.js"></script>
+  <script src="/site.js"></script>
 </body>
-
 </html>
