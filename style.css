@@ -994,6 +994,15 @@ body[data-bg="grid"] .teasers {
 .skill-tile:hover { border-color: var(--accent); transform: translateY(-1px); }
 .skill-tile img { width: 36px; height: 36px; }
 .skill-tile span { font-family: var(--font-sans); font-size: 12.5px; color: var(--ink); }
+.skill-tile .monogram {
+  width: 36px; height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-serif); font-weight: 500; font-size: 18px;
+  color: var(--paper);
+  background: var(--ink);
+  letter-spacing: -0.02em;
+}
 
 /* Certs */
 .cert-grid {
