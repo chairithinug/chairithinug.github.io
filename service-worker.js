@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v37';
+const CACHE_NAME = 'pwa-cache-v38';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -17,6 +17,8 @@ const urlsToCache = [
   '/style.css',
   '/site.js',
   '/chrome.js',
+  '/projects-filter.js',
+  '/faq-cards.js',
   '/manifest.webmanifest',
   '/robots.txt',
   '/sitemap.xml',
