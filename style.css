@@ -314,6 +314,12 @@ ul, ol { list-style: none; }
   -webkit-mask-image: linear-gradient(to right, black 0, black 92%, transparent 100%);
 }
 .pp-stamps-row::-webkit-scrollbar { display: none; }
+/* On pointer-fine devices (mouse/trackpad) show a slim scrollbar so the affordance is clear */
+@media (hover: hover) and (pointer: fine) {
+  .pp-stamps-row { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+  .pp-stamps-row::-webkit-scrollbar { display: block; height: 6px; }
+  .pp-stamps-row::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+}
 .stamp {
   width: 168px; height: 168px; flex-shrink: 0;
   border: 2.5px solid currentColor; border-radius: 50%;
@@ -1297,16 +1303,19 @@ body[data-bg="grid"] .teasers {
 .skill-tile img { width: 36px; height: 36px; }
 .skill-tile span { font-family: var(--font-sans); font-size: 12.5px; color: var(--ink); }
 .skill-tile .dots {
-  display: inline-flex; gap: 3px; margin-top: 2px;
+  display: inline-flex; gap: 4px; margin-top: 2px;
 }
 .skill-tile .dots span {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--rule);
+  width: 7px; height: 7px; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--rule);
+  box-sizing: border-box;
 }
 .skill-tile.fluent .dots span:nth-child(-n+3),
 .skill-tile.comfortable .dots span:nth-child(-n+2),
 .skill-tile.learning .dots span:nth-child(-n+1) {
   background: var(--accent);
+  border-color: var(--accent);
 }
 .skills-legend {
   display: flex; flex-wrap: wrap; gap: 16px;
@@ -1321,13 +1330,24 @@ body[data-bg="grid"] .teasers {
   display: inline-flex; gap: 3px;
 }
 .skills-legend .dots span {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--rule);
+  width: 7px; height: 7px; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--rule);
+  box-sizing: border-box;
 }
 .skills-legend .item.fluent .dots span:nth-child(-n+3),
 .skills-legend .item.comfortable .dots span:nth-child(-n+2),
 .skills-legend .item.learning .dots span:nth-child(-n+1) {
   background: var(--accent);
+  border-color: var(--accent);
+}
+.skills-legend-top {
+  margin-top: 0; margin-bottom: 24px;
+  padding: 12px 16px; border: 1px solid var(--rule);
+  border-radius: 10px; background: var(--paper-card);
+}
+.skills-legend-top .legend-key {
+  font-weight: 600; color: var(--ink-soft);
 }
 
 .skill-tile .monogram {

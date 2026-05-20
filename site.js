@@ -594,6 +594,19 @@
     setInterval(tick, 1000);
   }
 
+  /* ───── SKILL TILE A11Y — inject sr-only proficiency text ───── */
+  function initSkillTileLabels() {
+    const LEVELS = { fluent: 'Fluent', comfortable: 'Comfortable', learning: 'Learning' };
+    document.querySelectorAll('.skill-tile').forEach(tile => {
+      const level = ['fluent', 'comfortable', 'learning'].find(c => tile.classList.contains(c));
+      if (!level || tile.querySelector('.sr-only')) return;
+      const sr = document.createElement('span');
+      sr.className = 'sr-only';
+      sr.textContent = ` — ${LEVELS[level]}`;
+      tile.appendChild(sr);
+    });
+  }
+
   /* ───── INIT ───── */
   document.addEventListener('DOMContentLoaded', () => {
     const inits = [
@@ -605,6 +618,7 @@
       ['initTweaks',           initTweaks],
       ['initScrollSpy',        initScrollSpy],
       ['initClocks',           initClocks],
+      ['initSkillTileLabels',  initSkillTileLabels],
     ];
     for (const [name, fn] of inits) {
       try { fn(); }
