@@ -570,14 +570,20 @@
 
   /* ───── INIT ───── */
   document.addEventListener('DOMContentLoaded', () => {
-    renderTimelineSVG();
-    renderTimelineMobile();
-    initTheme();
-    initLang();
-    initMenu();
-    initTweaks();
-    initScrollSpy();
-    initClocks();
+    const inits = [
+      ['renderTimelineSVG',    renderTimelineSVG],
+      ['renderTimelineMobile', renderTimelineMobile],
+      ['initTheme',            initTheme],
+      ['initLang',             initLang],
+      ['initMenu',             initMenu],
+      ['initTweaks',           initTweaks],
+      ['initScrollSpy',        initScrollSpy],
+      ['initClocks',           initClocks],
+    ];
+    for (const [name, fn] of inits) {
+      try { fn(); }
+      catch (e) { console.error(`[site.js] ${name} failed:`, e); }
+    }
   });
 
 })();
