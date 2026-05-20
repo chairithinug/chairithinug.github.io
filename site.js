@@ -554,9 +554,15 @@
 
   /* ───── SCROLL SPY (highlight nav) ───── */
   function initScrollSpy() {
-    const links = document.querySelectorAll('.nav-links a');
+    // Only spy on links whose href is a same-page anchor (#…). Cross-page links
+    // (/career.html, etc.) would feed querySelector an invalid selector and throw.
+    const links = [...document.querySelectorAll('.nav-links a')]
+      .filter(a => (a.getAttribute('href') || '').startsWith('#'));
     if (!links.length) return;
-    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+    if (!sections.length) return;
     const onScroll = () => {
       const y = window.scrollY + 100;
       let active = null;
