@@ -8,19 +8,19 @@
   'use strict';
 
   const PAGES = [
-    { key: 'career',   href: '/career.html',   label: 'Career',   num: '§ 02' },
-    { key: 'projects', href: '/projects.html', label: 'Projects', num: '§ 03' },
-    { key: 'skills',   href: '/skills.html',   label: 'Skills',   num: '§ 04' },
-    { key: 'articles', href: '/articles.html', label: 'Articles', num: '§ 05' },
-    { key: 'faq',      href: '/faq.html',      label: 'FAQ',      num: '§ 06' },
+    { key: 'career',   href: '/career.html',   label: 'Career',   num: '§ 02', i18n: 'nav-career'   },
+    { key: 'projects', href: '/projects.html', label: 'Projects', num: '§ 03', i18n: 'nav-projects' },
+    { key: 'skills',   href: '/skills.html',   label: 'Skills',   num: '§ 04', i18n: 'nav-skills'   },
+    { key: 'articles', href: '/articles.html', label: 'Articles', num: '§ 05', i18n: 'nav-articles' },
+    { key: 'faq',      href: '/faq.html',      label: 'FAQ',      num: '§ 06', i18n: 'nav-faq'      },
   ];
-  const HOME = { key: 'home', href: '/index.html', label: 'Home', num: '§ 01' };
+  const HOME = { key: 'home', href: '/index.html', label: 'Home', num: '§ 01', i18n: 'nav-home' };
 
   const active = document.body.dataset.page || 'home';
 
   function navHTML() {
     const links = PAGES.map(p =>
-      `<a href="${p.href}"${p.key === active ? ' class="active"' : ''}>${p.label}</a>`
+      `<a href="${p.href}"${p.key === active ? ' class="active"' : ''} data-i18n="${p.i18n}">${p.label}</a>`
     ).join('');
     return `
       <div class="nav-inner">
@@ -36,12 +36,12 @@
             <button data-lang="th" aria-pressed="false">ไทย</button>
             <button data-lang="da" aria-pressed="false">DA</button>
           </div>
-          <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="aria-toggle-dark">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
             </svg>
           </button>
-          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" data-i18n-aria-label="aria-open-nav">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
               <path d="M4 7h16M4 12h16M4 17h16"/>
             </svg>
@@ -52,7 +52,7 @@
 
   function menuHTML() {
     const items = [HOME, ...PAGES].map(p => `
-      <li><a href="${p.href}"${p.key === active ? ' aria-current="page"' : ''}>${p.label} <span>${p.num}</span></a></li>
+      <li><a href="${p.href}"${p.key === active ? ' aria-current="page"' : ''}><span data-i18n="${p.i18n}">${p.label}</span> <span>${p.num}</span></a></li>
     `).join('');
     return `
       <div class="top">
