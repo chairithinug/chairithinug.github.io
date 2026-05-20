@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v15';
+const CACHE_NAME = 'pwa-cache-v16';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
