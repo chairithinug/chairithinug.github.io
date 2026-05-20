@@ -132,8 +132,9 @@
     const svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('viewBox', `0 0 ${CW} ${CH}`);
     svg.setAttribute('width', '100%');
-    svg.setAttribute('role', 'img');
-    svg.setAttribute('aria-label', 'Career timeline from 2012 to present');
+    // Group role + descendant labels — using role="img" would hide the focusable <g>s
+    svg.setAttribute('role', 'group');
+    svg.setAttribute('aria-label', 'Career timeline from 2012 to present, 21 entries across 5 lanes');
 
     const el = (tag, attrs = {}, parent = svg) => {
       const n = document.createElementNS(svgNS, tag);
@@ -194,7 +195,8 @@
       const r = 7;
       const pillColor = e.color || lane.color;
       // Group wraps pill + dots + label + invisible hit area so hover targets the whole thing
-      const g = el('g', { class: 'tl-entry', tabindex: 0 });
+      const g = el('g', { class: 'tl-entry', tabindex: 0, role: 'group' });
+      g.setAttribute('aria-label', `${e.label}${e.note ? ', ' + e.note : ''}, ${fmtYear(e.from)} to ${fmtYear(e.to)}`);
       g.style.cursor = 'pointer';
       g.dataset.label = e.label;
       g.dataset.note  = e.note || '';
@@ -411,11 +413,26 @@
     const sheet = document.getElementById('menu-sheet');
     const close = document.getElementById('menu-close');
     if (!btn || !sheet) return;
-    const open = () => { sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false'); btn.setAttribute('aria-expanded', 'true'); };
-    const shut = () => { sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true'); btn.setAttribute('aria-expanded', 'false'); };
+    // Promote the slide-up sheet to a proper modal dialog
+    sheet.setAttribute('role', 'dialog');
+    sheet.setAttribute('aria-modal', 'true');
+    sheet.setAttribute('aria-label', 'Navigation menu');
+    const open = () => {
+      sheet.classList.add('open');
+      sheet.setAttribute('aria-hidden', 'false');
+      btn.setAttribute('aria-expanded', 'true');
+      close?.focus();
+    };
+    const shut = () => {
+      sheet.classList.remove('open');
+      sheet.setAttribute('aria-hidden', 'true');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus();
+    };
     btn.addEventListener('click', open);
     close?.addEventListener('click', shut);
     sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', shut));
+    sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') shut(); });
   }
 
   /* ───── TWEAKS PANEL ───── */

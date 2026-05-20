@@ -90,7 +90,7 @@
            aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc" inert>
         <p id="cookie-banner-title" class="sr-only">Cookie consent</p>
         <p id="cookie-banner-desc" data-i18n="cookie-desc">
-          We use anonymized analytics cookies (PDPA / GDPR compliant). Reject does not affect site functionality.
+          I use anonymized analytics cookies (PDPA / GDPR compliant). Reject does not affect site functionality.
           See <a href="/privacy.html">privacy policy</a>.
         </p>
         <div class="cookie-actions">
@@ -188,7 +188,8 @@
       overlay.hidden = false;
       banner.removeAttribute('inert');
       banner.classList.add('visible');
-      banner.focus();
+      // Move keyboard focus to a real button inside the modal so Tab stays trapped
+      (acceptBtn || rejectBtn)?.focus();
     };
     const hideBanner = () => {
       banner.setAttribute('inert', '');
@@ -204,7 +205,14 @@
     acceptBtn?.addEventListener('click', () => { write('accepted'); hideBanner(); loadAnalytics(); });
     rejectBtn?.addEventListener('click', () => { write('rejected'); hideBanner(); });
     banner.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') hideBanner();
+      if (e.key === 'Escape') { hideBanner(); return; }
+      if (e.key !== 'Tab') return;
+      // Trap focus inside the modal between Accept and Reject
+      const focusables = [acceptBtn, rejectBtn].filter(Boolean);
+      if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   }
 
