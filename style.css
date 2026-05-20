@@ -510,6 +510,7 @@ ul, ol { list-style: none; }
 .teaser-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
 }
+.teaser-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .teaser {
   background: var(--paper-card); border: 1px solid var(--rule);
   border-radius: 14px;
@@ -531,8 +532,8 @@ ul, ol { list-style: none; }
 .teaser .more::after { content: '→'; transition: transform 0.15s; }
 .teaser:hover .more::after { transform: translateX(4px); }
 
-@media (max-width: 1080px) { .teaser-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .teaser-grid { grid-template-columns: 1fr; } .teasers { padding: 40px 0; } }
+@media (max-width: 1080px) { .teaser-grid, .teaser-grid--3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .teaser-grid, .teaser-grid--3 { grid-template-columns: 1fr; } .teasers { padding: 40px 0; } }
 
 
 /* ───── CONTACT / FOOTER ───── */
