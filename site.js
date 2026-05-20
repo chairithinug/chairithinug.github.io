@@ -526,6 +526,25 @@
     onScroll();
   }
 
+  /* ───── DUAL CITY CLOCKS (home dashboard strip) ───── */
+  function initClocks() {
+    const clocks = document.querySelectorAll('.clock-time[data-tz]');
+    if (!clocks.length) return;
+    const tick = () => {
+      const now = new Date();
+      clocks.forEach(el => {
+        try {
+          el.textContent = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: el.dataset.tz,
+          }).format(now);
+        } catch (e) { el.textContent = '—'; }
+      });
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
   /* ───── INIT ───── */
   document.addEventListener('DOMContentLoaded', () => {
     renderTimelineSVG();
@@ -535,6 +554,7 @@
     initMenu();
     initTweaks();
     initScrollSpy();
+    initClocks();
   });
 
 })();
