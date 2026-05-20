@@ -9,6 +9,7 @@
   /* ───── DATA ───── */
   const TIMELINE = [
     { kind: 'academic',  label: 'Suankularb HS',                from: 2012,    to: 2016,    note: 'OSK 134 · Bangkok' },
+    { kind: 'volunteer', label: 'Secretary · SKCC',             from: 2014.5,  to: 2015.83, note: 'Suankularb Computer Club' },
     { kind: 'academic',  label: 'BS CE/CS · Wisconsin',         from: 2016,    to: 2020.4,  note: 'In: EE — Out: Computer Engineer' },
     { kind: 'parttime',  label: 'WISEST · LoRa IoT',            from: 2018.4,  to: 2018.7,  note: 'Dairy biosensors' },
     { kind: 'volunteer', label: 'IEEE · UW Madison',            from: 2018.2,  to: 2020.4,  note: 'Project Officer, then VP' },
