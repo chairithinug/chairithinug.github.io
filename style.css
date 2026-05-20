@@ -1187,7 +1187,9 @@ body[data-bg="grid"] .teasers {
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink-muted);
 }
-.proj-card[hidden] { display: none; }
+.proj-card[hidden],
+.proj-card.is-filtered-out,
+.proj-empty.is-filtered-out { display: none !important; }
 
 .proj-empty {
   grid-column: 1 / -1;

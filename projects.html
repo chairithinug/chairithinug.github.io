@@ -392,7 +392,7 @@
           <div class="file-code">DKT · PROJ-2018/01</div>
           </article>
 
-          <p class="proj-empty" id="proj-empty" hidden>No projects match this filter — try another tag.</p>
+          <p class="proj-empty is-filtered-out" id="proj-empty">No projects match this filter — try another tag.</p>
         </div>
       </div>
     </section>
@@ -405,40 +405,47 @@
   <script src="/chrome.js"></script>
   <script src="/site.js"></script>
   <script>
-    // Tag filter — counts are derived from data-tags so chip labels never drift,
-    // and the empty-state message appears when no card matches.
+    // Tag filter. Uses a dedicated .is-filtered-out class with display:none!important
+    // (rather than the hidden attribute) so CSS specificity from .proj-card { display: flex }
+    // can never override it.
     (() => {
-      const chips = document.querySelectorAll('#filter-bar .filter-chip');
-      const cards = Array.from(document.querySelectorAll('#proj-grid .proj-card'));
-      const empty = document.getElementById('proj-empty');
+      try {
+        const chips = document.querySelectorAll('#filter-bar .filter-chip');
+        const cards = Array.from(document.querySelectorAll('#proj-grid .proj-card'));
+        const empty = document.getElementById('proj-empty');
+        if (!chips.length || !cards.length) return;
 
-      const countFor = (tag) => tag === 'all'
-        ? cards.length
-        : cards.filter(c => (c.dataset.tags || '').split(/\s+/).includes(tag)).length;
+        const tagsOf = (card) => (card.dataset.tags || '').trim().split(/\s+/);
 
-      // Stamp dynamic counts onto each chip ('All · 10', 'AI / ML · 5', etc.)
-      chips.forEach(c => {
-        const n = countFor(c.dataset.tag);
-        c.textContent = `${c.dataset.label} · ${n}`;
-        if (n === 0) c.disabled = true;
-      });
+        const countFor = (tag) => tag === 'all'
+          ? cards.length
+          : cards.filter(c => tagsOf(c).includes(tag)).length;
 
-      const applyFilter = (tag) => {
-        let visible = 0;
-        cards.forEach(card => {
-          const tags = (card.dataset.tags || '').split(/\s+/);
-          const show = tag === 'all' || tags.includes(tag);
-          card.hidden = !show;
-          if (show) visible++;
+        // Stamp dynamic counts onto each chip ('All · 10', 'AI / ML · 5', etc.)
+        chips.forEach(c => {
+          const n = countFor(c.dataset.tag);
+          c.textContent = `${c.dataset.label} · ${n}`;
+          if (n === 0) c.disabled = true;
         });
-        if (empty) empty.hidden = visible > 0;
-      };
 
-      chips.forEach(c => c.addEventListener('click', () => {
-        chips.forEach(x => x.classList.remove('active'));
-        c.classList.add('active');
-        applyFilter(c.dataset.tag);
-      }));
+        const applyFilter = (tag) => {
+          let visible = 0;
+          cards.forEach(card => {
+            const show = tag === 'all' || tagsOf(card).includes(tag);
+            card.classList.toggle('is-filtered-out', !show);
+            if (show) visible++;
+          });
+          if (empty) empty.classList.toggle('is-filtered-out', visible > 0);
+        };
+
+        chips.forEach(c => c.addEventListener('click', () => {
+          chips.forEach(x => x.classList.remove('active'));
+          c.classList.add('active');
+          applyFilter(c.dataset.tag);
+        }));
+      } catch (e) {
+        console.error('[projects.html] filter init failed:', e);
+      }
     })();
   </script>
 </body>
