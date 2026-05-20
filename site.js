@@ -366,10 +366,16 @@
   const LANG_URL = (lang) => '/lang/' + lang + '.json';
   const langCache = {};
 
+  // Keys whose translated values legitimately contain HTML entities or markup.
+  // Everything else is rendered via textContent (XSS-safe by default).
+  const HTML_KEYS = new Set(['title', 'title-th', 'cookie-desc']);
+
   function applyDict(dict) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
-      if (dict[key] != null) el.innerHTML = dict[key];
+      if (dict[key] == null) return;
+      if (HTML_KEYS.has(key)) el.innerHTML = dict[key];
+      else el.textContent = dict[key];
     });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
       const key = el.dataset.i18nAriaLabel;
