@@ -151,7 +151,7 @@
     });
   }
 
-  function drawTicks(el, xFor, PADL, PADR, PADB, CH) {
+  function drawTicks(el, xFor, PADL, PADR, PADB, CH, CW) {
     [2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026].forEach(yr => {
       const x = xFor(yr);
       el('line', { x1: x, y1: CH - PADB + 6, x2: x, y2: CH - PADB + 14, stroke: 'var(--ink-muted)' });
@@ -265,7 +265,7 @@
 
     drawBands(el, xFor, PADT, PADB, CH);
     drawLanes(el, laneY, PADL, PADR, PADT, CW);
-    drawTicks(el, xFor, PADL, PADR, PADB, CH);
+    drawTicks(el, xFor, PADL, PADR, PADB, CH, CW);
     drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host);
     drawNowMarker(el, xFor, PADT, PADB, CH);
 
