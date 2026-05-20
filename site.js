@@ -583,15 +583,36 @@
       const now = new Date();
       clocks.forEach(el => {
         try {
+          const tz = el.dataset.tz;
           el.textContent = new Intl.DateTimeFormat('en-GB', {
             hour: '2-digit', minute: '2-digit', second: '2-digit',
-            hour12: false, timeZone: el.dataset.tz,
+            hour12: false, timeZone: tz,
           }).format(now);
+          // Keep <time datetime> in sync — local ISO-ish without offset is fine;
+          // it's a hint for AT/parsers, not a load-bearing machine timestamp.
+          if (el.tagName === 'TIME') {
+            const parts = new Intl.DateTimeFormat('en-CA', {
+              year: 'numeric', month: '2-digit', day: '2-digit',
+              hour: '2-digit', minute: '2-digit', second: '2-digit',
+              hour12: false, timeZone: tz,
+            }).formatToParts(now).reduce((acc, p) => (acc[p.type] = p.value, acc), {});
+            el.setAttribute('datetime', `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}`);
+          }
         } catch (e) { el.textContent = '—'; }
       });
     };
     tick();
     setInterval(tick, 1000);
+  }
+
+  /* ───── EXTERNAL LINK A11Y — announce "opens in new tab" ───── */
+  function initExternalLinkLabels() {
+    document.querySelectorAll('a[target="_blank"]').forEach(a => {
+      if (a.getAttribute('aria-label')) return; // respect explicit labels
+      const text = (a.textContent || '').trim();
+      if (!text) return;
+      a.setAttribute('aria-label', `${text} (opens in new tab)`);
+    });
   }
 
   /* ───── SKILL TILE A11Y — inject sr-only proficiency text ───── */
@@ -619,6 +640,7 @@
       ['initScrollSpy',        initScrollSpy],
       ['initClocks',           initClocks],
       ['initSkillTileLabels',  initSkillTileLabels],
+      ['initExternalLinkLabels', initExternalLinkLabels],
     ];
     for (const [name, fn] of inits) {
       try { fn(); }
