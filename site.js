@@ -451,7 +451,12 @@
     btn.addEventListener('click', open);
     close?.addEventListener('click', shut);
     sheet.querySelectorAll('a').forEach(a => a.addEventListener('click', shut));
-    sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') shut(); });
+    sheet.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { shut(); return; }
+      // Trap Tab inside the modal — close button + every nav link
+      const focusables = [close, ...sheet.querySelectorAll('a')];
+      window.trapTab?.(e, focusables);
+    });
   }
 
   /* ───── TWEAKS PANEL ───── */

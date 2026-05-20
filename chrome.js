@@ -205,15 +205,22 @@
     rejectBtn?.addEventListener('click', () => { write('rejected'); hideBanner(); });
     banner.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { hideBanner(); return; }
-      if (e.key !== 'Tab') return;
-      // Trap focus inside the modal between Accept and Reject
-      const focusables = [acceptBtn, rejectBtn].filter(Boolean);
-      if (!focusables.length) return;
-      const first = focusables[0], last = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      trapTab(e, [acceptBtn, rejectBtn]);
     });
   }
+
+  // Shared focus-trap helper — keeps Tab/Shift+Tab cycling inside the given
+  // focusable list. Used by the cookie modal here; exposed on window so site.js
+  // can wire it to the mobile menu sheet too.
+  function trapTab(e, focusables) {
+    if (e.key !== 'Tab') return;
+    const f = focusables.filter(Boolean);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  window.trapTab = trapTab;
 
   function loadAnalytics() {
     if (document.getElementById('ga-script')) return;
