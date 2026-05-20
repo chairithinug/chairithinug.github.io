@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v14';
+const CACHE_NAME = 'pwa-cache-v15';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -14,24 +14,10 @@ const urlsToCache = [
   '/404.html',
   '/articles/reflections-on-ai-and-coding.html',
   '/articles/cycling-in-denmark-how-to-ride-like-a-dane.html',
-  // Redesign shell
   '/style.css',
   '/site.js',
   '/chrome.js',
   '/manifest.webmanifest',
-  // Legacy shell (still used by interests/books/privacy/404 + articles/<slug>)
-  '/styles.css',
-  '/script.js',
-  '/back-to-top.js',
-  '/install-prompt.js',
-  '/index-script.js',
-  '/interests-script.js',
-  '/partials/header.html',
-  '/partials/footer.html',
-  '/partials/sidebar.html',
-  '/partials/footer.js',
-  '/partials/header.js',
-  '/partials/sidebar.js',
   '/robots.txt',
   '/sitemap.xml',
   '/lang/en.json',

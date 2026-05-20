@@ -17,7 +17,19 @@
   <meta name="author" content="Anapat Chairithinugull">
   <meta name="robots" content="noindex, follow">
   <meta name="googlebot" content="noindex, follow">
-  <meta name="theme-color" content="#0A1626" />
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' https: data:;
+    connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+    object-src 'none';
+    base-uri 'self';
+    frame-src 'none';
+  ">
+<meta name="theme-color" content="#0A1626" />
 
   <link rel="icon" type="image/png" href="/icons/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="/icons/favicon/favicon-32x32.png" sizes="32x32" />

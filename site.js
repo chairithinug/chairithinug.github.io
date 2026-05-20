@@ -283,6 +283,23 @@
   }
 
   /* ───── LANGUAGE ───── */
+  // Resolve lang/*.json relative to site root regardless of page depth (works for /articles/*)
+  const LANG_URL = (lang) => '/lang/' + lang + '.json';
+  const langCache = {};
+
+  function applyDict(dict) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+      const key = el.dataset.i18nAriaLabel;
+      if (dict[key] != null) el.setAttribute('aria-label', dict[key]);
+    });
+  }
+  // Expose so any later-injected partial (e.g. cookie banner) can re-translate.
+  window.applyTranslations = applyDict;
+
   function initLang() {
     document.querySelectorAll('.lang-switch button').forEach(b => {
       b.addEventListener('click', () => setLang(b.dataset.lang));
@@ -290,17 +307,25 @@
     const saved = localStorage.getItem('lang') || 'en';
     setLang(saved);
   }
+
   function setLang(lang) {
-    if (!I18N[lang]) lang = 'en';
+    if (!['en', 'th', 'da'].includes(lang)) lang = 'en';
     document.querySelectorAll('.lang-switch button').forEach(b => {
       b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
     });
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (I18N[lang][key] != null) el.innerHTML = I18N[lang][key];
-    });
     document.documentElement.lang = lang === 'th' ? 'th' : (lang === 'da' ? 'da' : 'en');
     localStorage.setItem('lang', lang);
+
+    // Apply passport-specific keys first (inline fallback for the few elements
+    // that the JSON dictionaries don't yet cover for all 3 langs).
+    if (I18N[lang]) applyDict(I18N[lang]);
+
+    // Then fetch the canonical lang/<lang>.json and overlay.
+    if (langCache[lang]) { applyDict(langCache[lang]); return; }
+    fetch(LANG_URL(lang))
+      .then(r => r.ok ? r.json() : null)
+      .then(dict => { if (dict) { langCache[lang] = dict; applyDict(dict); } })
+      .catch(() => { /* offline / 404 — inline fallback already applied */ });
   }
 
   /* ───── MOBILE MENU ───── */
