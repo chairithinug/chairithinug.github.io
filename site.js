@@ -48,14 +48,6 @@
     volunteer: { yOffset: 320, color: 'var(--chili)',   label: 'Volunteer' },
   };
 
-  const LANE_COLOR = {
-    place:     'var(--ink)',
-    academic:  'var(--jade)',
-    fulltime:  'var(--copen)',
-    parttime:  'var(--saffron)',
-    volunteer: 'var(--chili)',
-  };
-
   /* ───── I18N STRINGS (lightweight) ───── */
   const I18N = {
     en: {
@@ -78,38 +70,25 @@
     },
   };
 
-  /* ───── DESKTOP TIMELINE SVG ───── */
-  function renderTimelineSVG() {
-    const host = document.getElementById('tl-chart');
-    if (!host) return;
+  /* ───── DESKTOP TIMELINE SVG — helpers ───── */
 
-    // 1) Assign sub-rows per lane using LABEL X-RANGE overlap detection
-    //    (not just time-pill overlap — sequential entries with long labels
-    //    can still horizontally collide). Greedy interval scheduling.
-    const laneOrder = ['place', 'academic', 'fulltime', 'parttime', 'volunteer'];
+  // Approximate label width — Plex Sans at 12.5px ≈ 7.2 px/char average
+  const labelW = lbl => lbl.length * 7.2 + 14;
+
+  // Greedy interval scheduling on LABEL X-RANGE overlap (not just time-pill overlap —
+  // sequential entries with long labels can still horizontally collide).
+  // Mutates each entry's `_row` to the assigned sub-row index. Returns lane→subRowCount.
+  function assignSubRows(laneOrder, xFor) {
     const byLane = {};
     laneOrder.forEach(k => { byLane[k] = []; });
     TIMELINE.forEach(e => { (byLane[e.kind] || (byLane[e.kind] = [])).push(e); });
-
-    // Geometry constants (need xFor before sub-row assignment now)
-    const SUBROW = 38;
-    const LANE_GAP = 80;
-    const PADL = 110, PADR = 60, PADT = 56, PADB = 60;
-    const CW = 1200;
-    const xFor = yr => PADL + ((yr - 2012) / (2026.6 - 2012)) * (CW - PADL - PADR);
-
-    // Approximate label width — Plex Sans at 12.5px ≈ 7.2 px/char average
-    const labelW = lbl => lbl.length * 7.2 + 14;
-
     const laneSubRows = {};
     laneOrder.forEach(k => {
       const sorted = byLane[k].slice().sort((a, b) => a.from - b.from);
-      const rowEnds = []; // last conflict-end-x per sub-row
+      const rowEnds = [];
       sorted.forEach(e => {
         const startX = xFor(e.from);
-        const pillEnd = xFor(e.to);
-        const labelEnd = startX + labelW(e.label);
-        const myEnd = Math.max(pillEnd, labelEnd) + 6;
+        const myEnd = Math.max(xFor(e.to), startX + labelW(e.label)) + 6;
         let row = rowEnds.findIndex(end => end <= startX);
         if (row === -1) { rowEnds.push(myEnd); row = rowEnds.length - 1; }
         else { rowEnds[row] = myEnd; }
@@ -117,33 +96,32 @@
       });
       laneSubRows[k] = Math.max(1, rowEnds.length);
     });
+    return laneSubRows;
+  }
 
-    // 2) Lane Y positions — lanes with multiple sub-rows expand.
+  // Lane Y positions (lanes with multiple sub-rows expand). Returns {laneY, CH}.
+  function computeLaneGeometry(laneOrder, laneSubRows, SUBROW, LANE_GAP, PADT, PADB) {
     const laneY = {};
     let y = 0;
     laneOrder.forEach(k => {
       laneY[k] = y;
       y += LANE_GAP + (laneSubRows[k] - 1) * SUBROW;
     });
-    const lastLaneY = y - LANE_GAP;
-    const CH = PADT + lastLaneY + 36 + PADB;
+    const CH = PADT + (y - LANE_GAP) + 36 + PADB;
+    return { laneY, CH };
+  }
 
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('viewBox', `0 0 ${CW} ${CH}`);
-    svg.setAttribute('width', '100%');
-    // Group role + descendant labels — using role="img" would hide the focusable <g>s
-    svg.setAttribute('role', 'group');
-    svg.setAttribute('aria-label', 'Career timeline from 2012 to present, 21 entries across 5 lanes');
-
-    const el = (tag, attrs = {}, parent = svg) => {
+  // Curried element factory tied to a specific svg namespace + default parent.
+  function makeEl(svgNS, defaultParent) {
+    return (tag, attrs = {}, parent = defaultParent) => {
       const n = document.createElementNS(svgNS, tag);
       for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
       parent.appendChild(n);
       return n;
     };
+  }
 
-    // Place bands
+  function drawBands(el, xFor, PADT, PADB, CH) {
     BANDS.forEach(b => {
       const x1 = xFor(b.from), x2 = xFor(b.to);
       el('rect', {
@@ -156,8 +134,9 @@
         'letter-spacing': '0.16em', fill: 'var(--ink-muted)',
       }).textContent = b.label;
     });
+  }
 
-    // Lane baselines + labels (anchored to sub-row 0)
+  function drawLanes(el, laneY, PADL, PADR, PADT, CW) {
     Object.entries(LANES).forEach(([key, lane]) => {
       const yLane = PADT + laneY[key];
       el('line', {
@@ -170,8 +149,9 @@
         fill: 'var(--ink-muted)', 'letter-spacing': '0.1em',
       }).textContent = lane.label.toUpperCase();
     });
+  }
 
-    // Year ticks
+  function drawTicks(el, xFor, PADL, PADR, PADB, CH) {
     [2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026].forEach(yr => {
       const x = xFor(yr);
       el('line', { x1: x, y1: CH - PADB + 6, x2: x, y2: CH - PADB + 14, stroke: 'var(--ink-muted)' });
@@ -184,17 +164,19 @@
       x1: PADL, y1: CH - PADB + 6, x2: CW - PADR, y2: CH - PADB + 6,
       stroke: 'var(--ink)',
     });
+  }
 
-    // Entries — pills + labels (sub-rows offset within the lane)
+  function drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host) {
+    const r = 7;
     TIMELINE.forEach(e => {
       const lane = LANES[e.kind];
       const totalRows = laneSubRows[e.kind];
       const yEntry = PADT + laneY[e.kind] + (e._row || 0) * SUBROW;
       const x1 = xFor(e.from), x2 = xFor(e.to);
       const w = Math.max(8, x2 - x1);
-      const r = 7;
       const pillColor = e.color || lane.color;
-      // Group wraps pill + dots + label + invisible hit area so hover targets the whole thing
+
+      // Group wraps pill + dots + label + invisible hit area so hover targets the whole thing.
       const g = el('g', { class: 'tl-entry', tabindex: 0, role: 'group' });
       g.setAttribute('aria-label', `${e.label}${e.note ? ', ' + e.note : ''}, ${fmtYear(e.from)} to ${fmtYear(e.to)}`);
       g.style.cursor = 'pointer';
@@ -202,17 +184,17 @@
       g.dataset.note  = e.note || '';
       g.dataset.from  = e.from;
       g.dataset.to    = e.to;
-      // Pill + dots (now inside g so they receive pointer events)
+
       el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, opacity: 0.18, rx: r }, g);
       el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor }, g);
       el('circle', { cx: x2, cy: yEntry, r: r - 3, fill: pillColor, opacity: 0.6 }, g);
-      // Generous hit-area covering label + pill so hover is forgiving
+      // Generous hit-area covering label + pill so hover is forgiving.
       el('rect', { x: x1 - 4, y: yEntry - 24, width: Math.max(120, w + 12), height: 50, fill: 'transparent' }, g);
 
       // Label placement:
       //  - single sub-row in lane → label above pill, note below
-      //  - multi sub-row, row 0 → label above only
-      //  - multi sub-row, row 1+ → label below pill only (avoid colliding upward)
+      //  - multi sub-row, row 0   → label above only
+      //  - multi sub-row, row 1+  → label below pill only (avoid colliding upward)
       const placeBelow = totalRows > 1 && (e._row || 0) > 0;
       const skipNote = totalRows > 1;
       const labelY = placeBelow ? yEntry + 18 : yEntry - 12;
@@ -230,6 +212,7 @@
         }, g);
         note.textContent = e.note;
       }
+
       g.addEventListener('mouseenter', (ev) => {
         label.setAttribute('fill', lane.color);
         showTimelineTooltip(host, g, pillColor, ev);
@@ -239,11 +222,12 @@
         label.setAttribute('fill', 'var(--ink)');
         hideTimelineTooltip(host);
       });
-      g.addEventListener('focus',  (ev) => showTimelineTooltip(host, g, pillColor, ev));
-      g.addEventListener('blur',   () => hideTimelineTooltip(host));
+      g.addEventListener('focus', (ev) => showTimelineTooltip(host, g, pillColor, ev));
+      g.addEventListener('blur',  () => hideTimelineTooltip(host));
     });
+  }
 
-    // Now marker
+  function drawNowMarker(el, xFor, PADT, PADB, CH) {
     const nowX = xFor(2026.4);
     el('line', {
       x1: nowX, y1: PADT - 28, x2: nowX, y2: CH - PADB + 8,
@@ -255,6 +239,35 @@
       'font-family': 'var(--font-mono)', 'font-size': 11,
       fill: '#fff', 'letter-spacing': '0.14em',
     }).textContent = 'NOW';
+  }
+
+  /* ───── DESKTOP TIMELINE SVG ───── */
+  function renderTimelineSVG() {
+    const host = document.getElementById('tl-chart');
+    if (!host) return;
+
+    const LANE_ORDER = ['place', 'academic', 'fulltime', 'parttime', 'volunteer'];
+    const SUBROW = 38, LANE_GAP = 80;
+    const PADL = 110, PADR = 60, PADT = 56, PADB = 60, CW = 1200;
+    const xFor = yr => PADL + ((yr - 2012) / (2026.6 - 2012)) * (CW - PADL - PADR);
+
+    const laneSubRows = assignSubRows(LANE_ORDER, xFor);
+    const { laneY, CH } = computeLaneGeometry(LANE_ORDER, laneSubRows, SUBROW, LANE_GAP, PADT, PADB);
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${CW} ${CH}`);
+    svg.setAttribute('width', '100%');
+    // Group role + descendant aria-labels — using role="img" would hide the focusable <g>s
+    svg.setAttribute('role', 'group');
+    svg.setAttribute('aria-label', `Career timeline from 2012 to present, ${TIMELINE.length} entries across ${LANE_ORDER.length} lanes`);
+
+    const el = makeEl(svgNS, svg);
+
+    drawBands(el, xFor, PADT, PADB, CH);
+    drawLanes(el, laneY, PADL, PADR, PADT, CW);
+    drawTicks(el, xFor, PADL, PADR, PADB, CH);
+    drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host);
+    drawNowMarker(el, xFor, PADT, PADB, CH);
 
     host.appendChild(svg);
   }
@@ -321,7 +334,7 @@
     sorted.forEach(e => {
       const li = document.createElement('li');
       li.className = 'tl-row';
-      li.style.setProperty('--lane', LANE_COLOR[e.kind]);
+      li.style.setProperty('--lane', LANES[e.kind].color);
       const fmt = y => {
         const yr = Math.floor(y);
         return yr;
