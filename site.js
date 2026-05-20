@@ -498,7 +498,7 @@
     });
 
     // Background segmented
-    const savedBg = localStorage.getItem('bg') || 'grain';
+    const savedBg = localStorage.getItem('bg') || 'guilloche';
     applyBg(savedBg);
     document.querySelectorAll('#bg-seg button').forEach(b => {
       if (b.dataset.bg === savedBg) b.setAttribute('aria-pressed', 'true');

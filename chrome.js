@@ -147,7 +147,8 @@
         <span class="label">Background</span>
         <div class="segmented" id="bg-seg">
           <button data-bg="flat" aria-pressed="false">Flat</button>
-          <button data-bg="grain" aria-pressed="true">Grain</button>
+          <button data-bg="guilloche" aria-pressed="true">Guilloché</button>
+          <button data-bg="grain" aria-pressed="false">Grain</button>
           <button data-bg="grid" aria-pressed="false">Grid</button>
         </div>
       </div>`;
