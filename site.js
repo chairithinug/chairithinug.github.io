@@ -628,6 +628,25 @@
     });
   }
 
+  function initSkillPopovers() {
+    const tiles = document.querySelectorAll('.skill-tile .skill-pop');
+    if (!tiles.length) return;
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    if (!isTouch) return;
+    document.querySelectorAll('.skill-tile').forEach(tile => {
+      if (!tile.querySelector('.skill-pop')) return;
+      tile.addEventListener('click', (e) => {
+        const open = tile.dataset.open === 'true';
+        document.querySelectorAll('.skill-tile[data-open="true"]').forEach(t => { if (t !== tile) t.dataset.open = 'false'; });
+        tile.dataset.open = open ? 'false' : 'true';
+        e.stopPropagation();
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.skill-tile[data-open="true"]').forEach(t => t.dataset.open = 'false');
+    });
+  }
+
   /* ───── INIT ───── */
   document.addEventListener('DOMContentLoaded', () => {
     const inits = [
@@ -640,6 +659,7 @@
       ['initScrollSpy',        initScrollSpy],
       ['initClocks',           initClocks],
       ['initSkillTileLabels',  initSkillTileLabels],
+      ['initSkillPopovers',    initSkillPopovers],
       ['initExternalLinkLabels', initExternalLinkLabels],
     ];
     for (const [name, fn] of inits) {

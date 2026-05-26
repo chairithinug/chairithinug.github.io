@@ -1411,6 +1411,58 @@ body[data-bg="grid"] .teasers {
   border-radius: 12px; padding: 16px 12px; text-align: center;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
   transition: border-color 0.15s, transform 0.15s;
+  position: relative;
+  cursor: help;
+}
+.skill-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.skill-pop {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: 240px;
+  padding: 10px 12px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  border-radius: 8px;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  opacity: 0; visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s, transform 0.15s ease;
+  z-index: 50;
+}
+.skill-pop b { color: var(--saffron); font-weight: 600; }
+.skill-pop::after {
+  content: ""; position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+@media (hover: hover) {
+  .skill-tile:hover .skill-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+}
+.skill-tile:focus-visible .skill-pop,
+.skill-tile[data-open="true"] .skill-pop {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+[data-theme="dark"] .skill-pop { background: var(--paper); color: var(--ink) !important; }
+[data-theme="dark"] .skill-pop b { color: var(--accent-text); }
+[data-theme="dark"] .skill-pop::after { border-top-color: var(--paper); }
+/* Flip popover below tile when near the top of the grid */
+.skill-cluster .skill-grid > .skill-tile:nth-child(-n+4) .skill-pop {
+  bottom: auto; top: calc(100% + 10px);
+}
+.skill-cluster .skill-grid > .skill-tile:nth-child(-n+4) .skill-pop::after {
+  top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--ink);
+}
+[data-theme="dark"] .skill-cluster .skill-grid > .skill-tile:nth-child(-n+4) .skill-pop::after {
+  border-bottom-color: var(--paper);
 }
 .skill-tile:hover { border-color: var(--accent); transform: translateY(-1px); }
 .skill-tile img { width: 36px; height: 36px; }
