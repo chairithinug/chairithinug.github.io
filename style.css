@@ -557,6 +557,7 @@ ul, ol { list-style: none; }
 .tag-build { background: var(--copen); color: #fff; }
 .tag-life { background: var(--jade); color: #fff; }
 .tag-travel { background: var(--paper-deep); color: var(--ink); }
+.tag-learn { background: var(--saffron); color: var(--ink); }
 .feed p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.5; }
 
 .now-cards { display: flex; flex-direction: column; gap: 20px; }
