@@ -8,7 +8,7 @@ const FAQ = [
   { q: "What brought you to Denmark?", a: "After a few years working in Thailand I wanted a change of scenery, so I packed up for Europe. Denmark ended up choosing me — finished my MSc at UCPH and moved back home in early 2026." },
   { q: "Cool website! How did you make it?", a: "Plain HTML, vanilla JS, and IBM Plex — plus plenty of help from Claude Code along the way." },
   { q: "Are you a robot?", a: "No, I'm human. At least I think so. Are you?" },
-  { q: "What are you doing now?", a: "Looking for new opportunities in Thailand. In the meantime I'm authoring Claude AI Skills, building Natty (a SvelteKit badminton scheduler), and tinkering with this site. Are you hiring?" },
+  { q: "What are you doing now?", a: "Just started as an AI Solutions Specialist at Rhenus Logistics in Bangkok. On the side I'm authoring Claude AI Skills, building Natty (a SvelteKit badminton scheduler) and Running Analyzer (Garmin + Claude API), and tinkering with this site." },
   { q: "How can I contact you?", a: "Easiest is to drop me an email or message me on LinkedIn — both are linked at the top of every page." },
   { q: "What kind of role are you looking for?", a: "Data Scientist, AI Engineer, or ML Engineer — any of those titles work. I'm not picky about the industry; what I want is something impactful and meaningful. Most skills are transferable, and I'm always up for learning whatever the role needs." },
   { q: "What's your favorite tech stack right now?", a: "Hooked on the Claude family — Cowork, Code, and Design — and getting comfortable with Svelte/SvelteKit on the Natty side project. Equal parts AI tooling and modern web." },

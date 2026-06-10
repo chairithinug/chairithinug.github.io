@@ -29,7 +29,7 @@
     { kind: 'parttime',  label: 'Det Kgl. Bibliotek',           from: 2024.5,  to: 2025.5,  note: 'Danish radio/TV archive segmentation' },
     { kind: 'parttime',  label: 'Resident Assistant',           from: 2024.6,  to: 2025.7,  note: 'Bispebjerg Kollegiet' },
     { kind: 'volunteer', label: 'VP Digital · TSAAD',           from: 2025.7,  to: 2026.5,  note: 'Thai Students in Denmark' },
-    { kind: 'fulltime',  label: 'Open to hire',                 from: 2026.3,  to: 2026.6,  note: 'AI / ML / Data — Thailand' },
+    { kind: 'fulltime',  label: 'Rhenus Logistics · AI',        from: 2026.5,  to: 2026.6,  note: 'AI Solutions Specialist · Bangkok' },
   ];
 
   const BANDS = [
