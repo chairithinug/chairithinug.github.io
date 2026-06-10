@@ -29,7 +29,7 @@
     { kind: 'parttime',  label: 'Det Kgl. Bibliotek',           from: 2024.5,  to: 2025.5,  note: 'Danish radio/TV archive segmentation' },
     { kind: 'parttime',  label: 'Resident Assistant',           from: 2024.6,  to: 2025.7,  note: 'Bispebjerg Kollegiet' },
     { kind: 'volunteer', label: 'VP Digital · TSAAD',           from: 2025.7,  to: 2026.5,  note: 'Thai Students in Denmark' },
-    { kind: 'fulltime',  label: 'Rhenus Logistics · AI',        from: 2026.5,  to: 2026.6,  note: 'AI Solutions Specialist · Bangkok' },
+    { kind: 'fulltime',  label: 'Rhenus Logistics · AI',        from: 2026.42, to: 2026.45, note: 'AI Solutions Specialist · Bangkok', ongoing: true },
   ];
 
   const BANDS = [
@@ -166,7 +166,8 @@
     });
   }
 
-  function drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host) {
+  function drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host, CW, PADR) {
+    const RIGHTX = CW - PADR;
     const r = 7;
     TIMELINE.forEach(e => {
       const lane = LANES[e.kind];
@@ -185,6 +186,7 @@
       g.dataset.note  = e.note || '';
       g.dataset.from  = e.from;
       g.dataset.to    = e.to;
+      g.dataset.ongoing = e.ongoing ? '1' : '';
 
       el('rect', { x: x1, y: yEntry - r, width: w, height: r * 2, fill: pillColor, class: 'tl-pill-bg', rx: r }, g);
       el('circle', { cx: x1, cy: yEntry, r: r - 1, fill: pillColor }, g);
@@ -199,15 +201,20 @@
       const placeBelow = totalRows > 1 && (e._row || 0) > 0;
       const skipNote = totalRows > 1;
       const labelY = placeBelow ? yEntry + 18 : yEntry - 12;
+      // Near the right edge a left-aligned label would overflow off-chart, so
+      // anchor it to the pill's left and grow leftward into the open lane.
+      const flipLeft = x1 + labelW(e.label) > RIGHTX;
+      const textX = flipLeft ? x1 - 6 : x1 + 4;
+      const anchor = flipLeft ? 'end' : 'start';
       const label = el('text', {
-        x: x1 + 4, y: labelY,
+        x: textX, y: labelY, 'text-anchor': anchor,
         'font-family': 'var(--font-sans)', 'font-size': 12.5,
         fill: 'var(--ink)', 'font-weight': 600,
       }, g);
       label.textContent = e.label;
       if (!skipNote) {
         const note = el('text', {
-          x: x1 + 4, y: yEntry + 22,
+          x: textX, y: yEntry + 22, 'text-anchor': anchor,
           'font-family': 'var(--font-mono)', 'font-size': 10,
           fill: 'var(--ink-muted)',
         }, g);
@@ -229,7 +236,7 @@
   }
 
   function drawNowMarker(el, xFor, PADT, PADB, CH) {
-    const nowX = xFor(2026.4);
+    const nowX = xFor(2026.42);
     el('line', {
       x1: nowX, y1: PADT - 28, x2: nowX, y2: CH - PADB + 8,
       stroke: 'var(--chili)', 'stroke-dasharray': '3 3',
@@ -268,7 +275,7 @@
     drawBands(el, xFor, PADT, PADB, CH);
     drawLanes(el, laneY, PADL, PADR, PADT, CW);
     drawTicks(el, xFor, PADL, PADR, PADB, CH, CW);
-    drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host);
+    drawEntries(el, xFor, laneY, laneSubRows, SUBROW, PADT, host, CW, PADR);
     drawNowMarker(el, xFor, PADT, PADB, CH);
 
     host.appendChild(svg);
@@ -297,12 +304,13 @@
   }
   function showTimelineTooltip(host, g, color, ev) {
     const tip = ensureTooltip(host);
-    const { label, note, from, to } = g.dataset;
+    const { label, note, from, to, ongoing } = g.dataset;
+    const endLabel = ongoing === '1' ? 'Present' : fmtYear(parseFloat(to));
     tip.innerHTML = `
       <div class="tl-tt-bar" style="background:${color}"></div>
       <div class="tl-tt-body">
         <div class="tl-tt-label">${label}</div>
-        <div class="tl-tt-dates">${fmtYear(parseFloat(from))} → ${fmtYear(parseFloat(to))}</div>
+        <div class="tl-tt-dates">${fmtYear(parseFloat(from))} → ${endLabel}</div>
         ${note ? `<div class="tl-tt-note">${note}</div>` : ''}
       </div>`;
     tip.dataset.visible = 'true';
@@ -341,7 +349,9 @@
         const yr = Math.floor(y);
         return yr;
       };
-      const span = e.from === e.to ? `${fmt(e.from)}` : `${fmt(e.from)}–${String(fmt(e.to)).slice(-2)}`;
+      const span = e.ongoing ? `${fmt(e.from)} →`
+        : fmt(e.from) === fmt(e.to) ? `${fmt(e.from)}`
+        : `${fmt(e.from)}–${String(fmt(e.to)).slice(-2)}`;
       li.innerHTML = `
         <div class="when">${span}</div>
         <span class="dot" aria-hidden="true"></span>
