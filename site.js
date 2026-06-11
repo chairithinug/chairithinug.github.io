@@ -12,8 +12,8 @@
     { kind: 'place',     label: 'Bangkok',                      from: 2012,    to: 2016,    note: 'High school years',     color: 'var(--saffron)' },
     { kind: 'place',     label: 'Madison',                      from: 2016,    to: 2020.4,  note: 'Undergrad',             color: 'var(--copen)'   },
     { kind: 'place',     label: 'Bangkok',                      from: 2020.4,  to: 2023.7,  note: 'Kasikorn Labs era',     color: 'var(--saffron)' },
-    { kind: 'place',     label: 'Copenhagen',                   from: 2023.7,  to: 2026.3,  note: 'MSc + grad-life',       color: 'var(--harbor)'  },
-    { kind: 'place',     label: 'Bangkok',                      from: 2026.3,  to: 2026.6,  note: 'Back home',             color: 'var(--saffron)' },
+    { kind: 'place',     label: 'Copenhagen',                   from: 2023.7,  to: 2026.25, note: 'MSc + grad-life',       color: 'var(--harbor)'  },
+    { kind: 'place',     label: 'Bangkok',                      from: 2026.25, to: 2026.8,  note: 'Back home',             color: 'var(--saffron)', ongoing: true },
     { kind: 'academic',  label: 'Suankularb HS',                from: 2012,    to: 2016,    note: 'OSK 134 · Bangkok' },
     { kind: 'volunteer', label: 'Secretary · SKCC',             from: 2014.5,  to: 2015.83, note: 'Suankularb Computer Club' },
     { kind: 'academic',  label: 'BS CE/CS · Wisconsin',         from: 2016,    to: 2020.4,  note: 'In: EE — Out: Computer Engineer' },
@@ -28,16 +28,16 @@
     { kind: 'volunteer', label: 'Studenterhuset Bar',           from: 2023.67, to: 2024.83, note: 'Copenhagen' },
     { kind: 'parttime',  label: 'Det Kgl. Bibliotek',           from: 2024.5,  to: 2025.5,  note: 'Danish radio/TV archive segmentation' },
     { kind: 'parttime',  label: 'Resident Assistant',           from: 2024.6,  to: 2025.7,  note: 'Bispebjerg Kollegiet' },
-    { kind: 'volunteer', label: 'VP Digital · TSAAD',           from: 2025.7,  to: 2026.5,  note: 'Thai Students in Denmark' },
-    { kind: 'fulltime',  label: 'Rhenus Logistics · AI',        from: 2026.42, to: 2026.45, note: 'AI Solutions Specialist · Bangkok', ongoing: true },
+    { kind: 'volunteer', label: 'VP Digital · TSAAD',           from: 2025.7,  to: 2026.8,  note: 'Thai Students in Denmark', ongoing: true },
+    { kind: 'fulltime',  label: 'Rhenus Logistics · AI',        from: 2026.45, to: 2026.8,  note: 'AI Solutions Specialist · Bangkok', ongoing: true },
   ];
 
   const BANDS = [
     { from: 2012,    to: 2016,    label: 'BANGKOK',    color: 'var(--band-bangkok)' },
     { from: 2016,    to: 2020.4,  label: 'MADISON',    color: 'var(--band-madison)' },
     { from: 2020.4,  to: 2023.7,  label: 'BANGKOK',    color: 'var(--band-bangkok)' },
-    { from: 2023.7,  to: 2026.3,  label: 'COPENHAGEN', color: 'var(--band-copenhagen)' },
-    { from: 2026.3,  to: 2026.6,  label: 'BANGKOK',    color: 'var(--band-bangkok)' },
+    { from: 2023.7,  to: 2026.25, label: 'COPENHAGEN', color: 'var(--band-copenhagen)' },
+    { from: 2026.25, to: 2026.8,  label: 'BANGKOK',    color: 'var(--band-bangkok)' },
   ];
 
   const LANES = {
@@ -236,7 +236,7 @@
   }
 
   function drawNowMarker(el, xFor, PADT, PADB, CH) {
-    const nowX = xFor(2026.42);
+    const nowX = xFor(2026.45);
     el('line', {
       x1: nowX, y1: PADT - 28, x2: nowX, y2: CH - PADB + 8,
       stroke: 'var(--chili)', 'stroke-dasharray': '3 3',
@@ -257,7 +257,7 @@
     const LANE_ORDER = ['place', 'academic', 'fulltime', 'parttime', 'volunteer'];
     const SUBROW = 38, LANE_GAP = 80;
     const PADL = 110, PADR = 60, PADT = 56, PADB = 60, CW = 1200;
-    const xFor = yr => PADL + ((yr - 2012) / (2026.6 - 2012)) * (CW - PADL - PADR);
+    const xFor = yr => PADL + ((yr - 2012) / (2026.8 - 2012)) * (CW - PADL - PADR);
 
     const laneSubRows = assignSubRows(LANE_ORDER, xFor);
     const { laneY, CH } = computeLaneGeometry(LANE_ORDER, laneSubRows, SUBROW, LANE_GAP, PADT, PADB);
