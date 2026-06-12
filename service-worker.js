@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v57';
+const CACHE_NAME = 'pwa-cache-v58';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -73,13 +73,6 @@ self.addEventListener('install', (event) => {
         }
       }
     }));
-    // Ensure fallback page cached if possible
-    try {
-      const offlineResp = await fetch(new Request(OFFLINE_URL, { cache: 'no-cache' }));
-      if (offlineResp && offlineResp.ok) await cache.put(OFFLINE_URL, offlineResp.clone());
-    } catch (err) {
-      console.error('Failed to cache offline page:', err);
-    }
   })());
   self.skipWaiting();
 });
@@ -88,7 +81,14 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
-  const reqUrl = new URL(event.request.url);
+  // Synthetic last-resort response — respondWith(undefined) would throw a
+  // TypeError and surface as a broken page instead of a readable error.
+  const offlineFallback = async () =>
+    (await caches.match(OFFLINE_URL)) ||
+    new Response('Offline — page not cached.', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain' },
+    });
 
   // For navigations (HTML pages) prefer network-first with offline fallback
   if (event.request.mode === 'navigate') {
@@ -103,11 +103,11 @@ self.addEventListener('fetch', event => {
         if (cacheResponse) return cacheResponse;
 
         // If both fail, return offline page
-        return await caches.match(OFFLINE_URL);
+        return await offlineFallback();
       } catch (err) {
         // Last resort - offline page
         console.error('Navigation fetch failed:', err);
-        return await caches.match(OFFLINE_URL);
+        return await offlineFallback();
       }
     })());
     return;
@@ -115,21 +115,17 @@ self.addEventListener('fetch', event => {
 
   // For non-navigation requests, use cache-first strategy
   event.respondWith((async () => {
-    try {
-      // Try cache first
-      const cacheResponse = await caches.match(event.request);
-      if (cacheResponse) return cacheResponse;
+    // Try cache first
+    const cacheResponse = await caches.match(event.request);
+    if (cacheResponse) return cacheResponse;
 
-      // If not in cache, try network
-      const networkResponse = await fetchAndCache(event.request);
-      if (networkResponse) return networkResponse;
+    // If not in cache, try network
+    const networkResponse = await fetchAndCache(event.request);
+    if (networkResponse) return networkResponse;
 
-      // If both fail, return error
-      throw new Error('Resource not available');
-    } catch (err) {
-      console.error('Resource fetch failed:', err);
-      throw err;
-    }
+    // Both failed — report a network error instead of rejecting respondWith,
+    // which would log an unhandled-rejection on every missed subresource.
+    return Response.error();
   })());
 });
 

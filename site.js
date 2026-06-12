@@ -7,6 +7,13 @@
   'use strict';
 
   /* ───── DATA ───── */
+  // Chart x-domain and "NOW" marker (decimal years). When updating the
+  // timeline, bump NOW (and AXIS_END if the chart needs more room) here —
+  // every x-position below derives from these.
+  const AXIS_START = 2012;
+  const AXIS_END   = 2026.8;
+  const NOW        = 2026.45;
+
   const TIMELINE = [
     // Place lane — where I was living, color-keyed to city
     { kind: 'place',     label: 'Bangkok',                      from: 2012,    to: 2016,    note: 'High school years',     color: 'var(--saffron)' },
@@ -236,7 +243,7 @@
   }
 
   function drawNowMarker(el, xFor, PADT, PADB, CH) {
-    const nowX = xFor(2026.45);
+    const nowX = xFor(NOW);
     el('line', {
       x1: nowX, y1: PADT - 28, x2: nowX, y2: CH - PADB + 8,
       stroke: 'var(--chili)', 'stroke-dasharray': '3 3',
@@ -257,7 +264,7 @@
     const LANE_ORDER = ['place', 'academic', 'fulltime', 'parttime', 'volunteer'];
     const SUBROW = 38, LANE_GAP = 80;
     const PADL = 110, PADR = 60, PADT = 56, PADB = 60, CW = 1200;
-    const xFor = yr => PADL + ((yr - 2012) / (2026.8 - 2012)) * (CW - PADL - PADR);
+    const xFor = yr => PADL + ((yr - AXIS_START) / (AXIS_END - AXIS_START)) * (CW - PADL - PADR);
 
     const laneSubRows = assignSubRows(LANE_ORDER, xFor);
     const { laneY, CH } = computeLaneGeometry(LANE_ORDER, laneSubRows, SUBROW, LANE_GAP, PADT, PADB);
@@ -448,7 +455,11 @@
     sheet.setAttribute('role', 'dialog');
     sheet.setAttribute('aria-modal', 'true');
     sheet.setAttribute('aria-label', 'Navigation menu');
+    // inert (paired with the CSS visibility swap) keeps the closed sheet's
+    // links out of the tab order and the accessibility tree.
+    sheet.inert = true;
     const open = () => {
+      sheet.inert = false;
       sheet.classList.add('open');
       sheet.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
@@ -457,6 +468,7 @@
     const shut = () => {
       sheet.classList.remove('open');
       sheet.setAttribute('aria-hidden', 'true');
+      sheet.inert = true;
       btn.setAttribute('aria-expanded', 'false');
       btn.focus();
     };
@@ -528,8 +540,10 @@
       try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch (e) {}
     });
 
-    // Host bridge
+    // Host bridge — only the embedding parent frame may drive edit mode;
+    // ignore messages from popups or unrelated windows.
     window.addEventListener('message', e => {
+      if (window.parent === window || e.source !== window.parent) return;
       if (!e.data) return;
       if (e.data.type === '__activate_edit_mode') {
         panel.classList.add('open');
@@ -589,30 +603,48 @@
   function initClocks() {
     const clocks = document.querySelectorAll('.clock-time[data-tz]');
     if (!clocks.length) return;
-    const tick = () => {
-      const now = new Date();
-      clocks.forEach(el => {
-        try {
-          const tz = el.dataset.tz;
-          el.textContent = new Intl.DateTimeFormat('en-GB', {
+    // Build the two formatters per clock once — constructing Intl.DateTimeFormat
+    // every second is the expensive part of the tick.
+    const entries = [...clocks].map(el => {
+      try {
+        const tz = el.dataset.tz;
+        return {
+          el,
+          display: new Intl.DateTimeFormat('en-GB', {
             hour: '2-digit', minute: '2-digit', second: '2-digit',
             hour12: false, timeZone: tz,
-          }).format(now);
+          }),
+          iso: new Intl.DateTimeFormat('en-CA', {
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: tz,
+          }),
+        };
+      } catch (e) { el.textContent = '—'; return null; }
+    }).filter(Boolean);
+    if (!entries.length) return;
+
+    const tick = () => {
+      const now = new Date();
+      entries.forEach(({ el, display, iso }) => {
+        try {
+          el.textContent = display.format(now);
           // Keep <time datetime> in sync — local ISO-ish without offset is fine;
           // it's a hint for AT/parsers, not a load-bearing machine timestamp.
           if (el.tagName === 'TIME') {
-            const parts = new Intl.DateTimeFormat('en-CA', {
-              year: 'numeric', month: '2-digit', day: '2-digit',
-              hour: '2-digit', minute: '2-digit', second: '2-digit',
-              hour12: false, timeZone: tz,
-            }).formatToParts(now).reduce((acc, p) => (acc[p.type] = p.value, acc), {});
+            const parts = iso.formatToParts(now).reduce((acc, p) => (acc[p.type] = p.value, acc), {});
             el.setAttribute('datetime', `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}`);
           }
         } catch (e) { el.textContent = '—'; }
       });
     };
     tick();
-    setInterval(tick, 1000);
+    // Pause while the tab is hidden — no point re-rendering clocks nobody sees.
+    let timer = setInterval(tick, 1000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { clearInterval(timer); timer = null; }
+      else if (!timer) { tick(); timer = setInterval(tick, 1000); }
+    });
   }
 
   /* ───── EXTERNAL LINK A11Y — announce "opens in new tab" ───── */
