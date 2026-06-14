@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-cache-v59';
+const CACHE_NAME = 'pwa-cache-v60';
 const OFFLINE_URL = '/404.html';
 const urlsToCache = [
   '/',
@@ -35,9 +35,12 @@ const urlsToCache = [
   '/icons/favicon/favicon-32x32.png',
   '/icons/favicon/favicon-96x96.png',
   '/icons/favicon/apple-touch-icon.png',
-  '/icons/favicon/site.webmanifest',
+  // Full PWA install icon set — both 'any' and 'maskable' so an offline
+  // install has every manifest icon available.
   '/icons/favicon/web-app-manifest-192x192.png',
-  '/icons/favicon/web-app-manifest-512x512.png'
+  '/icons/favicon/web-app-manifest-512x512.png',
+  '/icons/favicon/web-app-manifest-192x192-maskable.png',
+  '/icons/favicon/web-app-manifest-512x512-maskable.png'
 ];
 
 // Helper: fetch and cache a request (same-origin only)
@@ -98,8 +101,10 @@ self.addEventListener('fetch', event => {
         const networkResponse = await fetchAndCache(event.request);
         if (networkResponse) return networkResponse;
 
-        // If network fails, try cache
-        const cacheResponse = await caches.match(event.request);
+        // If network fails, try cache. ignoreSearch so the manifest's
+        // start_url ("/?source=pwa") matches the cached "/" when launched
+        // offline from an installed PWA.
+        const cacheResponse = await caches.match(event.request, { ignoreSearch: true });
         if (cacheResponse) return cacheResponse;
 
         // If both fail, return offline page
