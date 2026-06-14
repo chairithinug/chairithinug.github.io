@@ -24,7 +24,7 @@
     ).join('');
     return `
       <div class="nav-inner">
-        <a class="nav-mark" href="/" aria-label="Home">
+        <a class="nav-mark" href="/">
           <span class="crest" aria-hidden="true">A</span>
           <b>Anapat Chairithinugull</b>
           <span class="meta">· Bangkok</span>

@@ -68,7 +68,7 @@
 [data-theme="dark"] {
   --ink:        #ECE5D6;
   --ink-soft:   #C7BFAE;
-  --ink-muted:  #948D7B;
+  --ink-muted:  #A39C89;   /* lightened so small muted text clears 4.5:1 on dark cards */
   --paper:      #0A1626;
   --paper-warm: #16243B;
   --paper-cool: #11253B;
@@ -78,6 +78,12 @@
   --rule:       #2B405E;
   --rule-cool:  #2B405E;
   --frost:      #5A7593;
+
+  /* Body-text color variants are tuned for light --paper; on dark navy they
+     must be lightened instead to keep ≥4.5:1. --accent-text follows --saffron-text. */
+  --saffron-text: #E89B5C;
+  --gold-text:    #D4B265;
+  --jade-text:    #8FB3A1;
 
   /* Dark mode: band tints sit on dark navy. Use the place's identity hue
      at low saturation so they read as quiet zones, not loud tiles. */
@@ -322,7 +328,7 @@ ul, ol { list-style: none; }
 .pp-field .v { font-family: var(--font-serif); font-size: 22px; line-height: 1.15; color: var(--ink); margin-top: 6px; text-wrap: pretty; }
 .pp-field .v small { display: block; font-family: var(--font-sans); font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
 .pp-field .v.mono { font-family: var(--font-mono); font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; }
-.pp-field .v .accent { color: var(--accent); }
+.pp-field .v .accent { color: var(--accent-text); }
 
 .pp-stamps {
   position: relative;
@@ -561,11 +567,13 @@ ul, ol { list-style: none; }
   font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
   text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
 }
-.tag-now { background: var(--accent-text); color: #fff; }
+/* Fixed deep saffron (not the theme --accent-text token, which lightens in dark
+   mode for use as TEXT) so white pill text stays ≥4.5:1 in both themes. */
+.tag-now { background: #9E5415; color: #fff; }
 .tag-build { background: var(--copen); color: #fff; }
-.tag-life { background: var(--jade); color: #fff; }
+.tag-life { background: #50745F; color: #fff; }
 .tag-travel { background: var(--paper-deep); color: var(--ink); }
-.tag-learn { background: var(--saffron); color: var(--ink); }
+.tag-learn { background: var(--saffron); color: #2B1D0E; }
 .feed p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.5; }
 
 .now-cards { display: flex; flex-direction: column; gap: 20px; }
@@ -657,7 +665,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-serif); font-size: 64px; line-height: 0.95;
   font-weight: 400; letter-spacing: -0.025em;
 }
-.contact h2 .accent { color: var(--accent); font-style: italic; }
+.contact h2 .accent { color: var(--accent-text); font-style: italic; }
 .contact .sub {
   margin-top: 18px; font-family: var(--font-serif); font-size: 18px;
   line-height: 1.5; color: var(--frost); max-width: 520px;
@@ -1103,7 +1111,7 @@ body[data-bg="grid"] .teasers {
   color: var(--ink-muted); text-transform: uppercase;
   display: block; margin-bottom: 10px;
 }
-.page-hero h1 .accent { color: var(--accent); font-style: italic; }
+.page-hero h1 .accent { color: var(--accent-text); font-style: italic; }
 .page-hero .bi-sub {
   font-family: var(--font-thai); font-size: 15px; color: var(--ink-muted);
   margin-top: 14px; letter-spacing: 0.01em;
@@ -1531,16 +1539,6 @@ body[data-bg="grid"] .teasers {
 }
 .skill-footnote b { color: var(--ink); font-weight: 600; }
 
-.skill-tile .monogram {
-  width: 36px; height: 36px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  font-family: var(--font-serif); font-weight: 500; font-size: 18px;
-  color: var(--paper);
-  background: var(--ink);
-  letter-spacing: -0.02em;
-}
-
 /* Certs */
 .cert-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1607,14 +1605,22 @@ body[data-bg="grid"] .teasers {
   border-radius: 14px; padding: 36px 24px 22px;
   display: flex; flex-direction: column; gap: 8px;
   justify-content: center;
-  transition: border-color 0.18s;
+  /* visibility (swapped at the flip midpoint) hides the flipped-away face from
+     assistive tech and axe — backface-visibility alone doesn't, which would
+     leak the answer text into the closed card's name (WCAG 2.5.3). */
+  transition: border-color 0.18s, visibility 0s 0.25s;
   /* Long answers scroll inside the card rather than clip off the bottom edge */
   overflow-y: auto;
 }
+.faq-card:not(.flipped) .faq-side.back  { visibility: hidden; }
+.faq-card.flipped       .faq-side.front { visibility: hidden; }
 .faq-card:hover .faq-side { border-color: var(--accent); }
 
-/* Front: docket-style Q number + small stamp pill at top-right */
-.faq-side.front .num {
+/* Front: docket-style Q number + small stamp pill at top-right.
+   The Q code is pseudo-content (not real text) so it stays out of the button's
+   accessible name — only the question itself names the card. */
+.faq-side.front::before {
+  content: attr(data-qcode);
   position: absolute; top: 12px; left: 22px;
   font-family: var(--font-mono); font-size: 10px;
   letter-spacing: 0.2em; text-transform: uppercase;
@@ -1631,10 +1637,6 @@ body[data-bg="grid"] .teasers {
   rotate: -3deg;
 }
 .faq-side.front .q { font-family: var(--font-serif); font-size: 22px; line-height: 1.25; }
-.faq-side.front .hint {
-  font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-muted);
-  margin-top: auto; opacity: 0.7;
-}
 
 /* Back: ink card with saffron "A" seal */
 .faq-side.back {
@@ -1659,10 +1661,6 @@ body[data-bg="grid"] .teasers {
   rotate: -8deg;
 }
 .faq-side.back .a { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55; }
-.faq-side.back .hint {
-  font-family: var(--font-mono); font-size: 10.5px; color: var(--frost);
-  margin-top: auto; opacity: 0.7;
-}
 
 @media (max-width: 880px) {
   .faq-grid { grid-template-columns: 1fr; }
@@ -1711,6 +1709,11 @@ body[data-bg="grid"] .teasers {
 /* ───── SLIM FOOTER (secondary pages) ───── */
 .slim-footer {
   background: var(--ink); color: var(--paper);
+  /* Footer inverts with theme (dark panel in light mode, light cream panel in
+     dark). Derive muted/frost tones from --paper so footer text always clears
+     4.5:1 against the --ink background in both themes. */
+  --ink-muted: color-mix(in srgb, var(--paper) 65%, var(--ink));
+  --frost:     color-mix(in srgb, var(--paper) 65%, var(--ink));
   padding: 56px 0 28px; position: relative; z-index: 2;
 }
 .slim-foot {
@@ -1858,8 +1861,8 @@ body[data-bg="grid"] .teasers {
   color: var(--ink-soft);
 }
 #cookie-banner.visible { display: flex; }
-#cookie-banner a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-#cookie-banner a:hover { border-bottom-color: var(--accent); }
+#cookie-banner a { color: var(--accent-text); border-bottom: 1px solid color-mix(in srgb, var(--accent-text) 35%, transparent); }
+#cookie-banner a:hover { border-bottom-color: var(--accent-text); }
 #cookie-banner .cookie-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
 #cookie-banner button {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;

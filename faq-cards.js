@@ -27,14 +27,11 @@ const FAQ = [
       return `
         <button class="faq-card" type="button">
           <div class="faq-inner">
-            <div class="faq-side front">
-              <div class="num">Q · ${nn}</div>
+            <div class="faq-side front" data-qcode="Q · ${nn}">
               <p class="q" data-i18n="faq-q-${n}"></p>
-              <div class="hint">Tap to flip ↺</div>
             </div>
             <div class="faq-side back" data-acode="A · ${nn}">
               <p class="a" data-i18n="faq-a-${n}"></p>
-              <div class="hint">↺ Flip back</div>
             </div>
           </div>
         </button>`;
@@ -51,6 +48,10 @@ const FAQ = [
     grid.querySelectorAll('.faq-card').forEach(card => {
       const readQ = () => card.querySelector('.q')?.textContent?.trim() || '';
       const readA = () => card.querySelector('.a')?.textContent?.trim() || '';
+      // The Q/A codes are CSS pseudo-content and the inactive face is
+      // visibility:hidden, so the only real text on the showing face is the
+      // question (or answer) — keeping the accessible name and the visible
+      // label in sync (WCAG 2.5.3 Label in Name).
       const sync = () => {
         const open = card.classList.contains('flipped');
         card.setAttribute('aria-expanded', open ? 'true' : 'false');
