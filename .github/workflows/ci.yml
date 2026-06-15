@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Fast, dependency-free guard: broken links/assets, SW precache drift,
+      # manifest installability, per-page HTML sanity.
+      - name: Static integrity checks
+        run: node scripts/ci-check.js
+
+      # Holds the Lighthouse scores: accessibility must stay 100; SEO and
+      # best-practices near-100; performance is advisory (CI timing is noisy).
+      - name: Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          if-no-files-found: ignore

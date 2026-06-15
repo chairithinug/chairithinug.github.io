@@ -2,6 +2,7 @@ node_modules/
 images/
 package-lock.json
 .DS_Store
+.lighthouseci/
 apple_like.html
 BlankMap-World.svg
 photography.html
@@ -12,7 +13,9 @@ unused/
 ld.json
 todo
 
-.github/
+# Ignore local .github files (e.g. copilot-instructions.md) but track CI workflows
+.github/*
+!.github/workflows/
 icons/favicon.zip
 
 # Local Claude Code config + project notes — never committed
